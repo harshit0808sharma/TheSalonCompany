@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { FaCube, FaGlobe, FaRegSmile } from "react-icons/fa";
 
-import service1 from '../../../public/assets/images/image4.jpeg'
+import service1 from '../../../public/assets/images/image4.jpeg';
 import service2 from "../../../public/assets/images/image5.jpeg";
 import service3 from "../../../public/assets/images/image6.jpeg";
 
@@ -32,29 +33,32 @@ export default function Services() {
   return (
     <section className="py-20 bg-[#f9f6f7] rounded-4xl">
       {/* Heading */}
-      <div className="text-center max-w-2xl mx-auto mb-14">
+      <div className="text-center max-w-2xl mx-auto mb-14 px-4">
         <p className="text-sm text-gray-500">Our Services</p>
         <h2 className="text-3xl md:text-4xl font-bold text-[#214037]">
           Comprehensive dermatology services <br /> for every skin need
         </h2>
-        <p className="text-gray-600 mt-4">
+        <p className="text-gray-600 mt-4 text-sm md:text-base">
           From preventive care to specialized treatments, our wide range of
           services is designed to support your health at every stage.
         </p>
       </div>
 
       {/* Service Cards */}
-      <div className="grid md:grid-cols-3 gap-8 px-6 md:px-16">
+      <div className="grid gap-8 px-4 md:px-16 md:grid-cols-3">
         {services.map((service, index) => (
-          <div
+          <motion.div
             key={index}
             className="relative rounded-2xl overflow-hidden shadow-lg group"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
           >
             {/* Background Image */}
             <Image
               src={service.img}
               alt={service.title}
-              className="object-cover w-full h-[400px] group-hover:scale-105 transition-transform duration-500"
+              className="object-cover w-full h-[300px] md:h-[400px] group-hover:scale-105 transition-transform duration-500"
             />
 
             {/* Overlay */}
@@ -66,9 +70,9 @@ export default function Services() {
                 {service.icon}
               </div>
               <h3 className="text-xl font-semibold">{service.title}</h3>
-              <p className="text-sm text-gray-200 mt-2">{service.desc}</p>
+              <p className="text-sm md:text-base text-gray-200 mt-2">{service.desc}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

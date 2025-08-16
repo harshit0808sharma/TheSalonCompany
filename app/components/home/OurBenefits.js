@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { FaUserMd, FaMicroscope, FaUserCheck, FaDatabase, FaShieldAlt, FaHome } from "react-icons/fa";
-import doctorImg from "../../../public/assets/images/image4.jpg"; 
+import doctorImg from "../../../public/assets/images/image4.jpeg"; 
 
 export default function OurBenefits() {
   const leftBenefits = [
@@ -42,55 +43,77 @@ export default function OurBenefits() {
   ];
 
   return (
-    <section className="bg-[#214037] text-white py-20 px-6 md:px-12">
+    <section className="bg-[#214037] text-white py-20 px-6 md:px-12 rounded-4xl">
       {/* Top Heading */}
-      <div className="text-center max-w-3xl mx-auto mb-16">
+      <motion.div
+        className="text-center max-w-3xl mx-auto mb-16"
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         <p className="text-sm mb-2">• Our Benefits</p>
         <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-4">
           Exceptional dermatology, every step of the way
         </h2>
-        <p className="text-gray-200">
+        <p className="text-gray-200 text-sm md:text-base">
           Experience personalized care, advanced treatments, and visible results 
           with our expert dermatology services.
         </p>
-      </div>
+      </motion.div>
 
       {/* Grid Layout */}
       <div className="grid md:grid-cols-3 gap-12 items-center">
         {/* Left Benefits */}
         <div className="space-y-10">
           {leftBenefits.map((item, i) => (
-            <div key={i} className="flex items-start gap-4">
+            <motion.div
+              key={i}
+              className="flex items-start gap-4"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+            >
               <div className="bg-white p-3 rounded-lg shadow-md">{item.icon}</div>
               <div>
                 <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-                <p className="text-gray-200 text-sm">{item.desc}</p>
+                <p className="text-gray-200 text-sm md:text-base">{item.desc}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Center Image */}
-        <div className="flex justify-center">
-          <div className="w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden shadow-lg">
+        <motion.div
+          className="flex justify-center"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="w-60 h-60 md:w-80 md:h-80 rounded-full overflow-hidden shadow-lg">
             <Image
               src={doctorImg}
               alt="Dermatology Expert"
               className="object-cover w-full h-full"
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Benefits */}
         <div className="space-y-10">
           {rightBenefits.map((item, i) => (
-            <div key={i} className="flex items-start gap-4">
+            <motion.div
+              key={i}
+              className="flex items-start gap-4"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+            >
               <div className="bg-white p-3 rounded-lg shadow-md">{item.icon}</div>
               <div>
                 <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-                <p className="text-gray-200 text-sm">{item.desc}</p>
+                <p className="text-gray-200 text-sm md:text-base">{item.desc}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
