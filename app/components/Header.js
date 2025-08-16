@@ -14,14 +14,14 @@ export default function Navbar() {
 
   return (
     <header className="w-full">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <div className="max-w-7xl mx-auto flex justify-between items-center p-6">
         
         {/* Logo */}
         <h1 className="text-2xl font-bold text-[#416b63]">The Salon Company</h1>
 
         {/* Nav Links */}
         <nav>
-          <ul className="flex space-x-8 text-gray-400 font-medium">
+          <ul className="flex space-x-8 text-gray-500 font-medium">
             
             {/* Home Dropdown */}
             <li className="relative group">
