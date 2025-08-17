@@ -8,7 +8,7 @@ import { FcContacts } from "react-icons/fc";
 
 export default function Hero() {
   return (
-    <section className="relative m-0 bg-[#28554E] lg:mx-5 text-white min-h-screen flex items-center justify-center overflow-hidden lg:rounded-[2rem">
+    <section className="relative m-0 bg-[#28554E] lg:mx-5 text-white min-h-screen flex items-center justify-center overflow-hidden lg:rounded-[2rem]">
       <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center p-6 md:px-12">
         {/* Left Content */}
         <motion.div
@@ -18,7 +18,7 @@ export default function Hero() {
           className="space-y-6"
         >
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-           {" Comprehensive care "}<br />{" for your skin's health "}<br /> and beauty
+            {" Comprehensive care "}<br />{" for your skin's health "}<br /> and beauty
           </h1>
           <p className="text-lg text-gray-200">
             {"At Logoipsum we believe in creating digital solutions that drive"}
@@ -74,10 +74,11 @@ export default function Hero() {
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-6 right-10 w-32 h-32 border bg-[#28554E] border-white rounded-full flex items-center justify-center text-sm"
+            className="hidden lg:flex absolute bottom-6 right-10 w-32 h-32 border bg-[#28554E] border-white rounded-full items-center justify-center text-sm"
           >
-            <FcContacts className="text-4xl" />
+            {"*Contact*"}
           </motion.div>
+
         </motion.div>
       </div>
     </section>

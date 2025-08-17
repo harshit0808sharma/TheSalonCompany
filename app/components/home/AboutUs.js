@@ -103,9 +103,10 @@ export default function AboutSection() {
                     </div>
                 </motion.div>
             </div>
-            <hr className="my-5"/>
-            <Stats/>
-            <hr className="my-5"/>
+            <hr className="my-5 w-1/2 mx-auto border-gray-300" />
+            <Stats />
+            <hr className="my-5 w-1/2 mx-auto border-gray-300" />
+
         </section>
     );
 }

@@ -7,15 +7,15 @@ import { FaArrowRight } from "react-icons/fa";
 const blogs = [
   {
     title: "How to Care for Your Skin After a Botox Treatment",
-    image: "/assets/images/image2.jpeg",
+    image: "/assets/images/image10.jpeg",
   },
   {
     title: "Understanding the Causes of Acne and How to Treat It",
-    image: "/assets/images/image2.jpeg",
+    image: "/assets/images/image11.jpeg",
   },
   {
     title: "Why Regular Skin Cancer Screenings Are Important",
-    image: "/assets/images/image2.jpeg",
+    image: "/assets/images/image12.jpeg",
   },
 ];
 
