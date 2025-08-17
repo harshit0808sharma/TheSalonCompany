@@ -18,11 +18,11 @@ export default function Hero() {
           className="space-y-6"
         >
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-            Comprehensive care <br /> for your skin's health <br /> and beauty
+           {" Comprehensive care "}<br />{" for your skin's health "}<br /> and beauty
           </h1>
           <p className="text-lg text-gray-200">
-            At Logoipsum we believe in creating digital solutions that drive
-            real–world impact. From creative strategies to cutting–edge.
+            {"At Logoipsum we believe in creating digital solutions that drive"}
+            {"real–world impact. From creative strategies to cutting–edge."}
           </p>
 
           {/* Button */}
