@@ -31,9 +31,9 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-20 bg-[#f9f6f7] rounded-4xl">
+    <section className=" bg-[#f9f6f7] rounded-4xl">
       {/* Heading */}
-      <div className="text-center max-w-2xl mx-auto mb-14 px-4">
+      <div className="text-center max-w-2xl mx-auto px-4 pb-10">
         <p className="text-sm text-gray-500">Our Services</p>
         <h2 className="text-3xl md:text-4xl font-bold text-[#214037]">
           Comprehensive dermatology services <br /> for every skin need

@@ -35,9 +35,9 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="w-full bg-[#416b63] text-white py-20 px-6 md:px-12 rounded-4xl">
+    <section className=" bg-[#416b63] text-white py-16 px-4 sm:px-6 md:px-12 lg:rounded-3xl mx-0 lg:mx-5">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-        
+
         {/* Left Content */}
         <div className="md:pr-8">
           <p className="text-base font-medium mb-4 opacity-90">

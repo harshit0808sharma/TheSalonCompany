@@ -1,74 +1,85 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { FaPhoneAlt, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 import { motion } from "framer-motion";
-import image1 from "../../../public/assets/images/image9.png";
+import { FaStar } from "react-icons/fa";
+import womanImage from "../../../public/assets/images/image9.png";
+import { FcContacts } from "react-icons/fc";
 
 export default function Hero() {
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="relative bg-[#416b63] text-white h-screen rounded-[2rem] overflow-hidden">
-        <div className="w-full h-full mx-auto grid md:grid-cols-2 gap-8 md:gap-10 items-center px-6 md:px-10">
+    <section className="relative m-0 bg-[#28554E] lg:mx-5 text-white min-h-screen flex items-center justify-center overflow-hidden lg:rounded-[2rem">
+      <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center p-6 md:px-12">
+        {/* Left Content */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="space-y-6"
+        >
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+            Comprehensive care <br /> for your skin's health <br /> and beauty
+          </h1>
+          <p className="text-lg text-gray-200">
+            At Logoipsum we believe in creating digital solutions that drive
+            real–world impact. From creative strategies to cutting–edge.
+          </p>
 
-          {/* Left Content */}
-          <motion.div
-            className="flex flex-col justify-center text-center md:text-left z-10"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+          {/* Button */}
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-white text-[#28554E] px-6 py-3 rounded-full font-medium flex items-center gap-2 shadow-md"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6">
-              ✨ “Wake Up Beautiful, <span className="text-white">Every Single Day” ✨</span>
-            </h1>
-            <p className="text-sm sm:text-base md:text-lg text-gray-100 mb-6 md:mb-8">
-              At The Salon Company, we believe beauty is not just skin deep—it’s the art of confidence, self-care, and individuality. Step into a world where hair, beauty, makeup, and nail artistry come together to celebrate your unique glow.
-            </p>
+            View Our Services →
+          </motion.button>
 
-            <Link
-              href="/"
-              className="bg-white text-[#416b63] inline-block w-full sm:w-auto px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition text-sm sm:text-base text-center"
-            >
-              📞 Book your free consultation today → +91 88000 26046
-            </Link>
-          </motion.div>
-
-          {/* Right Image */}
-          <motion.div
-            className="flex justify-end self-end"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          {/* Reviews */}
+          <div className="mt-6 flex items-center gap-4">
             <Image
-              src={image1}
-              alt="Salon Hero"
-              className="object-cover rounded-2xl max-w-[400px] sm:max-w-[500px] md:max-w-full h-auto"
+              src="/assets/images/image1.png"
+              alt="review"
+              width={50}
+              height={50}
+              className="rounded-full"
             />
-          </motion.div>
-        </div>
-      </section>
+            <div>
+              <p className="text-sm md:text-base">
+                I am beyond thrilled with the results of my facelift.
+              </p>
+              <div className="flex items-center text-yellow-400 mt-1">
+                <FaStar className="mr-1" />
+                <span className="text-white">5.0</span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
-      {/* Info Section (3 Columns) */}
-      <div className="grid md:grid-cols-3 gap-6 mt-10 px-6 md:px-12 max-w-6xl mx-auto text-center">
-        <div className="bg-[#416b63] text-white rounded-2xl p-6 shadow-md hover:scale-105 transition transform">
-          <FaPhoneAlt size={28} className="mx-auto mb-4" />
-          <h3 className="text-xl font-semibold mb-2">Contact Us</h3>
-          <p className="text-gray-100">+91 98765 43210</p>
-        </div>
-        <div className="bg-[#416b63] text-white rounded-2xl p-6 shadow-md hover:scale-105 transition transform">
-          <FaMapMarkerAlt size={28} className="mx-auto mb-4" />
-          <h3 className="text-xl font-semibold mb-2">Location</h3>
-          <p className="text-gray-100">Lokaci H.Q., Sector 117, Noida</p>
-        </div>
-        <div className="bg-[#416b63] text-white rounded-2xl p-6 shadow-md hover:scale-105 transition transform">
-          <FaClock size={28} className="mx-auto mb-4" />
-          <h3 className="text-xl font-semibold mb-2">Working Hours</h3>
-          <p className="text-gray-100">Mon - Sat: 10 AM - 8 PM</p>
-        </div>
+        {/* Right Image */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative flex"
+        >
+          <Image
+            src={womanImage}
+            alt="Hero"
+            width={500}
+            height={600}
+            className="rounded-lg object-cover"
+          />
+
+          {/* Circle Motion Text (Optional) */}
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-6 right-10 w-32 h-32 border bg-[#28554E] border-white rounded-full flex items-center justify-center text-sm"
+          >
+            <FcContacts className="text-4xl" />
+          </motion.div>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 }

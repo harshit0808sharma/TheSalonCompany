@@ -5,11 +5,13 @@ import { motion } from "framer-motion";
 import { FaCheck, FaUsers, FaPlay } from "react-icons/fa";
 import image1 from "../../../public/assets/images/image4.jpeg";
 import image2 from "../../../public/assets/images/image2.jpeg";
+import Stats from "../other/Stats";
+// import { FcContacts } from "react-icons/fc";
 
 export default function AboutSection() {
     return (
-        <section className="py-20 bg-[#fef9f9]">
-            <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <section className="bg-[#fef9f9] py-10">
+            <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center bord">
 
                 {/* Left Images */}
                 <div className="relative">
@@ -101,6 +103,9 @@ export default function AboutSection() {
                     </div>
                 </motion.div>
             </div>
+            <hr className="my-5"/>
+            <Stats/>
+            <hr className="my-5"/>
         </section>
     );
 }

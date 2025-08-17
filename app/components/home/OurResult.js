@@ -6,10 +6,10 @@ import ReactCompareImage from "react-compare-image";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { motion } from "framer-motion";
 
-import before1 from "../../../public/assets/images/image7.jpeg";
-import after1 from "../../../public/assets/images/image7.jpeg";
-import before2 from "../../../public/assets/images/image7.jpeg";
-import after2 from "../../../public/assets/images/image7.jpeg";
+import before1 from "../../../public/assets/images/before2.jpg";
+import after1 from "../../../public/assets/images/before1.jpg";
+import before2 from "../../../public/assets/images/before4.jpg";
+import after2 from "../../../public/assets/images/before3.jpg";
 
 export default function BeforeAfter() {
   const MotionHandle = () => (
