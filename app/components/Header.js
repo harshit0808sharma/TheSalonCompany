@@ -9,10 +9,6 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileMenu, setMobileMenu] = useState(false);
 
-  const toggleDropdown = (menu) => {
-    setOpenDropdown(openDropdown === menu ? null : menu);
-  };
-
   return (
     <header className="w-full py-5">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
@@ -29,18 +25,20 @@ export default function Navbar() {
         {/* Desktop Nav Links */}
         <nav className="hidden md:flex">
           <ul className="flex space-x-8 text-gray-600 font-medium">
-            <li className="relative">
-              <button
-                onClick={() => toggleDropdown("home")}
-                className="flex items-center gap-1 hover:text-[#416b63]"
-              >
+            {/* Home Dropdown */}
+            <li
+              className="relative group"
+              onMouseEnter={() => setOpenDropdown("home")}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <button className="flex items-center gap-1 hover:text-[#416b63]">
                 Home <FaChevronDown size={12} />
               </button>
               {openDropdown === "home" && (
-                <ul className="absolute top-full left-0 mt-2 bg-white text-black shadow-lg rounded-md w-40 z-50">
+                <ul className="absolute top-full left-0 mt-2 bg-white text-black shadow-lg rounded-md w-52 z-50 shadow">
                   <li>
                     <Link href="/" className="block px-4 py-2 hover:bg-gray-100">
-                      Home 1
+                      Home 1 - Main
                     </Link>
                   </li>
                   <li>
@@ -48,12 +46,29 @@ export default function Navbar() {
                       href="/home-2"
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
-                      Home 2
+                      Home 2 - Image
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/home-2"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Home 2 - Video
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/home-2"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Home 2 - Slider
                     </Link>
                   </li>
                 </ul>
               )}
             </li>
+
             <li>
               <Link href="/about" className="hover:text-[#416b63]">
                 About Us
@@ -69,26 +84,53 @@ export default function Navbar() {
                 Blog
               </Link>
             </li>
-            <li className="relative">
-              <button
-                onClick={() => toggleDropdown("pages")}
-                className="flex items-center gap-1 hover:text-[#416b63]"
-              >
+
+            {/* Pages Dropdown */}
+            <li
+              className="relative group"
+              onMouseEnter={() => setOpenDropdown("pages")}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <button className="flex items-center gap-1 hover:text-[#416b63]">
                 Pages <FaChevronDown size={12} />
               </button>
               {openDropdown === "pages" && (
-                <ul className="absolute top-full left-0 mt-2 bg-white text-black shadow-lg rounded-md w-40 z-50">
+                <ul className="absolute top-full left-0 mt-2 bg-white text-black shadow-lg rounded-md w-52 z-50">
                   <li>
                     <Link
                       href="/gallery"
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
-                      Gallery
+                      Service Details
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/team"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Blog Details
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/pricing"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Case Study
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/pricing"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Case Study Details
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/pricing"
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
                       Our Team
@@ -99,12 +141,29 @@ export default function Navbar() {
                       href="/pricing"
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
-                      Pricing
+                      Team Details
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/pricing"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Testimonials
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/pricing"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Image Gallery
                     </Link>
                   </li>
                 </ul>
               )}
             </li>
+
             <li>
               <Link href="/contact" className="hover:text-[#416b63]">
                 Contact Us
@@ -132,13 +191,11 @@ export default function Navbar() {
         </button>
       </div>
 
+      {/* Mobile Menu */}
       <div
-        className={`
-    fixed inset-0 z-50 bg-white transform transition-transform duration-300 ease-in-out
-    ${mobileMenu ? "translate-x-0" : "-translate-x-full"}
-  `}
+        className={`fixed inset-0 z-50 bg-white transform transition-transform duration-300 ease-in-out
+    ${mobileMenu ? "translate-x-0" : "-translate-x-full"}`}
       >
-        {/* Header with Close Button */}
         <div className="flex justify-between items-center p-6 border-b">
           <span className="text-xl font-semibold text-[#416b63]">Menu</span>
           <button
@@ -149,7 +206,6 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Links */}
         <ul className="space-y-6 text-gray-700 font-medium p-6">
           <li>
             <Link href="/" onClick={() => setMobileMenu(false)}>
@@ -187,10 +243,6 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
-
-
-
-
     </header>
   );
 }
