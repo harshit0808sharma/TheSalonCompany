@@ -90,8 +90,7 @@ export default function ContactPage() {
             <motion.div variants={fadeUp} className='flex flex-col gap-6'>
               <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-4">Get in touch with us</h2>
               <p className="text-gray-600 mb-8">
-                Have questions or need assistance? Reach out to us for expert guidance, personalized 
-                solutions, and exceptional support. We're here to help!
+                {"Have questions or need assistance? Reach out to us for expert guidance, personalized solutions, and exceptional support. We're here to help!"}
               </p>
               
               <motion.form 
@@ -168,7 +167,7 @@ export default function ContactPage() {
         <div className="bg-gray-100 py-16">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <h2 className="text-4xl font-bold text-teal-800 mb-8">
-              ✱ THE SALON COMPANY
+              {"✱ THE SALON COMPANY"}
             </h2>
           </div>
         </div>
