@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { FaChevronDown, FaBars, FaTimes, FaCrown } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -8,6 +8,19 @@ import { FaArrowRightLong } from "react-icons/fa6";
 export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileMenu, setMobileMenu] = useState(false);
+  const hoverTimeout = useRef(null);
+
+  const handleMouseEnter = (menu) => {
+    clearTimeout(hoverTimeout.current);
+    setOpenDropdown(menu);
+  };
+
+  const handleMouseLeave = () => {
+    clearTimeout(hoverTimeout.current);
+    hoverTimeout.current = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 500);
+  };
 
   return (
     <header className="w-full py-5">
@@ -28,14 +41,14 @@ export default function Navbar() {
             {/* Home Dropdown */}
             <li
               className="relative group"
-              onMouseEnter={() => setOpenDropdown("home")}
-              onMouseLeave={() => setOpenDropdown(null)}
+              onMouseEnter={() => handleMouseEnter("home")}
+        onMouseLeave={handleMouseLeave}
             >
               <button className="flex items-center gap-1 hover:text-[#416b63]">
                 Home <FaChevronDown size={12} />
               </button>
               {openDropdown === "home" && (
-                <ul className="absolute top-full left-0 mt-2 bg-white text-black shadow-lg rounded-md w-52 z-50 shadow">
+                <ul className="absolute top-full left-0 mt-2 bg-white text-black rounded-md w-52 z-50 shadow-lg">
                   <li>
                     <Link href="/" className="block px-4 py-2 hover:bg-gray-100">
                       Home 1 - Main
@@ -88,8 +101,8 @@ export default function Navbar() {
             {/* Pages Dropdown */}
             <li
               className="relative group"
-              onMouseEnter={() => setOpenDropdown("pages")}
-              onMouseLeave={() => setOpenDropdown(null)}
+              onMouseEnter={() => handleMouseEnter("pages")}
+        onMouseLeave={handleMouseLeave}
             >
               <button className="flex items-center gap-1 hover:text-[#416b63]">
                 Pages <FaChevronDown size={12} />

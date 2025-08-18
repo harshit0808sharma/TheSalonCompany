@@ -4,14 +4,15 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FaRegSmile, FaScissors, FaSpa, FaCrown, FaCut, FaLeaf } from "react-icons/fa";
 
-export default function Stats() {
-  const stats = [
-    { icon: <FaRegSmile className="text-4xl text-pink-600" />, value: 96, suffix: "%", label: "Happy Clients" },
-    { icon: <FaCut className="text-4xl text-pink-600" />, value: 12, suffix: "+", label: "Years of Styling" },
-    { icon: <FaLeaf className="text-4xl text-pink-600" />, value: 1000, suffix: "+", label: "Beauty Treatments" },
-    { icon: <FaCrown className="text-4xl text-pink-600" />, value: 30, suffix: "+", label: "Luxury Facilities" },
-  ];
+// ✅ Move static array outside
+const stats = [
+  { icon: <FaRegSmile className="text-4xl text-pink-600" />, value: 96, suffix: "%", label: "Happy Clients" },
+  { icon: <FaCut className="text-4xl text-pink-600" />, value: 12, suffix: "+", label: "Years of Styling" },
+  { icon: <FaLeaf className="text-4xl text-pink-600" />, value: 1000, suffix: "+", label: "Beauty Treatments" },
+  { icon: <FaCrown className="text-4xl text-pink-600" />, value: 30, suffix: "+", label: "Luxury Facilities" },
+];
 
+export default function Stats() {
   const [counts, setCounts] = useState(stats.map(() => 0));
 
   useEffect(() => {
@@ -39,7 +40,7 @@ export default function Stats() {
         }
       }, stepTime);
     });
-  }, []);
+  }, []); // ✅ no more warning
 
   return (
     <section className="bg-[#FBF7F7] py-16">
