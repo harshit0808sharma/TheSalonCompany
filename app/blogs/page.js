@@ -1,5 +1,7 @@
-"use client";
-
+'use client'
+import Navbar from "../components/Header";
+import Footer from "../components/Footer";
+import CommonHeading from "../components/other/CommonHeading";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
@@ -7,10 +9,14 @@ import { useContext } from "react";
 import { HomeContext } from "@/app/context/HomeContext";
 
 
-export default function BlogSection() {
-  const { blogsData } = useContext(HomeContext)
+export default function BlogPage() {
+    const { blogsData } = useContext(HomeContext)
+  
   return (
-    <section className="bg-[#fdf6f6] py-20 px-6 md:px-12">
+    <>
+        <Navbar/>
+        <CommonHeading Text={"Blog"}/>
+        <section className="bg-[#fdf6f6] py-20 px-6 md:px-12">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-12">
         <p className="text-sm text-[#214037] mb-2">• Latest Blog</p>
@@ -25,7 +31,7 @@ export default function BlogSection() {
 
       {/* Blog Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-        {blogsData.slice(0, 3).map((blog, index) => (
+        {blogsData.map((blog, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 40 }}
@@ -60,5 +66,7 @@ export default function BlogSection() {
         ))}
       </div>
     </section>
+        <Footer/>
+    </>
   );
 }

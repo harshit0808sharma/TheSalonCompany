@@ -17,9 +17,9 @@ export default function Navbar() {
           <div className="bg-[#416b63] p-2 rounded-full text-white">
             <FaCrown className="text-lg" />
           </div>
-          <span className="text-xl font-semibold text-[#416b63]">
+          <Link href="/" className="text-xl font-semibold text-[#416b63]">
             The Salon Company
-          </span>
+          </Link>
         </div>
 
         {/* Desktop Nav Links */}

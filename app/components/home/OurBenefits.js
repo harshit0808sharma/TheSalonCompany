@@ -3,55 +3,55 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  FaUserMd,
-  FaMicroscope,
-  FaUserCheck,
-  FaDatabase,
-  FaShieldAlt,
-  FaHome,
+  FaPaintBrush,
+  FaSpa,
+  FaHandSparkles,
+  FaGem,
+  FaLeaf,
+  FaPhoneAlt,
 } from "react-icons/fa";
 
-import doctorImg from "../../../public/assets/images/image4.jpeg";
+import salonImg from "../../../public/assets/images/image4.jpeg";
 
 export default function OurBenefits() {
   const leftBenefits = [
     {
-      icon: <FaUserMd className="text-[#214037] text-2xl" />,
-      title: "Expert Dermatologists",
-      desc: "Our team consists of board-certified dermatologists with years of experience.",
+      icon: <FaPaintBrush className="text-[#214037] text-2xl" />,
+      title: "Permanent Makeup",
+      desc: "Wake up flawless with microblading, lip blushing, and eyeliner tattoo done by skilled artists.",
     },
     {
-      icon: <FaMicroscope className="text-[#214037] text-2xl" />,
-      title: "Advanced Technology",
-      desc: "We use cutting-edge equipment and innovative techniques for best results.",
+      icon: <FaSpa className="text-[#214037] text-2xl" />,
+      title: "Luxury Beauty Treatments",
+      desc: "Indulge in bespoke facials, eyebrow lamination, and skin rejuvenation therapies.",
     },
     {
-      icon: <FaUserCheck className="text-[#214037] text-2xl" />,
-      title: "Personalized Care",
-      desc: "Every treatment plan is tailored to your unique skin type and concerns.",
+      icon: <FaHandSparkles className="text-[#214037] text-2xl" />,
+      title: "Eyelash Extensions",
+      desc: "Choose from Classic, Hybrid, Volume, or Colorful extensions tailored to your style.",
     },
   ];
 
   const rightBenefits = [
     {
-      icon: <FaDatabase className="text-[#214037] text-2xl" />,
-      title: "Comprehensive Services",
-      desc: "From medical dermatology to cosmetic enhancements, we offer it all.",
+      icon: <FaGem className="text-[#214037] text-2xl" />,
+      title: "Premium Salon Experience",
+      desc: "Step into a sanctuary where natural beauty is enhanced with precision and artistry.",
     },
     {
-      icon: <FaShieldAlt className="text-[#214037] text-2xl" />,
-      title: "High Safety Standards",
-      desc: "Your safety is our priority. We follow strict hygiene and safety protocols.",
+      icon: <FaLeaf className="text-[#214037] text-2xl" />,
+      title: "Safe & Hygienic",
+      desc: "We maintain the highest standards of cleanliness and safety for every treatment.",
     },
     {
-      icon: <FaHome className="text-[#214037] text-2xl" />,
-      title: "Comfortable Environment",
-      desc: "Our clinic provides a welcoming and stress-free atmosphere.",
+      icon: <FaPhoneAlt className="text-[#214037] text-2xl" />,
+      title: "Free Consultation",
+      desc: "Call us at +91 88000 26046 and let our experts guide you to the perfect treatment.",
     },
   ];
 
   return (
-    <section className="bg-[#214037] text-white py-20 px-6 md:px-12 lg:rounded-4xl lg:mx-5">
+    <section className="bg-teal-800 text-white py-20 px-6 md:px-12 lg:rounded-4xl lg:mx-5">
       {/* Top Heading */}
       <motion.div
         className="text-center max-w-3xl mx-auto mb-16"
@@ -60,13 +60,14 @@ export default function OurBenefits() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <p className="text-sm mb-2">• Our Benefits</p>
+        <p className="text-sm mb-2">• The Salon Company</p>
         <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-4">
-          Exceptional dermatology, every step of the way
+          Hair • Beauty • Makeup • Nail Extensions
         </h2>
         <p className="text-gray-200 text-sm md:text-base">
-          Experience personalized care, advanced treatments, and visible results
-          with our expert dermatology services.
+          Discover the art of luxury beauty. From permanent makeup to
+          rejuvenating facials, our expert team ensures you leave glowing with
+          confidence and elegance.
         </p>
       </motion.div>
 
@@ -108,8 +109,8 @@ export default function OurBenefits() {
         >
           <div className="w-48 h-48 sm:w-60 sm:h-60 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-lg">
             <Image
-              src={doctorImg}
-              alt="Dermatology Expert"
+              src={salonImg}
+              alt="The Salon Company"
               className="object-cover w-full h-full"
             />
           </div>

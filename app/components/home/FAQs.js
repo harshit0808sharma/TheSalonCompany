@@ -6,24 +6,24 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 const faqs = [
   {
-    question: "What types of treatments do you offer?",
+    question: "What salon services do you provide?",
     answer:
-      "We offer a wide range of dermatology treatments, including acne care, psoriasis management, skin cancer screening, and cosmetic procedures like Botox etc.",
+      "We offer professional haircuts, styling, coloring, keratin treatments, facials, manicures, pedicures, waxing, and spa therapies tailored to your needs.",
   },
   {
-    question: "Do I need a consultation before getting treatment?",
+    question: "Do I need to book an appointment?",
     answer:
-      "Yes, consultations help us understand your skin and recommend the right treatment.",
+      "Appointments are recommended to secure your preferred time, but we also welcome walk-ins whenever available.",
   },
   {
-    question: "Are your treatments suitable for all skin types?",
+    question: "Are your products safe for all hair and skin types?",
     answer:
-      "Absolutely. We offer customized treatments suitable for all skin types.",
+      "Yes, we only use high-quality, professional-grade salon products that are gentle and suitable for all hair and skin types.",
   },
   {
-    question: "Do you offer cosmetic dermatology services?",
+    question: "Do you offer bridal and party packages?",
     answer:
-      "Yes, we provide a variety of cosmetic dermatology services to enhance your skin health and appearance.",
+      "Absolutely. We specialize in bridal makeovers and offer exclusive group packages for weddings, parties, and special events.",
   },
 ];
 
@@ -35,7 +35,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section className=" bg-[#2e5850] text-white py-20 px-4 sm:px-6 md:px-12 lg:rounded-3xl mx-0 lg:mx-5">
+    <section className=" bg-teal-800 text-white py-20 px-4 sm:px-6 md:px-12 lg:rounded-3xl mx-0 lg:mx-5">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
 
         {/* Left Content */}

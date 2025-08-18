@@ -2,36 +2,15 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaCube, FaGlobe, FaRegSmile } from "react-icons/fa";
+import { useContext } from "react";
+import { HomeContext } from "@/app/context/HomeContext";
 
-import service1 from '../../../public/assets/images/image4.jpeg';
-import service2 from "../../../public/assets/images/image5.jpeg";
-import service3 from "../../../public/assets/images/image6.jpeg";
-
-const services = [
-  {
-    title: "Dermal Fillers",
-    desc: "From preventive care to specialized treatments, our wide range.",
-    icon: <FaCube className="text-2xl" />,
-    img: service1,
-  },
-  {
-    title: "Chemical Peels",
-    desc: "From preventive care to specialized treatments, our wide range.",
-    icon: <FaGlobe className="text-2xl" />,
-    img: service2,
-  },
-  {
-    title: "Acne Treatment",
-    desc: "From preventive care to specialized treatments, our wide range.",
-    icon: <FaRegSmile className="text-2xl" />,
-    img: service3,
-  },
-];
 
 export default function Services() {
+  const { servicesData } = useContext(HomeContext);
+
   return (
-    <section className=" bg-[#f9f6f7] rounded-4xl">
+    <section className="bg-[#f9f6f7] rounded-4xl py-10">
       {/* Heading */}
       <div className="text-center max-w-2xl mx-auto px-4 pb-10">
         <p className="text-sm text-gray-500">Our Services</p>
@@ -46,10 +25,10 @@ export default function Services() {
 
       {/* Service Cards */}
       <div className="grid gap-8 px-4 md:px-16 md:grid-cols-3">
-        {services.map((service, index) => (
+        {servicesData.slice(0, 3).map((service, index) => (
           <motion.div
             key={index}
-            className="relative rounded-2xl overflow-hidden shadow-lg group"
+            className="relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
@@ -66,7 +45,10 @@ export default function Services() {
 
             {/* Content */}
             <div className="absolute bottom-6 left-6 text-white">
-              <div className="bg-white/20 backdrop-blur-md p-3 rounded-lg inline-block mb-3">
+              <div
+                className="bg-white/20 backdrop-blur-md p-3 rounded-lg inline-block mb-3 
+                           transition-colors duration-300 group-hover:bg-[#28554E]"
+              >
                 {service.icon}
               </div>
               <h3 className="text-xl font-semibold">{service.title}</h3>

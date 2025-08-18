@@ -3,26 +3,25 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaStar } from "react-icons/fa";
-import womanImage from "../../../public/assets/images/image9.png";
-import { FcContacts } from "react-icons/fc";
+import womanImage from "../../../public/assets/images/faceImage.png";
+// import { FcContacts } from "react-icons/fc";
 
 export default function Hero() {
   return (
-    <section className="relative m-0 bg-[#28554E] lg:mx-5 text-white min-h-screen flex items-center justify-center overflow-hidden lg:rounded-[2rem]">
-      <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center p-6 md:px-12">
+    <section className="relative m-0 bg-[#28554E] lg:mx-5 text-white overflow-hidden p-4 md:p-0 lg:rounded-[2rem] pt-20">
+      <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center md:px-24">
         {/* Left Content */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-6"
+          className="space-y-6 md:py-20"
         >
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-            {" Comprehensive care "}<br />{" for your skin's health "}<br /> and beauty
+          <h1 className="text-4xl md:text-5xl leading-tight">
+            Redefining Beauty, <br />{"One Experience "}<br /> at a Time
           </h1>
           <p className="text-lg text-gray-200">
-            {"At Logoipsum we believe in creating digital solutions that drive"}
-            {"real–world impact. From creative strategies to cutting–edge."}
+            {"At The Salon Company, we believe beauty is not just skin deep—it’s the art of confidence, self-care, and individuality. Step into a world where hair, beauty, makeup, and nail artistry come together to celebrate your unique glow."}
           </p>
 
           {/* Button */}
@@ -31,8 +30,11 @@ export default function Hero() {
             whileTap={{ scale: 0.95 }}
             className="bg-white text-[#28554E] px-6 py-3 rounded-full font-medium flex items-center gap-2 shadow-md"
           >
-            View Our Services →
+            Book your free consultation today →
           </motion.button>
+
+          <h2 className="text-white font-semibold text-2xl">Reviews</h2>
+          <hr className="text-gray-400" />
 
           {/* Reviews */}
           <div className="mt-6 flex items-center gap-4">
@@ -54,32 +56,27 @@ export default function Hero() {
             </div>
           </div>
         </motion.div>
-
+        {/* Right Image */}
         {/* Right Image */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative flex"
+          className="relative w-full h-64 md:h-full flex items-center justify-center"
         >
           <Image
             src={womanImage}
             alt="Hero"
-            width={500}
-            height={600}
-            className="rounded-lg object-cover"
+            priority
+            fill
+            className="object-contain md:object-cover rounded-lg drop-shadow-2xl"
           />
 
-          {/* Circle Motion Text (Optional) */}
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-            className="hidden lg:flex absolute bottom-6 right-10 w-32 h-32 border bg-[#28554E] border-white rounded-full items-center justify-center text-sm"
-          >
-            {"*Contact*"}
-          </motion.div>
 
         </motion.div>
+
+
+
       </div>
     </section>
   );

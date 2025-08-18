@@ -76,7 +76,7 @@ export default function WhyChooseUs() {
 
         {/* Right Image */}
         <motion.div
-          className="relative"
+          className="relative "
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -84,7 +84,7 @@ export default function WhyChooseUs() {
           <Image
             src={doctorImg}
             alt="Dermatology Care"
-            className="rounded-2xl object-cover shadow-lg w-full h-auto"
+            className="rounded-2xl object-cover shadow-lg w-full h-auto "
           />
         </motion.div>
 

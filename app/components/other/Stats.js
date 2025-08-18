@@ -2,15 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FaRegCircle, FaGem, FaCog } from "react-icons/fa";
-import { VscSymbolKey } from "react-icons/vsc"; // ✅ correct import
+import { FaRegSmile, FaScissors, FaSpa, FaCrown, FaCut, FaLeaf } from "react-icons/fa";
 
 export default function Stats() {
   const stats = [
-    { icon: <FaRegCircle className="text-4xl text-[#28554E]" />, value: 96, suffix: "%", label: "Patient Satisfaction Rate" },
-    { icon: <VscSymbolKey className="text-4xl text-[#28554E]" />, value: 12, suffix: "+", label: "Years Of Experience" },
-    { icon: <FaCog className="text-4xl text-[#28554E]" />, value: 1000, suffix: "+", label: "Successful Surgeries" },
-    { icon: <FaGem className="text-4xl text-[#28554E]" />, value: 30, suffix: "+", label: "State-Of-The-Art Facilities" },
+    { icon: <FaRegSmile className="text-4xl text-pink-600" />, value: 96, suffix: "%", label: "Happy Clients" },
+    { icon: <FaCut className="text-4xl text-pink-600" />, value: 12, suffix: "+", label: "Years of Styling" },
+    { icon: <FaLeaf className="text-4xl text-pink-600" />, value: 1000, suffix: "+", label: "Beauty Treatments" },
+    { icon: <FaCrown className="text-4xl text-pink-600" />, value: 30, suffix: "+", label: "Luxury Facilities" },
   ];
 
   const [counts, setCounts] = useState(stats.map(() => 0));
