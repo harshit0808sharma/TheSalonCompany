@@ -22,10 +22,10 @@ export default function BeforeAfter() {
       >
         <p className="text-sm mb-2">• Our Result</p>
         <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-4 text-[#214037]">
-          Before & after: witness the power of dermatology
+          {"Before & after: witness the power of dermatology"}
         </h2>
         <p className="text-gray-600">
-          See the remarkable transformations for yourself—our 'Before & After' gallery highlights the powerful impact of dermatological treatments.
+          {"See the remarkable transformations for yourself—our 'Before & After' gallery highlights the powerful impact of dermatological treatments."}
         </p>
       </motion.div>
 
