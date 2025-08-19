@@ -2,12 +2,14 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaCheck, FaUsers, FaPlay, FaProjectDiagram, FaSmile } from "react-icons/fa";
+import { FaCheck, FaPlay } from "react-icons/fa";
 import image1 from "../../../public/assets/images/image4.jpeg";
 import image2 from "../../../public/assets/images/image2.jpeg";
 import { useState, useEffect } from "react";
 import { GoDotFill } from "react-icons/go";
 import { TbUsers } from "react-icons/tb";
+import Link from "next/link";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 export default function AboutSection() {
     const [teamCount, setTeamCount] = useState(0);
@@ -92,9 +94,9 @@ export default function AboutSection() {
                     {/* Buttons + Team Count */}
                     <div className="flex items-center gap-6 mt-8 flex-wrap">
                         <div className="flex gap-4 flex-wrap">
-                            <button className="bg-[#264D45] text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-[#1d3b35] transition text-sm md:text-base">
-                                About More →
-                            </button>
+                            <Link href="/about" className="bg-[#264D45] text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-[#1d3b35] transition text-sm md:text-base">
+                               <span> About More</span> <FaArrowRightLong/>
+                            </Link>
                             <button className="border border-[#264D45] text-[#264D45] px-6 py-3 rounded-full flex items-center gap-2 hover:bg-[#264D45] hover:text-white transition text-sm md:text-base">
                                 <FaPlay /> Play Session
                             </button>

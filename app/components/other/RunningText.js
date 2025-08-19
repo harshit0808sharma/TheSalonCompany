@@ -13,7 +13,7 @@ export default function RunningText() {
         animate={{ x: ["0%", "-100%"] }}
         transition={{
           repeat: Infinity,
-          duration: 50,
+          duration: 120,
           ease: "linear",
         }}
       >
