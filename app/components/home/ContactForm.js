@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function ContactSection() {
   return (
     <section className="bg-[#faf3f3] py-10 px-4 sm:px-6 md:px-12">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
         
         {/* Left Side - Google Map */}
         <motion.div
@@ -13,7 +13,7 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="w-full h-[280px] sm:h-[350px] md:h-[450px] rounded-2xl overflow-hidden shadow-lg"
+          className="w-full h-[280px] sm:h-[350px] md:h-[450px] rounded-4xl overflow-hidden shadow-lg"
         >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.9041380763556!2d77.39281827528674!3d28.57264117569747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b5c46418751aef3%3A0x2d35829dafac334d!2sLokaci%20HQ!5e0!3m2!1sen!2sin!4v1755430508239!5m2!1sen!2sin"

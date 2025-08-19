@@ -12,6 +12,7 @@ import {
 } from "react-icons/fa";
 
 import salonImg from "../../../public/assets/images/image4.jpeg";
+import { GoDotFill } from "react-icons/go";
 
 export default function OurBenefits() {
   const leftBenefits = [
@@ -51,7 +52,7 @@ export default function OurBenefits() {
   ];
 
   return (
-    <section className="bg-teal-800 text-white py-20 px-6 md:px-12 lg:rounded-4xl lg:mx-5">
+    <section className="bg-teal-800 text-white py-20 md:py-28 px-6 md:px-12 lg:rounded-4xl lg:mx-5">
       {/* Top Heading */}
       <motion.div
         className="text-center max-w-3xl mx-auto mb-16"
@@ -60,7 +61,10 @@ export default function OurBenefits() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <p className="text-sm mb-2">• The Salon Company</p>
+        <div className="flex justify-center items-center gap-2">
+                  <GoDotFill className="text-white" />
+                  <span className="text-white font-medium">Our Benefits</span>
+                </div>
         <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-4">
           Hair • Beauty • Makeup • Nail Extensions
         </h2>

@@ -5,9 +5,6 @@ import {
   FaMapMarkerAlt, 
   FaEnvelope, 
   FaClock, 
-  FaFacebook, 
-  FaInstagram, 
-  FaTwitter 
 } from 'react-icons/fa';
 import Link from 'next/link';
 import Image from 'next/image';

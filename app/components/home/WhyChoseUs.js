@@ -5,10 +5,11 @@ import { motion } from "framer-motion";
 import { FaHeart, FaStar } from "react-icons/fa";
 
 import doctorImg from "../../../public/assets/images/image4.jpeg";
+import { GoDotFill } from "react-icons/go";
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-20 bg-[#fdf8f9]">
+    <section className="py-10 bg-[#fdf8f9]">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center px-6 md:px-12">
 
         {/* Left Content */}
@@ -17,7 +18,10 @@ export default function WhyChooseUs() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <p className="text-sm text-[#214037] mb-2">• Why Choose Us</p>
+          <div className="flex items-center gap-2">
+            <GoDotFill className="text-teal-800" />
+            <span className="text-[#264D45] font-medium"> About Us</span>
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-[#214037] leading-snug mb-4">
             Why choose us for all your dermatology needs
           </h2>

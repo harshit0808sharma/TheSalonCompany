@@ -27,10 +27,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <div className="bg-[#416b63] p-2 rounded-full text-white">
-            <FaCrown className="text-lg" />
-          </div>
-          <Link href="/" className="text-xl font-semibold text-[#416b63]">
+          <Link href="/" className="text-2xl font-semibold text-[#416b63]">
             The Salon Company
           </Link>
         </div>
@@ -51,31 +48,31 @@ export default function Navbar() {
                 <ul className="absolute top-full left-0 mt-2 bg-white text-black rounded-md w-52 z-50 shadow-lg">
                   <li>
                     <Link href="/" className="block px-4 py-2 hover:bg-gray-100">
-                      Home 1 - Main
+                      Home - Main
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/home-2"
+                      href="/home-image"
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
-                      Home 2 - Image
+                      Home - Image
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/home-2"
+                      href="/home-video"
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
-                      Home 2 - Video
+                      Home - Video
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/home-2"
+                      href="/home-slider"
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
-                      Home 2 - Slider
+                      Home - Slider
                     </Link>
                   </li>
                 </ul>
@@ -188,7 +185,7 @@ export default function Navbar() {
         {/* CTA Button */}
         <div className="hidden md:flex">
           <Link
-            href="/appointment"
+            href="/book-appointment"
             className="flex items-center py-2 px-5 text-white font-medium bg-[#416b63] rounded-full hover:bg-[#2f514a] transition"
           >
             Book Appointment <FaArrowRightLong className="ml-2" />
@@ -247,9 +244,9 @@ export default function Navbar() {
           </li>
           <li>
             <Link
-              href="/appointment"
+              href="/book-appointment"
               onClick={() => setMobileMenu(false)}
-              className="flex items-center w-full justify-center py-2 px-4 text-white font-medium bg-[#416b63] rounded-full hover:bg-[#2f514a] transition"
+              className="flex items-center w-full justify-center py-2 px-6 text-white font-medium bg-[#416b63] rounded-full hover:bg-[#2f514a] transition"
             >
               Book Appointment <FaArrowRightLong className="ml-2" />
             </Link>

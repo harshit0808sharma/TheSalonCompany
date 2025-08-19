@@ -6,14 +6,14 @@ import doctorImg from "../../../public/assets/images/image6.jpeg";
 
 export default function ProcessSection() {
   return (
-    <section className="grid md:grid-cols-2 min-h-[600px] rounded-4xl">
+    <section className="grid md:grid-cols-2 min-h-[600px] px-5">
       {/* Left side with image + overlay */}
-      <div className="relative flex items-end justify-start">
+      <div className="relative flex items-end justify-center overflow-hidden rounded-4xl">
         <Image
           src={doctorImg}
           alt="Dermatology Process"
           fill
-          className="object-cover rounded-l-4xl"
+          className="object-cover rounded-4xl"
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#214037]/90 via-[#214037]/40 to-transparent rounded-r-2xl"></div>

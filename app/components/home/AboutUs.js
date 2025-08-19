@@ -6,6 +6,7 @@ import { FaCheck, FaUsers, FaPlay } from "react-icons/fa";
 import image1 from "../../../public/assets/images/image4.jpeg";
 import image2 from "../../../public/assets/images/image2.jpeg";
 import Stats from "../other/Stats";
+import { GoDotFill } from "react-icons/go";
 // import { FcContacts } from "react-icons/fc";
 
 export default function AboutSection() {
@@ -53,7 +54,10 @@ export default function AboutSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <span className="text-[#264D45] font-medium">• About Us</span>
+                    <div className="flex items-center gap-2">
+                        <GoDotFill className="text-teal-800" />
+                        <span className="text-[#264D45] font-medium"> About Us</span>
+                    </div>
                     <h2 className="text-4xl font-bold leading-snug text-[#264D45]">
                         Why choose us for all your dermatology needs
                     </h2>
