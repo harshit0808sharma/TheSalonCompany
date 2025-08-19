@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import { useContext } from "react";
 import { HomeContext } from "@/app/context/HomeContext";
+import Link from "next/link";
 
 
 export default function BlogPage() {
@@ -58,9 +59,9 @@ export default function BlogPage() {
               </h3>
 
               {/* Read More Button */}
-              <button className="mt-auto flex items-center gap-2 text-sm font-medium text-[#214037] hover:text-[#2d6d5f] transition-colors">
+              <Link href="/" className="mt-auto flex items-center gap-2 text-sm font-medium text-[#214037] hover:text-[#2d6d5f] transition-colors">
                 Read More <FaArrowRight className="text-xs" />
-              </button>
+              </Link>
             </div>
           </motion.div>
         ))}

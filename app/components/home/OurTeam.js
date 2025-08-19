@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { GoDotFill } from "react-icons/go";
 
 const team = [
   {
@@ -32,8 +33,10 @@ export default function Team() {
     <section className="bg-[#faf7f7] py-20 px-6 md:px-12">
       {/* Heading */}
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <p className="text-sm text-[#214037] mb-2">• Our Expert Team</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-[#214037] leading-snug mb-3">
+        <div className="flex justify-center items-center gap-2">
+          <GoDotFill className="text-teal-800" />
+          <span className="text-teal-800 font-medium">Our Team</span>
+        </div>        <h2 className="text-3xl md:text-4xl font-bold text-[#214037] leading-snug mb-3">
           Our expert team: committed to your skin health and beauty
         </h2>
         <p className="text-gray-600">

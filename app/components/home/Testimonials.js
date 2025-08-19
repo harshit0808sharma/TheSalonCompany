@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaQuoteLeft, FaStar } from "react-icons/fa";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { GoDotFill } from "react-icons/go";
 
 const testimonials = [
   {
@@ -63,7 +64,10 @@ export default function Testimonials() {
         viewport={{ once: true }}
         className="text-center max-w-3xl mx-auto mb-12"
       >
-        <p className="text-sm text-[#214037] mb-2">• Testimonials</p>
+        <div className="flex justify-center items-center gap-2">
+          <GoDotFill className="text-teal-800" />
+          <span className="text-teal-800 font-medium">Testimonials</span>
+        </div>
         <h2 className="text-3xl md:text-4xl font-bold text-[#214037] leading-snug mb-3">
           Real patient stories that reflect exceptional skin care
         </h2>
@@ -134,9 +138,8 @@ export default function Testimonials() {
           <button
             key={i}
             onClick={() => handleDotClick(i)}
-            className={`w-3 h-3 rounded-full transition-colors ${
-              i === activeIndex ? "bg-[#214037]" : "bg-gray-300"
-            }`}
+            className={`w-3 h-3 rounded-full transition-colors ${i === activeIndex ? "bg-[#214037]" : "bg-gray-300"
+              }`}
           />
         ))}
       </motion.div>

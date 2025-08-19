@@ -9,6 +9,7 @@ import before1 from "../../../public/assets/images/before1.jpg";
 import after1 from "../../../public/assets/images/after1.jpg";
 import before2 from "../../../public/assets/images/before2.jpg";
 import after2 from "../../../public/assets/images/after2.jpg";
+import { GoDotFill } from "react-icons/go";
 
 export default function BeforeAfter() {
   // Slider 1 state
@@ -39,7 +40,10 @@ export default function BeforeAfter() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <p className="text-sm mb-2">• Our Result</p>
+        <div className="flex justify-center items-center gap-2">
+            <GoDotFill className="text-teal-800" />
+            <span className="text-teal-800 font-medium">Our Results</span>
+          </div>
         <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-4 text-[#214037]">
           Before &amp; after: witness the power of dermatology
         </h2>

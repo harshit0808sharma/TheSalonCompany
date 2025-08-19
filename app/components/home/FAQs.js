@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { GoDotFill } from "react-icons/go";
 
 const faqs = [
   {
@@ -40,9 +41,10 @@ export default function FAQSection() {
 
         {/* Left Content */}
         <div className="md:pr-8">
-          <p className="text-base font-medium mb-4 opacity-90">
-            • Frequently Asked Questions
-          </p>
+          <div className="flex justify-center items-center gap-2">
+            <GoDotFill className="text-white" />
+            <span className="text-white font-medium">Our Services</span>
+          </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
             Frequently asked <br /> questions, <br /> find out more
           </h2>
