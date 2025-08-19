@@ -11,37 +11,37 @@ const testimonials = [
     name: "Jane Cooper",
     role: "Beauty Treatments",
     text: "The experts at this clinic took the time to truly understand my condition and prescribed a treatment plan that worked wonders.",
-    avatar: "/assets/images/image3.jpeg",
+    avatar: "/assets/images/person1.png",
   },
   {
     name: "Dianne Russell",
     role: "Eczema Treatment",
     text: "The clinic staff provided amazing support and the treatment improved my skin significantly in just weeks.",
-    avatar: "/assets/images/image2.jpeg",
+    avatar: "/assets/images/person2.png",
   },
   {
     name: "Cody Fisher",
     role: "Acne Therapy",
     text: "I struggled with acne for years, but their personalized care and treatment made a huge difference.",
-    avatar: "/assets/images/image4.jpeg",
+    avatar: "/assets/images/person3.png",
   },
   {
     name: "Robert Fox",
     role: "Hair & Skin Care",
     text: "Professional, kind, and truly effective treatments. I feel more confident than ever.",
-    avatar: "/assets/images/image4.jpeg",
+    avatar: "/assets/images/person4.png",
   },
   {
     name: "Kristin Watson",
     role: "Wellness Program",
     text: "The holistic approach really impressed me, and I saw great improvements in both skin and health.",
-    avatar: "/assets/images/image5.jpeg",
+    avatar: "/assets/images/person5.png",
   },
   {
     name: "Esther Howard",
     role: "Dermatology Care",
     text: "The best skincare experience I’ve ever had. Highly professional team and long-lasting results.",
-    avatar: "/assets/images/image6.jpeg",
+    avatar: "/assets/images/person7.png",
   },
 ];
 

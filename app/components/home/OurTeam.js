@@ -60,7 +60,7 @@ export default function Team() {
             <Image
               src={member.image}
               alt={member.name}
-              width={400}
+              width={500}
               height={500}
               className="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-300"
             />

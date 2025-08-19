@@ -3,10 +3,13 @@
 import { FaFacebook, FaPhone, FaRegEnvelope, FaTwitter, FaInstagram } from "react-icons/fa";
 import { IoIosSend } from "react-icons/io";
 import Link from "next/link";
+import RunningText from "./other/RunningText";
 
 export default function Footer() {
   return (
-    <footer className="bg-teal-800 text-white md:rounded-4xl md:mx-5 mb-5">
+    <>
+    <RunningText/>
+    <footer className="bg-teal-800 text-white md:rounded-4xl md:m-5 mt-5">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -97,5 +100,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }

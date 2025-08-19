@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function ContactSection() {
   return (
@@ -78,12 +79,12 @@ export default function ContactSection() {
               className="col-span-1 sm:col-span-2 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#214037] outline-none h-28 w-full"
             ></textarea>
 
-            <button
-              type="submit"
-              className="col-span-1 sm:col-span-2 bg-[#214037] text-white py-3 rounded-full font-medium hover:bg-[#2d6d5f] transition w-full"
+            <Link
+              href='/book-appointment'
+              className="col-span-1 sm:col-span-2 bg-[#214037] text-white px-5 py-3 rounded-full font-medium hover:bg-[#2d6d5f] transition w-full"
             >
               Book Appointment
-            </button>
+            </Link>
           </form>
         </motion.div>
       </div>

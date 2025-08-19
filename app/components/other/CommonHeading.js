@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function CommonHeading({ Text }) {
   return (
-    <div className="bg-teal-800 relative p-5 md:p-10 overflow-hidden mx-0 md:mx-5 md:rounded-4xl">
+    <div className="bg-teal-800 relative p-5 md:p-10 overflow-hidden mb-5 m-0 md:mx-5 md:rounded-4xl">
       {/* Animated SVG Background */}
       <motion.div
         className="absolute inset-0 opacity-10"

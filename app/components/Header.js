@@ -6,9 +6,9 @@ import { FaChevronDown, FaBars, FaTimes } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 export default function Navbar() {
-  const [openDropdown, setOpenDropdown] = useState(null); // Desktop dropdown
-  const [mobileMenu, setMobileMenu] = useState(false); // Mobile menu
-  const [mobileDropdown, setMobileDropdown] = useState(null); // Mobile dropdown
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [mobileMenu, setMobileMenu] = useState(false);
+  const [mobileDropdown, setMobileDropdown] = useState(null); 
   const hoverTimeout = useRef(null);
 
   const handleMouseEnter = (menu) => {
@@ -100,10 +100,12 @@ export default function Navbar() {
                   <li><Link href="/team" className="block px-4 py-2 hover:bg-gray-100">Blog Details</Link></li>
                   <li><Link href="/pricing" className="block px-4 py-2 hover:bg-gray-100">Case Study</Link></li>
                   <li><Link href="/pricing" className="block px-4 py-2 hover:bg-gray-100">Case Study Details</Link></li>
-                  <li><Link href="/pricing" className="block px-4 py-2 hover:bg-gray-100">Our Team</Link></li>
+                  <li><Link href="/ourteam" className="block px-4 py-2 hover:bg-gray-100">Our Team</Link></li>
                   <li><Link href="/pricing" className="block px-4 py-2 hover:bg-gray-100">Team Details</Link></li>
-                  <li><Link href="/pricing" className="block px-4 py-2 hover:bg-gray-100">Testimonials</Link></li>
+                  <li><Link href="/testimonials" className="block px-4 py-2 hover:bg-gray-100">Testimonials</Link></li>
                   <li><Link href="/pricing" className="block px-4 py-2 hover:bg-gray-100">Image Gallery</Link></li>
+                  <li><Link href="/faqs" className="block px-4 py-2 hover:bg-gray-100">FAQs</Link></li>
+                  <li><Link href="/404" className="block px-4 py-2 hover:bg-gray-100">404</Link></li>
                 </ul>
               )}
             </li>

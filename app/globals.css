@@ -10,6 +10,9 @@ body{
 html{
   overflow-x: hidden;
 }
+.scrollbar-none::-webkit-scrollbar{
+  display: none;
+}
 
 
 button{
