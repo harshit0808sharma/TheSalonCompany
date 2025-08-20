@@ -96,14 +96,14 @@ export default function Navbar() {
               </button>
               {openDropdown === "pages" && (
                 <ul className="absolute top-full left-0 mt-2 bg-white text-black shadow-lg rounded-md w-52 z-50">
-                  <li><Link href="/gallery" className="block px-4 py-2 hover:bg-gray-100">Service Details</Link></li>
-                  <li><Link href="/team" className="block px-4 py-2 hover:bg-gray-100">Blog Details</Link></li>
-                  <li><Link href="/pricing" className="block px-4 py-2 hover:bg-gray-100">Case Study</Link></li>
-                  <li><Link href="/pricing" className="block px-4 py-2 hover:bg-gray-100">Case Study Details</Link></li>
+                  <li><Link href="/service-details" className="block px-4 py-2 hover:bg-gray-100">Service Details</Link></li>
+                  <li><Link href="/blogs/how-to-care-for-your-skin-after-a-botox-treatment" className="block px-4 py-2 hover:bg-gray-100">Blog Details</Link></li>
+                  <li><Link href="/case-study" className="block px-4 py-2 hover:bg-gray-100">Case Study</Link></li>
+                  <li><Link href="/case-study" className="block px-4 py-2 hover:bg-gray-100">Case Study Details</Link></li>
                   <li><Link href="/ourteam" className="block px-4 py-2 hover:bg-gray-100">Our Team</Link></li>
-                  <li><Link href="/pricing" className="block px-4 py-2 hover:bg-gray-100">Team Details</Link></li>
+                  <li><Link href="/team" className="block px-4 py-2 hover:bg-gray-100">Team Details</Link></li>
                   <li><Link href="/testimonials" className="block px-4 py-2 hover:bg-gray-100">Testimonials</Link></li>
-                  <li><Link href="/pricing" className="block px-4 py-2 hover:bg-gray-100">Image Gallery</Link></li>
+                  <li><Link href="/gallery" className="block px-4 py-2 hover:bg-gray-100">Image Gallery</Link></li>
                   <li><Link href="/faqs" className="block px-4 py-2 hover:bg-gray-100">FAQs</Link></li>
                   <li><Link href="/404" className="block px-4 py-2 hover:bg-gray-100">404</Link></li>
                 </ul>

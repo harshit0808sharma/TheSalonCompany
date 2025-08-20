@@ -49,14 +49,13 @@ export default function AboutSection() {
                     >
                         <Image src={image2} alt="Doctor at work" className="w-full h-auto object-cover" />
                     </motion.div>
-
                     <motion.div
-                        className="absolute top-6 md:top-10 right-4 md:right-40 w-20 md:w-28 h-20 md:h-28 rounded-full bg-[#264D45] text-white flex items-center justify-center text-xs md:text-sm font-medium text-center"
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        transition={{ type: "spring", stiffness: 200, delay: 0.4 }}
+                        initial={{ rotate: -90, opacity: 0 }}
+                        whileInView={{ rotate: 0, opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.5 }}
+                        className="absolute top-6 md:top-10 right-4 md:right-20 bg-[#214037] text-white w-36 h-36 flex items-center justify-center rounded-full border-8 border-white text-sm text-center font-medium shadow-lg spin-slow"
                     >
-                        <span className="rotate-[-20deg]">{"* Contact Us *"}</span>
+                        <span className="leading-tight">Contact Us </span>
                     </motion.div>
                 </div>
 
@@ -95,7 +94,7 @@ export default function AboutSection() {
                     <div className="flex items-center gap-6 mt-8 flex-wrap">
                         <div className="flex gap-4 flex-wrap">
                             <Link href="/about" className="bg-[#264D45] text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-[#1d3b35] transition text-sm md:text-base">
-                               <span> About More</span> <FaArrowRightLong/>
+                                <span> About More</span> <FaArrowRightLong />
                             </Link>
                             <button className="border border-[#264D45] text-[#264D45] px-6 py-3 rounded-full flex items-center gap-2 hover:bg-[#264D45] hover:text-white transition text-sm md:text-base">
                                 <FaPlay /> Play Session

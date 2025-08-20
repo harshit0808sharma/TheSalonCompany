@@ -14,7 +14,38 @@ html{
   display: none;
 }
 
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation: spin-slow 20s linear infinite; /* 20s per rotation */
+}
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+
 
 button{
   cursor: pointer;
 }
+
+/* Border Animation */
+/* .animated-border {
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.btn-animated:hover svg .animated-border {
+  stroke-dashoffset: -480;
+} */

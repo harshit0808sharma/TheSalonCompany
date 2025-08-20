@@ -58,8 +58,8 @@ export default function Footer() {
             <div className="space-y-3">
               <div>
                 <p className="text-white/80">Salon Location</p>
-                <p className="text-white/80">6391 Elgin St, Santa Ana,</p>
-                <p className="text-white/80">California 10299</p>
+                <p className="text-white/80">Lokaci H.Q,</p>
+                <p className="text-white/80">Noida</p>
               </div>
               <div>
                 <p className="text-white/80">Email</p>
@@ -73,9 +73,9 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <div className="space-y-2">
               <Link href="/" className="block text-white/80 hover:text-white transition-colors">Home</Link>
-              <Link href="/" className="block text-white/80 hover:text-white transition-colors">About Us</Link>
-              <Link href="/" className="block text-white/80 hover:text-white transition-colors">Our Services</Link>
-              <Link href="/" className="block text-white/80 hover:text-white transition-colors">Book Appointment</Link>
+              <Link href="/about" className="block text-white/80 hover:text-white transition-colors">About Us</Link>
+              <Link href="/services" className="block text-white/80 hover:text-white transition-colors">Our Services</Link>
+              <Link href="/book-appointment" className="block text-white/80 hover:text-white transition-colors">Book Appointment</Link>
             </div>
           </div>
         </div>

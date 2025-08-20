@@ -9,7 +9,7 @@ export default function RunningText() {
   return (
     <div className="w-full overflow-hidden bg-white py-10 flex justify-center">
       <motion.div
-        className="flex whitespace-nowrap text-teal-800 text-8xl font-semibold uppercase"
+        className="flex whitespace-nowrap text-teal-800 text-4xl md:text-6xl lg:text-8xl font-semibold uppercase"
         animate={{ x: ["0%", "-100%"] }}
         transition={{
           repeat: Infinity,
