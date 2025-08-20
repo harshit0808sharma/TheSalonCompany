@@ -28,48 +28,51 @@ export default function Team() {
 
       {/* Team Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-        {teamMembersData.map((member, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-            viewport={{ once: true }}
-            className="relative overflow-hidden rounded-2xl shadow-md group"
-          >
-            {/* Profile link */}
-            <Link href={`/our-team/${member.slug}`}>
-              <Image
-                src={member.image}
-                alt={member.name}
-                width={500}
-                height={500}
-                className="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                <h3 className="text-lg font-semibold text-white">{member.name}</h3>
-                <p className="text-sm text-gray-200">{member.position}</p>
-              </div>
-            </Link>
+  {teamMembersData.map((member, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.2 }}
+      viewport={{ once: true }}
+      className="relative overflow-hidden rounded-2xl shadow-md group"
+    >
+      {/* Wrap entire card */}
+      <Link href={`/our-team/${member.slug}`} className="block relative">
+        <Image
+          src={member.image}
+          alt={member.name}
+          width={500}
+          height={500}
+          className="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-300"
+        />
 
-            {/* Social Icons (hover) */}
-            <div className="absolute inset-0 flex items-center justify-center gap-4 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <Link href="/" className="p-3 bg-white rounded-full hover:bg-[#214037] hover:text-white transition">
-                <FaFacebookF />
-              </Link>
-              <Link href="/" className="p-3 bg-white rounded-full hover:bg-[#214037] hover:text-white transition">
-                <FaTwitter />
-              </Link>
-              <Link href="/" className="p-3 bg-white rounded-full hover:bg-[#214037] hover:text-white transition">
-                <FaLinkedinIn />
-              </Link>
-              <Link href="/" className="p-3 bg-white rounded-full hover:bg-[#214037] hover:text-white transition">
-                <FaInstagram />
-              </Link>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+        {/* Name + Position */}
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+          <h3 className="text-lg font-semibold text-white">{member.name}</h3>
+          <p className="text-sm text-gray-200">{member.position}</p>
+        </div>
+
+        {/* Hover social icons (but still whole card is clickable) */}
+        <div className="absolute inset-0 flex items-center justify-center gap-4 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span className="p-3 bg-white rounded-full text-[#214037]">
+            <FaFacebookF />
+          </span>
+          <span className="p-3 bg-white rounded-full text-[#214037]">
+            <FaTwitter />
+          </span>
+          <span className="p-3 bg-white rounded-full text-[#214037]">
+            <FaLinkedinIn />
+          </span>
+          <span className="p-3 bg-white rounded-full text-[#214037]">
+            <FaInstagram />
+          </span>
+        </div>
+      </Link>
+    </motion.div>
+  ))}
+</div>
+
     </section>
   );
 }

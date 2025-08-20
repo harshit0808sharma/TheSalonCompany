@@ -49,6 +49,8 @@ export default function OurTeamDetails() {
               <Image
                 src={member.image}
                 alt={member.name}
+                width={500}
+                height={500}
                 className="w-full h-96 object-cover rounded-lg shadow-lg"
               />
             </div>
