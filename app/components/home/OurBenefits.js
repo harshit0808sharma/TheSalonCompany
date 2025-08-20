@@ -75,10 +75,10 @@ export default function OurBenefits() {
       >
         <div className="flex justify-center items-center gap-2">
           <GoDotFill className="text-white" />
-          <span className="text-white font-medium">Why You'll Love Us</span>
+          <span className="text-white font-medium">{"Why You'll Love Us"}</span>
         </div>
         <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-4">
-          Hair • Beauty • Makeup • Nail Extensions
+          {"Hair • Beauty • Makeup • Nail Extensions"}
         </h2>
         {/* <Heading Text={"Hair • Beauty • Makeup • Nail Extensions"}/> */}
         <p className="text-gray-200 text-sm md:text-base">
