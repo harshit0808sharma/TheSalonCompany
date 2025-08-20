@@ -82,7 +82,7 @@ export default function OurBenefits() {
         </h2>
         {/* <Heading Text={"Hair • Beauty • Makeup • Nail Extensions"}/> */}
         <p className="text-gray-200 text-sm md:text-base">
-          Choosing The Salon Company is more than a beauty appointment—it’s an investment in confidence, luxury, and effortless style.
+          {"Choosing The Salon Company is more than a beauty appointment—it’s an investment in confidence, luxury, and effortless style."}
         </p>
       </motion.div>
 

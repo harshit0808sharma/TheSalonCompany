@@ -8,7 +8,7 @@ export default function LoadingPage() {
       <div className="text-center">
         {/* Spinner */}
         <motion.div
-          className="w-16 h-16 border-4 border-[#214037] border-t-transparent rounded-full mx-auto"
+          className="w-16 h-16 border-5 border-white border-t-transparent rounded-full mx-auto"
           animate={{ rotate: 360 }}
           transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
         />

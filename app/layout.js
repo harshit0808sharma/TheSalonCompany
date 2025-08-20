@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify";
 import { HomeProvider } from "./context/HomeContext";
 import "./globals.css";
 import { Montserrat } from 'next/font/google';
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
         <HomeProvider>
           {children}
         </HomeProvider>
+        <ToastContainer />
       </body>
     </html>
   );

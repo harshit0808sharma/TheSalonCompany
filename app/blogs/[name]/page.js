@@ -8,6 +8,7 @@ import Navbar from "@/app/components/Header";
 import CommonHeading from "@/app/components/other/CommonHeading";
 import Footer from "@/app/components/Footer";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
 
 export default function ReadBlog() {
     const params = useParams(); 
@@ -33,7 +34,7 @@ export default function ReadBlog() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Comment submitted:", formData);
-        alert("Your comment has been posted!");
+        toast.success('Your comment has been posted!')
         setFormData({ name: '', email: '', website: '', message: '' });
     };
 

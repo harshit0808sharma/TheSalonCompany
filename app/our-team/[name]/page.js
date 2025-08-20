@@ -17,6 +17,7 @@ import {
   FaCheckCircle,
 } from "react-icons/fa";
 import { HomeContext } from "@/app/context/HomeContext";
+import Image from "next/image";
 
 export default function OurTeamDetails() {
       const { teamMembersData } = useContext(HomeContext)
@@ -45,7 +46,7 @@ export default function OurTeamDetails() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             {/* Profile Image */}
             <div>
-              <img
+              <Image
                 src={member.image}
                 alt={member.name}
                 className="w-full h-96 object-cover rounded-lg shadow-lg"

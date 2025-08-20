@@ -22,7 +22,7 @@ export default function Team() {
         </div>
         <Heading Text={"Meet Our Expert Team: Masters of Beauty & Confidence"}/>
         <p className="text-gray-600">
-          Our team of certified beauty artists, skincare specialists, and PMU experts are dedicated to **enhancing your natural beauty** and delivering a luxurious, personalized experience every visit.
+          {"Our team of certified beauty artists, skincare specialists, and PMU experts are dedicated to **enhancing your natural beauty** and delivering a luxurious, personalized experience every visit."}
         </p>
       </div>
 
@@ -54,18 +54,18 @@ export default function Team() {
 
             {/* Social Icons (hover) */}
             <div className="absolute inset-0 flex items-center justify-center gap-4 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <a href="/" className="p-3 bg-white rounded-full hover:bg-[#214037] hover:text-white transition">
+              <Link href="/" className="p-3 bg-white rounded-full hover:bg-[#214037] hover:text-white transition">
                 <FaFacebookF />
-              </a>
-              <a href="/" className="p-3 bg-white rounded-full hover:bg-[#214037] hover:text-white transition">
+              </Link>
+              <Link href="/" className="p-3 bg-white rounded-full hover:bg-[#214037] hover:text-white transition">
                 <FaTwitter />
-              </a>
-              <a href="/" className="p-3 bg-white rounded-full hover:bg-[#214037] hover:text-white transition">
+              </Link>
+              <Link href="/" className="p-3 bg-white rounded-full hover:bg-[#214037] hover:text-white transition">
                 <FaLinkedinIn />
-              </a>
-              <a href="/" className="p-3 bg-white rounded-full hover:bg-[#214037] hover:text-white transition">
+              </Link>
+              <Link href="/" className="p-3 bg-white rounded-full hover:bg-[#214037] hover:text-white transition">
                 <FaInstagram />
-              </a>
+              </Link>
             </div>
           </motion.div>
         ))}

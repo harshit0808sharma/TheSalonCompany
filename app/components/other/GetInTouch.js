@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 import img from '../../../public/assets/images/image5.jpeg';
+import { toast } from 'react-toastify';
 
 const GetInTouch = () => {
   const [formData, setFormData] = useState({
@@ -27,6 +28,7 @@ const GetInTouch = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
+    toast.success("Thank You for message");
   };
 
   const fadeUp = {
