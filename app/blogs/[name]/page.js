@@ -10,7 +10,7 @@ import Footer from "@/app/components/Footer";
 import { motion } from "framer-motion";
 
 export default function ReadBlog() {
-    const params = useParams(); // { name: "skin-care-tips" }
+    const params = useParams(); 
     const { blogsData } = useContext(HomeContext);
     const { name } = params;
 

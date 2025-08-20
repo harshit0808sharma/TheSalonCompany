@@ -58,12 +58,12 @@ export default function Footer() {
             <div className="space-y-3">
               <div>
                 <p className="text-white/80">Salon Location</p>
-                <p className="text-white/80">Lokaci H.Q,</p>
+                <p className="text-white/80">GT-08, Sector 117, </p>
                 <p className="text-white/80">Noida</p>
               </div>
               <div>
                 <p className="text-white/80">Email</p>
-                <p className="text-white/80">hello@saloncompany.com</p>
+                <p className="text-white/80">bookings@lokaci.com</p>
               </div>
             </div>
           </div>

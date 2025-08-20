@@ -1,47 +1,41 @@
-"use client";
+'use client';
 
 import { useState } from "react";
 import { FaQuoteLeft, FaStar } from "react-icons/fa";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { GoDotFill } from "react-icons/go";
 
 const testimonials = [
   {
-    name: "Jane Cooper",
-    role: "Beauty Treatments",
-    text: "The experts at this clinic took the time to truly understand my condition and prescribed a treatment plan that worked wonders.",
+    name: "Riya",
+    role: "Noida – Brow Transformation",
+    text: "The best decision of my life—I never thought my brows could look this perfect. Waking up confident is priceless.",
     avatar: "/assets/images/person1.png",
   },
   {
-    name: "Dianne Russell",
-    role: "Eczema Treatment",
-    text: "The clinic staff provided amazing support and the treatment improved my skin significantly in just weeks.",
+    name: "Aditi",
+    role: "Noida – Luxury Facial",
+    text: "I’ve had facials before, but nothing compares to how luxurious and relaxing this was. My skin feels brand new!",
     avatar: "/assets/images/person2.png",
   },
   {
-    name: "Cody Fisher",
-    role: "Acne Therapy",
-    text: "I struggled with acne for years, but their personalized care and treatment made a huge difference.",
+    name: "Shruti",
+    role: "Noida – Lash Extensions",
+    text: "The lashes gave me such a confidence boost. Everyone kept asking if I had mascara on—it felt amazing!",
     avatar: "/assets/images/person3.png",
   },
   {
-    name: "Robert Fox",
-    role: "Hair & Skin Care",
-    text: "Professional, kind, and truly effective treatments. I feel more confident than ever.",
+    name: "Priya",
+    role: "Noida – Hair & Makeup",
+    text: "From consultation to the final look, the team made me feel special. My bridal makeup was flawless and lasted all day!",
     avatar: "/assets/images/person4.png",
   },
   {
-    name: "Kristin Watson",
-    role: "Wellness Program",
-    text: "The holistic approach really impressed me, and I saw great improvements in both skin and health.",
+    name: "Sneha",
+    role: "Noida – PMU & Nails",
+    text: "The results were beyond my expectations. The attention to detail is incredible—I can’t recommend The Salon Company enough!",
     avatar: "/assets/images/person5.png",
-  },
-  {
-    name: "Esther Howard",
-    role: "Dermatology Care",
-    text: "The best skincare experience I’ve ever had. Highly professional team and long-lasting results.",
-    avatar: "/assets/images/person7.png",
   },
 ];
 
@@ -69,11 +63,10 @@ export default function Testimonials() {
           <span className="text-teal-800 font-medium">Testimonials</span>
         </div>
         <h2 className="text-3xl md:text-4xl font-bold text-[#214037] leading-snug mb-3">
-          Real patient stories that reflect exceptional skin care
+          Real experiences. Real transformations. Real confidence.
         </h2>
         <p className="text-gray-600 text-base md:text-lg">
-          Hear from our satisfied patients about their journey to healthier,
-          glowing skin. Their stories reflect the care, expertise.
+          Hear from our satisfied clients about their transformations with The Salon Company. Their stories reflect confidence, luxury, and exceptional results.
         </p>
       </motion.div>
 
@@ -94,7 +87,6 @@ export default function Testimonials() {
                 key={index}
                 className="bg-white rounded-2xl shadow-md p-8"
               >
-                {/* Quote Icon */}
                 <FaQuoteLeft className="text-3xl text-[#214037] mb-4" />
 
                 {/* Stars */}
@@ -104,10 +96,10 @@ export default function Testimonials() {
                   ))}
                 </div>
 
-                {/* Text */}
+                {/* Testimonial Text */}
                 <p className="text-gray-700 mb-6 leading-relaxed">{t.text}</p>
 
-                {/* User Info */}
+                {/* Client Info */}
                 <div className="flex items-center gap-3">
                   <Image
                     src={t.avatar}

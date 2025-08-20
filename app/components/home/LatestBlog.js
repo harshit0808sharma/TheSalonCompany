@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -7,6 +7,7 @@ import { useContext, useState, useEffect } from "react";
 import { HomeContext } from "@/app/context/HomeContext";
 import Link from "next/link";
 import { GoDotFill } from "react-icons/go";
+import Heading from "../other/Heading";
 
 export default function BlogSection() {
   const { blogsData } = useContext(HomeContext);
@@ -21,74 +22,77 @@ export default function BlogSection() {
   return (
     <section className="bg-[#fdf6f6] py-20 px-6 md:px-12">
       {/* Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-center max-w-3xl mx-auto mb-12"
+      >
         <div className="flex justify-center items-center gap-2">
           <GoDotFill className="text-teal-800" />
-          <span className="text-teal-800 font-medium">Latest Blogs</span>
+          <span className="text-teal-800 font-medium">Our Blog</span>
         </div>
-        <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#214037] leading-snug mb-3">
-          New insights: read our latest posts for skin care tips
-        </h2>
+        <Heading Text={"Tips, Trends & Beauty Secrets"}/>
         <p className="text-gray-600">
-          Read our latest posts for fresh insights on skin care. Our articles
-          cover everything from common dermatological concerns.
+          Stay inspired with expert insights from The Salon Company. From latest beauty trends to skincare tips, our blog keeps you looking and feeling your best.
         </p>
-      </div>
+      </motion.div>
 
       {/* Blog Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
         {loading
           ? Array(3)
-            .fill(0)
-            .map((_, index) => (
-              <div
-                key={index}
-                className="flex flex-col bg-white rounded-2xl shadow-md overflow-hidden animate-pulse h-[400px]"
-              >
-                {/* Image Skeleton */}
-                <div className="w-full h-[250px] bg-gray-200"></div>
-
-                {/* Content Skeleton */}
-                <div className="flex flex-col flex-grow p-5 space-y-3">
-                  <div className="h-5 w-3/4 bg-gray-300 rounded"></div>
-                  <div className="h-4 w-1/2 bg-gray-300 rounded mt-auto"></div>
+              .fill(0)
+              .map((_, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col bg-white rounded-2xl shadow-md overflow-hidden animate-pulse h-[400px]"
+                >
+                  <div className="w-full h-[250px] bg-gray-200"></div>
+                  <div className="flex flex-col flex-grow p-5 space-y-3">
+                    <div className="h-5 w-3/4 bg-gray-300 rounded"></div>
+                    <div className="h-4 w-1/2 bg-gray-300 rounded mt-auto"></div>
+                  </div>
                 </div>
-              </div>
-            ))
-          : blogsData.slice(0, 3).map((blog, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className="flex flex-col bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow"
-            >
-              {/* Image */}
-              <div className="w-full overflow-hidden">
-                <Image
-                  src={blog.image}
-                  alt={blog.title}
-                  width={400}
-                  height={300}
-                  className="w-full h-[250px] object-cover hover:scale-105 transition-transform duration-300"
-                />
-              </div>
+              ))
+          : blogsData.slice(0, 5).map((blog, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="flex flex-col bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+              >
+                {/* Image */}
+                <div className="w-full overflow-hidden">
+                  <Image
+                    src={blog.image}
+                    alt={blog.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-[250px] object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
 
-              {/* Content */}
-              <div className="flex flex-col flex-grow p-5">
-                <h3 className="text-lg font-semibold text-[#214037] mb-3 hover:text-[#2d6d5f] transition-colors cursor-pointer">
-                  {blog.title}
-                </h3>
+                {/* Content */}
+                <div className="flex flex-col flex-grow p-5">
+                  <h3 className="text-lg font-semibold text-[#214037] mb-3 hover:text-[#2d6d5f] transition-colors cursor-pointer">
+                    {blog.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-4">{blog.excerpt}</p>
 
-                {/* Read More Button */}
-                <Link href={`/blogs/${blog.title.toLowerCase().replace(/\s+/g, "-")}`}>
-                  Read More
-                </Link>
-
-              </div>
-            </motion.div>
-          ))}
+                  {/* Read More */}
+                  <Link
+                    href={`/blogs/${blog.title.toLowerCase().replace(/\s+/g, "-")}`}
+                    className="flex items-center text-teal-800 font-medium hover:text-teal-900 transition-colors"
+                  >
+                    Read More <FaArrowRight className="ml-2" />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
       </div>
     </section>
   );

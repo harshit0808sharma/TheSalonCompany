@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Heading from "../other/Heading";
 
 export default function ContactSection() {
   return (
@@ -35,9 +36,7 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="w-full"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#214037] mb-4">
-            Book your appointment today!
-          </h2>
+          <Heading Text={"Book your appointment today!"}/>
           <p className="text-gray-600 mb-8 text-sm sm:text-base">
             Get the perfect look you deserve. Schedule your salon visit and let our 
             experts take care of your hair, skin, and beauty needs.

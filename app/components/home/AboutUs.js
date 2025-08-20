@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaCheck, FaPlay } from "react-icons/fa";
+import { FaArrowRight, FaCheck, FaPlay } from "react-icons/fa";
 import image1 from "../../../public/assets/images/image4.jpeg";
 import image2 from "../../../public/assets/images/image2.jpeg";
 import { useState, useEffect } from "react";
@@ -10,6 +10,7 @@ import { GoDotFill } from "react-icons/go";
 import { TbUsers } from "react-icons/tb";
 import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
+import Heading from "../other/Heading";
 
 export default function AboutSection() {
     const [teamCount, setTeamCount] = useState(0);
@@ -22,14 +23,13 @@ export default function AboutSection() {
             current += 1;
             setTeamCount(current);
             if (current >= targetCount) clearInterval(interval);
-        }, 50); // Adjust speed here
+        }, 50);
         return () => clearInterval(interval);
     }, []);
 
     return (
         <section className="bg-[#fef9f9] py-20">
             <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-
                 {/* Left Images */}
                 <div className="relative">
                     <motion.div
@@ -38,7 +38,11 @@ export default function AboutSection() {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <Image src={image1} alt="Doctor" className="w-full max-w-sm md:max-w-md h-auto object-cover rounded-4xl" />
+                        <Image
+                            src={image1}
+                            alt="Doctor"
+                            className="w-full max-w-sm md:max-w-md h-auto object-cover rounded-4xl"
+                        />
                     </motion.div>
 
                     <motion.div
@@ -47,15 +51,21 @@ export default function AboutSection() {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        <Image src={image2} alt="Doctor at work" className="w-full h-auto object-cover" />
+                        <Image
+                            src={image2}
+                            alt="Doctor at work"
+                            className="w-full h-auto object-cover"
+                        />
                     </motion.div>
+
                     <motion.div
                         initial={{ rotate: -90, opacity: 0 }}
                         whileInView={{ rotate: 0, opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.5 }}
-                        className="absolute top-6 md:top-10 right-4 md:right-20 bg-[#214037] text-white w-36 h-36 flex items-center justify-center rounded-full border-8 border-white text-sm text-center font-medium shadow-lg spin-slow"
+                        className="absolute top-6 md:top-10 right-4 md:right-20 bg-[#214037] text-white w-36 h-36 flex items-center gap-2 justify-center rounded-full border-8 border-white text-sm text-center font-medium shadow-lg spin-slow"
                     >
                         <span className="leading-tight">Contact Us </span>
+                        <FaArrowRight />
                     </motion.div>
                 </div>
 
@@ -66,34 +76,45 @@ export default function AboutSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
                 >
+                    {/* Heading */}
                     <div className="flex items-center gap-2">
                         <GoDotFill className="text-teal-800" />
                         <span className="text-[#264D45] font-medium"> About Us</span>
                     </div>
-                    <h2 className="text-4xl font-bold leading-snug text-[#264D45]">
-                        Why choose us for all your dermatology needs
-                    </h2>
+                    <Heading Text={"The Experience at The Salon Company"} />
                     <p className="text-gray-600 text-sm md:text-base">
-                        {"The Salon Company beckons you into a sanctuary where every detail is dedicated to your glow..."}
+                        Step into The Salon Company, where luxury meets precision. We aren’t
+                        just a salon—we’re a sanctuary designed for confidence,
+                        self-expression, and renewal.
                     </p>
 
-                    {/* Features */}
-                    <ul className="space-y-3">
-                        <li className="flex items-center gap-3 text-sm md:text-base">
-                            <FaCheck className="text-[#264D45]" /> Commitment to Excellence in Skin Health
-                        </li>
-                        <li className="flex items-center gap-3 text-sm md:text-base">
-                            <FaCheck className="text-[#264D45]" /> State-of-the-Art Facility and Technology
-                        </li>
-                        <li className="flex items-center gap-3 text-sm md:text-base">
-                            <FaCheck className="text-[#264D45]" /> Trusted by Thousands of Satisfied Patients
-                        </li>
-                    </ul>
+                    {/* Philosophy */}
+                    <div className="bg-white p-6 rounded-2xl shadow-md border-l-4 border-[#264D45]">
+                        <h3 className="text-xl font-semibold text-[#264D45] mb-3">
+                            💖 Our Philosophy
+                        </h3>
+                        <ul className="space-y-2 text-gray-700 text-sm md:text-base">
+                            <li>✨ Beauty should feel effortless, not exhausting.</li>
+                            <li>✨ Confidence should last beyond the mirror.</li>
+                            <li>✨ Every client deserves a touch of luxury and artistry.</li>
+                        </ul>
+                    </div>
+
+                    <p className="text-gray-600 text-sm md:text-base">
+                        Whether you’re looking for permanent makeup that saves you time,
+                        beauty treatments that rejuvenate your skin, or lashes and nails
+                        that add a finishing touch—we’ve mastered the balance between
+                        artistry and care. At The Salon Company, every visit is a
+                        celebration of your most radiant self.
+                    </p>
 
                     {/* Buttons + Team Count */}
                     <div className="flex items-center gap-6 mt-8 flex-wrap">
                         <div className="flex gap-4 flex-wrap">
-                            <Link href="/about" className="bg-[#264D45] text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-[#1d3b35] transition text-sm md:text-base">
+                            <Link
+                                href="/about"
+                                className="bg-[#264D45] text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-[#1d3b35] transition text-sm md:text-base"
+                            >
                                 <span> About More</span> <FaArrowRightLong />
                             </Link>
                             <button className="border border-[#264D45] text-[#264D45] px-6 py-3 rounded-full flex items-center gap-2 hover:bg-[#264D45] hover:text-white transition text-sm md:text-base">

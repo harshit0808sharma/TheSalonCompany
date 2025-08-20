@@ -1,13 +1,47 @@
-"use client";
+'use client';
 
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaPhone } from "react-icons/fa";
-import treatmentImg from "../../../public/assets/images/image4.jpeg";
+import treatmentImg from "../../../public/assets/images/image2.jpeg";
+import Heading from "../other/Heading";
 
 export default function HowWeWork() {
+  const steps = [
+    {
+      num: "01",
+      title: "Book Your Appointment",
+      desc: "Easy, flexible, and hassle-free. Schedule your session online, via phone, or WhatsApp — we work around your schedule.",
+    },
+    {
+      num: "02",
+      title: "Arrive & Relax",
+      desc: "Step into luxury. From soothing music to comfy seating, every detail ensures your experience begins with calm and comfort.",
+    },
+    {
+      num: "03",
+      title: "Consultation & Custom Plan",
+      desc: "Your goals guide our artistry. Our expert artists recommend treatments tailored to your style, lifestyle, and personality.",
+    },
+    {
+      num: "04",
+      title: "Service Execution with Precision",
+      desc: "Expert hands, flawless results. PMU, lashes, facials, hair, or nails — we combine skill, premium products, and attention to detail.",
+    },
+    {
+      num: "05",
+      title: "Reveal & Feedback",
+      desc: "Admire your new look! We walk you through the results, provide aftercare tips, and ensure you leave radiant and confident.",
+    },
+    {
+      num: "06",
+      title: "Stay Connected",
+      desc: "Ongoing care & tips. Follow-ups, reminders, and guidance ensure your results last longer and you continue feeling fabulous.",
+    },
+  ];
+
   return (
-    <section className="grid md:grid-cols-2 gap-8 items-center py-16 px-6 md:px-12 bg-[#fdf9f8]">
+    <section className="grid md:grid-cols-2 gap-10 items-center py-16 px-6 md:px-12 bg-[#fdf9f8]">
       {/* Left Side */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}
@@ -15,34 +49,15 @@ export default function HowWeWork() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <p className="text-sm text-[#214037] mb-2">How We work</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-[#214037] leading-snug mb-4">
-          How we work: a commitment to your skin health
-        </h2>
+        <p className="text-sm text-[#214037] mb-2">How We Work</p>
+        <Heading Text={"Seamless, Luxurious, and Client-Centered"}/>
         <p className="text-gray-600 mb-8">
-          We’re dedicated to helping you achieve and maintain beautiful, healthy
-          skin. Trust us to provide exceptional care tailored to you.
+          At <span className="font-semibold">The Salon Company</span>, we’ve perfected a workflow that combines expertise, comfort, and efficiency, ensuring every client leaves radiant and confident.
         </p>
 
         {/* Steps */}
         <div className="space-y-6">
-          {[
-            {
-              num: "01",
-              title: "Personalized Consultation",
-              desc: "We take time to understand your needs and create a plan that fits you perfectly.",
-            },
-            {
-              num: "02",
-              title: "Tailored Treatment Plans",
-              desc: "Every treatment is designed to give you the best results with safety and comfort.",
-            },
-            {
-              num: "03",
-              title: "Continuous Care & Follow-Up",
-              desc: "We support you even after treatments to ensure lasting results.",
-            },
-          ].map((step, i) => (
+          {steps.map((step, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, x: -30 }}
@@ -72,7 +87,7 @@ export default function HowWeWork() {
         <Image
           src={treatmentImg}
           alt="Skin treatment"
-          className="rounded-2xl object-cover w-full h-[500px]"
+          className="rounded-2xl object-cover w-full h-full"
         />
 
         {/* Bottom overlay */}

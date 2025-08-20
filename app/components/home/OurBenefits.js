@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -9,27 +9,34 @@ import {
   FaGem,
   FaLeaf,
   FaPhoneAlt,
+  FaClock,
+  FaSmileBeam,
 } from "react-icons/fa";
-
-import salonImg from "../../../public/assets/images/image4.jpeg";
+import salonImg from "../../../public/assets/images/hair.png";
 import { GoDotFill } from "react-icons/go";
+import Heading from "../other/Heading";
 
 export default function OurBenefits() {
   const leftBenefits = [
     {
       icon: <FaPaintBrush className="text-[#214037] text-2xl" />,
       title: "Permanent Makeup",
-      desc: "Wake up flawless with microblading, lip blushing, and eyeliner tattoo done by skilled artists.",
+      desc: "Wake up flawless every day with PMU, lip blushing, and eyeliner tattoo applied by expert artists.",
     },
     {
       icon: <FaSpa className="text-[#214037] text-2xl" />,
       title: "Luxury Beauty Treatments",
-      desc: "Indulge in bespoke facials, eyebrow lamination, and skin rejuvenation therapies.",
+      desc: "Indulge in bespoke facials, eyebrow lamination, and skin rejuvenation therapies designed for your skin type.",
     },
     {
       icon: <FaHandSparkles className="text-[#214037] text-2xl" />,
       title: "Eyelash Extensions",
-      desc: "Choose from Classic, Hybrid, Volume, or Colorful extensions tailored to your style.",
+      desc: "Choose from Classic, Hybrid, Volume, or Colorful lashes to enhance your natural beauty effortlessly.",
+    },
+    {
+      icon: <FaClock className="text-[#214037] text-2xl" />,
+      title: "Time-Saving Solutions",
+      desc: "Long-lasting treatments reduce your daily routine without compromising style or elegance.",
     },
   ];
 
@@ -37,17 +44,22 @@ export default function OurBenefits() {
     {
       icon: <FaGem className="text-[#214037] text-2xl" />,
       title: "Premium Salon Experience",
-      desc: "Step into a sanctuary where natural beauty is enhanced with precision and artistry.",
+      desc: "Step into a sanctuary where natural beauty is enhanced with precision, artistry, and attention to detail.",
     },
     {
       icon: <FaLeaf className="text-[#214037] text-2xl" />,
       title: "Safe & Hygienic",
-      desc: "We maintain the highest standards of cleanliness and safety for every treatment.",
+      desc: "Highest standards of cleanliness and safety ensure peace of mind for every treatment.",
     },
     {
       icon: <FaPhoneAlt className="text-[#214037] text-2xl" />,
       title: "Free Consultation",
-      desc: "Call us at +91 88000 26046 and let our experts guide you to the perfect treatment.",
+      desc: "Call us at +91 88000 26046 for personalized guidance to find the perfect beauty solution.",
+    },
+    {
+      icon: <FaSmileBeam className="text-[#214037] text-2xl" />,
+      title: "Confidence That Lasts",
+      desc: "Leave the salon glowing, radiant, and unstoppable with treatments designed to boost your self-esteem.",
     },
   ];
 
@@ -62,16 +74,15 @@ export default function OurBenefits() {
         viewport={{ once: true }}
       >
         <div className="flex justify-center items-center gap-2">
-                  <GoDotFill className="text-white" />
-                  <span className="text-white font-medium">Our Benefits</span>
-                </div>
+          <GoDotFill className="text-white" />
+          <span className="text-white font-medium">Why You'll Love Us</span>
+        </div>
         <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-4">
           Hair • Beauty • Makeup • Nail Extensions
         </h2>
+        {/* <Heading Text={"Hair • Beauty • Makeup • Nail Extensions"}/> */}
         <p className="text-gray-200 text-sm md:text-base">
-          Discover the art of luxury beauty. From permanent makeup to
-          rejuvenating facials, our expert team ensures you leave glowing with
-          confidence and elegance.
+          Choosing The Salon Company is more than a beauty appointment—it’s an investment in confidence, luxury, and effortless style.
         </p>
       </motion.div>
 
@@ -92,12 +103,8 @@ export default function OurBenefits() {
                 {item.icon}
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-white">
-                  {item.title}
-                </h3>
-                <p className="text-gray-200 text-sm md:text-base">
-                  {item.desc}
-                </p>
+                <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                <p className="text-gray-200 text-sm md:text-base">{item.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -135,12 +142,8 @@ export default function OurBenefits() {
                 {item.icon}
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-white">
-                  {item.title}
-                </h3>
-                <p className="text-gray-200 text-sm md:text-base">
-                  {item.desc}
-                </p>
+                <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                <p className="text-gray-200 text-sm md:text-base">{item.desc}</p>
               </div>
             </motion.div>
           ))}

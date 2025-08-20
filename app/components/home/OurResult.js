@@ -10,6 +10,7 @@ import after1 from "../../../public/assets/images/after1.jpg";
 import before2 from "../../../public/assets/images/before2.jpg";
 import after2 from "../../../public/assets/images/after2.jpg";
 import { GoDotFill } from "react-icons/go";
+import Heading from "../other/Heading";
 
 export default function BeforeAfter() {
   // Slider 1 state
@@ -44,9 +45,7 @@ export default function BeforeAfter() {
             <GoDotFill className="text-teal-800" />
             <span className="text-teal-800 font-medium">Our Results</span>
           </div>
-        <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-4 text-[#214037]">
-          Before &amp; after: witness the power of dermatology
-        </h2>
+        <Heading Text={"Before & after: witness the power of dermatology"}/>
         <p className="text-gray-600">
           See the remarkable transformations for yourself—our &apos;Before &amp;
           After&apos; gallery highlights the powerful impact of dermatological

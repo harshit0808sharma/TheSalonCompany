@@ -1,6 +1,6 @@
 "use client";
 
-import { FaCube, FaGlobe, FaGem } from "react-icons/fa";
+import { FaHeart, FaStar, FaSmile } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 import { motion } from "framer-motion";
 
@@ -20,12 +20,10 @@ export default function OurMission() {
           <span className="text-teal-800 font-medium">Our Mission / Vision</span>
         </div>
         <h2 className="text-3xl md:text-4xl font-semibold text-teal-900 leading-snug">
-          Our Mission and Vision to Provide <br /> Exceptional Care Healthy,
-          Radiant Skin
+          Crafting Effortless Beauty <br /> With Confidence & Care
         </h2>
         <p className="text-gray-600 mt-4">
-          With advanced treatments and personalized care, we aim to enhance your
-          skin’s health and boost your confidence at every step.
+          At <strong>The Salon Company</strong>, we combine artistry, luxury, and personalized care to enhance your natural beauty and empower your confidence every single day.
         </p>
       </motion.div>
 
@@ -34,23 +32,23 @@ export default function OurMission() {
         {[
           {
             title: "Our Mission",
-            icon: <FaCube className="text-teal-800 text-3xl" />,
+            icon: <FaHeart className="text-teal-800 text-3xl" />,
             bg: "bg-pink-100",
-            text: "Commitment exceptional quality, patient-centric care, continuous innovation in dermatology.",
+            text: "To deliver flawless beauty solutions with personalized care, precision, and artistry, helping every client feel confident and radiant.",
             cardStyle: "bg-white text-teal-900",
           },
           {
             title: "Our Vision",
-            icon: <FaGlobe className="text-teal-900 text-3xl" />,
+            icon: <FaStar className="text-teal-900 text-3xl" />,
             bg: "bg-white",
-            text: "Commitment exceptional quality, patient-centric care, continuous innovation in dermatology.",
+            text: "To be the most trusted beauty sanctuary, where luxury meets effortless beauty and every client experiences care that lasts beyond the mirror.",
             cardStyle: "bg-teal-900 text-white",
           },
           {
-            title: "Our Value",
-            icon: <FaGem className="text-teal-800 text-3xl" />,
+            title: "Our Values",
+            icon: <FaSmile className="text-teal-800 text-3xl" />,
             bg: "bg-pink-100",
-            text: "Commitment exceptional quality, patient-centric care, continuous innovation in dermatology.",
+            text: "Passion for excellence, personalized attention, premium quality, and creating confidence that shines through every service we offer.",
             cardStyle: "bg-white text-teal-900",
           },
         ].map((card, i) => (

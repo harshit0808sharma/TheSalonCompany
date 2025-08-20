@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { FaCheck, FaUsers } from "react-icons/fa";
+import { FaArrowRight, FaCheck, FaUsers } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 import img1 from "../../../public/assets/images/image11.jpeg";
@@ -59,7 +59,7 @@ export default function WhoWeAre() {
               <FaUsers size={40} />
               <div>
                 <p className="text-4xl font-bold">{count}+</p>
-                <p className="text-lg">Reliable Expertise</p>
+                <p className="text-lg">Years of Expertise</p>
               </div>
             </motion.div>
 
@@ -81,9 +81,9 @@ export default function WhoWeAre() {
               initial={{ rotate: -90, opacity: 0 }}
               whileInView={{ rotate: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="absolute left-56 md:-left-20 top-1/2 -translate-y-1/2 bg-[#214037] text-white w-36 h-36 flex items-center justify-center rounded-full border-8 border-white text-sm text-center font-medium shadow-lg spin-slow"
+              className="absolute left-56 md:-left-20 top-1/2 -translate-y-1/2 bg-[#214037] text-white w-36 h-36 flex items-center justify-center gap-2 rounded-full border-8 border-white text-sm text-center font-medium shadow-lg spin-slow"
             >
-              <span className="leading-tight">Contact Us <GoDotFill/></span>
+              <span className="leading-tight">Book Your Consultation</span> <FaArrowRight />
             </motion.div>
           </div>
         </motion.div>
@@ -101,24 +101,21 @@ export default function WhoWeAre() {
           </div>
 
           <h2 className="text-3xl md:text-4xl font-bold text-[#214037] mb-4 leading-snug">
-            Committed to Excellence in Skin Health and Beauty
+            Where Luxury Meets Effortless Beauty
           </h2>
           <p className="text-gray-600 mb-6 leading-relaxed">
-            At The Salon Company, we combine modern beauty techniques with a
-            personalized touch. Our experts specialize in hair, makeup, skin,
-            and nail treatments — ensuring you walk out with confidence and
-            elegance.
+            At <strong>The Salon Company</strong>, we combine **premium beauty treatments, skilled artistry, and personalized care** to help you look and feel your absolute best. From **hair, makeup, skin, and nails**, every service is crafted to **enhance your confidence and radiance**.
           </p>
 
           {/* Features */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             {[
-              "Professional Stylists",
-              "Personalized Beauty Plans",
-              "Modern Equipment",
-              "Wide Range of Services",
+              "Certified Beauty Experts",
+              "Tailored Beauty Plans",
+              "State-of-the-Art Tools",
+              "Comprehensive Services",
               "Trusted by Clients",
-              "Relaxing Environment",
+              "Relaxing Luxury Environment",
             ].map((item, i) => (
               <motion.div
                 key={i}
