@@ -14,9 +14,8 @@ import Heading from "../other/Heading";
 
 export default function AboutSection() {
     const [teamCount, setTeamCount] = useState(0);
-    const targetCount = 29; // Total team members
+    const targetCount = 29;
 
-    // Counting effect
     useEffect(() => {
         let current = 0;
         const interval = setInterval(() => {

@@ -3,14 +3,14 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useContext, useState } from "react";
-import { HomeContext } from "@/app/context/HomeContext";
+import { SalonContext } from "@/app/context/SalonContext";
 import { GoDotFill } from "react-icons/go";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Link from "next/link";
 import Heading from "../other/Heading";
 
 export default function Services() {
-  const { servicesData } = useContext(HomeContext);
+  const { servicesData } = useContext(SalonContext);
   const [index, setIndex] = useState(0);
 
   const nextSlide = () => setIndex((prev) => (prev + 1) % servicesData.length);

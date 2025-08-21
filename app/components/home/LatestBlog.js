@@ -4,16 +4,16 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import { useContext, useState, useEffect } from "react";
-import { HomeContext } from "@/app/context/HomeContext";
+import { SalonContext } from "@/app/context/SalonContext";
 import Link from "next/link";
 import { GoDotFill } from "react-icons/go";
 import Heading from "../other/Heading";
 
-export default function BlogSection() {
-  const { blogsData } = useContext(HomeContext);
+export default function BlogSection({limit = "all"}) {
+  const { blogsData } = useContext(SalonContext);
   const [loading, setLoading] = useState(true);
+    const itemsToShow = limit === "all" ? blogsData : blogsData.slice(0, Number(limit));
 
-  // Simulate 1 second loading
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);
@@ -56,7 +56,7 @@ export default function BlogSection() {
                   </div>
                 </div>
               ))
-          : blogsData.slice(0, 5).map((blog, index) => (
+          : itemsToShow.map((blog, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 40 }}

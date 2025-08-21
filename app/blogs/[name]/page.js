@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useContext, useState } from "react";
-import { HomeContext } from "@/app/context/HomeContext";
+import { SalonContext } from "@/app/context/SalonContext";
 import Navbar from "@/app/components/Header";
 import CommonHeading from "@/app/components/other/CommonHeading";
 import Footer from "@/app/components/Footer";
@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 
 export default function ReadBlog() {
     const params = useParams(); 
-    const { blogsData } = useContext(HomeContext);
+    const { blogsData } = useContext(SalonContext);
     const { name } = params;
 
     // Find the blog by the URL param

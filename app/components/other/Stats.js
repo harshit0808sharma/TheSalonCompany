@@ -2,9 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FaRegSmile, FaScissors, FaSpa, FaCrown, FaCut, FaLeaf } from "react-icons/fa";
+import { FaRegSmile, FaCrown, FaCut, FaLeaf } from "react-icons/fa";
 
-// ✅ Move static array outside
 const stats = [
   { icon: <FaRegSmile className="text-4xl text-pink-600" />, value: 96, suffix: "%", label: "Happy Clients" },
   { icon: <FaCut className="text-4xl text-pink-600" />, value: 12, suffix: "+", label: "Years of Styling" },
@@ -19,7 +18,7 @@ export default function Stats() {
     stats.forEach((item, i) => {
       let start = 0;
       const end = item.value;
-      const duration = 2000; // 2 seconds
+      const duration = 2000; 
       const stepTime = Math.abs(Math.floor(duration / end));
 
       const timer = setInterval(() => {

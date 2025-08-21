@@ -16,11 +16,11 @@ import {
   FaCalendarAlt,
   FaCheckCircle,
 } from "react-icons/fa";
-import { HomeContext } from "@/app/context/HomeContext";
+import { SalonContext } from "@/app/context/SalonContext";
 import Image from "next/image";
 
 export default function OurTeamDetails() {
-      const { teamMembersData } = useContext(HomeContext)
+      const { teamMembersData } = useContext(SalonContext)
     
   const params = useParams();
   const { name } = params;

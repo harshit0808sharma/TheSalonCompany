@@ -1,5 +1,5 @@
 import { ToastContainer } from "react-toastify";
-import { HomeProvider } from "./context/HomeContext";
+import { SalonProvider } from "./context/SalonContext";
 import "./globals.css";
 import { Montserrat } from 'next/font/google';
 
@@ -11,9 +11,11 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "The Salon Company",
-  description: "this is salon company",
+  title: "The Salon Company | Hair • Beauty • Makeup • Nails",
+  description:
+    "The Salon Company in Noida offers expert hair, beauty, makeup, permanent makeup, nail extensions, facials, and lash treatments. Book your free consultation today!",
 };
+
 
 export default function RootLayout({ children }) {
   return (
@@ -21,9 +23,9 @@ export default function RootLayout({ children }) {
       <body
         className={montserrat.className}
       >
-        <HomeProvider>
+        <SalonProvider>
           {children}
-        </HomeProvider>
+        </SalonProvider>
         <ToastContainer />
       </body>
     </html>

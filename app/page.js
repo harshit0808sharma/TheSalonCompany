@@ -31,7 +31,7 @@ export default function Home() {
       <FAQSection />
       <Testimonials />
       <Team />
-      <BlogSection />
+      <BlogSection limit={3}/>
       <ContactSection />
       <Footer />
     </>

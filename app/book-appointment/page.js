@@ -183,8 +183,6 @@ export default function BookAppointment() {
           </Formik>
         </motion.div>
       </section>
-
-      <hr />
       <ContactInfo />
       <OurBenefits />
       <Testimonials />

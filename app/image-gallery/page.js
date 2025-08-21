@@ -4,10 +4,13 @@ import Image from "next/image";
 import Footer from "../components/Footer";
 import Navbar from "../components/Header";
 import CommonHeading from "../components/other/CommonHeading";
-import { galleryData } from "@/public/assets/data";
 import { motion } from "framer-motion";
+import { useContext } from "react";
+import { SalonContext } from "../context/SalonContext";
 
 export default function ImageGallery() {
+    const { galleryData } = useContext(SalonContext);
+    
   return (
     <>
       <Navbar />

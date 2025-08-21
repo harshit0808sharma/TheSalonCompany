@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 import { useContext } from "react";
-import { HomeContext } from "@/app/context/HomeContext";
+import { SalonContext } from "@/app/context/SalonContext";
 import Link from "next/link";
 import Heading from "../other/Heading";
 
 export default function Team() {
-  const { teamMembersData } = useContext(HomeContext);
+  const { teamMembersData } = useContext(SalonContext);
 
   return (
     <section className="bg-[#faf7f7] py-20 px-6 md:px-12">
