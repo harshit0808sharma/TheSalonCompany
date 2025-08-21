@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import { FaRegSmile, FaCrown, FaCut, FaLeaf } from "react-icons/fa";
 
 const stats = [
-  { icon: <FaRegSmile className="text-4xl text-pink-600" />, value: 96, suffix: "%", label: "Happy Clients" },
-  { icon: <FaCut className="text-4xl text-pink-600" />, value: 12, suffix: "+", label: "Years of Styling" },
-  { icon: <FaLeaf className="text-4xl text-pink-600" />, value: 1000, suffix: "+", label: "Beauty Treatments" },
-  { icon: <FaCrown className="text-4xl text-pink-600" />, value: 30, suffix: "+", label: "Luxury Facilities" },
+  { icon: <FaRegSmile className="text-4xl text-teal-600" />, value: 96, suffix: "%", label: "Happy Clients" },
+  { icon: <FaCut className="text-4xl text-teal-600" />, value: 12, suffix: "+", label: "Years of Styling" },
+  { icon: <FaLeaf className="text-4xl text-teal-600" />, value: 1000, suffix: "+", label: "Beauty Treatments" },
+  { icon: <FaCrown className="text-4xl text-teal-600" />, value: 30, suffix: "+", label: "Luxury Facilities" },
 ];
 
 export default function Stats() {

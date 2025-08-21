@@ -13,11 +13,9 @@ import { GoDotFill } from "react-icons/go";
 import Heading from "../other/Heading";
 
 export default function BeforeAfter() {
-  // Slider 1 state
   const [hover1, setHover1] = useState(false);
   const [pos1, setPos1] = useState(0.5);
 
-  // Slider 2 state
   const [hover2, setHover2] = useState(false);
   const [pos2, setPos2] = useState(0.5);
 
@@ -53,9 +51,7 @@ export default function BeforeAfter() {
         </p>
       </motion.div>
 
-      {/* Comparison Gallery */}
       <div className="grid md:grid-cols-2 gap-10 md:p-10">
-        {/* Slider 1 */}
         <motion.div
           className="rounded-4xl overflow-hidden shadow-lg"
           initial={{ opacity: 0, y: 30 }}
@@ -97,7 +93,6 @@ export default function BeforeAfter() {
           />
         </motion.div>
 
-        {/* Slider 2 */}
         <motion.div
           className="rounded-4xl overflow-hidden shadow-lg"
           initial={{ opacity: 0, y: 30 }}

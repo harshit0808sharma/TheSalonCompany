@@ -2,40 +2,15 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FaHeart, FaStar, FaCheck } from 'react-icons/fa';
 import { GoDotFill } from 'react-icons/go';
 
 import salonImg from '../../../public/assets/images/salon.jpg';
 import Heading from '../other/Heading';
+import { useContext } from 'react';
+import { SalonContext } from '@/app/context/SalonContext';
 
 export default function WhyChooseUs() {
-  const features = [
-    {
-      icon: <FaCheck className="text-xl" />,
-      title: 'Expert Artists',
-      desc: 'Certified professionals with years of experience delivering flawless results.',
-    },
-    {
-      icon: <FaCheck className="text-xl" />,
-      title: 'Luxury Experience',
-      desc: 'A space designed to pamper, relax, and delight you every visit.',
-    },
-    {
-      icon: <FaCheck className="text-xl" />,
-      title: 'Personalized Care',
-      desc: 'Every service is customized to your unique needs and style.',
-    },
-    {
-      icon: <FaCheck className="text-xl" />,
-      title: 'Premium Products',
-      desc: 'Only the finest pigments, tools, and techniques for lasting results.',
-    },
-    {
-      icon: <FaCheck className="text-xl" />,
-      title: 'Results That Last',
-      desc: 'Flawless beauty that stays from morning to night.',
-    },
-  ];
+  const { features } = useContext(SalonContext)
 
   return (
     <section className="py-16 bg-[#fdf8f9]">
@@ -55,7 +30,6 @@ export default function WhyChooseUs() {
             Because you deserve more than just a salon—you deserve The Salon Company.
           </p>
 
-          {/* Features List */}
           <div className="space-y-6">
             {features.map((feature, i) => (
               <motion.div
@@ -77,7 +51,6 @@ export default function WhyChooseUs() {
           </div>
         </motion.div>
 
-        {/* Right Image */}
         <motion.div
           className="relative"
           initial={{ opacity: 0, x: 50 }}

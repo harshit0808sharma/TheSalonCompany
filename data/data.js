@@ -1,3 +1,5 @@
+import { FaCheck, FaPlay } from "react-icons/fa";
+import { GiLipstick, GiFeather, GiEyeTarget } from "react-icons/gi";
 
 export const servicesData = [
   {
@@ -226,10 +228,232 @@ export const teamMembersData = [
 ];
 
 export const galleryData = [
-  {src: "/assets/images/image10.jpeg"},
-  {src: "/assets/images/image2.jpeg"},
-  {src: "/assets/images/image3.jpeg"},
-  {src: "/assets/images/image4.jpeg"},
-  {src: "/assets/images/image5.jpeg"},
-  {src: "/assets/images/image6.jpeg"},
+  { src: "/assets/images/galleryImage1.jpg", caption: "Makup" },
+  { src: "/assets/images/galleryImage2.jpg", caption: "Hair Dry"},
+  { src: "/assets/images/galleryImage3.jpg", caption: "Hair ponytail"},
+  { src: "/assets/images/galleryImage4.jpg", caption: "Hair Wash" },
+  { src: "/assets/images/galleryImage5.jpg", caption: "Hair Cutting" },
+  { src: "/assets/images/galleryImage6.jpg", caption: "Hair Cutting" },
+  { src: "/assets/images/galleryImage7.jpg", caption: "Hair cutting" },
+  { src: "/assets/images/galleryImage8.jpg", caption: "Beard Seving" },
+  { src: "/assets/images/galleryImage9.jpg", caption: "Beard Seving" },
 ]
+
+export const galleryVideoData = [
+  {
+    src: "",
+    fallback: "/assets/images/galleryImage1.jpg",
+    caption: "Makeup",
+  },
+  {
+    src: "",
+    fallback: "/assets/images/galleryImage2.jpg",
+    caption: "Hair Dry",
+  },
+  {
+    src: "",
+    fallback: "/assets/images/galleryImage3.jpg",
+    caption: "Hair Ponytail",
+  },
+  {
+    src: "",
+    fallback: "/assets/images/galleryImage4.jpg",
+    caption: "Hair Wash",
+  },
+  {
+    src: "",
+    fallback: "/assets/images/galleryImage5.jpg",
+    caption: "Hair Cutting",
+  },
+  {
+    src: "",
+    fallback: "/assets/images/galleryImage6.jpg",
+    caption: "Hair Cutting",
+  },
+  {
+    src: "",
+    fallback: "/assets/images/galleryImage7.jpg",
+    caption: "Hair Cutting",
+  },
+  {
+    src: "",
+    fallback: "/assets/images/galleryImage8.jpg",
+    caption: "Beard Shaving",
+  },
+  {
+    src: "",
+    fallback: "/assets/images/galleryImage9.jpg",
+    caption: "Beard Shaving",
+  },
+];
+
+
+export const faqs = [
+  {
+    question: "Do I need to book an appointment in advance?",
+    answer:
+      "Yes, we recommend booking your appointment 1–2 weeks in advance to secure your preferred time slot, especially for weekends and bridal services.",
+  },
+  {
+    question: "Which hair treatments do you offer?",
+    answer:
+      "We provide a wide range of treatments including keratin, smoothening, coloring, hair spa, and advanced styling to suit every hair type.",
+  },
+  {
+    question: "Are the products used safe for my skin and hair?",
+    answer:
+      "Absolutely! We only use high-quality, dermatologist-tested, and salon-grade products to ensure safe and long-lasting results.",
+  },
+  {
+    question: "Do you provide bridal and party makeup?",
+    answer:
+      "Yes! Our expert artists specialize in bridal, engagement, and party makeup tailored to your style, ensuring a flawless look for every occasion.",
+  },
+  {
+    question: "Can I get multiple services in one visit?",
+    answer:
+      "Definitely. Many clients book a combination of services such as hair styling, facials, nail extensions, and makeup in a single appointment.",
+  },
+  {
+    question: "How long does a typical salon session take?",
+    answer:
+      "The duration depends on the service — haircuts may take 30–45 minutes, facials 45–60 minutes, and bridal packages 3–5 hours.",
+  },
+  {
+    question: "Do you offer men’s grooming services?",
+    answer:
+      "Yes, we also provide services for men including haircuts, beard styling, facials, and hair treatments.",
+  },
+  {
+    question: "What hygiene standards do you follow?",
+    answer:
+      "We maintain the highest hygiene protocols with sanitized tools, fresh linens, and safe single-use products wherever possible.",
+  },
+];
+
+export const steps = [
+  {
+    num: "01",
+    title: "Book Your Appointment",
+    desc: "Easy, flexible, and hassle-free. Schedule your session online, via phone, or WhatsApp — we work around your schedule.",
+  },
+  {
+    num: "02",
+    title: "Arrive & Relax",
+    desc: "Step into luxury. From soothing music to comfy seating, every detail ensures your experience begins with calm and comfort.",
+  },
+  {
+    num: "03",
+    title: "Consultation & Custom Plan",
+    desc: "Your goals guide our artistry. Our expert artists recommend treatments tailored to your style, lifestyle, and personality.",
+  },
+  {
+    num: "04",
+    title: "Service Execution with Precision",
+    desc: "Expert hands, flawless results. PMU, lashes, facials, hair, or nails — we combine skill, premium products, and attention to detail.",
+  },
+  {
+    num: "05",
+    title: "Reveal & Feedback",
+    desc: "Admire your new look! We walk you through the results, provide aftercare tips, and ensure you leave radiant and confident.",
+  },
+  {
+    num: "06",
+    title: "Stay Connected",
+    desc: "Ongoing care & tips. Follow-ups, reminders, and guidance ensure your results last longer and you continue feeling fabulous.",
+  },
+];
+
+export const proocessSteps = [
+  {
+    title: "Personalized Consultation",
+    desc: "Our experts take the time to understand your style, preferences, and goals, ensuring the results match your personality and lifestyle.",
+    icon: <FaPlay className="text-xl" />
+  },
+  {
+    title: "Expert Recommendations",
+    desc: "We suggest the best treatments, techniques, and products for your unique needs. One-size-fits-all doesn’t exist in beauty.",
+    icon: <GiLipstick className="text-xl" />
+  },
+  {
+    title: "Precision & Care",
+    desc: "Certified artists bring years of experience and meticulous attention to detail to every service, crafted to perfection.",
+    icon: <GiFeather className="text-xl" />
+  },
+  {
+    title: "Relax & Enjoy",
+    desc: "Sit back in our luxurious, calming environment and enjoy the experience as indulgent as the results themselves.",
+    icon: <GiEyeTarget className="text-xl" />
+  },
+  {
+    title: "Walk Out Radiant",
+    desc: "Leave the salon confident, glowing, and ready to conquer your day. Our work fits effortlessly into your life.",
+    icon: <FaCheck className="text-xl" />
+  },
+  {
+    title: "Continuous Care",
+    desc: "From aftercare tips to follow-up consultations, we ensure your results last longer and look better over time.",
+    icon: <FaCheck className="text-xl" />
+  }
+];
+
+export const testimonials = [
+  {
+    name: "Riya",
+    role: "Noida – Brow Transformation",
+    text: "The best decision of my life—I never thought my brows could look this perfect. Waking up confident is priceless.",
+    avatar: "/assets/images/person1.png",
+  },
+  {
+    name: "Aditi",
+    role: "Noida – Luxury Facial",
+    text: "I’ve had facials before, but nothing compares to how luxurious and relaxing this was. My skin feels brand new!",
+    avatar: "/assets/images/person2.png",
+  },
+  {
+    name: "Shruti",
+    role: "Noida – Lash Extensions",
+    text: "The lashes gave me such a confidence boost. Everyone kept asking if I had mascara on—it felt amazing!",
+    avatar: "/assets/images/person3.png",
+  },
+  {
+    name: "Priya",
+    role: "Noida – Hair & Makeup",
+    text: "From consultation to the final look, the team made me feel special. My bridal makeup was flawless and lasted all day!",
+    avatar: "/assets/images/person4.png",
+  },
+  {
+    name: "Sneha",
+    role: "Noida – PMU & Nails",
+    text: "The results were beyond my expectations. The attention to detail is incredible—I can’t recommend The Salon Company enough!",
+    avatar: "/assets/images/person5.png",
+  },
+];
+
+export const features = [
+    {
+      icon: <FaCheck className="text-xl" />,
+      title: 'Expert Artists',
+      desc: 'Certified professionals with years of experience delivering flawless results.',
+    },
+    {
+      icon: <FaCheck className="text-xl" />,
+      title: 'Luxury Experience',
+      desc: 'A space designed to pamper, relax, and delight you every visit.',
+    },
+    {
+      icon: <FaCheck className="text-xl" />,
+      title: 'Personalized Care',
+      desc: 'Every service is customized to your unique needs and style.',
+    },
+    {
+      icon: <FaCheck className="text-xl" />,
+      title: 'Premium Products',
+      desc: 'Only the finest pigments, tools, and techniques for lasting results.',
+    },
+    {
+      icon: <FaCheck className="text-xl" />,
+      title: 'Results That Last',
+      desc: 'Flawless beauty that stays from morning to night.',
+    },
+  ];

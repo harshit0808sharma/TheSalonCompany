@@ -2,50 +2,21 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaCheck, FaPlay } from "react-icons/fa";
+import { FaPlay } from "react-icons/fa";
 import doctorImg from "../../../public/assets/images/image6.jpeg";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { GiLipstick, GiFeather, GiEyeTarget } from "react-icons/gi";
 import { GoDotFill } from "react-icons/go";
-
-const steps = [
-  {
-    title: "Personalized Consultation",
-    desc: "Our experts take the time to understand your style, preferences, and goals, ensuring the results match your personality and lifestyle.",
-    icon: <FaPlay className="text-xl" />
-  },
-  {
-    title: "Expert Recommendations",
-    desc: "We suggest the best treatments, techniques, and products for your unique needs. One-size-fits-all doesn’t exist in beauty.",
-    icon: <GiLipstick className="text-xl" />
-  },
-  {
-    title: "Precision & Care",
-    desc: "Certified artists bring years of experience and meticulous attention to detail to every service, crafted to perfection.",
-    icon: <GiFeather className="text-xl" />
-  },
-  {
-    title: "Relax & Enjoy",
-    desc: "Sit back in our luxurious, calming environment and enjoy the experience as indulgent as the results themselves.",
-    icon: <GiEyeTarget className="text-xl" />
-  },
-  {
-    title: "Walk Out Radiant",
-    desc: "Leave the salon confident, glowing, and ready to conquer your day. Our work fits effortlessly into your life.",
-    icon: <FaCheck className="text-xl" />
-  },
-  {
-    title: "Continuous Care",
-    desc: "From aftercare tips to follow-up consultations, we ensure your results last longer and look better over time.",
-    icon: <FaCheck className="text-xl" />
-  }
-];
+import { useContext } from "react";
+import { SalonContext } from "@/app/context/SalonContext";
+import { toast } from "react-toastify";
 
 export default function ProcessSection() {
+  const { proocessSteps } = useContext(SalonContext);
+  const handleClick = () => {
+        toast.info("Oops! This video is coming soon. Check back later!")
+    }
   return (
     <section className="grid md:grid-cols-2 min-h-[600px] px-5 py-10 md:py-20 gap-8">
-
-      {/* Left side with image + overlay */}
       <motion.div
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -68,7 +39,7 @@ export default function ProcessSection() {
             viewport={{ once: true }}
             className="flex items-center gap-3"
           >
-            <button className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-white hover:bg-white hover:text-[#214037] transition">
+            <button onClick={handleClick} className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-white hover:bg-white hover:text-[#214037] transition">
               <FaPlay size={16} />
             </button>
             <div>
@@ -81,7 +52,6 @@ export default function ProcessSection() {
         </div>
       </motion.div>
 
-      {/* Right side content */}
       <motion.div
         initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -119,9 +89,8 @@ export default function ProcessSection() {
           At The Salon Company, we believe that beauty should be effortless, seamless, and tailored just for you.
         </motion.p>
 
-        {/* Steps Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-          {steps.map((step, i) => (
+          {proocessSteps.map((step, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, x: -20 }}
@@ -137,8 +106,6 @@ export default function ProcessSection() {
             </motion.div>
           ))}
         </div>
-
-        {/* Button */}
         <motion.a
           href="/contact"
           initial={{ opacity: 0, y: 20 }}
@@ -148,8 +115,6 @@ export default function ProcessSection() {
         >
           <span>Learn More</span> <FaArrowRightLong />
         </motion.a>
-
-        {/* Bottom text */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

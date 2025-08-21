@@ -5,14 +5,12 @@ import { FaUserFriends, FaCut, FaShieldAlt } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 import { motion } from "framer-motion";
 
-import imgSalon from "../../../public/assets/images/image4.jpeg";
+import imgSalon from "../../../public/assets/images/benefitsImage.jpg";
 
 export default function SalonBenefits() {
   return (
     <section className="bg-[#fef9f8] py-20 px-6 md:px-12">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        
-        {/* LEFT IMAGE WITH OVERLAY */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -25,7 +23,6 @@ export default function SalonBenefits() {
             alt="Salon Service"
             className="w-full h-full object-cover"
           />
-          {/* Overlay Text */}
           <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-[#214037]/80 via-[#214037]/50 to-transparent text-white p-6">
             <div className="flex items-center gap-3">
               <FaUserFriends className="text-2xl" />
@@ -105,13 +102,14 @@ export default function SalonBenefits() {
           </div>
 
           {/* Button */}
-          <motion.button
+          <motion.a
+          href="/contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-[#214037] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#1a322b] transition-all"
           >
             Contact Us →
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
     </section>

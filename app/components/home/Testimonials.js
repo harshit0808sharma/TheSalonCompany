@@ -1,45 +1,14 @@
 'use client';
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaQuoteLeft, FaStar } from "react-icons/fa";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { GoDotFill } from "react-icons/go";
-
-const testimonials = [
-  {
-    name: "Riya",
-    role: "Noida – Brow Transformation",
-    text: "The best decision of my life—I never thought my brows could look this perfect. Waking up confident is priceless.",
-    avatar: "/assets/images/person1.png",
-  },
-  {
-    name: "Aditi",
-    role: "Noida – Luxury Facial",
-    text: "I’ve had facials before, but nothing compares to how luxurious and relaxing this was. My skin feels brand new!",
-    avatar: "/assets/images/person2.png",
-  },
-  {
-    name: "Shruti",
-    role: "Noida – Lash Extensions",
-    text: "The lashes gave me such a confidence boost. Everyone kept asking if I had mascara on—it felt amazing!",
-    avatar: "/assets/images/person3.png",
-  },
-  {
-    name: "Priya",
-    role: "Noida – Hair & Makeup",
-    text: "From consultation to the final look, the team made me feel special. My bridal makeup was flawless and lasted all day!",
-    avatar: "/assets/images/person4.png",
-  },
-  {
-    name: "Sneha",
-    role: "Noida – PMU & Nails",
-    text: "The results were beyond my expectations. The attention to detail is incredible—I can’t recommend The Salon Company enough!",
-    avatar: "/assets/images/person5.png",
-  },
-];
+import { SalonContext } from "@/app/context/SalonContext";
 
 export default function Testimonials() {
+  const { testimonials } = useContext(SalonContext)
   const [activeIndex, setActiveIndex] = useState(0);
   const itemsPerPage = 2;
   const totalPages = Math.ceil(testimonials.length / itemsPerPage);

@@ -1,55 +1,14 @@
 'use client';
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { GoDotFill } from "react-icons/go";
-
-const faqs = [
-  {
-    question: "Do I need to book an appointment in advance?",
-    answer:
-      "Yes, we recommend booking your appointment 1–2 weeks in advance to secure your preferred time slot, especially for weekends and bridal services.",
-  },
-  {
-    question: "Which hair treatments do you offer?",
-    answer:
-      "We provide a wide range of treatments including keratin, smoothening, coloring, hair spa, and advanced styling to suit every hair type.",
-  },
-  {
-    question: "Are the products used safe for my skin and hair?",
-    answer:
-      "Absolutely! We only use high-quality, dermatologist-tested, and salon-grade products to ensure safe and long-lasting results.",
-  },
-  {
-    question: "Do you provide bridal and party makeup?",
-    answer:
-      "Yes! Our expert artists specialize in bridal, engagement, and party makeup tailored to your style, ensuring a flawless look for every occasion.",
-  },
-  {
-    question: "Can I get multiple services in one visit?",
-    answer:
-      "Definitely. Many clients book a combination of services such as hair styling, facials, nail extensions, and makeup in a single appointment.",
-  },
-  {
-    question: "How long does a typical salon session take?",
-    answer:
-      "The duration depends on the service — haircuts may take 30–45 minutes, facials 45–60 minutes, and bridal packages 3–5 hours.",
-  },
-  {
-    question: "Do you offer men’s grooming services?",
-    answer:
-      "Yes, we also provide services for men including haircuts, beard styling, facials, and hair treatments.",
-  },
-  {
-    question: "What hygiene standards do you follow?",
-    answer:
-      "We maintain the highest hygiene protocols with sanitized tools, fresh linens, and safe single-use products wherever possible.",
-  },
-];
-
+import Link from "next/link";
+import { SalonContext } from "@/app/context/SalonContext";
 
 export default function FAQSection() {
+  const { faqs } = useContext(SalonContext);
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleFAQ = (index) => {
@@ -72,13 +31,16 @@ export default function FAQSection() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
             Your Questions, Answered
           </h2>
-          {/* <Heading Text={"Your Questions, Answered"}/> */}
           <p className="text-base md:text-lg text-gray-200 mb-8 leading-relaxed">
             At The Salon Company, informed clients are confident clients. Explore our FAQ section to better understand our treatments, processes, and results.
           </p>
-          <button className="bg-white text-[#214037] font-semibold text-base md:text-lg px-6 md:px-8 py-3 md:py-4 rounded-full flex items-center gap-3 hover:bg-gray-100 transition">
+          <Link
+            href="/faqs"
+            className="bg-white text-[#214037] font-semibold text-base md:text-lg px-6 md:px-8 py-3 md:py-4 rounded-full inline-flex w-auto items-center gap-3 hover:bg-gray-100 transition"
+          >
             View All FAQs →
-          </button>
+          </Link>
+
         </motion.div>
 
         {/* Right Content (Accordion) */}

@@ -11,6 +11,7 @@ import { TbUsers } from "react-icons/tb";
 import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
 import Heading from "../other/Heading";
+import { toast } from "react-toastify";
 
 export default function AboutSection() {
     const [teamCount, setTeamCount] = useState(0);
@@ -25,6 +26,10 @@ export default function AboutSection() {
         }, 50);
         return () => clearInterval(interval);
     }, []);
+
+    const handleClick = () => {
+        toast.info("Oops! This video is coming soon. Check back later!")
+    }
 
     return (
         <section className="bg-[#fef9f9] py-20">
@@ -116,7 +121,7 @@ export default function AboutSection() {
                             >
                                 <span> About More</span> <FaArrowRightLong />
                             </Link>
-                            <button className="border border-[#264D45] text-[#264D45] px-6 py-3 rounded-full flex items-center gap-2 hover:bg-[#264D45] hover:text-white transition text-sm md:text-base">
+                            <button onClick={handleClick} className="border border-[#264D45] text-[#264D45] px-6 py-3 rounded-full flex items-center gap-2 hover:bg-[#264D45] hover:text-white transition text-sm md:text-base">
                                 <FaPlay /> Play Session
                             </button>
                         </div>

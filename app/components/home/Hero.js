@@ -2,24 +2,11 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaClock, FaFileContract, FaStar } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
+import { FaStar } from "react-icons/fa";
 import womanImage from "../../../public/assets/images/faceImage.png";
 import ContactInfo from "../other/ContactInfo";
 
 export default function Hero() {
-  const fadeUp = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
-  const stagger = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 },
-    },
-  };
 
   return (
     <>
@@ -37,9 +24,7 @@ export default function Hero() {
             </h1>
             <p className="text-lg text-gray-200">
               At The Salon Company, we believe beauty is not just skin deep—it’s
-              the art of confidence, self-care, and individuality. Step into a
-              world where hair, beauty, makeup, and nail artistry come together
-              to celebrate your unique glow.
+              the art of confidence, self-care, and individuality.
             </p>
 
             {/* Button */}
@@ -47,12 +32,12 @@ export default function Hero() {
             href="/book-appointment"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-[#28554E] px-6 py-3 rounded-full font-mediutm inline-flex items-center gap-2 shadow-md"
+              className="bg-white text-[#28554E] px-5 py-2 md:py-3 text-sm md:text-lg rounded-full font-medium inline-flex items-center gap-2 shadow-md"
             >
               Book your free consultation today →
             </motion.a>
 
-            <h2 className="text-white font-semibold text-2xl">Reviews</h2>
+            <h2 className="text-white font-semibold text-lg lg:text-2xl">Reviews</h2>
             <hr className="text-gray-400" />
 
             {/* Reviews */}
@@ -81,7 +66,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative w-full h-64 md:h-full flex items-center justify-center"
+            className="relative w-full h-80 md:h-full flex items-center justify-center"
           >
             <Image
               src={womanImage}

@@ -6,40 +6,11 @@ import { FaPhone } from "react-icons/fa";
 import treatmentImg from "../../../public/assets/images/image2.jpeg";
 import Heading from "../other/Heading";
 import { GoDotFill } from "react-icons/go";
+import { useContext } from "react";
+import { SalonContext } from "@/app/context/SalonContext";
 
 export default function HowWeWork() {
-  const steps = [
-    {
-      num: "01",
-      title: "Book Your Appointment",
-      desc: "Easy, flexible, and hassle-free. Schedule your session online, via phone, or WhatsApp — we work around your schedule.",
-    },
-    {
-      num: "02",
-      title: "Arrive & Relax",
-      desc: "Step into luxury. From soothing music to comfy seating, every detail ensures your experience begins with calm and comfort.",
-    },
-    {
-      num: "03",
-      title: "Consultation & Custom Plan",
-      desc: "Your goals guide our artistry. Our expert artists recommend treatments tailored to your style, lifestyle, and personality.",
-    },
-    {
-      num: "04",
-      title: "Service Execution with Precision",
-      desc: "Expert hands, flawless results. PMU, lashes, facials, hair, or nails — we combine skill, premium products, and attention to detail.",
-    },
-    {
-      num: "05",
-      title: "Reveal & Feedback",
-      desc: "Admire your new look! We walk you through the results, provide aftercare tips, and ensure you leave radiant and confident.",
-    },
-    {
-      num: "06",
-      title: "Stay Connected",
-      desc: "Ongoing care & tips. Follow-ups, reminders, and guidance ensure your results last longer and you continue feeling fabulous.",
-    },
-  ];
+  const { steps } = useContext(SalonContext);
 
   return (
     <section className="grid md:grid-cols-2 gap-10 items-center py-16 px-6 md:px-12 bg-[#fdf9f8]">

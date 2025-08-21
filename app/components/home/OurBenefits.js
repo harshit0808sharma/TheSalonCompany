@@ -1,5 +1,4 @@
-'use client';
-
+'use client'
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
@@ -14,7 +13,6 @@ import {
 } from "react-icons/fa";
 import salonImg from "../../../public/assets/images/hair.png";
 import { GoDotFill } from "react-icons/go";
-import Heading from "../other/Heading";
 
 export default function OurBenefits() {
   const leftBenefits = [

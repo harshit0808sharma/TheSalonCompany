@@ -25,15 +25,15 @@ export default function ImageGallery() {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="relative group rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition"
+              className="relative group rounded-4xl overflow-hidden shadow-md hover:shadow-xl transition"
             >
               {/* Image */}
               <Image
                 src={image.src}
                 alt={image.alt || `Gallery Image ${index + 1}`}
                 width={400}
-                height={300}
-                className="w-full h-64 object-cover rounded-2xl transform group-hover:scale-110 transition duration-500"
+                height={400}
+                className="w-full h-80 object-cover rounded-4xl transform group-hover:scale-110 transition duration-500"
               />
 
               {/* Overlay on hover */}

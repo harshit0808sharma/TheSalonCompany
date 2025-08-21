@@ -12,7 +12,6 @@ import { GoDotFill } from "react-icons/go";
 export default function WhoWeAre() {
   const [count, setCount] = useState(0);
 
-  // Counting animation
   useEffect(() => {
     let start = 0;
     const end = 49;
@@ -47,9 +46,7 @@ export default function WhoWeAre() {
             className="w-full sm:w-72 md:w-80 rounded-4xl object-cover shadow-lg"
           />
 
-          {/* Column with badge + second image */}
           <div className="flex flex-col gap-8 relative">
-            {/* Badge */}
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
@@ -130,13 +127,14 @@ export default function WhoWeAre() {
           </div>
 
           {/* Button */}
-          <motion.button
+          <motion.a
+          href="/contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-[#214037] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#1a322b] transition-all"
           >
             Learn More →
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
     </section>

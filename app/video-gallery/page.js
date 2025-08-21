@@ -1,47 +1,23 @@
 "use client";
 
+import { useContext } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Header";
 import CommonHeading from "../components/other/CommonHeading";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaPlay } from "react-icons/fa";
-
-const videoData = [
-  {
-    src: "",
-    fallback: "/assets/images/image4.jpeg",
-    caption: "Bridal Makeup Transformation",
-  },
-  {
-    src: "",
-    fallback: "/assets/images/image3.jpeg",
-    caption: "Hair Styling Session",
-  },
-  {
-    src: "",
-    fallback: "/assets/images/image2.jpeg",
-    caption: "Nail Art Process",
-  },
-  {
-    src: "",
-    fallback: "/assets/images/image10.jpeg",
-    caption: "Luxury Facial Treatment",
-  },
-  {
-    src: "",
-    fallback: "/assets/images/image5.jpeg",
-    caption: "Glam Party Look",
-  },
-  {
-    src: "",
-    fallback: "/assets/images/image6.jpeg",
-    caption: "Elegant Hair Coloring",
-  },
-];
-
+import { SalonContext } from "../context/SalonContext";
+import { FaYoutube } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 export default function VideoGallery() {
+  const { galleryVideoData } = useContext(SalonContext);
+
+  const handleClick = () => {
+    toast.info("Oops! This video is coming soon. Check back later!")
+  }
+
   return (
     <>
       <Navbar />
@@ -49,7 +25,7 @@ export default function VideoGallery() {
 
       <section className="py-12 px-6 md:px-12 lg:px-16 bg-gray-50">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {videoData.map((video, index) => (
+          {galleryVideoData.map((video, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.9, y: 40 }}
@@ -77,10 +53,11 @@ export default function VideoGallery() {
               {/* Overlay caption + Play Icon */}
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center gap-3">
                 {video.src && (
-                  <FaPlay className="text-white text-4xl opacity-90" />
+                  <FaYoutube className="text-white text-4xl opacity-90" />
                 )}
-                <p className="text-white text-lg font-semibold text-center px-2">
-                  {video.caption}
+                <p className="text-white flex flex-col items-center gap-4 text-lg font-semibold rounded-2xltext-center px-2">
+                  <span onClick={handleClick}>{<FaPlay className="text-4xl cursor-pointer"/>}</span>
+                  {/* <span>{video.caption}</span> */}
                 </p>
               </div>
             </motion.div>

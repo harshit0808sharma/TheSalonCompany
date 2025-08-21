@@ -31,7 +31,6 @@ export default function Services() {
         <p className="text-gray-600 mt-4 text-sm md:text-base">{currentCategory.description}</p>
       </div>
 
-      {/* Services Grid */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {currentCategory.services.map((service, i) => (
           <motion.div
@@ -57,7 +56,6 @@ export default function Services() {
         ))}
       </div>
 
-      {/* Navigation */}
       <div className="flex justify-center gap-6 mt-8">
         <button
           onClick={prevSlide}
@@ -73,7 +71,6 @@ export default function Services() {
         </button>
       </div>
 
-      {/* CTA Section */}
       <div className="text-center mt-16 px-6">
         <h3 className="text-2xl md:text-3xl font-bold text-[#214037]">{currentCategory.cta}</h3>
         <p className="mt-4">

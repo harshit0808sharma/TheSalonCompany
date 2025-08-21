@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 export default function CommonHeading({ Text }) {
   return (
     <div className="bg-teal-800 relative p-5 md:p-10 overflow-hidden mb-5 m-0 md:mx-5 md:rounded-4xl">
-      {/* Animated SVG Background */}
       <motion.div
         className="absolute inset-0 opacity-10"
         initial={{ scale: 1.2, opacity: 0 }}
@@ -38,7 +37,6 @@ export default function CommonHeading({ Text }) {
           {Text}
         </motion.h1>
 
-        {/* Breadcrumb */}
         <motion.div
           className="flex items-center justify-center text-white/80"
           initial={{ opacity: 0, y: 20 }}

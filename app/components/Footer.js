@@ -146,22 +146,22 @@ export default function Footer() {
               <span className="text-white/80">Follow Us</span>
               <div className="flex space-x-3">
                 <Link
-                  href="/"
-                  className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                  href="https://x.com/lokaciofficial"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
                 >
-                  <FaTwitter className="w-4 h-4" />
+                  <FaTwitter className="w-6 h-6" />
                 </Link>
                 <Link
-                  href="/"
-                  className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                  href="https://www.facebook.com/LokaciOfficial"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
                 >
-                  <FaFacebook className="w-4 h-4" />
+                  <FaFacebook className="w-6 h-6" />
                 </Link>
                 <Link
-                  href="/"
-                  className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                  href="https://www.instagram.com/lokaciofficial?igsh=Z3phaXBiNnZrd2Fy"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
                 >
-                  <FaInstagram className="w-4 h-4" />
+                  <FaInstagram className="w-6 h-6" />
                 </Link>
               </div>
             </div>

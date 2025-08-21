@@ -12,7 +12,6 @@ export default function AboutNewSection() {
   return (
     <section className="bg-[#fef9f8] py-20 px-6 md:px-12">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        {/* LEFT SIDE TEXT */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -32,7 +31,6 @@ export default function AboutNewSection() {
             our goal is to bring out your natural radiance with exceptional care.
           </p>
 
-          {/* Progress Bars */}
           <motion.div
             className="mb-6"
             initial={{ opacity: 0, width: 0 }}
@@ -77,7 +75,6 @@ export default function AboutNewSection() {
           </motion.div>
         </motion.div>
 
-        {/* RIGHT SIDE IMAGES */}
         <motion.div
           className="relative flex justify-center"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -85,7 +82,6 @@ export default function AboutNewSection() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          {/* Large Circle Image */}
           <div className="w-72 h-72 md:w-[500px] md:h-[500px] rounded-full overflow-hidden shadow-xl">
             <Image
               src={imgMain}
@@ -94,7 +90,6 @@ export default function AboutNewSection() {
             />
           </div>
 
-          {/* Small Circle Image */}
           <motion.div
             className="absolute bottom-4 right-4 w-28 h-28 md:w-40 md:h-40 rounded-full overflow-hidden border-8 border-white shadow-lg"
             initial={{ opacity: 0, y: 30 }}
@@ -104,12 +99,13 @@ export default function AboutNewSection() {
           >
             <Image
               src={imgSmall}
+              width={400}
+              height={400}
               alt="Salon Service"
               className="w-full h-full object-cover"
             />
           </motion.div>
 
-          {/* Review Badge */}
           <motion.div
             className="absolute bottom-0 left-20 -translate-x-1/2 bg-white shadow-lg px-6 py-3 rounded-xl flex items-center gap-3"
             initial={{ opacity: 0, y: 30 }}

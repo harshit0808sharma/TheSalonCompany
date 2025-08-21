@@ -32,7 +32,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <Link href="/" className="text-2xl font-semibold text-[#416b63]">
+          <Link href="/" className="text-2xl font-bold text-[#416b63]">
             The Salon Company
           </Link>
         </div>
