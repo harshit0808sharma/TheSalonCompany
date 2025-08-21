@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { FaPhone } from "react-icons/fa";
 import treatmentImg from "../../../public/assets/images/image2.jpeg";
 import Heading from "../other/Heading";
+import { GoDotFill } from "react-icons/go";
 
 export default function HowWeWork() {
   const steps = [
@@ -49,10 +50,18 @@ export default function HowWeWork() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <p className="text-sm text-[#214037] mb-2">How We Work</p>
-        <Heading Text={"Seamless, Luxurious, and Client-Centered"}/>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="flex items-center gap-2 mb-4"
+        >
+          <GoDotFill className="text-teal-800" />
+          <span className="text-[#264D45] font-medium">How We Works</span>
+        </motion.div>
+        <Heading Text={"Seamless, Luxurious, and Client-Centered"} />
         <p className="text-gray-600 mb-8">
-          At <span className="font-semibold">The Salon Company</span>, we’ve perfected a workflow that combines expertise, comfort, and efficiency, ensuring every client leaves radiant and confident.
+          At <span className="font-semibold">The Salon Company</span>{", we’ve perfected a workflow that combines expertise, comfort, and efficiency, ensuring every client leaves radiant and confident."}
         </p>
 
         {/* Steps */}

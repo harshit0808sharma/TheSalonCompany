@@ -6,6 +6,7 @@ import { FaCheck, FaPlay } from "react-icons/fa";
 import doctorImg from "../../../public/assets/images/image6.jpeg";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { GiLipstick, GiFeather, GiEyeTarget } from "react-icons/gi";
+import { GoDotFill } from "react-icons/go";
 
 const steps = [
   {
@@ -88,14 +89,16 @@ export default function ProcessSection() {
         viewport={{ once: true }}
         className="bg-white flex flex-col items-start rounded-3xl p-8 md:p-14"
       >
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-sm text-[#214037] mb-2"
+          className="flex items-center gap-2 mb-4"
         >
-          • Our Process
-        </motion.p>
+          <GoDotFill className="text-teal-800" />
+          <span className="text-[#264D45] font-medium">Our Processes</span>
+        </motion.div>
+
 
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -105,6 +108,7 @@ export default function ProcessSection() {
         >
           Beauty, Simplified – Step by Step
         </motion.h2>
+
 
         <motion.p
           initial={{ opacity: 0 }}
@@ -135,14 +139,15 @@ export default function ProcessSection() {
         </div>
 
         {/* Button */}
-        <motion.button
+        <motion.a
+          href="/contact"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.6, duration: 0.6 }}
           className="px-6 py-3 bg-[#214037] text-white flex items-center gap-2 rounded-lg shadow hover:bg-[#19332b] transition"
         >
           <span>Learn More</span> <FaArrowRightLong />
-        </motion.button>
+        </motion.a>
 
         {/* Bottom text */}
         <motion.p

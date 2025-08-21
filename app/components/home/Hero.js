@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { FaClock, FaFileContract, FaStar } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import womanImage from "../../../public/assets/images/faceImage.png";
+import ContactInfo from "../other/ContactInfo";
 
 export default function Hero() {
   const fadeUp = {
@@ -94,54 +95,7 @@ export default function Hero() {
       </section>
 
       {/* Bottom Cards */}
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-3 mt-16 px-10 text-black"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={stagger}
-      >
-        {[
-          {
-            icon: <FaFileContract className="w-6 h-6" />,
-            title: "Contact Us",
-            lines: ["salon@gmail.com", "+91 123 456 987"],
-          },
-          {
-            icon: <FaLocationDot className="w-6 h-6" />,
-            title: "Location",
-            lines: ["Lokaci H.Q. sector 117, Noida", "Uttar Pradesh, India"],
-          },
-          {
-            icon: <FaClock className="w-6 h-6" />,
-            title: "Working Hours",
-            lines: [
-              "Monday - Friday : 9:00 am to 6:00 pm",
-              "Saturday : 11:00 am to 5pm",
-            ],
-          },
-        ].map((card, idx) => (
-          <motion.div
-            key={idx}
-            variants={fadeUp}
-            className={`
-        bg-white text-teal-800 p-6 
-        ${idx !== 2 ? "border-b md:border-b-0 md:border-r" : ""} 
-        border-gray-300
-      `}
-          >
-            <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
-              {card.icon}
-            </div>
-            <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
-            {card.lines.map((line, i) => (
-              <p key={i} className="text-black/90">
-                {line}
-              </p>
-            ))}
-          </motion.div>
-        ))}
-      </motion.div>
+      <ContactInfo/>
 
     </>
   );

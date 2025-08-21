@@ -48,7 +48,7 @@ export default function WhyChooseUs() {
         >
           <div className="flex items-center gap-2 mb-4">
             <GoDotFill className="text-teal-800" />
-            <span className="text-[#264D45] font-medium">Why Choose The Salon Company?</span>
+            <span className="text-[#264D45] font-medium">Why Choose?</span>
           </div>
           <Heading Text={" Trust Builders – Your Beauty, Our Expertise"}/>
           <p className="text-gray-600 mb-10 text-sm md:text-base">

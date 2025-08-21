@@ -7,46 +7,47 @@ import { GoDotFill } from "react-icons/go";
 
 const faqs = [
   {
-    question: "How long do permanent makeup (PMU) treatments last?",
+    question: "Do I need to book an appointment in advance?",
     answer:
-      "Our PMU treatments like microblading, eyeliner, and lip blushing typically last 1–3 years, depending on your skin type and aftercare. Regular touch-ups help maintain a flawless look.",
+      "Yes, we recommend booking your appointment 1–2 weeks in advance to secure your preferred time slot, especially for weekends and bridal services.",
   },
   {
-    question: "Is the treatment painful?",
+    question: "Which hair treatments do you offer?",
     answer:
-      "We use topical numbing creams to ensure maximum comfort. Most clients describe the sensation as a gentle pressure or mild tingling rather than pain.",
+      "We provide a wide range of treatments including keratin, smoothening, coloring, hair spa, and advanced styling to suit every hair type.",
   },
   {
-    question: "How do I prepare for my appointment?",
+    question: "Are the products used safe for my skin and hair?",
     answer:
-      "Avoid caffeine and alcohol on the day of your treatment, keep your skin clean and free of heavy makeup, and for PMU, avoid tanning or exfoliating 24–48 hours before your session.",
+      "Absolutely! We only use high-quality, dermatologist-tested, and salon-grade products to ensure safe and long-lasting results.",
   },
   {
-    question: "What aftercare is required?",
+    question: "Do you provide bridal and party makeup?",
     answer:
-      "We provide step-by-step aftercare instructions for each treatment. Following them ensures long-lasting results, proper healing, and vibrant color retention.",
+      "Yes! Our expert artists specialize in bridal, engagement, and party makeup tailored to your style, ensuring a flawless look for every occasion.",
   },
   {
-    question: "Are your products safe?",
+    question: "Can I get multiple services in one visit?",
     answer:
-      "Absolutely! We use premium, dermatologically tested, and hypoallergenic products to ensure the highest safety and quality standards.",
+      "Definitely. Many clients book a combination of services such as hair styling, facials, nail extensions, and makeup in a single appointment.",
   },
   {
-    question: "Can I combine multiple treatments in one visit?",
+    question: "How long does a typical salon session take?",
     answer:
-      "Yes! We customize your appointment based on your needs, allowing you to combine services like lashes, brows, facials, and nails for a seamless beauty experience.",
+      "The duration depends on the service — haircuts may take 30–45 minutes, facials 45–60 minutes, and bridal packages 3–5 hours.",
   },
   {
-    question: "Do I need to book in advance?",
+    question: "Do you offer men’s grooming services?",
     answer:
-      "We recommend booking at least 1–2 weeks in advance to secure your preferred time, especially for popular treatments and weekends.",
+      "Yes, we also provide services for men including haircuts, beard styling, facials, and hair treatments.",
   },
   {
-    question: "What if I’m a first-time client?",
+    question: "What hygiene standards do you follow?",
     answer:
-      "No worries! Our team guides you through every step, from consultation to final results. We focus on comfort, clarity, and creating a look tailored just for you.",
+      "We maintain the highest hygiene protocols with sanitized tools, fresh linens, and safe single-use products wherever possible.",
   },
 ];
+
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(null);

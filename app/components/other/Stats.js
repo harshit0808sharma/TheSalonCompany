@@ -40,7 +40,7 @@ export default function Stats() {
         }
       }, stepTime);
     });
-  }, []); // ✅ no more warning
+  }, []); 
 
   return (
     <section className="bg-[#FBF7F7] py-16">

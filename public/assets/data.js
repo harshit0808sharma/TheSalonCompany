@@ -51,7 +51,6 @@ export const servicesData = [
       { title: "Classic", desc: "Subtle elegance, your lashes but better.", img: "/assets/images/classic-lash.jpg" },
       { title: "Hybrid", desc: "A perfect blend of natural and dramatic.", img: "/assets/images/hybrid-lash.jpg" },
       { title: "Volume", desc: "Bold, statement lashes for a striking look.", img: "/assets/images/volume-lash.jpg" },
-      { title: "Colorful", desc: "A fun twist with vibrant lash shades.", img: "/assets/images/colorful-lash.jpg" },
     ],
     cta: "✨ From natural to glam, we’ve got your lash mood covered.",
   },
@@ -66,8 +65,6 @@ export const servicesData = [
     cta: "✨ One destination for everything beauty.",
   },
 ];
-
-
 
 export const blogsData = [
   {

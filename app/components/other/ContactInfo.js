@@ -4,7 +4,7 @@ import { FaLocationPin } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
 const ContactInfo = () => {
-      const fadeUp = {
+    const fadeUp = {
         hidden: { opacity: 0, y: 40 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
     };
@@ -16,10 +16,10 @@ const ContactInfo = () => {
             transition: { staggerChildren: 0.25 },
         },
     };
-    return(
+    return (
         <>
             <motion.div
-                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-16 px-4 sm:px-8 md:px-10 text-black gap-6"
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 my-16 px-4 sm:px-8 md:px-10 text-black gap-6"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -48,7 +48,7 @@ const ContactInfo = () => {
                     <motion.div
                         key={idx}
                         variants={fadeUp}
-                        className="bg-white text-teal-800 p-6 rounded-xl shadow-md flex flex-col items-start"
+                        className="bg-white text-teal-800 p-6 rounded-xl shadow-md flex flex-col text-center justify-center items-center"
                     >
                         <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
                             {card.icon}
@@ -62,6 +62,7 @@ const ContactInfo = () => {
                             </p>
                         ))}
                     </motion.div>
+
                 ))}
             </motion.div>
         </>
