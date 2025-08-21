@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { GoDotFill } from "react-icons/go";
-import Heading from "../other/Heading";
 
 const faqs = [
   {

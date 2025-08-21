@@ -229,3 +229,11 @@ export const teamMembersData = [
   },
 ];
 
+export const galleryData = [
+  {src: "/assets/images/image10.jpeg"},
+  {src: "/assets/images/image2.jpeg"},
+  {src: "/assets/images/image3.jpeg"},
+  {src: "/assets/images/image4.jpeg"},
+  {src: "/assets/images/image5.jpeg"},
+  {src: "/assets/images/image6.jpeg"},
+]
