@@ -1,10 +1,10 @@
 'use client';
 import React, { useState } from 'react';
-import { 
-  FaPhone, 
-  FaMapMarkerAlt, 
-  FaEnvelope, 
-  FaClock, 
+import {
+  FaPhone,
+  FaMapMarkerAlt,
+  FaEnvelope,
+  FaClock,
 } from 'react-icons/fa';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -27,8 +27,43 @@ const GetInTouch = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validation
+    if (!formData.firstName.trim()) {
+      toast.error("First name is required");
+      return;
+    }
+    if (!formData.lastName.trim()) {
+      toast.error("Last name is required");
+      return;
+    }
+    if (!formData.email.trim()) {
+      toast.error("Email is required");
+      return;
+    }
+    // simple email pattern check
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(formData.email)) {
+      toast.error("Enter a valid email");
+      return;
+    }
+    if (!formData.phone.trim()) {
+      toast.error("Phone number is required");
+      return;
+    }
+    if (!/^\d{10}$/.test(formData.phone)) {
+      toast.error("Enter a valid 10-digit phone number");
+      return;
+    }
+    if (!formData.message.trim()) {
+      toast.error("Message cannot be empty");
+      return;
+    }
+
+    // ✅ If valid
     console.log('Form submitted:', formData);
-    toast.success("Thank You for message");
+    toast.success("Thank You for your message");
+    setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '' }); // reset
   };
 
   const fadeUp = {
@@ -38,9 +73,9 @@ const GetInTouch = () => {
 
   const stagger = {
     hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1, 
-      transition: { staggerChildren: 0.2 } 
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
     }
   };
 
@@ -48,7 +83,7 @@ const GetInTouch = () => {
     <>
       <div className="min-h-screen bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 py-16">
-          <motion.div 
+          <motion.div
             className="grid lg:grid-cols-2 gap-12 items-start"
             initial="hidden"
             whileInView="visible"
@@ -58,8 +93,8 @@ const GetInTouch = () => {
             {/* Contact Image & Hours */}
             <motion.div variants={fadeUp} className="relative">
               <div className="bg-teal-700 rounded-4xl overflow-hidden relative">
-                <Image 
-                  src={img} 
+                <Image
+                  src={img}
                   alt="Dermatology consultation"
                   className="w-full h-[100%] object-cover"
                 />
@@ -84,9 +119,9 @@ const GetInTouch = () => {
               <p className="text-gray-600 mb-8">
                 {"Have questions or need assistance? Reach out to us for expert guidance, personalized solutions, and exceptional support. We're here to help!"}
               </p>
-              
-              <motion.form 
-                onSubmit={handleSubmit} 
+
+              <motion.form
+                onSubmit={handleSubmit}
                 className="space-y-6"
                 initial="hidden"
                 animate="visible"
@@ -119,7 +154,7 @@ const GetInTouch = () => {
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none"
                 ></motion.textarea>
 
-                <motion.button 
+                <motion.button
                   type="submit"
                   variants={fadeUp}
                   className="bg-teal-700 text-white px-8 py-3 rounded-lg hover:bg-teal-800 transition-colors font-medium"

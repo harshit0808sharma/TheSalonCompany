@@ -101,7 +101,7 @@ export default function Navbar() {
                   {/* <li><Link href="/case-study" className="block px-4 py-2 hover:bg-gray-100">Case Study</Link></li> */}
                   {/* <li><Link href="/case-study" className="block px-4 py-2 hover:bg-gray-100">Case Study Details</Link></li> */}
                   <li><Link href="/our-team" className="block px-4 py-2 hover:bg-gray-100">Our Team</Link></li>
-                  <li><Link href="/our-team" className="block px-4 py-2 hover:bg-gray-100">Team Details</Link></li>
+                  <li><Link href="/our-team/kristin-watson" className="block px-4 py-2 hover:bg-gray-100">Team Details</Link></li>
                   <li><Link href="/testimonials" className="block px-4 py-2 hover:bg-gray-100">Testimonials</Link></li>
                   <li><Link href="/image-gallery" className="block px-4 py-2 hover:bg-gray-100">Image Gallery</Link></li>
                   <li><Link href="/video-gallery" className="block px-4 py-2 hover:bg-gray-100">Video Gallery</Link></li>
@@ -180,7 +180,7 @@ export default function Navbar() {
                 {/* <li><Link href="/case-study" onClick={() => setMobileMenu(false)}>Case Study</Link></li> */}
                 {/* <li><Link href="/case-study" onClick={() => setMobileMenu(false)}>Case Study Details</Link></li> */}
                 <li><Link href="/our-team" onClick={() => setMobileMenu(false)}>Our Team</Link></li>
-                <li><Link href="/team-details" onClick={() => setMobileMenu(false)}>Team Details</Link></li>
+                <li><Link href="/our-team/kristin-watson" onClick={() => setMobileMenu(false)}>Team Details</Link></li>
                 <li><Link href="/testimonials" onClick={() => setMobileMenu(false)}>Testimonials</Link></li>
                 <li><Link href="/image-gallery" onClick={() => setMobileMenu(false)}>Image Gallery</Link></li>
                 <li><Link href="/video-gallery" onClick={() => setMobileMenu(false)}>Video Gallery</Link></li>
