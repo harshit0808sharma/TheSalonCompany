@@ -9,6 +9,7 @@ import { GoDotFill } from "react-icons/go";
 import { useContext } from "react";
 import { SalonContext } from "@/app/context/SalonContext";
 import { toast } from "react-toastify";
+import Link from "next/link";
 
 export default function ProcessSection() {
   const { proocessSteps } = useContext(SalonContext);
@@ -122,9 +123,9 @@ export default function ProcessSection() {
           className="text-gray-600 text-sm mt-6"
         >
           Your skin’s transformation starts here —{" "}
-          <a href="#" className="text-[#214037] font-semibold underline">
+          <Link href="/book-appointment" className="text-[#214037] font-semibold underline">
             Book Today!
-          </a>
+          </Link>
         </motion.p>
       </motion.div>
     </section>

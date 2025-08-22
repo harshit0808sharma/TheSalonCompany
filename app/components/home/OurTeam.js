@@ -13,7 +13,7 @@ export default function Team() {
   const { teamMembersData } = useContext(SalonContext);
 
   return (
-    <section className="bg-[#faf7f7] py-20 px-6 md:px-12">
+    <section className="bg-[#faf7f7] py-10 px-6 md:px-12">
       {/* Heading */}
       <div className="text-center max-w-3xl mx-auto mb-12">
         <div className="flex justify-center items-center gap-2">
