@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaArrowRight } from "react-icons/fa";
 import { useContext, useState, useEffect } from "react";
 import { SalonContext } from "@/app/context/SalonContext";
 import Link from "next/link";
@@ -129,3 +128,4 @@ export default function BlogSection({ limit = "all" }) {
     </section>
   );
 }
+

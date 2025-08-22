@@ -5,6 +5,7 @@ import { FaStar } from 'react-icons/fa';
 import { SalonContext } from '@/app/context/SalonContext';
 import { FaQuoteLeft } from "react-icons/fa";
 import { GoDotFill } from 'react-icons/go';
+import Image from 'next/image';
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -85,9 +86,11 @@ const Testimonials = () => {
                     {testimonials[currentIndex].text}
                   </p>
                   <div className="flex items-center">
-                    <img
+                    <Image
                       src={testimonials[currentIndex].avatar}
                       alt={testimonials[currentIndex].name}
+                      width={400}
+                      height={400}
                       className="w-12 h-12 rounded-full mr-4 object-cover"
                     />
                     <div>
@@ -127,9 +130,11 @@ const Testimonials = () => {
                     {testimonials[(currentIndex + 1) % testimonials.length].text}
                   </p>
                   <div className="flex items-center">
-                    <img
+                    <Image
                       src={testimonials[(currentIndex + 1) % testimonials.length].avatar}
                       alt={testimonials[(currentIndex + 1) % testimonials.length].name}
+                      width={400}
+                      height={400}
                       className="w-12 h-12 rounded-full mr-4 object-cover"
                     />
                     <div>
