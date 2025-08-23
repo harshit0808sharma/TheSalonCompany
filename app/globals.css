@@ -21,7 +21,7 @@ html{
 }
 
 .spin-slow {
-  animation: spin-slow 20s linear infinite; /* 20s per rotation */
+  animation: spin-slow 20s linear infinite;
 }
 @keyframes shine {
   0% {
@@ -36,16 +36,3 @@ html{
 button{
   cursor: pointer;
 }
-
-/* Border Animation */
-/* .animated-border {
-  fill: none;
-  stroke: #fff;
-  stroke-dasharray: 150 480;
-  stroke-dashoffset: 150;
-  transition: stroke-dashoffset 1s ease-in-out;
-}
-
-.btn-animated:hover svg .animated-border {
-  stroke-dashoffset: -480;
-} */

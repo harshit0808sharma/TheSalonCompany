@@ -6,11 +6,20 @@ import { GoDotFill } from "react-icons/go";
 import { motion } from "framer-motion";
 
 import imgSalon from "../../../public/assets/images/benefitsImage.jpg";
+import { useContext } from "react";
+import { SalonContext } from "@/app/context/SalonContext";
 
 export default function SalonBenefits() {
+  const { theme } = useContext(SalonContext); // true = dark, false = light
+
   return (
-    <section className="bg-[#fef9f8] py-20 px-6 md:px-12">
+    <section
+      className={`py-20 px-6 md:px-12 transition-colors duration-300 ${
+        theme ? "bg-black text-white" : "bg-[#fef9f8] text-black"
+      }`}
+    >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        {/* LEFT IMAGE */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -46,13 +55,29 @@ export default function SalonBenefits() {
           viewport={{ once: true }}
         >
           <div className="flex items-center gap-2">
-            <GoDotFill className="text-teal-800" />
-            <span className="text-[#264D45] font-medium">Our Benefits</span>
+            <GoDotFill
+              className={`${theme ? "text-teal-400" : "text-teal-800"}`}
+            />
+            <span
+              className={`font-medium ${
+                theme ? "text-gray-200" : "text-[#264D45]"
+              }`}
+            >
+              Our Benefits
+            </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#214037] mb-4 leading-snug">
+          <h2
+            className={`text-3xl md:text-4xl font-bold mb-4 leading-snug ${
+              theme ? "text-white" : "text-[#214037]"
+            }`}
+          >
             Exceptional salon care, <br /> every step
           </h2>
-          <p className="text-gray-600 mb-8 leading-relaxed">
+          <p
+            className={`mb-8 leading-relaxed ${
+              theme ? "text-gray-300" : "text-gray-600"
+            }`}
+          >
             At The Salon Company, we go beyond styling — we create experiences
             that enhance your natural beauty with high-quality services and
             premium care standards.
@@ -71,11 +96,20 @@ export default function SalonBenefits() {
                 <FaCut className="text-xl" />
               </div>
               <div>
-                <h5 className="text-lg font-semibold text-[#214037]">
+                <h5
+                  className={`text-lg font-semibold ${
+                    theme ? "text-white" : "text-[#214037]"
+                  }`}
+                >
                   Comprehensive Services
                 </h5>
-                <p className="text-gray-600 text-sm md:text-base">
-                  From hair styling to skincare, our team provides tailored solutions.
+                <p
+                  className={`text-sm md:text-base ${
+                    theme ? "text-gray-300" : "text-gray-600"
+                  }`}
+                >
+                  From hair styling to skincare, our team provides tailored
+                  solutions.
                 </p>
               </div>
             </motion.div>
@@ -91,10 +125,18 @@ export default function SalonBenefits() {
                 <FaShieldAlt className="text-xl" />
               </div>
               <div>
-                <h5 className="text-lg font-semibold text-[#214037]">
+                <h5
+                  className={`text-lg font-semibold ${
+                    theme ? "text-white" : "text-[#214037]"
+                  }`}
+                >
                   High Safety Standards
                 </h5>
-                <p className="text-gray-600 text-sm md:text-base">
+                <p
+                  className={`text-sm md:text-base ${
+                    theme ? "text-gray-300" : "text-gray-600"
+                  }`}
+                >
                   We follow top safety and hygiene standards for every treatment.
                 </p>
               </div>
@@ -103,10 +145,14 @@ export default function SalonBenefits() {
 
           {/* Button */}
           <motion.a
-          href="/contact"
+            href="/contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-[#214037] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#1a322b] transition-all"
+            className={`px-6 py-3 rounded-lg font-medium transition-all ${
+              theme
+                ? "bg-white text-black hover:bg-gray-200"
+                : "bg-[#214037] text-white hover:bg-[#1a322b]"
+            }`}
           >
             Contact Us →
           </motion.a>

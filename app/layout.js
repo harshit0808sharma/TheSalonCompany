@@ -3,7 +3,6 @@ import { SalonProvider } from "./context/SalonContext";
 import "./globals.css";
 import { Montserrat } from 'next/font/google';
 
-
 const montserrat = Montserrat({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -16,18 +15,16 @@ export const metadata = {
     "The Salon Company in Noida offers expert hair, beauty, makeup, permanent makeup, nail extensions, facials, and lash treatments. Book your free consultation today!",
 };
 
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={montserrat.className}
+        className={`${montserrat.className} scrollbar-thin scrollbar-thumb-custom scrollbar-track-gray-200`}
       >
-        <SalonProvider>
-          {children}
-        </SalonProvider>
+        <SalonProvider>{children}</SalonProvider>
         <ToastContainer />
       </body>
+
     </html>
   );
 }

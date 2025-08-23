@@ -13,26 +13,30 @@ import {
 } from "react-icons/fa";
 import salonImg from "../../../public/assets/images/hair.png";
 import { GoDotFill } from "react-icons/go";
+import { useContext } from "react";
+import { SalonContext } from "@/app/context/SalonContext";
 
 export default function OurBenefits() {
+  const { theme } = useContext(SalonContext); // ✅ true = dark, false = light
+
   const leftBenefits = [
     {
-      icon: <FaPaintBrush className="text-[#214037] text-2xl" />,
+      icon: <FaPaintBrush className={`${theme ? "text-teal-200" : "text-[#214037]"} text-2xl`} />,
       title: "Permanent Makeup",
       desc: "Wake up flawless every day with PMU, lip blushing, and eyeliner tattoo applied by expert artists.",
     },
     {
-      icon: <FaSpa className="text-[#214037] text-2xl" />,
+      icon: <FaSpa className={`${theme ? "text-teal-200" : "text-[#214037]"} text-2xl`} />,
       title: "Luxury Beauty Treatments",
       desc: "Indulge in bespoke facials, eyebrow lamination, and skin rejuvenation therapies designed for your skin type.",
     },
     {
-      icon: <FaHandSparkles className="text-[#214037] text-2xl" />,
+      icon: <FaHandSparkles className={`${theme ? "text-teal-200" : "text-[#214037]"} text-2xl`} />,
       title: "Eyelash Extensions",
       desc: "Choose from Classic, Hybrid, Volume, or Colorful lashes to enhance your natural beauty effortlessly.",
     },
     {
-      icon: <FaClock className="text-[#214037] text-2xl" />,
+      icon: <FaClock className={`${theme ? "text-teal-200" : "text-[#214037]"} text-2xl`} />,
       title: "Time-Saving Solutions",
       desc: "Long-lasting treatments reduce your daily routine without compromising style or elegance.",
     },
@@ -40,29 +44,34 @@ export default function OurBenefits() {
 
   const rightBenefits = [
     {
-      icon: <FaGem className="text-[#214037] text-2xl" />,
+      icon: <FaGem className={`${theme ? "text-teal-200" : "text-[#214037]"} text-2xl`} />,
       title: "Premium Salon Experience",
       desc: "Step into a sanctuary where natural beauty is enhanced with precision, artistry, and attention to detail.",
     },
     {
-      icon: <FaLeaf className="text-[#214037] text-2xl" />,
+      icon: <FaLeaf className={`${theme ? "text-teal-200" : "text-[#214037]"} text-2xl`} />,
       title: "Safe & Hygienic",
       desc: "Highest standards of cleanliness and safety ensure peace of mind for every treatment.",
     },
     {
-      icon: <FaPhoneAlt className="text-[#214037] text-2xl" />,
+      icon: <FaPhoneAlt className={`${theme ? "text-teal-200" : "text-[#214037]"} text-2xl`} />,
       title: "Free Consultation",
       desc: "Call us at +91 88000 26046 for personalized guidance to find the perfect beauty solution.",
     },
     {
-      icon: <FaSmileBeam className="text-[#214037] text-2xl" />,
+      icon: <FaSmileBeam className={`${theme ? "text-teal-200" : "text-[#214037]"} text-2xl`} />,
       title: "Confidence That Lasts",
       desc: "Leave the salon glowing, radiant, and unstoppable with treatments designed to boost your self-esteem.",
     },
   ];
 
   return (
-    <section className="bg-teal-800 text-white py-20 md:py-28 px-6 md:px-12 lg:rounded-4xl lg:mx-5">
+    <div className={`w-full p-5 ${theme ? 'bg-black ' : ''}`}>
+      <section
+      className={`py-20 md:py-28 px-6 md:px-12 lg:rounded-4xl transition-colors duration-300
+        ${theme ? "bg-gray-900 text-white" : "bg-teal-800 text-white"}
+      `}
+    >
       {/* Top Heading */}
       <motion.div
         className="text-center max-w-3xl mx-auto mb-16"
@@ -73,12 +82,11 @@ export default function OurBenefits() {
       >
         <div className="flex justify-center items-center gap-2">
           <GoDotFill className="text-white" />
-          <span className="text-white font-medium">{"Why You'll Love Us"}</span>
+          <span className="font-medium">{"Why You'll Love Us"}</span>
         </div>
         <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-4">
           {"Hair • Beauty • Makeup • Nail Extensions"}
         </h2>
-        {/* <Heading Text={"Hair • Beauty • Makeup • Nail Extensions"}/> */}
         <p className="text-gray-200 text-sm md:text-base">
           {"Choosing The Salon Company is more than a beauty appointment—it’s an investment in confidence, luxury, and effortless style."}
         </p>
@@ -97,11 +105,11 @@ export default function OurBenefits() {
               transition={{ duration: 0.6, delay: i * 0.2 }}
               viewport={{ once: true }}
             >
-              <div className="bg-white p-3 rounded-lg shadow-md">
+              <div className={`p-3 rounded-lg shadow-md ${theme ? "bg-gray-800" : "bg-white"}`}>
                 {item.icon}
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                <h3 className="text-xl font-semibold">{item.title}</h3>
                 <p className="text-gray-200 text-sm md:text-base">{item.desc}</p>
               </div>
             </motion.div>
@@ -136,11 +144,11 @@ export default function OurBenefits() {
               transition={{ duration: 0.6, delay: i * 0.2 }}
               viewport={{ once: true }}
             >
-              <div className="bg-white p-3 rounded-lg shadow-md">
+              <div className={`p-3 rounded-lg shadow-md ${theme ? "bg-gray-800" : "bg-white"}`}>
                 {item.icon}
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                <h3 className="text-xl font-semibold">{item.title}</h3>
                 <p className="text-gray-200 text-sm md:text-base">{item.desc}</p>
               </div>
             </motion.div>
@@ -148,5 +156,6 @@ export default function OurBenefits() {
         </div>
       </div>
     </section>
+    </div>
   );
 }

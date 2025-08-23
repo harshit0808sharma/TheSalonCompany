@@ -1,208 +1,205 @@
-'use client';
+'use client'
 
-import { useRef, useState } from "react";
-import Link from "next/link";
-import { FaChevronDown, FaBars, FaTimes } from "react-icons/fa";
-import { FaArrowRightLong } from "react-icons/fa6";
+import React, { useState, useRef, useContext } from 'react';
+import { FaChevronDown, FaArrowRight, FaBars, FaTimes } from "react-icons/fa";
+import { SalonContext } from "../context/SalonContext";
+import Link from 'next/link';
 
-export default function Navbar() {
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const [mobileMenu, setMobileMenu] = useState(false);
-  const [mobileDropdown, setMobileDropdown] = useState(null); 
+const Header = () => {
+  const [isHomeOpen, setIsHomeOpen] = useState(false);
+  const [isPagesOpen, setIsPagesOpen] = useState(false);
   const hoverTimeout = useRef(null);
+
+  const [mobileMenu, setMobileMenu] = useState(false);
+  const [mobileDropdown, setMobileDropdown] = useState(null);
+  const { theme } = useContext(SalonContext);
+
+  const toggleMobileDropdown = (menu) => {
+    setMobileDropdown(prev => prev === menu ? null : menu);
+  };
 
   const handleMouseEnter = (menu) => {
     clearTimeout(hoverTimeout.current);
-    setOpenDropdown(menu);
+    if (menu === 'home') setIsHomeOpen(true);
+    if (menu === 'pages') setIsPagesOpen(true);
   };
 
-  const handleMouseLeave = () => {
-    clearTimeout(hoverTimeout.current);
+  const handleMouseLeave = (menu) => {
     hoverTimeout.current = setTimeout(() => {
-      setOpenDropdown(null);
-    }, 500);
-  };
-
-  const toggleMobileDropdown = (menu) => {
-    setMobileDropdown((prev) => (prev === menu ? null : menu));
+      if (menu === 'home') setIsHomeOpen(false);
+      if (menu === 'pages') setIsPagesOpen(false);
+    }, 200);
   };
 
   return (
-    <header className="w-full py-4">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+    <header className="bg-[#f7f0f2] px-6 py-8 relative z-50">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center space-x-2">
-          <Link href="/" className="text-2xl font-bold text-[#416b63]">
-            The Salon Company
+        <div className="flex items-center">
+          <Link href="/" className="text-2xl font-bold text-[#24544B]">
+            Tha Salon Company<span className="text-[#24544B]">.</span>
           </Link>
         </div>
 
-        {/* Desktop Nav Links */}
-        <nav className="hidden md:flex">
-          <ul className="flex space-x-8 text-gray-600 font-medium">
-            {/* Home Dropdown */}
-            <li
-              className="relative group"
-              onMouseEnter={() => handleMouseEnter("home")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <button className="flex items-center gap-1 hover:text-[#416b63]">
-                Home <FaChevronDown size={12} />
-              </button>
-              {openDropdown === "home" && (
-                <ul className="absolute top-full left-0 mt-2 bg-white text-black rounded-md w-52 z-50 shadow-lg">
-                  <li>
-                    <Link href="/" className="block px-4 py-2 hover:bg-gray-100">
-                      Home - Main
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/home-image" className="block px-4 py-2 hover:bg-gray-100">
-                      Home - Image
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/home-video" className="block px-4 py-2 hover:bg-gray-100">
-                      Home - Video
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/home-slider" className="block px-4 py-2 hover:bg-gray-100">
-                      Home - Slider
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </li>
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center space-x-8 text-[#24544B]">
+          {/* Home Dropdown */}
+          <div className="relative"
+            onMouseEnter={() => handleMouseEnter('home')}
+            onMouseLeave={() => handleMouseLeave('home')}
+          >
+            <button className="flex items-center text-gray-700 hover:text-[#24544B] transition-colors font-medium">
+              Home <FaChevronDown className="ml-1 w-4 h-4" />
+            </button>
+            {isHomeOpen && (
+              <div className="absolute top-full left-0 mt-2 w-48 bg-white text-[#24544B] shadow-lg rounded-2xl py-2 z-50 transition-all duration-200"
+                onMouseEnter={() => handleMouseEnter('home')}
+                onMouseLeave={() => handleMouseLeave('home')}
+              >
+                <Link href="/" className="block px-4 py-2 hover:bg-gray-50">Home - Main</Link>
+                <Link href="/home-image" className="block px-4 py-2 hover:bg-gray-50">Home - Image</Link>
+                <Link href="/home-video" className="block px-4 py-2 hover:bg-gray-50">Home - Video</Link>
+                <Link href="/home-slider" className="block px-4 py-2 hover:bg-gray-50">Home - Slider</Link>
+              </div>
+            )}
+          </div>
 
-            <li>
-              <Link href="/about" className="hover:text-[#416b63]">About Us</Link>
-            </li>
-            <li>
-              <Link href="/services" className="hover:text-[#416b63]">Services</Link>
-            </li>
-            <li>
-              <Link href="/blogs" className="hover:text-[#416b63]">Blog</Link>
-            </li>
+          <Link href="/about" className="text-gray-700 hover:text-[#24544B] transition-colors font-medium">About Us</Link>
+          <Link href="/services" className="text-gray-700 hover:text-[#24544B] transition-colors font-medium">Services</Link>
+          <Link href="/blogs" className="text-gray-700 hover:text-[#24544B] transition-colors font-medium">Blog</Link>
 
-            {/* Pages Dropdown */}
-            <li
-              className="relative group"
-              onMouseEnter={() => handleMouseEnter("pages")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <button className="flex items-center gap-1 hover:text-[#416b63]">
-                Pages <FaChevronDown size={12} />
-              </button>
-              {openDropdown === "pages" && (
-                <ul className="absolute top-full left-0 mt-2 bg-white text-black shadow-lg rounded-md w-52 z-50">
-                  <li><Link href="/services/service-details" className="block px-4 py-2 hover:bg-gray-100">Service Details</Link></li>
-                  <li><Link href="/blogs/how-to-care-for-your-skin-after-a-botox-treatment" className="block px-4 py-2 hover:bg-gray-100">Blog Details</Link></li>
-                  {/* <li><Link href="/case-study" className="block px-4 py-2 hover:bg-gray-100">Case Study</Link></li> */}
-                  {/* <li><Link href="/case-study" className="block px-4 py-2 hover:bg-gray-100">Case Study Details</Link></li> */}
-                  <li><Link href="/our-team" className="block px-4 py-2 hover:bg-gray-100">Our Team</Link></li>
-                  <li><Link href="/our-team/kristin-watson" className="block px-4 py-2 hover:bg-gray-100">Team Details</Link></li>
-                  <li><Link href="/testimonials" className="block px-4 py-2 hover:bg-gray-100">Testimonials</Link></li>
-                  <li><Link href="/image-gallery" className="block px-4 py-2 hover:bg-gray-100">Image Gallery</Link></li>
-                  <li><Link href="/video-gallery" className="block px-4 py-2 hover:bg-gray-100">Video Gallery</Link></li>
-                  <li><Link href="/faqs" className="block px-4 py-2 hover:bg-gray-100">FAQs</Link></li>
-                  <li><Link href="/404" className="block px-4 py-2 hover:bg-gray-100">404</Link></li>
-                </ul>
-              )}
-            </li>
+          {/* Pages Dropdown */}
+          <div className="relative"
+            onMouseEnter={() => handleMouseEnter('pages')}
+            onMouseLeave={() => handleMouseLeave('pages')}
+          >
+            <button className="flex items-center text-gray-700 hover:text-[#24544B] transition-colors font-medium">
+              Pages <FaChevronDown className="ml-1 w-4 h-4" />
+            </button>
+            {isPagesOpen && (
+              <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-2xl py-2 z-50 transition-all duration-200"
+                onMouseEnter={() => handleMouseEnter('pages')}
+                onMouseLeave={() => handleMouseLeave('pages')}
+              >
+                <Link href="/services/service-details" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Service Details</Link>
+                <Link href="/blogs" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Blog Details</Link>
+                <Link href="/our-team" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Our Team</Link>
+                <Link href="/our-team/kristin-watson" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Team Details</Link>
+                <Link href="/testimonials" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Testimonials</Link>
+                <Link href="/image-gallery" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Image Gallery</Link>
+                <Link href="/video-gallery" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Video Gallery</Link>
+                <Link href="/faqs" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">FAQs</Link>
+                <Link href="/404" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">404</Link>
+              </div>
+            )}
+          </div>
 
-            <li>
-              <Link href="/contact" className="hover:text-[#416b63]">Contact Us</Link>
-            </li>
-          </ul>
+          <Link href="/contact" className="text-gray-700 hover:text-[#24544B] transition-colors font-medium">Contact Us</Link>
         </nav>
 
-        {/* CTA Button */}
-        <div className="hidden md:flex">
-          <Link href="/book-appointment" className="flex items-center py-2 px-5 text-white font-medium bg-[#416b63] rounded-full hover:bg-[#2f514a] transition">
-            Book Appointment <FaArrowRightLong className="ml-2" />
+        {/* Book Appointment Button */}
+        <div className="hidden lg:flex items-center">
+          <Link href='/book-appointment' className="bg-[#24544B] text-white px-6 py-3 rounded-full font-medium hover:bg-emerald-800 transition-colors flex items-center">
+            Book Appointment <FaArrowRight className="ml-2 w-4 h-4" />
           </Link>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          onClick={() => setMobileMenu(!mobileMenu)}
-          className="md:hidden text-gray-600 text-2xl"
-        >
-          {mobileMenu ? <FaTimes /> : <FaBars />}
+        {/* Mobile Menu Button */}
+        <button className="lg:hidden p-2" onClick={() => setMobileMenu(!mobileMenu)}>
+          {mobileMenu ? <FaTimes className="text-gray-700 w-6 h-6" /> :
+            <div className="w-6 h-6 flex flex-col justify-center">
+              <span className="block w-full h-0.5 bg-gray-700 mb-1"></span>
+              <span className="block w-full h-0.5 bg-gray-700 mb-1"></span>
+              <span className="block w-full h-0.5 bg-gray-700"></span>
+            </div>
+          }
         </button>
       </div>
 
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 z-50 bg-white transform transition-transform duration-300 ease-in-out ${mobileMenu ? "translate-x-0" : "-translate-x-full"} overflow-y-auto`}>
+      {/* Mobile Menu */}
+      <div
+        className={`lg:hidden fixed inset-0 z-40 bg-white overflow-y-auto transform transition-transform duration-300 ${mobileMenu ? "translate-x-0" : "-translate-x-full"
+          }`}
+      >
         <div className="flex justify-between items-center p-6 border-b">
-          <span className="text-xl font-semibold text-[#416b63]">Menu</span>
-          <button onClick={() => setMobileMenu(false)} className="text-2xl text-gray-700">
+          <span className="text-xl font-semibold">Menu</span>
+          <button onClick={() => setMobileMenu(false)} className="text-2xl">
             <FaTimes />
           </button>
         </div>
 
-        <ul className="space-y-6 text-gray-700 font-medium p-6">
-          {/* Home Dropdown Mobile */}
+        <ul className="space-y-6 font-medium p-6">
+          {/* Home */}
           <li>
             <button
+              className="flex justify-between w-full items-center"
               onClick={() => toggleMobileDropdown("home")}
-              className="flex justify-between w-full items-center"
             >
-              Home <FaChevronDown />
+              Home{" "}
+              <FaChevronDown
+                className={`${mobileDropdown === "home"
+                    ? "rotate-180 transform transition-transform"
+                    : ""
+                  }`}
+              />
             </button>
-            {mobileDropdown === "home" && (
-              <ul className="mt-2 pl-4 space-y-2">
-                <li><Link href="/" onClick={() => setMobileMenu(false)}>Home - Main</Link></li>
-                <li><Link href="/home-image" onClick={() => setMobileMenu(false)}>Home - Image</Link></li>
-                <li><Link href="/home-video" onClick={() => setMobileMenu(false)}>Home - Video</Link></li>
-                <li><Link href="/home-slider" onClick={() => setMobileMenu(false)}>Home - Slider</Link></li>
-              </ul>
-            )}
+            <ul
+              className={`overflow-hidden transition-[max-height] duration-300 ${mobileDropdown === "home" ? "max-h-40" : "max-h-0"
+                } mt-2 pl-4 space-y-2`}
+            >
+              <li><Link href="/">Home - Main</Link></li>
+              <li><Link href="/home-image">Home - Image</Link></li>
+              <li><Link href="/home-video">Home - Video</Link></li>
+              <li><Link href="/home-slider">Home - Slider</Link></li>
+            </ul>
           </li>
 
-          <li><Link href="/about" onClick={() => setMobileMenu(false)}>About Us</Link></li>
-          <li><Link href="/services" onClick={() => setMobileMenu(false)}>Services</Link></li>
-          <li><Link href="/blogs" onClick={() => setMobileMenu(false)}>Blog</Link></li>
+          <li><Link href="/about">About Us</Link></li>
+          <li><Link href="/services">Services</Link></li>
+          <li><Link href="/blogs">Blog</Link></li>
 
-          {/* Pages Dropdown Mobile */}
+          {/* Pages Dropdown */}
           <li>
             <button
-              onClick={() => toggleMobileDropdown("pages")}
               className="flex justify-between w-full items-center"
+              onClick={() => toggleMobileDropdown("pages")}
             >
-              Pages <FaChevronDown />
+              Pages{" "}
+              <FaChevronDown
+                className={`${mobileDropdown === "pages"
+                    ? "rotate-180 transform transition-transform"
+                    : ""
+                  }`}
+              />
             </button>
-            {mobileDropdown === "pages" && (
-              <ul className="mt-2 pl-4 space-y-2">
-                <li><Link href="/service-details" onClick={() => setMobileMenu(false)}>Service Details</Link></li>
-                <li><Link href="/blogs" onClick={() => setMobileMenu(false)}>Blog Details</Link></li>
-                {/* <li><Link href="/case-study" onClick={() => setMobileMenu(false)}>Case Study</Link></li> */}
-                {/* <li><Link href="/case-study" onClick={() => setMobileMenu(false)}>Case Study Details</Link></li> */}
-                <li><Link href="/our-team" onClick={() => setMobileMenu(false)}>Our Team</Link></li>
-                <li><Link href="/our-team/kristin-watson" onClick={() => setMobileMenu(false)}>Team Details</Link></li>
-                <li><Link href="/testimonials" onClick={() => setMobileMenu(false)}>Testimonials</Link></li>
-                <li><Link href="/image-gallery" onClick={() => setMobileMenu(false)}>Image Gallery</Link></li>
-                <li><Link href="/video-gallery" onClick={() => setMobileMenu(false)}>Video Gallery</Link></li>
-                <li><Link href="/faqs" onClick={() => setMobileMenu(false)}>FAQs</Link></li>
-                <li><Link href="/404" onClick={() => setMobileMenu(false)}>404</Link></li>
-              </ul>
-            )}
+            <ul
+              className={`overflow-hidden transition-[max-height] duration-300 ${mobileDropdown === "pages" ? "max-h-[600px]" : "max-h-0"
+                } mt-2 pl-4 space-y-2`}
+            >
+              <li><Link href="/services/service-details" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Service Details</Link></li>
+              <li><Link href="/blogs" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Blog Details</Link></li>
+              <li><Link href="/our-team" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Our Team</Link></li>
+              <li><Link href="/our-team/kristin-watson" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Team Details</Link></li>
+              <li><Link href="/testimonials" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Testimonials</Link></li>
+              <li><Link href="/image-gallery" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Image Gallery</Link></li>
+              <li><Link href="/video-gallery" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Video Gallery</Link></li>
+              <li><Link href="/faqs" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">FAQs</Link></li>
+              <li><Link href="/404" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">404</Link></li>
+            </ul>
           </li>
 
-          <li><Link href="/contact" onClick={() => setMobileMenu(false)}>Contact Us</Link></li>
-
           <li>
-            <Link
-              href="/book-appointment"
-              onClick={() => setMobileMenu(false)}
-              className="flex items-center w-full justify-center py-2 px-6 text-white font-medium bg-[#416b63] rounded-full hover:bg-[#2f514a] transition"
-            >
-              Book Appointment <FaArrowRightLong className="ml-2" />
-            </Link>
+            <button className="w-full flex items-center justify-center py-2 px-6 font-medium rounded-full bg-[#24544B] text-white hover:bg-emerald-800 transition-colors">
+              Book Appointment <FaArrowRight className="ml-2" />
+            </button>
           </li>
         </ul>
       </div>
+
+
     </header>
   );
-}
+};
+
+export default Header;

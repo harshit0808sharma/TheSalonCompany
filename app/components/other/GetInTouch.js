@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   FaPhone,
   FaMapMarkerAlt,
@@ -12,25 +12,31 @@ import { motion } from 'framer-motion';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { toast } from 'react-toastify';
 import { getInTouchSchema } from '@/app/validation/getInTouchSchema';
+import { SalonContext } from '@/app/context/SalonContext';
 
 import img from '../../../public/assets/images/image5.jpeg';
 
 const GetInTouch = () => {
+  const { theme } = useContext(SalonContext);
+
   const fadeUp = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
   const stagger = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
   };
 
+  const contactCards = [
+    { icon: <FaPhone className="w-6 h-6" />, title: 'Phone', lines: ['+91 123 456 789', '+91 123 456 987'] },
+    { icon: <FaMapMarkerAlt className="w-6 h-6" />, title: 'Address', lines: ['Lokaci H.Q. sector 117, Noida', 'CA 90001, USA'] },
+    { icon: <FaEnvelope className="w-6 h-6" />, title: 'Email', lines: ['salon@gmail.com', 'thesaloncompany@gmail.com'] },
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className={`${theme ? "bg-gray-900 text-white" : "bg-gray-50 text-black"} min-h-screen`}>
       <div className="max-w-7xl mx-auto px-4 py-16">
         <motion.div
           className="grid lg:grid-cols-2 gap-12 items-start"
@@ -41,7 +47,7 @@ const GetInTouch = () => {
         >
           {/* Contact Image & Hours */}
           <motion.div variants={fadeUp} className="relative">
-            <div className="bg-teal-700 rounded-4xl overflow-hidden relative">
+            <div className="rounded-4xl overflow-hidden relative">
               <Image
                 src={img}
                 alt="Salon services"
@@ -49,14 +55,14 @@ const GetInTouch = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#214037]/90 via-[#214037]/40 to-transparent"></div>
 
-              <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm rounded-lg p-4 flex items-center space-x-3">
-                <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center">
-                  <FaClock className="w-6 h-6 text-teal-700" />
+              <div className={`absolute bottom-6 left-6 rounded-lg p-4 flex items-center space-x-3 ${theme ? "bg-gray-800/90" : "bg-white/90 backdrop-blur-sm"}`}>
+                <div className={`${theme ? "bg-gray-700 text-teal-200" : "bg-teal-100 text-teal-700"} w-12 h-12 rounded-lg flex items-center justify-center`}>
+                  <FaClock className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">Opening hours</h3>
-                  <p className="text-sm text-gray-600">Mon - Sat: 10:00 to 07:00 pm</p>
-                  <p className="text-sm text-gray-600">Sunday: Closed</p>
+                  <h3 className={`${theme ? "text-white" : "text-gray-900"} font-semibold`}>Opening hours</h3>
+                  <p className={`${theme ? "text-gray-300" : "text-gray-600"} text-sm`}>Mon - Sat: 10:00 to 07:00 pm</p>
+                  <p className={`${theme ? "text-gray-300" : "text-gray-600"} text-sm`}>Sunday: Closed</p>
                 </div>
               </div>
             </div>
@@ -64,11 +70,11 @@ const GetInTouch = () => {
 
           {/* Contact Form */}
           <motion.div variants={fadeUp} className='flex flex-col gap-6'>
-            <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-4">
+            <h2 className={`text-4xl md:text-5xl font-medium mb-4 ${theme ? "text-white" : "text-gray-900"}`}>
               Get in touch with us
             </h2>
-            <p className="text-gray-600 mb-8">
-              {"Have questions or need assistance? Reach out to us for expert guidance, personalized solutions, and exceptional support. We're here to help!"}
+            <p className={`${theme ? "text-gray-300" : "text-gray-600"} mb-8`}>
+              Have questions or need assistance? Reach out to us for expert guidance, personalized solutions, and exceptional support. We're here to help!
             </p>
 
             <Formik
@@ -94,7 +100,7 @@ const GetInTouch = () => {
                         type="text"
                         name="firstName"
                         placeholder="First Name"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                        className={`${theme ? "bg-gray-800 text-white border-gray-600" : "bg-white text-black border-gray-300"} w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
                       />
                       <ErrorMessage name="firstName" component="div" className="text-red-500 text-sm mt-1" />
                     </motion.div>
@@ -103,7 +109,7 @@ const GetInTouch = () => {
                         type="text"
                         name="lastName"
                         placeholder="Last Name"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                        className={`${theme ? "bg-gray-800 text-white border-gray-600" : "bg-white text-black border-gray-300"} w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
                       />
                       <ErrorMessage name="lastName" component="div" className="text-red-500 text-sm mt-1" />
                     </motion.div>
@@ -115,7 +121,7 @@ const GetInTouch = () => {
                         type="email"
                         name="email"
                         placeholder="E-mail Address"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                        className={`${theme ? "bg-gray-800 text-white border-gray-600" : "bg-white text-black border-gray-300"} w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
                       />
                       <ErrorMessage name="email" component="div" className="text-red-500 text-sm mt-1" />
                     </motion.div>
@@ -124,7 +130,7 @@ const GetInTouch = () => {
                         type="tel"
                         name="phone"
                         placeholder="Phone No."
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                        className={`${theme ? "bg-gray-800 text-white border-gray-600" : "bg-white text-black border-gray-300"} w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
                       />
                       <ErrorMessage name="phone" component="div" className="text-red-500 text-sm mt-1" />
                     </motion.div>
@@ -136,7 +142,7 @@ const GetInTouch = () => {
                       name="message"
                       placeholder="Write Message"
                       rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none"
+                      className={`${theme ? "bg-gray-800 text-white border-gray-600" : "bg-white text-black border-gray-300"} w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none`}
                     />
                     <ErrorMessage name="message" component="div" className="text-red-500 text-sm mt-1" />
                   </motion.div>
@@ -163,13 +169,13 @@ const GetInTouch = () => {
           viewport={{ once: true }}
           variants={stagger}
         >
-          {[
-            { icon: <FaPhone className="w-6 h-6" />, title: 'Phone', lines: ['+91 123 456 789', '+91 123 456 987'] },
-            { icon: <FaMapMarkerAlt className="w-6 h-6" />, title: 'Address', lines: ['Lokaci H.Q. sector 117, Noida', 'CA 90001, USA'] },
-            { icon: <FaEnvelope className="w-6 h-6" />, title: 'Email', lines: ['salon@gmail.com', 'thesaloncompany@gmail.com'] }
-          ].map((card, idx) => (
-            <motion.div key={idx} variants={fadeUp} className="bg-teal-700 text-white p-6 rounded-2xl">
-              <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
+          {contactCards.map((card, idx) => (
+            <motion.div
+              key={idx}
+              variants={fadeUp}
+              className={`${theme ? "bg-gray-800 text-white" : "bg-teal-700 text-white"} p-6 rounded-2xl`}
+            >
+              <div className={`${theme ? "bg-gray-700 text-teal-200" : "bg-white/20 text-teal-700"} w-12 h-12 rounded-lg flex items-center justify-center mb-4`}>
                 {card.icon}
               </div>
               <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
@@ -182,7 +188,7 @@ const GetInTouch = () => {
 
         {/* Map Section */}
         <motion.div
-          className="mt-16 rounded-2xl overflow-hidden h-96 bg-gray-200 relative"
+          className="mt-16 rounded-2xl overflow-hidden h-96 relative"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -201,9 +207,9 @@ const GetInTouch = () => {
       </div>
 
       {/* Company name section */}
-      <div className="bg-gray-100 py-16">
+      <div className={`${theme ? "bg-gray-800" : "bg-gray-100"} py-16`}>
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-teal-800 mb-8">
+          <h2 className={`${theme ? "text-white" : "text-teal-800"} text-4xl font-bold mb-8`}>
             {"✱ THE SALON COMPANY"}
           </h2>
         </div>

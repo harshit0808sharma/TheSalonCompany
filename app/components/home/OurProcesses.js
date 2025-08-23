@@ -12,14 +12,17 @@ import Link from "next/link";
 import doctorImg from "../../../public/assets/images/image6.jpeg";
 
 export default function ProcessSection() {
-  const { proocessSteps } = useContext(SalonContext);
+  const { proocessSteps, theme } = useContext(SalonContext); // ✅ theme available
 
   const handleClick = () => {
     toast.info("Oops! This video is coming soon. Check back later!");
   };
 
   return (
-    <section className="grid md:grid-cols-2 min-h-[600px] px-5 py-10 md:py-20 gap-8">
+    <section
+      className={`grid md:grid-cols-2 min-h-[600px] px-5 py-10 md:py-20 gap-8 
+      ${theme ? "bg-gray-900 text-white" : "bg-white text-gray-800"}`}
+    >
       {/* LEFT SIDE IMAGE + PLAY ICON */}
       <motion.div
         initial={{ opacity: 0, x: -100 }}
@@ -34,7 +37,10 @@ export default function ProcessSection() {
           fill
           className="object-cover rounded-3xl"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#214037]/90 via-[#214037]/40 to-transparent rounded-3xl"></div>
+        <div
+          className={`absolute inset-0 rounded-3xl 
+          ${theme ? "bg-gradient-to-t from-black/90 via-black/40" : "bg-gradient-to-t from-[#214037]/90 via-[#214037]/40"}`}
+        ></div>
 
         {/* Play Button + Text */}
         <div className="relative p-8 md:p-12 text-white">
@@ -47,9 +53,9 @@ export default function ProcessSection() {
           >
             <button
               onClick={handleClick}
-              className="flex items-center justify-center w-14 h-14 rounded-full border-2 border-white 
-              bg-white/10 hover:bg-white hover:text-[#214037] text-white 
-              transition-all duration-300 shadow-lg hover:scale-110"
+              className={`flex items-center justify-center w-14 h-14 rounded-full border-2 
+              ${theme ? "border-white bg-white/10 hover:bg-white hover:text-black text-white" : "border-[#214037] bg-[#214037]/10 hover:bg-[#214037] hover:text-white text-[#214037]"} 
+              transition-all duration-300 shadow-lg hover:scale-110`}
             >
               <FaPlay size={18} />
             </button>
@@ -69,7 +75,8 @@ export default function ProcessSection() {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="bg-white flex flex-col items-start rounded-3xl p-8 md:p-14 shadow-md"
+        className={`flex flex-col items-start rounded-3xl p-8 md:p-14 shadow-md 
+        ${theme ? "bg-gray-800 text-white" : "bg-white text-gray-800"}`}
       >
         {/* Small Heading */}
         <motion.div
@@ -78,8 +85,10 @@ export default function ProcessSection() {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="flex items-center gap-2 mb-4"
         >
-          <GoDotFill className="text-teal-800 text-xl" />
-          <span className="text-[#264D45] font-medium">Our Processes</span>
+          <GoDotFill className={`${theme ? "text-teal-400" : "text-teal-800"} text-xl`} />
+          <span className={`${theme ? "text-teal-300" : "text-[#264D45]"} font-medium`}>
+            Our Processes
+          </span>
         </motion.div>
 
         {/* Main Heading */}
@@ -87,7 +96,7 @@ export default function ProcessSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="text-4xl font-bold text-[#214037] mb-4 leading-snug"
+          className="text-4xl font-bold mb-4 leading-snug"
         >
           Beauty, Simplified – Step by Step
         </motion.h2>
@@ -97,7 +106,7 @@ export default function ProcessSection() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="text-gray-600 mb-8"
+          className={`mb-8 ${theme ? "text-gray-300" : "text-gray-600"}`}
         >
           At The Salon Company, we believe that beauty should be effortless,
           seamless, and tailored just for you.
@@ -111,15 +120,17 @@ export default function ProcessSection() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 + i * 0.2, duration: 0.6 }}
-              className="flex gap-4 items-start bg-[#f9f6f7] rounded-xl p-4 
-              hover:shadow-xl hover:bg-white transition-all duration-300 cursor-pointer"
+              className={`flex gap-4 items-start rounded-xl p-4 cursor-pointer transition-all duration-300 
+              ${theme ? "bg-gray-700 hover:bg-gray-600" : "bg-[#f9f6f7] hover:shadow-xl hover:bg-white"}`}
             >
-              <div className="text-[#214037] text-3xl flex-shrink-0">
+              <div className={`text-3xl flex-shrink-0 ${theme ? "text-teal-300" : "text-[#214037]"}`}>
                 {step.icon}
               </div>
               <div>
-                <h4 className="font-semibold text-[#214037]">{step.title}</h4>
-                <p className="text-gray-600 text-sm mt-1">{step.desc}</p>
+                <h4 className="font-semibold">{step.title}</h4>
+                <p className={`text-sm mt-1 ${theme ? "text-gray-300" : "text-gray-600"}`}>
+                  {step.desc}
+                </p>
               </div>
             </motion.div>
           ))}
@@ -131,8 +142,8 @@ export default function ProcessSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.6, duration: 0.6 }}
-          className="px-6 py-3 bg-[#214037] text-white flex items-center gap-2 
-          rounded-lg shadow hover:bg-[#19332b] hover:scale-105 transition-all duration-300"
+          className={`px-6 py-3 flex items-center gap-2 rounded-lg shadow transition-all duration-300 
+          ${theme ? "bg-teal-500 text-black hover:bg-teal-400" : "bg-[#214037] text-white hover:bg-[#19332b] hover:scale-105"}`}
         >
           <span>Learn More</span> <FaArrowRightLong />
         </motion.a>
@@ -142,12 +153,12 @@ export default function ProcessSection() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 1.8, duration: 0.6 }}
-          className="text-gray-600 text-sm mt-6"
+          className={`text-sm mt-6 ${theme ? "text-gray-400" : "text-gray-600"}`}
         >
           Your skin’s transformation starts here —{" "}
           <Link
             href="/book-appointment"
-            className="text-[#214037] font-semibold underline hover:text-[#19332b]"
+            className={`${theme ? "text-teal-300 hover:text-teal-200" : "text-[#214037] font-semibold underline hover:text-[#19332b]"}`}
           >
             Book Today!
           </Link>

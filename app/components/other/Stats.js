@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { motion } from "framer-motion";
 import { FaRegSmile, FaCrown, FaCut, FaLeaf } from "react-icons/fa";
+import { SalonContext } from "@/app/context/SalonContext";
 
 const stats = [
   { icon: <FaRegSmile className="text-4xl text-teal-600" />, value: 96, suffix: "%", label: "Happy Clients" },
@@ -13,12 +14,13 @@ const stats = [
 
 export default function Stats() {
   const [counts, setCounts] = useState(stats.map(() => 0));
+  const { theme } = useContext(SalonContext); // true = dark, false = light
 
   useEffect(() => {
     stats.forEach((item, i) => {
       let start = 0;
       const end = item.value;
-      const duration = 2000; 
+      const duration = 2000;
       const stepTime = Math.abs(Math.floor(duration / end));
 
       const timer = setInterval(() => {
@@ -39,11 +41,15 @@ export default function Stats() {
         }
       }, stepTime);
     });
-  }, []); 
+  }, []);
 
   return (
-    <section className="bg-[#FBF7F7] py-16">
-      <div className="container mx-auto px-4 md:px-8">
+    <section
+      className={`w-full px-30 py-5 transition-colors duration-500 ${
+        theme ? "bg-black" : ""
+      }`}
+    >
+      <div className="container border-t border-gray-200 mx-auto p-4 md:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
           {stats.map((item, index) => (
             <motion.div
@@ -55,11 +61,19 @@ export default function Stats() {
               viewport={{ once: true }}
             >
               <div className="flex justify-center">{item.icon}</div>
-              <h3 className="text-4xl md:text-5xl font-bold text-[#28554E]">
+              <h3
+                className={`text-4xl md:text-5xl font-bold ${
+                  theme ? "text-white" : "text-[#28554E]"
+                }`}
+              >
                 {counts[index]}
                 {item.suffix}
               </h3>
-              <p className="text-gray-600 text-sm md:text-base font-medium">
+              <p
+                className={`text-sm md:text-base font-medium ${
+                  theme ? "text-gray-300" : "text-gray-600"
+                }`}
+              >
                 {item.label}
               </p>
             </motion.div>

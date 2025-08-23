@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import img1 from "../../../public/assets/images/image11.jpeg";
 import img2 from "../../../public/assets/images/image4.jpeg";
 import { GoDotFill } from "react-icons/go";
+import { FaRegSquareCheck } from "react-icons/fa6";
 
 export default function WhoWeAre() {
   const [count, setCount] = useState(0);
@@ -74,15 +75,14 @@ export default function WhoWeAre() {
             </motion.div>
 
             {/* Circular Contact Badge */}
-            <motion.a
-              href="/book-appointment"
+            <motion.div
               initial={{ rotate: -90, opacity: 0 }}
               whileInView={{ rotate: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
               className="absolute left-56 md:-left-20 top-1/2 -translate-y-1/2 bg-[#214037] text-white w-36 h-36 flex items-center justify-center gap-2 rounded-full border-8 border-white text-sm text-center font-medium shadow-lg spin-slow"
             >
               <span className="leading-tight">Book Your Consultation</span> <FaArrowRight />
-            </motion.a>
+            </motion.div>
           </div>
         </motion.div>
 
@@ -122,7 +122,7 @@ export default function WhoWeAre() {
                 transition={{ duration: 0.4, delay: i * 0.1 }}
                 className="flex items-center gap-2 text-gray-700"
               >
-                <FaCheck className="text-green-600" /> {item}
+                <FaRegSquareCheck className="text-teal-800" /> {item}
               </motion.div>
             ))}
           </div>

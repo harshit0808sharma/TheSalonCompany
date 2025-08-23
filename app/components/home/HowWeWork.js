@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -11,10 +11,13 @@ import { SalonContext } from "@/app/context/SalonContext";
 import { toast } from "react-toastify";
 
 export default function HowWeWork() {
-  const { steps } = useContext(SalonContext);
+  const { steps, theme } = useContext(SalonContext); // get theme too ✅
 
   return (
-    <section className="grid md:grid-cols-2 gap-10 items-center py-16 px-6 md:px-12 bg-[#fdf9f8]">
+    <section
+      className={`grid md:grid-cols-2 gap-10 items-center py-16 px-6 md:px-12 
+      ${theme ? "bg-gray-900 text-white" : "bg-[#fdf9f8] text-gray-800"}`}
+    >
       {/* Left Side */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}
@@ -28,12 +31,30 @@ export default function HowWeWork() {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="flex items-center gap-2 mb-4"
         >
-          <GoDotFill className="text-teal-800" />
-          <span className="text-[#264D45] font-medium">How We Works</span>
+          <GoDotFill className={`${theme ? "text-teal-400" : "text-teal-800"}`} />
+          <span
+            className={`font-medium ${
+              theme ? "text-teal-400" : "text-[#264D45]"
+            }`}
+          >
+            How We Work
+          </span>
         </motion.div>
-        <Heading Text={"Seamless, Luxurious, and Client-Centered"} />
-        <p className="text-gray-600 mb-8">
-          At <span className="font-semibold">The Salon Company</span>{", we’ve perfected a workflow that combines expertise, comfort, and efficiency, ensuring every client leaves radiant and confident."}
+
+        <Heading
+          Text={
+            "Seamless, Luxurious, and Client-Centered"
+          }
+          className={`${theme ? "text-white" : "text-[#214037]"}`}
+        />
+
+        <p
+          className={`mb-8 ${
+            theme ? "text-gray-300" : "text-gray-600"
+          }`}
+        >
+          At <span className="font-semibold">The Salon Company</span>
+          {", we’ve perfected a workflow that combines expertise, comfort, and efficiency, ensuring every client leaves radiant and confident."}
         </p>
 
         {/* Steps */}
@@ -45,13 +66,25 @@ export default function HowWeWork() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
               viewport={{ once: true }}
-              className="border-b border-gray-200 pb-4"
+              className={`pb-4 border-b ${
+                theme ? "border-gray-700" : "border-gray-200"
+              }`}
             >
-              <h3 className="flex items-center gap-3 text-xl font-semibold text-[#214037]">
+              <h3
+                className={`flex items-center gap-3 text-xl font-semibold ${
+                  theme ? "text-white" : "text-[#214037]"
+                }`}
+              >
                 <span className="text-3xl font-light">{step.num}</span>
                 {step.title}
               </h3>
-              <p className="text-gray-600 mt-1 ml-11">{step.desc}</p>
+              <p
+                className={`mt-1 ml-11 ${
+                  theme ? "text-gray-300" : "text-gray-600"
+                }`}
+              >
+                {step.desc}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -77,13 +110,20 @@ export default function HowWeWork() {
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.3 }}
           viewport={{ once: true }}
-          className="absolute bottom-0 left-0 right-0 bg-[#214037]/90 text-white rounded-b-2xl p-6"
+          className={`absolute bottom-0 left-0 right-0 rounded-b-2xl p-6 ${
+            theme ? "bg-[#214037]/95 text-white" : "bg-[#214037]/90 text-white"
+          }`}
         >
           <p className="text-lg font-medium">
             Have Questions? We’re Here to Help You!
           </p>
           <div className="flex items-center gap-3 mt-3">
-            <button onClick={() => toast.info("Sorry, This feature is Not Available right now!")} className="w-10 h-10 flex items-center justify-center rounded-full border border-white">
+            <button
+              onClick={() =>
+                toast.info("Sorry, This feature is Not Available right now!")
+              }
+              className="w-10 h-10 flex items-center justify-center rounded-full border border-white"
+            >
               <FaPhone />
             </button>
             <p className="text-lg font-semibold">(123) 456 789</p>
