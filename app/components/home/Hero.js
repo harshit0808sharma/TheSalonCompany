@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaStar } from "react-icons/fa";
-import womanImage from "../../../public/assets/images/faceImage (1).png";
+import womanImage from "../../../public/assets/images/heroImg.png";
 import ContactInfo from "../other/ContactInfo";
 import { useContext } from "react";
 import { SalonContext } from "@/app/context/SalonContext";
