@@ -8,6 +8,7 @@ import Heading from "../other/Heading";
 import { GoDotFill } from "react-icons/go";
 import { useContext } from "react";
 import { SalonContext } from "@/app/context/SalonContext";
+import { toast } from "react-toastify";
 
 export default function HowWeWork() {
   const { steps } = useContext(SalonContext);
@@ -82,9 +83,9 @@ export default function HowWeWork() {
             Have Questions? We’re Here to Help You!
           </p>
           <div className="flex items-center gap-3 mt-3">
-            <div className="w-10 h-10 flex items-center justify-center rounded-full border border-white">
+            <button onClick={() => toast.info("Sorry, This feature is Not Available right now!")} className="w-10 h-10 flex items-center justify-center rounded-full border border-white">
               <FaPhone />
-            </div>
+            </button>
             <p className="text-lg font-semibold">(123) 456 789</p>
           </div>
         </motion.div>

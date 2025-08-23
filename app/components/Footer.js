@@ -80,12 +80,12 @@ export default function Footer() {
                   <FaPhone className="w-4 h-4" />
                   <span className="text-white/80">Book Your Appointment</span>
                 </div>
-                <p className="text-white/80">(702) 555-0122</p>
+                <p className="text-white/80">(987) 654-3210</p>
                 <div className="flex items-center space-x-2">
                   <FaPhone className="w-4 h-4" />
                   <span className="text-white/80">Customer Support</span>
                 </div>
-                <p className="text-white/80">(716) 555-0114</p>
+                <p className="text-white/80">(987) 654-3210</p>
               </div>
             </div>
 

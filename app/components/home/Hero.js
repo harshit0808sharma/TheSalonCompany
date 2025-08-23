@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaStar } from "react-icons/fa";
-import womanImage from "../../../public/assets/images/faceImage.png";
+import womanImage from "../../../public/assets/images/faceImage (1).png";
 import ContactInfo from "../other/ContactInfo";
 
 export default function Hero() {
@@ -73,7 +73,7 @@ export default function Hero() {
               alt="Hero"
               priority
               fill
-              className="object-contain md:object-cover rounded-lg drop-shadow-2xl"
+              className="object-contain md:object-cover rounded-lg drop-shadow-4xl"
             />
           </motion.div>
         </div>

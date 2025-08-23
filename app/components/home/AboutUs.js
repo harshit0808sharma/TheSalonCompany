@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaArrowRight, FaCheck, FaPlay } from "react-icons/fa";
-import image1 from "../../../public/assets/images/image4.jpeg";
+import { FaArrowRight, FaCheck, FaPlay, FaHeart, FaStar } from "react-icons/fa";
+import image1 from "../../../public/assets/images/blog7.jpg";
 import image2 from "../../../public/assets/images/image2.jpeg";
 import { useState, useEffect } from "react";
 import { GoDotFill } from "react-icons/go";
@@ -62,7 +62,8 @@ export default function AboutSection() {
                         />
                     </motion.div>
 
-                    <motion.div
+                    <motion.a
+                        href="/contact"
                         initial={{ rotate: -90, opacity: 0 }}
                         whileInView={{ rotate: 0, opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.5 }}
@@ -70,7 +71,7 @@ export default function AboutSection() {
                     >
                         <span className="leading-tight">Contact Us </span>
                         <FaArrowRight />
-                    </motion.div>
+                    </motion.a>
                 </div>
 
                 {/* Right Content */}
@@ -94,13 +95,19 @@ export default function AboutSection() {
 
                     {/* Philosophy */}
                     <div className="bg-white p-6 rounded-2xl shadow-md border-l-4 border-[#264D45]">
-                        <h3 className="text-xl font-semibold text-[#264D45] mb-3">
-                            💖 Our Philosophy
+                        <h3 className="text-xl font-semibold text-[#264D45] mb-3 flex items-center gap-2">
+                            <FaHeart className="text-pink-500" /> Our Philosophy
                         </h3>
                         <ul className="space-y-2 text-gray-700 text-sm md:text-base">
-                            <li>✨ Beauty should feel effortless, not exhausting.</li>
-                            <li>✨ Confidence should last beyond the mirror.</li>
-                            <li>✨ Every client deserves a touch of luxury and artistry.</li>
+                            <li className="flex items-center gap-2">
+                                <FaStar className="text-yellow-500" /> Beauty should feel effortless, not exhausting.
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <FaStar className="text-yellow-500" /> Confidence should last beyond the mirror.
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <FaStar className="text-yellow-500" /> Every client deserves a touch of luxury and artistry.
+                            </li>
                         </ul>
                     </div>
 

@@ -74,14 +74,15 @@ export default function WhoWeAre() {
             </motion.div>
 
             {/* Circular Contact Badge */}
-            <motion.div
+            <motion.a
+              href="/book-appointment"
               initial={{ rotate: -90, opacity: 0 }}
               whileInView={{ rotate: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
               className="absolute left-56 md:-left-20 top-1/2 -translate-y-1/2 bg-[#214037] text-white w-36 h-36 flex items-center justify-center gap-2 rounded-full border-8 border-white text-sm text-center font-medium shadow-lg spin-slow"
             >
               <span className="leading-tight">Book Your Consultation</span> <FaArrowRight />
-            </motion.div>
+            </motion.a>
           </div>
         </motion.div>
 

@@ -71,7 +71,7 @@ export const servicesData = [
 export const blogsData = [
   {
     title: "How to Care for Your Skin After a Botox Treatment",
-    image: "/assets/images/image10.jpeg",
+    image: "/assets/images/blog3.jpg",
     content:
       "After receiving Botox, your skin needs gentle care to ensure optimal results. Avoid touching the treated areas, skip intense workouts for 24 hours, and use mild skincare products.",
     points: [
@@ -83,7 +83,7 @@ export const blogsData = [
   },
   {
     title: "Understanding the Causes of Acne and How to Treat It",
-    image: "/assets/images/image11.jpeg",
+    image: "/assets/images/blog4.jpg",
     content:
       "Acne can result from hormonal changes, diet, or skin care products. Treatment depends on severity and may include topical creams, oral medications, or professional procedures.",
     points: [
@@ -95,7 +95,7 @@ export const blogsData = [
   },
   {
     title: "Why Regular Skin Cancer Screenings Are Important",
-    image: "/assets/images/image12.jpeg",
+    image: "/assets/images/blog5.jpg",
     content:
       "Regular skin cancer screenings help detect early signs of melanoma and other skin cancers. Early detection can save lives and prevent complications.",
     points: [
@@ -107,7 +107,7 @@ export const blogsData = [
   },
   {
     title: "Benefits of Using Sunscreen Daily",
-    image: "/assets/images/blog1.jpg",
+    image: "/assets/images/blog6.jpg",
     content:
       "Daily sunscreen protects against harmful UV rays, preventing premature aging, sunburn, and skin cancer. Choose a broad-spectrum SPF 30 or higher.",
     points: [
@@ -119,7 +119,7 @@ export const blogsData = [
   },
   {
     title: "Top 5 Tips for Maintaining Healthy Skin",
-    image: "/assets/images/image6.jpeg",
+    image: "/assets/images/blog7.jpg",
     content:
       "Healthy skin is a result of consistent care, balanced nutrition, and protection from external stressors.",
     points: [
@@ -132,7 +132,7 @@ export const blogsData = [
   },
   {
     title: "The Importance of Hydration for Skin Health",
-    image: "/assets/images/blog2.jpg",
+    image: "/assets/images/blog8.jpg",
     content:
       "Proper hydration keeps skin plump, elastic, and glowing. Drinking enough water and using moisturizers can prevent dryness and irritation.",
     points: [
@@ -414,7 +414,7 @@ export const testimonials = [
     name: "Shruti",
     role: "Noida – Lash Extensions",
     text: "The lashes gave me such a confidence boost. Everyone kept asking if I had mascara on—it felt amazing!",
-    avatar: "/assets/images/person6.jpg",
+    avatar: "/assets/images/person8.jpg",
   },
   {
     name: "Priya",
@@ -426,7 +426,7 @@ export const testimonials = [
     name: "Sneha",
     role: "Noida – PMU & Nails",
     text: "The results were beyond my expectations. The attention to detail is incredible—I can’t recommend The Salon Company enough!",
-    avatar: "/assets/images/person5.png",
+    avatar: "/assets/images/person9.png",
   },
 ];
 
