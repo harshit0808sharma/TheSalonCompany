@@ -28,15 +28,14 @@ export default function Hero() {
             >
               {/* Main Heading */}
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight lg:leading-tight">
-                Redefining Beauty,{" "}
+                Redefining Beauty
                 <span className="block">One Experience</span>
                 <span className="block">at a Time</span>
               </h1>
 
               {/* Description */}
               <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-200 leading-relaxed max-w-lg">
-                At The Salon Company, we believe beauty is not just skin deep—it's
-                the art of confidence, self-care, and individuality.
+                {"At The Salon Company, we believe beauty is not just skin deep—it's the art of confidence, self-care, and individuality."}
               </p>
 
               {/* CTA Button */}

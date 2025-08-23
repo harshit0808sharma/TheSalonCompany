@@ -74,7 +74,7 @@ const GetInTouch = () => {
               Get in touch with us
             </h2>
             <p className={`${theme ? "text-gray-300" : "text-gray-600"} mb-8`}>
-              Have questions or need assistance? Reach out to us for expert guidance, personalized solutions, and exceptional support. We're here to help!
+              {"Have questions or need assistance? Reach out to us for expert guidance, personalized solutions, and exceptional support. We're here to help!"}
             </p>
 
             <Formik

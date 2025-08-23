@@ -59,8 +59,7 @@ export default function BeforeAfter() {
         </div>
         <Heading Text={"Before & after: witness the power of dermatology"} />
         <p className={theme ? "text-gray-300" : "text-gray-600"}>
-          See the remarkable transformations for yourself—our 'Before & After'
-          gallery highlights the powerful impact of dermatological treatments.
+          {"See the remarkable transformations for yourself—our 'Before & After' gallery highlights the powerful impact of dermatological treatments."}
         </p>
       </motion.div>
 
