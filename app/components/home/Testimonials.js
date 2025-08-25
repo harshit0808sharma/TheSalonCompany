@@ -72,8 +72,7 @@ const Testimonials = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Left Testimonial */}
             <motion.div
-              className={`rounded-2xl p-8 shadow-sm relative overflow-hidden cursor-grab active:cursor-grabbing transition-colors duration-500
-                ${theme ? "bg-gray-800 text-white" : "bg-white text-black"}`}
+              className={`rounded-4xl p-8 relative overflow-hidden cursor-grab active:cursor-grabbing transition-colors duration-500 bg-[#f7f0f2]`}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               onDragEnd={handleDragEnd}
@@ -115,8 +114,7 @@ const Testimonials = () => {
 
             {/* Right Testimonial */}
             <motion.div
-              className={`rounded-2xl p-8 shadow-sm relative overflow-hidden cursor-grab active:cursor-grabbing transition-colors duration-500
-                ${theme ? "bg-gray-800 text-white" : "bg-white text-black"}`}
+              className={`rounded-4xl p-8 relative overflow-hidden cursor-grab active:cursor-grabbing transition-colors duration-500 bg-[#f7f0f2]`}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               onDragEnd={handleDragEnd}

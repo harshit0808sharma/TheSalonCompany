@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaArrowRight, FaCheck, FaPlay, FaHeart, FaStar } from "react-icons/fa";
+import { FaArrowRight, FaPlay } from "react-icons/fa";
 import image1 from "../../../public/assets/images/blog7.jpg";
-import image2 from "../../../public/assets/images/image2.jpeg";
+import image2 from "../../../public/assets/images/salon-home-image.jpg";
 import { useState, useEffect, useContext } from "react";
 import { GoDotFill } from "react-icons/go";
 import { TbUsers } from "react-icons/tb";
@@ -14,6 +14,7 @@ import Heading from "../other/Heading";
 import { toast } from "react-toastify";
 import { SalonContext } from "@/app/context/SalonContext";
 import { FaRegSquareCheck } from "react-icons/fa6";
+import Stats from "../other/Stats";
 
 export default function AboutSection() {
   const { theme } = useContext(SalonContext);
@@ -36,10 +37,9 @@ export default function AboutSection() {
 
   return (
     <section
-      className={`py-20 transition-colors duration-300 ${theme ? "bg-gray-900 text-white" : " text-black"
-        }`}
+      className={`py-20 px-32 flex flex-col gap-10 transition-colors duration-300 mainBg2`}
     >
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div className="pb-20 grid md:grid-cols-2 gap-8 items-center">
         {/* Left Images */}
         <div className="relative">
           <motion.div
@@ -56,7 +56,7 @@ export default function AboutSection() {
           </motion.div>
 
           <motion.div
-            className={`absolute -bottom-10 right-4 md:right-8 w-2/3 md:w-1/2 h-auto rounded-4xl overflow-hidden shadow-lg border-8 ${theme ? "border-gray-800" : "border-white"
+            className={`absolute -bottom-10 right-4 md:right-8 w-2/3 md:w-2/3 h-2/5 rounded-4xl overflow-hidden shadow-lg border-8 ${theme ? "border-gray-800" : "border-white"
               }`}
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -93,9 +93,7 @@ export default function AboutSection() {
         >
           {/* Heading */}
           <div className="flex items-center gap-2">
-            <GoDotFill
-              className={theme ? "text-teal-400" : "text-teal-800"}
-            />
+            <GoDotFill className={theme ? "text-teal-400" : "text-teal-800"} />
             <span
               className={`font-medium ${theme ? "text-teal-300" : "text-[#264D45]"
                 }`}
@@ -105,71 +103,76 @@ export default function AboutSection() {
           </div>
           <Heading Text={"The Experience at The Salon Company"} />
           <p
-            className={`text-sm md:text-base ${theme ? "text-gray-300" : "text-gray-600"
-              }`}
+            className={`text-sm font-medium md:text-base text-gray-500`}
           >
             Step into The Salon Company, where luxury meets precision. We
-            aren’t just a salon—we’re a sanctuary designed for confidence,
+            aren’t just a salon, we’re a sanctuary designed for confidence,
             self-expression, and renewal.
           </p>
 
-          {/* Philosophy */}
-          <div className={`text-lg sm:text-base md:text-lg ${theme ? "text-gray-300" : "text-gray-700"} w-full sm:max-w-md lg:max-w-lg`}>
-            <ul className="space-y-2">
-              <li className="flex items-start sm:items-center gap-2">
-                <FaRegSquareCheck className="text-teal-800 mt-1 sm:mt-0" />
-                <span>Beauty should feel effortless, not exhausting.</span>
-              </li>
-              <li className="flex items-start sm:items-center gap-2">
-                <FaRegSquareCheck className="text-teal-800 mt-1 sm:mt-0" />
-                <span>Confidence should last beyond the mirror.</span>
-              </li>
-              <li className="flex items-start sm:items-center gap-2">
-                <FaRegSquareCheck className="text-teal-800 mt-1 sm:mt-0" />
-                <span>Every client deserves a touch of luxury and artistry.</span>
-              </li>
-            </ul>
-          </div>
+          {/* Content + Team Card */}
+          <div className="flex flex-col lg:flex-row items-stretch gap-8 w-full">
+            {/* Left Paragraph */}
+            <div
+              className={`flex flex-col space-y-4 gap-10 text-lg sm:text-base md:text-lg w-full lg:w-2/3`}
+            >
+              <ul className="space-y-3 list-none text-md">
+                <li className="flex items-start gap-3">
+                  <FaRegSquareCheck className="text-gray-500 mt-1 flex-shrink-0" />
+                  <span>Beauty should feel effortless.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaRegSquareCheck className="text-gray-500 mt-1 flex-shrink-0" />
+                  <span>Confidence should last beyond.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaRegSquareCheck className="text-gray-500 mt-1 flex-shrink-0" />
+                  <span>Every client deserves a touch of luxury.</span>
+                </li>
+              </ul>
 
-
-          {/* Buttons + Team Count */}
-          <div className="flex flex-col lg:flex-row items-center gap-6 mt-8">
-            {/* Buttons */}
-            <div className="flex gap-4 flex-wrap w-full lg:w-auto">
-              <Link
-                href="/about"
-                className={`px-6 py-3 rounded-full flex items-center gap-2 transition text-sm md:text-base w-full sm:w-auto ${theme
-                  ? "bg-teal-500 text-white hover:bg-teal-600"
-                  : "bg-[#264D45] text-white hover:bg-[#1d3b35]"
-                  }`}
-              >
-                <span> About More</span> <FaArrowRightLong />
-              </Link>
-              <button
-                onClick={handleClick}
-                className={`px-6 py-3 rounded-full flex items-center gap-2 transition text-sm md:text-base border w-full sm:w-auto ${theme
-                  ? "border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-white"
-                  : "border-[#264D45] text-[#264D45] hover:bg-[#264D45] hover:text-white"
-                  }`}
-              >
-                <FaPlay /> Play Session
-              </button>
+              <div className="flex gap-4 flex-wrap w-full">
+                <Link
+                  href="/about"
+                  className={`px-6 py-3 rounded-full flex items-center gap-2 transition text-sm md:text-base w-full sm:w-auto ${theme
+                      ? "bg-[#264D45] text-white hover:bg-[#264D45]"
+                      : "bg-[#264D45] text-white hover:bg-[#1d3b35]"
+                    }`}
+                >
+                  <span> About More</span> <FaArrowRightLong />
+                </Link>
+                <button
+                  onClick={handleClick}
+                  className={`px-6 py-3 rounded-full font-bold flex items-center gap-2 transition text-sm md:text-base border w-full sm:w-auto ${theme
+                      ? "border-teal-400 text-teal-400 hover:bg-teal-400"
+                      : "border-[#264D45] text-[#264D45]"
+                    }`}
+                >
+                  <FaPlay /> Play Session
+                </button>
+              </div>
             </div>
 
-            {/* Team Count */}
+            {/* Right Team Count */}
             <motion.div
-              className={`rounded-2xl px-8 py-6 flex gap-2 flex-col items-center shadow-md w-full lg:w-auto ${theme ? "bg-gray-800 text-white" : "bg-[#264D45] text-white"
+              className={`rounded-4xl px-10 py-8 flex gap-2 flex-col items-center justify-center shadow-lg w-full lg:w-1/3 h-auto lg:h-full ${theme ? "bg-gray-800 text-white" : "bg-[#264D45] text-white"
                 }`}
-              whileHover={{ scale: 1.05 }}
+              style={{ minHeight: "100%" }}
+              whileHover={{ scale: 1.08 }}
               transition={{ type: "spring", stiffness: 200 }}
             >
-              <TbUsers size={50} className="mb-2" />
-              <h3 className="text-5xl font-bold">{teamCount}+</h3>
-              <p className="text-lg">Team Members</p>
+              <TbUsers size={60} className="mb-2" />
+              <h3 className="text-5xl">{teamCount}+</h3>
+              <p className="text-sm">Team Members</p>
             </motion.div>
           </div>
+
+
         </motion.div>
       </div>
+
+      <Stats />
+
     </section>
   );
 }

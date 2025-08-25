@@ -1,5 +1,6 @@
 import { FaCheck, FaPlay } from "react-icons/fa";
-import { GiLipstick, GiFeather, GiEyeTarget } from "react-icons/gi";
+import { FaRegCheckSquare } from "react-icons/fa";
+
 
 export const servicesData = [
   {
@@ -352,48 +353,32 @@ export const steps = [
     title: "Service Execution with Precision",
     desc: "Expert hands, flawless results. PMU, lashes, facials, hair, or nails — we combine skill, premium products, and attention to detail.",
   },
-  {
-    num: "05",
-    title: "Reveal & Feedback",
-    desc: "Admire your new look! We walk you through the results, provide aftercare tips, and ensure you leave radiant and confident.",
-  },
-  {
-    num: "06",
-    title: "Stay Connected",
-    desc: "Ongoing care & tips. Follow-ups, reminders, and guidance ensure your results last longer and you continue feeling fabulous.",
-  },
 ];
 
 export const proocessSteps = [
   {
     title: "Personalized Consultation",
-    desc: "Our experts take the time to understand your style, preferences, and goals, ensuring the results match your personality and lifestyle.",
-    icon: <FaPlay className="text-xl" />
+    icon: <FaRegCheckSquare className="text-xl" />
   },
   {
     title: "Expert Recommendations",
-    desc: "We suggest the best treatments, techniques, and products for your unique needs. One-size-fits-all doesn’t exist in beauty.",
-    icon: <GiLipstick className="text-xl" />
+    icon: <FaRegCheckSquare className="text-xl" />
   },
   {
     title: "Precision & Care",
-    desc: "Certified artists bring years of experience and meticulous attention to detail to every service, crafted to perfection.",
-    icon: <GiFeather className="text-xl" />
+    icon: <FaRegCheckSquare className="text-xl" />
   },
   {
     title: "Relax & Enjoy",
-    desc: "Sit back in our luxurious, calming environment and enjoy the experience as indulgent as the results themselves.",
-    icon: <GiEyeTarget className="text-xl" />
+    icon: <FaRegCheckSquare className="text-xl" />
   },
   {
     title: "Walk Out Radiant",
-    desc: "Leave the salon confident, glowing, and ready to conquer your day. Our work fits effortlessly into your life.",
-    icon: <FaCheck className="text-xl" />
+    icon: <FaRegCheckSquare className="text-xl" />
   },
   {
     title: "Continuous Care",
-    desc: "From aftercare tips to follow-up consultations, we ensure your results last longer and look better over time.",
-    icon: <FaCheck className="text-xl" />
+    icon: <FaRegCheckSquare className="text-xl" />
   }
 ];
 

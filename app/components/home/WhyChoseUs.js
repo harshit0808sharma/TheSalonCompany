@@ -1,87 +1,110 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { GoDotFill } from 'react-icons/go';
-
-import salonImg from '../../../public/assets/images/salon.jpg';
-import Heading from '../other/Heading';
-import { useContext } from 'react';
-import { SalonContext } from '@/app/context/SalonContext';
+import Image from "next/image";
+import React from "react";
+import { GoDotFill } from "react-icons/go";
+import { HiOutlineShieldCheck } from "react-icons/hi";
+import { MdOutlineHealthAndSafety } from "react-icons/md";
+import Heading from "../other/Heading";
+import { motion } from "framer-motion";
 
 export default function WhyChooseUs() {
-  const { features, theme } = useContext(SalonContext);
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
 
   return (
-    <section
-      className={`py-16 transition-colors duration-300 
-        ${theme ? "bg-gray-900 text-white" : "bg-[#fdf8f9] text-gray-900"}`}
-    >
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center px-6 md:px-12">
-        {/* Left Content */}
+    <div className="w-full px-5 md:px-32 items-center mainBg2">
+      {/* Main content container */}
+      <div className="flex flex-col md:flex-row items-center justify-between py-12">
+        
+        {/* Left content section - wider */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          className="w-full md:flex-[0.60] md:pr-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
         >
-          <div className="flex items-center gap-2 mb-4">
-            <GoDotFill className={theme ? "text-teal-400" : "text-teal-800"} />
-            <span className={`font-medium ${theme ? "text-teal-400" : "text-[#264D45]"}`}>
-              Why Choose?
-            </span>
+          <div className="flex items-center gap-2 text-teal-900">
+            <GoDotFill />
+            <span className="font-medium">Why Choose Us</span>
           </div>
 
-          <Heading Text={" Trust Builders – Your Beauty, Our Expertise"} />
+          {/* Main heading */}
+          <Heading Text={"Why choose us for all your dermatology needs"} />
 
-          <p className={`mb-10 text-sm md:text-base 
-            ${theme ? "text-gray-300" : "text-gray-600"}`}>
-            Because you deserve more than just a salon—you deserve The Salon Company.
+          {/* Subtitle */}
+          <p className="text-gray-600 text-lg mb-10 leading-relaxed">
+            We're dedicated to helping you achieve and maintain beautiful,
+            healthy skin. Trust us to provide exceptional care tailored to you.
           </p>
 
-          <div className="space-y-6">
-            {features.map((feature, i) => (
-              <motion.div
-                key={i}
-                className="flex gap-4 items-start"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-              >
-                <div
-                  className={`p-3 rounded-lg flex-shrink-0 transition
-                    ${theme ? "bg-teal-600/20 text-teal-400" : "bg-[#214037]/5 text-[#214037]"}`}
-                >
-                  {feature.icon}
-                </div>
-                <div>
-                  <h3 className={`text-lg font-semibold 
-                    ${theme ? "text-white" : "text-[#214037]"}`}>
-                    {feature.title}
-                  </h3>
-                  <p className={`text-sm mt-1 
-                    ${theme ? "text-gray-300" : "text-gray-600"}`}>
-                    {feature.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+          {/* Features section */}
+          <div className="space-y-8">
+            {/* Feature 1 */}
+            <motion.div
+              className="flex items-start group border-t-2 border-gray-200 pt-6"
+              variants={fadeUp}
+            >
+              <div className="w-20 h-20 bg-gray-100 text-teal-800 rounded-xl flex items-center justify-center mr-6 flex-shrink-0 group-hover:bg-teal-800 group-hover:text-white transition-colors duration-300">
+                <HiOutlineShieldCheck className="w-10 h-10" />
+              </div>
+              <div>
+                <h3 className="text-2xl text-teal-800 mb-3">
+                  Personalized, compassionate care
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  We believe that every patient is unique. That's why we take
+                  the time to understand your specific needs and tailor treatment
+                  plans.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Feature 2 */}
+            <motion.div
+              className="flex items-start group border-t-2 border-gray-200 pt-6"
+              variants={fadeUp}
+            >
+              <div className="w-20 h-20 bg-gray-100 text-teal-800 rounded-xl flex items-center justify-center mr-6 flex-shrink-0 group-hover:bg-teal-800 group-hover:text-white transition-colors duration-300">
+                <MdOutlineHealthAndSafety className="w-10 h-10" />
+              </div>
+              <div>
+                <h3 className="text-2xl text-teal-800 mb-3">
+                  Comprehensive care for all skin needs
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Whether you're seeking medical dermatology, cosmetic
+                  treatments, or preventive care, we offer a comprehensive
+                  range of services.
+                </p>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
 
-        {/* Right Image */}
+        {/* Right image section - smaller */}
         <motion.div
-          className="relative"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          className="w-full md:flex-[0.40]"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
         >
-          <Image
-            src={salonImg}
-            alt="Salon Experience"
-            className="rounded-2xl object-cover shadow-lg w-full h-auto"
-          />
+          <div className="relative w-full h-[380px] md:h-[640px] rounded-4xl overflow-hidden">
+            <Image
+              src="/assets/images/blog1.jpg"
+              alt="Dermatologist performing treatment"
+              fill
+              className="object-cover"
+            />
+            {/* Overlay gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+          </div>
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 }

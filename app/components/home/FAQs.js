@@ -28,7 +28,7 @@ export default function FAQSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="flex justify-center items-center gap-2 mb-4">
+          <div className="flex justify-start items-center gap-2 mb-4">
             <GoDotFill className="text-white" />
             <span className="font-medium">FAQs</span>
           </div>

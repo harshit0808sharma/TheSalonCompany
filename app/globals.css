@@ -32,6 +32,19 @@ html{
   }
 }
 
+.mainColor{
+  color: #24544B;
+}
+.mainBg{
+  background-color: #24544B;
+}
+.mainBg1{
+  background-color: #f7f0f2;
+}
+.mainBg2{
+  background-color: #fef7f8;
+}
+
 
 button{
   cursor: pointer;

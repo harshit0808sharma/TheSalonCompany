@@ -22,7 +22,7 @@ export default function Footer() {
   return (
     <>
       <RunningText />
-      <div className={`w-full p-5 ${theme ? 'bg-black' : 'bg-white'}`}>
+      <div className={`w-full p-0 md:p-5 ${theme ? 'bg-black' : 'bg-white'}`}>
         <footer
           className={`${theme
               ? "bg-gray-900 text-gray-200" 

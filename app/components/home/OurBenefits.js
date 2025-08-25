@@ -1,161 +1,145 @@
-'use client'
+"use client";
+
 import Image from "next/image";
+import React from "react";
+import { GoDotFill } from "react-icons/go";
 import { motion } from "framer-motion";
 import {
-  FaPaintBrush,
-  FaSpa,
-  FaHandSparkles,
-  FaGem,
-  FaLeaf,
-  FaPhoneAlt,
-  FaClock,
-  FaSmileBeam,
-} from "react-icons/fa";
-import salonImg from "../../../public/assets/images/hair.png";
-import { GoDotFill } from "react-icons/go";
-import { useContext } from "react";
-import { SalonContext } from "@/app/context/SalonContext";
+  HiOutlineDocumentText,
+  HiOutlineClipboardList,
+  HiOutlineViewGrid,
+  HiOutlineDatabase,
+  HiOutlineSparkles,
+  HiOutlineCollection,
+} from "react-icons/hi";
 
 export default function OurBenefits() {
-  const { theme } = useContext(SalonContext); // ✅ true = dark, false = light
-
-  const leftBenefits = [
-    {
-      icon: <FaPaintBrush className={`${theme ? "text-teal-200" : "text-[#214037]"} text-2xl`} />,
-      title: "Permanent Makeup",
-      desc: "Wake up flawless every day with PMU, lip blushing, and eyeliner tattoo applied by expert artists.",
-    },
-    {
-      icon: <FaSpa className={`${theme ? "text-teal-200" : "text-[#214037]"} text-2xl`} />,
-      title: "Luxury Beauty Treatments",
-      desc: "Indulge in bespoke facials, eyebrow lamination, and skin rejuvenation therapies designed for your skin type.",
-    },
-    {
-      icon: <FaHandSparkles className={`${theme ? "text-teal-200" : "text-[#214037]"} text-2xl`} />,
-      title: "Eyelash Extensions",
-      desc: "Choose from Classic, Hybrid, Volume, or Colorful lashes to enhance your natural beauty effortlessly.",
-    },
-    {
-      icon: <FaClock className={`${theme ? "text-teal-200" : "text-[#214037]"} text-2xl`} />,
-      title: "Time-Saving Solutions",
-      desc: "Long-lasting treatments reduce your daily routine without compromising style or elegance.",
-    },
-  ];
-
-  const rightBenefits = [
-    {
-      icon: <FaGem className={`${theme ? "text-teal-200" : "text-[#214037]"} text-2xl`} />,
-      title: "Premium Salon Experience",
-      desc: "Step into a sanctuary where natural beauty is enhanced with precision, artistry, and attention to detail.",
-    },
-    {
-      icon: <FaLeaf className={`${theme ? "text-teal-200" : "text-[#214037]"} text-2xl`} />,
-      title: "Safe & Hygienic",
-      desc: "Highest standards of cleanliness and safety ensure peace of mind for every treatment.",
-    },
-    {
-      icon: <FaPhoneAlt className={`${theme ? "text-teal-200" : "text-[#214037]"} text-2xl`} />,
-      title: "Free Consultation",
-      desc: "Call us at +91 88000 26046 for personalized guidance to find the perfect beauty solution.",
-    },
-    {
-      icon: <FaSmileBeam className={`${theme ? "text-teal-200" : "text-[#214037]"} text-2xl`} />,
-      title: "Confidence That Lasts",
-      desc: "Leave the salon glowing, radiant, and unstoppable with treatments designed to boost your self-esteem.",
-    },
-  ];
-
   return (
-    <div className={`w-full p-5 ${theme ? 'bg-black ' : ''}`}>
-      <section
-      className={`py-20 md:py-28 px-6 md:px-12 lg:rounded-4xl transition-colors duration-300
-        ${theme ? "bg-gray-900 text-white" : "bg-teal-800 text-white"}
-      `}
-    >
-      {/* Top Heading */}
-      <motion.div
-        className="text-center max-w-3xl mx-auto mb-16"
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="flex justify-center items-center gap-2">
-          <GoDotFill className="text-white" />
-          <span className="font-medium">{"Why You'll Love Us"}</span>
-        </div>
-        <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-4">
-          {"Hair • Beauty • Makeup • Nail Extensions"}
-        </h2>
-        <p className="text-gray-200 text-sm md:text-base">
-          {"Choosing The Salon Company is more than a beauty appointment—it’s an investment in confidence, luxury, and effortless style."}
-        </p>
-      </motion.div>
-
-      {/* Grid Layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 items-center">
-        {/* Left Benefits */}
-        <div className="space-y-10 order-1">
-          {leftBenefits.map((item, i) => (
-            <motion.div
-              key={i}
-              className="flex items-start gap-4"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className={`p-3 rounded-lg shadow-md ${theme ? "bg-gray-800" : "bg-white"}`}>
-                {item.icon}
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold">{item.title}</h3>
-                <p className="text-gray-200 text-sm md:text-base">{item.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Center Image */}
+    <div className="w-full p-0 md:p-5 mainBg2">
+      <div className="relative z-10 flex flex-col mainBg md:rounded-4xl items-center justify-center min-h-screen px-6 py-28">
+        {/* Header content */}
         <motion.div
-          className="flex justify-center order-2"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          className="text-center mb-16 max-w-4xl"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="w-48 h-48 sm:w-60 sm:h-60 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-lg">
-            <Image
-              src={salonImg}
-              alt="The Salon Company"
-              className="object-cover w-full h-full"
-            />
+          <div className="flex items-center justify-center gap-2 text-white">
+            <GoDotFill />
+            <span className="font-medium">About Us</span>
           </div>
+          <h1 className="text-4xl md:text-4xl text-white font-bold leading-snug mb-3">
+            Exceptional dermatology, every step of the way
+          </h1>
+          <p className="text-xl text-white/90 leading-relaxed">
+            Experience personalized care, advanced treatments, and visible
+            results with our expert dermatology services.
+          </p>
         </motion.div>
 
-        {/* Right Benefits */}
-        <div className="space-y-10 order-3">
-          {rightBenefits.map((item, i) => (
-            <motion.div
-              key={i}
-              className="flex items-start gap-4"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className={`p-3 rounded-lg shadow-md ${theme ? "bg-gray-800" : "bg-white"}`}>
-                {item.icon}
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold">{item.title}</h3>
-                <p className="text-gray-200 text-sm md:text-base">{item.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+        {/* Main content grid */}
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20 items-center">
+          {/* Left side features */}
+          <div className="space-y-12 text-right">
+            {[
+              {
+                title: "Expert Dermatologists",
+                desc: "Our team consists of board-certified dermatologists with experience",
+                icon: <HiOutlineDocumentText className="w-8 h-8 text-teal-700" />,
+              },
+              {
+                title: "Advanced Technology",
+                desc: "We use cutting-edge equipment and innovative techniques",
+                icon: <HiOutlineClipboardList className="w-8 h-8 text-teal-700" />,
+              },
+              {
+                title: "Personalized Care",
+                desc: "Every treatment plan is tailored to your unique skin type, concerns",
+                icon: <HiOutlineViewGrid className="w-8 h-8 text-teal-700" />,
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                className="flex items-center justify-end"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="mr-6">
+                  <h3 className="text-2xl font-light text-white mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-white/80 leading-relaxed">{item.desc}</p>
+                </div>
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center flex-shrink-0">
+                  {item.icon}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Center image */}
+          <motion.div
+            className="flex justify-center mb-8 md:mb-0"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <div className="rounded-full overflow-hidden bg-white">
+              <Image
+                src="/assets/images/hair.png"
+                alt="Happy woman with healthy skin"
+                width={400}
+                height={400}
+                className="w-[300px] h-[400px] md:w-[400px] md:h-[600px] object-cover"
+              />
+            </div>
+          </motion.div>
+
+          {/* Right side features */}
+          <div className="space-y-12 text-left">
+            {[
+              {
+                title: "Comprehensive Services",
+                desc: "From medical dermatology to cosmetic enhancements, we offer a range of treatments",
+                icon: <HiOutlineDatabase className="w-8 h-8 text-teal-700" />,
+              },
+              {
+                title: "High Safety Standards",
+                desc: "Your safety is our priority. We adhere to strict hygiene and safety protocols",
+                icon: <HiOutlineSparkles className="w-8 h-8 text-teal-700" />,
+              },
+              {
+                title: "Comfortable Environment",
+                desc: "Our clinic provides a welcoming and stress-free atmosphere",
+                icon: <HiOutlineCollection className="w-8 h-8 text-teal-700" />,
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                className="flex items-center"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center flex-shrink-0 mr-6">
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="text-2xl font-light text-white mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-white/80 leading-relaxed">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
-    </section>
     </div>
   );
 }

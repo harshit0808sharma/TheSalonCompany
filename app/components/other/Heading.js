@@ -8,7 +8,7 @@ const Heading = ({ Text }) => {
 
   return (
     <h2
-      className={`text-4xl md:text-4xl font-bold leading-snug mb-3 ${
+      className={`text-4xl md:text-4xl font-semibold leading-snug mb-2 ${
         theme ? "text-white" : "text-teal-900"
       }`}
     >

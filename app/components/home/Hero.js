@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaStar } from "react-icons/fa";
+import { FaArrowRight, FaStar } from "react-icons/fa";
 import womanImage from "../../../public/assets/images/heroImg.png";
 import ContactInfo from "../other/ContactInfo";
 import { useContext } from "react";
@@ -18,23 +18,23 @@ export default function Hero() {
           }`}
       >
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 h-full">
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-0 items-stretch min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] h-full">
+          <div className="grid lg:grid-cols-2 items-stretch min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] h-full">
             {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-4 sm:space-y-6 lg:space-y-8 py-8 lg:py-16 xl:py-20 order-1 lg:order-1 flex flex-col justify-center"
+              className="mt-24 w-[600px] space-y-4 sm:space-y-6 lg:space-y-8 py-8 lg:py-16 xl:py-20 order-1 lg:order-1 flex flex-col justify-center"
             >
               {/* Main Heading */}
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight lg:leading-tight">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold leading-tight lg:leading-tight">
                 Redefining Beauty
                 <span className="block">One Experience</span>
                 <span className="block">at a Time</span>
               </h1>
 
               {/* Description */}
-              <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-200 leading-relaxed max-w-lg">
+              <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-200 leading-relaxed">
                 {"At The Salon Company, we believe beauty is not just skin deep—it's the art of confidence, self-care, and individuality."}
               </p>
 
@@ -44,9 +44,9 @@ export default function Hero() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className={`${theme
-                    ? 'bg-gray-700 border border-white hover:bg-gray-600'
-                    : 'text-teal-800 bg-white hover:bg-gray-50'
-                  } inline-flex items-center gap-2 px-6 py-3 text-sm sm:text-base lg:text-lg font-medium rounded-full shadow-lg transition-all duration-300 max-w-max`}
+                  ? 'bg-gray-700 border border-white hover:bg-gray-600'
+                  : 'text-teal-800 bg-white hover:bg-gray-50'
+                  } inline-flex items-center gap-2 px-6 py-3 text-md font-medium rounded-full shadow-lg transition-all duration-300 max-w-max`}
               >
                 <span>Book your free consultation today</span>
                 <span className="text-lg">→</span>
@@ -54,7 +54,7 @@ export default function Hero() {
 
               {/* Reviews Section */}
               <div className="pt-4 sm:pt-6 lg:pt-8">
-                <h2 className="font-semibold text-base sm:text-lg lg:text-xl xl:text-2xl mb-3 sm:mb-4">
+                <h2 className="font-semibold text-base sm:text-lg lg:text-xl mb-3 sm:mb-4">
                   Reviews
                 </h2>
                 <hr className="border-gray-400 mb-4 sm:mb-6" />
@@ -103,6 +103,16 @@ export default function Hero() {
                 sizes="(max-width: 640px) 95vw, (max-width: 768px) 85vw, (max-width: 1024px) 55vw, 45vw"
                 style={{ objectPosition: 'bottom' }}
               />
+              <motion.a
+                href="/contact"
+                initial={{ rotate: -90, opacity: 0 }}
+                whileInView={{ rotate: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className={`absolute top-120 left-10 w-32 h-32 flex items-center gap-2 border-2 justify-center rounded-full text-sm text-center font-medium spin-slow bg-transparent`}
+              >
+                <span className="leading-tight">Contact Us </span>
+                <FaArrowRight />
+              </motion.a>
             </motion.div>
           </div>
         </div>

@@ -1,81 +1,84 @@
 "use client";
 
-import { FaPhone, FaClock } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
+import { HiOutlinePhone, HiOutlineLocationMarker, HiOutlineClock } from 'react-icons/hi';
 import { motion } from "framer-motion";
-import { useContext } from "react";
-import { SalonContext } from "@/app/context/SalonContext";
 
-const ContactInfo = () => {
-  const { theme } = useContext(SalonContext);
-
+export default function ContactInfo() {
   const fadeUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
-
-  const stagger = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
-  };
-
-  const cards = [
-    {
-      icon: <FaPhone className="w-5 h-5" />,
-      title: "Contact Us",
-      lines: ["Phone: +91 123 456 987", "Email: salon@gmail.com"],
-    },
-    {
-      icon: <FaLocationDot className="w-5 h-5" />,
-      title: "Location",
-      lines: ["Lokaci H.Q. sector 117, Noida", "Uttar Pradesh, India"],
-    },
-    {
-      icon: <FaClock className="w-5 h-5" />,
-      title: "Working Hours",
-      lines: ["Monday - Friday : 9:00 am to 6:00 pm", "Saturday : 11:00 am to 5:00 pm"],
-    },
-  ];
 
   return (
-    <motion.div
-      className={`grid grid-cols-1 pt-16 pb-10 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 sm:px-8 md:px-10 ${
-        theme ? "text-white" : "text-black"
-      }`}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={stagger}
-    >
-      {cards.map((card, idx) => (
-        <motion.div
-          key={idx}
-          variants={fadeUp}
-          className="flex flex-col items-center text-center space-y-2"
-        >
-          {/* Icon + Heading inline */}
-          <div className="flex items-center gap-2">
-            {card.icon}
-            <h3 className="text-lg md:text-xl font-semibold">{card.title}</h3>
-          </div>
+    <section className="pt-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 relative">
 
-          {/* Lines */}
-          <div className="flex flex-col gap-1">
-            {card.lines.map((line, i) => (
-              <p
-                key={i}
-                className={`text-sm md:text-base ${
-                  theme ? "text-gray-300" : "text-black/80"
-                }`}
-              >
-                {line}
-              </p>
-            ))}
-          </div>
-        </motion.div>
-      ))}
-    </motion.div>
+          {/* Contact Us */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center md:text-left relative"
+          >
+            <div className="flex items-center justify-center md:justify-start space-x-3 mb-4">
+              <HiOutlinePhone className="w-6 h-6 text-teal-700" />
+              <h3 className="text-xl text-gray-900">Contact Us</h3>
+            </div>
+            <div className="space-y-2">
+              <div>
+                <span className="font-semibold text-gray-900">Email: </span>
+                <span className="text-gray-600">info@thesaloncompany.com</span>
+              </div>
+              <div>
+                <span className="font-semibold text-gray-900">Phone: </span>
+                <span className="text-gray-600">(123) 465 - 798</span>
+              </div>
+            </div>
+            {/* Line separator (hidden on mobile, shown on desktop) */}
+            <div className="hidden md:block absolute top-0 right-0 h-full w-px bg-gray-300"></div>
+          </motion.div>
+
+          {/* Our Location */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center md:text-left relative"
+          >
+            <div className="flex items-center justify-center md:justify-start space-x-3 mb-4">
+              <HiOutlineLocationMarker className="w-6 h-6 text-teal-700" />
+              <h3 className="text-xl text-gray-900">Our Location</h3>
+            </div>
+            <div className="text-gray-600">
+              <p>Lokaci H.Q, Sector 117</p>
+              <p>Noida</p>
+            </div>
+            <div className="hidden md:block absolute top-0 right-0 h-full w-px bg-gray-300"></div>
+          </motion.div>
+
+          {/* Working Hours */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center md:text-left"
+          >
+            <div className="flex items-center justify-center md:justify-start space-x-3 mb-4">
+              <HiOutlineClock className="w-6 h-6 text-teal-700" />
+              <h3 className="text-xl text-gray-900">Working Hours</h3>
+            </div>
+            <div className="space-y-1 text-gray-600">
+              <p>Monday – Friday : 9:00 am to 6:00 pm</p>
+              <p>Saturday : 11:00 am to 5pm</p>
+            </div>
+          </motion.div>
+
+        </div>
+      </div>
+    </section>
   );
-};
-
-export default ContactInfo;
+}

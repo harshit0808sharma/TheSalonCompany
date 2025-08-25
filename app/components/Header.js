@@ -4,11 +4,13 @@ import React, { useState, useRef, useContext } from 'react';
 import { FaChevronDown, FaArrowRight, FaBars, FaTimes } from "react-icons/fa";
 import { SalonContext } from "../context/SalonContext";
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
   const [isHomeOpen, setIsHomeOpen] = useState(false);
   const [isPagesOpen, setIsPagesOpen] = useState(false);
   const hoverTimeout = useRef(null);
+  const pathname = usePathname();
 
   const [mobileMenu, setMobileMenu] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState(null);
@@ -48,7 +50,7 @@ const Header = () => {
             onMouseEnter={() => handleMouseEnter('home')}
             onMouseLeave={() => handleMouseLeave('home')}
           >
-            <button className="flex items-center text-gray-700 hover:text-[#24544B] transition-colors font-medium">
+            <button className="flex items-center text-gray-500 hover:text-[#24544B] transition-colors font-medium">
               Home <FaChevronDown className="ml-1 w-4 h-4" />
             </button>
             {isHomeOpen && (
@@ -56,24 +58,24 @@ const Header = () => {
                 onMouseEnter={() => handleMouseEnter('home')}
                 onMouseLeave={() => handleMouseLeave('home')}
               >
-                <Link href="/" className="block px-4 py-2 hover:bg-gray-50">Home - Main</Link>
-                <Link href="/home-image" className="block px-4 py-2 hover:bg-gray-50">Home - Image</Link>
-                <Link href="/home-video" className="block px-4 py-2 hover:bg-gray-50">Home - Video</Link>
-                <Link href="/home-slider" className="block px-4 py-2 hover:bg-gray-50">Home - Slider</Link>
+                <Link href="/" className="block px-4 text-gray-500 font-medium py-2 hover:text-[#24544B]">Home - Main</Link>
+                <Link href="/home-image" className="block px-4 text-gray-500 font-medium py-2 hover:text-[#24544B]">Home - Image</Link>
+                <Link href="/home-video" className="block px-4 text-gray-500 font-medium py-2 hover:text-[#24544B]">Home - Video</Link>
+                <Link href="/home-slider" className="block px-4 text-gray-500 font-medium py-2 hover:text-[#24544B]">Home - Slider</Link>
               </div>
             )}
           </div>
 
-          <Link href="/about" className="text-gray-700 hover:text-[#24544B] transition-colors font-medium">About Us</Link>
-          <Link href="/services" className="text-gray-700 hover:text-[#24544B] transition-colors font-medium">Services</Link>
-          <Link href="/blogs" className="text-gray-700 hover:text-[#24544B] transition-colors font-medium">Blog</Link>
+          <Link href="/about" className="text-gray-500 hover:text-[#24544B] transition-colors font-medium">About Us</Link>
+          <Link href="/services" className="text-gray-500 hover:text-[#24544B] transition-colors font-medium">Services</Link>
+          <Link href="/blogs" className="text-gray-500 hover:text-[#24544B] transition-colors font-medium">Blog</Link>
 
           {/* Pages Dropdown */}
           <div className="relative"
             onMouseEnter={() => handleMouseEnter('pages')}
             onMouseLeave={() => handleMouseLeave('pages')}
           >
-            <button className="flex items-center text-gray-700 hover:text-[#24544B] transition-colors font-medium">
+            <button className="flex items-center text-gray-500 hover:text-[#24544B] transition-colors font-medium">
               Pages <FaChevronDown className="ml-1 w-4 h-4" />
             </button>
             {isPagesOpen && (
@@ -81,28 +83,33 @@ const Header = () => {
                 onMouseEnter={() => handleMouseEnter('pages')}
                 onMouseLeave={() => handleMouseLeave('pages')}
               >
-                <Link href="/services/service-details" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Service Details</Link>
-                <Link href="/blogs" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Blog Details</Link>
-                <Link href="/our-team" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Our Team</Link>
-                <Link href="/our-team/kristin-watson" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Team Details</Link>
-                <Link href="/testimonials" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Testimonials</Link>
-                <Link href="/image-gallery" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Image Gallery</Link>
-                <Link href="/video-gallery" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Video Gallery</Link>
-                <Link href="/faqs" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">FAQs</Link>
-                <Link href="/404" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">404</Link>
+                <Link href="/services/service-details" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Service Details</Link>
+                <Link href="/blogs" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Blog Details</Link>
+                <Link href="/our-team" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Our Team</Link>
+                <Link href="/our-team/kristin-watson" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Team Details</Link>
+                <Link href="/testimonials" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Testimonials</Link>
+                <Link href="/image-gallery" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Image Gallery</Link>
+                <Link href="/video-gallery" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Video Gallery</Link>
+                <Link href="/faqs" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">FAQs</Link>
+                <Link href="/404" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">404</Link>
               </div>
             )}
           </div>
 
-          <Link href="/contact" className="text-gray-700 hover:text-[#24544B] transition-colors font-medium">Contact Us</Link>
+          <Link href="/contact" className="text-gray-500 hover:text-[#24544B] transition-colors font-medium">Contact Us</Link>
         </nav>
 
         {/* Book Appointment Button */}
-        <div className="hidden lg:flex items-center">
-          <Link href='/book-appointment' className="bg-[#24544B] text-white px-6 py-3 rounded-full font-medium hover:bg-emerald-800 transition-colors flex items-center">
-            Book Appointment <FaArrowRight className="ml-2 w-4 h-4" />
-          </Link>
-        </div>
+        {pathname === "/" && (
+            <div className="hidden lg:flex items-center">
+              <Link
+                href="/book-appointment"
+                className="bg-[#24544B] text-white px-6 py-3 rounded-full font-medium hover:bg-emerald-800 transition-colors flex items-center"
+              >
+                Book Appointment <FaArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </div>
+          )}
 
         {/* Mobile Menu Button */}
         <button className="lg:hidden p-2" onClick={() => setMobileMenu(!mobileMenu)}>
@@ -116,7 +123,6 @@ const Header = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {/* Mobile Menu */}
       <div
         className={`lg:hidden fixed inset-0 z-40 bg-white overflow-y-auto transform transition-transform duration-300 ${mobileMenu ? "translate-x-0" : "-translate-x-full"
@@ -177,15 +183,15 @@ const Header = () => {
               className={`overflow-hidden transition-[max-height] duration-300 ${mobileDropdown === "pages" ? "max-h-[600px]" : "max-h-0"
                 } mt-2 pl-4 space-y-2`}
             >
-              <li><Link href="/services/service-details" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Service Details</Link></li>
-              <li><Link href="/blogs" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Blog Details</Link></li>
-              <li><Link href="/our-team" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Our Team</Link></li>
-              <li><Link href="/our-team/kristin-watson" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Team Details</Link></li>
-              <li><Link href="/testimonials" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Testimonials</Link></li>
-              <li><Link href="/image-gallery" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Image Gallery</Link></li>
-              <li><Link href="/video-gallery" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Video Gallery</Link></li>
-              <li><Link href="/faqs" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">FAQs</Link></li>
-              <li><Link href="/404" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">404</Link></li>
+              <li><Link href="/services/service-details" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Service Details</Link></li>
+              <li><Link href="/blogs" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Blog Details</Link></li>
+              <li><Link href="/our-team" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Our Team</Link></li>
+              <li><Link href="/our-team/kristin-watson" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Team Details</Link></li>
+              <li><Link href="/testimonials" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Testimonials</Link></li>
+              <li><Link href="/image-gallery" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Image Gallery</Link></li>
+              <li><Link href="/video-gallery" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Video Gallery</Link></li>
+              <li><Link href="/faqs" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">FAQs</Link></li>
+              <li><Link href="/404" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">404</Link></li>
             </ul>
           </li>
 
