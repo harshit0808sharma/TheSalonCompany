@@ -15,43 +15,45 @@ export default function WhyChooseUs() {
   };
 
   return (
-    <div className="w-full px-5 md:px-32 items-center mainBg2">
+    <div className="w-full px-4 sm:px-6 lg:px-16 xl:px-32 items-center mainBg2">
       {/* Main content container */}
-      <div className="flex flex-col md:flex-row items-center justify-between py-12">
+      <div className="flex flex-col lg:flex-row items-center justify-between py-8 lg:py-12 gap-8 lg:gap-12">
         
         {/* Left content section - wider */}
         <motion.div
-          className="w-full md:flex-[0.60] md:pr-12"
+          className="w-full lg:flex-[0.60]"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeUp}
         >
-          <div className="flex items-center gap-2 text-teal-900">
+          <div className="flex items-center gap-2 text-teal-900 mb-4">
             <GoDotFill />
             <span className="font-medium">Why Choose Us</span>
           </div>
 
           {/* Main heading */}
-          <Heading Text={"Why choose us for all your dermatology needs"} />
+          <div className="mb-6">
+            <Heading Text={"Why choose us for all your dermatology needs"} />
+          </div>
 
           {/* Subtitle */}
-          <p className="text-gray-600 text-lg mb-10 leading-relaxed">
+          <p className="text-gray-600 text-base lg:text-lg mb-8 lg:mb-10 leading-relaxed">
             {"We're dedicated to helping you achieve and maintain beautiful, healthy skin. Trust us to provide exceptional care tailored to you."}
           </p>
 
           {/* Features section */}
-          <div className="space-y-8">
+          <div className="space-y-6 lg:space-y-8">
             {/* Feature 1 */}
             <motion.div
               className="flex items-start group border-t-2 border-gray-200 pt-6"
               variants={fadeUp}
             >
-              <div className="w-20 h-20 bg-gray-100 text-teal-800 rounded-xl flex items-center justify-center mr-6 flex-shrink-0 group-hover:bg-teal-800 group-hover:text-white transition-colors duration-300">
-                <HiOutlineShieldCheck className="w-10 h-10" />
+              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gray-100 text-teal-800 rounded-xl flex items-center justify-center mr-4 lg:mr-6 flex-shrink-0 group-hover:bg-teal-800 group-hover:text-white transition-colors duration-300">
+                <HiOutlineShieldCheck className="w-8 h-8 lg:w-10 lg:h-10" />
               </div>
               <div>
-                <h3 className="text-2xl text-teal-800 mb-3">
+                <h3 className="text-xl lg:text-2xl text-teal-800 mb-3">
                   Personalized, compassionate care
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -65,11 +67,11 @@ export default function WhyChooseUs() {
               className="flex items-start group border-t-2 border-gray-200 pt-6"
               variants={fadeUp}
             >
-              <div className="w-20 h-20 bg-gray-100 text-teal-800 rounded-xl flex items-center justify-center mr-6 flex-shrink-0 group-hover:bg-teal-800 group-hover:text-white transition-colors duration-300">
-                <MdOutlineHealthAndSafety className="w-10 h-10" />
+              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gray-100 text-teal-800 rounded-xl flex items-center justify-center mr-4 lg:mr-6 flex-shrink-0 group-hover:bg-teal-800 group-hover:text-white transition-colors duration-300">
+                <MdOutlineHealthAndSafety className="w-8 h-8 lg:w-10 lg:h-10" />
               </div>
               <div>
-                <h3 className="text-2xl text-teal-800 mb-3">
+                <h3 className="text-xl lg:text-2xl text-teal-800 mb-3">
                   Comprehensive care for all skin needs
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -82,13 +84,13 @@ export default function WhyChooseUs() {
 
         {/* Right image section - smaller */}
         <motion.div
-          className="w-full md:flex-[0.40]"
+          className="w-full lg:flex-[0.40]"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeUp}
         >
-          <div className="relative w-full h-[380px] md:h-[640px] rounded-4xl overflow-hidden">
+          <div className="relative w-full h-80 sm:h-96 lg:h-[500px] xl:h-[640px] rounded-4xl overflow-hidden">
             <Image
               src="/assets/images/blog1.jpg"
               alt="Dermatologist performing treatment"

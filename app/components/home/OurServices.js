@@ -16,8 +16,8 @@ import {
 import Image from "next/image";
 import { GoDotFill } from "react-icons/go";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import img from '../../../public/assets/images/blog1.jpg'
+import { motion, AnimatePresence } from "framer-motion";
+import img from '../../../public/assets/images/blog1.jpg';
 
 export default function ServicesCards() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -35,24 +35,23 @@ export default function ServicesCards() {
     { id: 9, title: "Wellness Therapy", description: "Relax, recharge, and restore balance with holistic wellness care.", icon: HiOutlineHeart, image: img },
   ];
 
-  const totalSlides = Math.ceil(services.length / 3);
+  const totalSlides = services.length;
 
   // Auto slide effect
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % totalSlides);
+      setCurrentSlide(prev => (prev + 1) % totalSlides);
     }, 4000);
     return () => clearInterval(interval);
   }, [totalSlides]);
 
-  // Heading fallback
   const Heading = ({ Text }) => <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 text-center">{Text}</h2>;
 
   return (
     <div className="w-full p-5 mainBg2">
       <section className="p-8 md:p-20 bg-pink-50 rounded-3xl md:rounded-4xl">
         <div className="mx-auto flex flex-col gap-8 max-w-7xl">
-
+          
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: -30 }}
@@ -71,57 +70,61 @@ export default function ServicesCards() {
             </p>
           </motion.div>
 
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {services.slice(currentSlide * 3, currentSlide * 3 + 3).map((service, i) => {
-              const Icon = service.icon;
-              return (
-                <motion.div
-                  key={`${service.id}-${currentSlide}`}
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: i * 0.15 }}
-                  className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-                >
-                  <div className="relative h-80 md:h-96 lg:h-[28rem] w-full">
-                    {/* Skeleton */}
-                    {!loadedImages[service.id] && <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-3xl"></div>}
+          {/* Single Service Card */}
+          <div className="relative h-80 md:h-96 lg:h-[28rem]">
+            <AnimatePresence mode="wait">
+              {services.map((service, i) => {
+                if (i !== currentSlide) return null;
+                const Icon = service.icon;
+                return (
+                  <motion.div
+                    key={service.id}
+                    initial={{ opacity: 0, x: 100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -100 }}
+                    transition={{ duration: 0.5 }}
+                    className="group relative overflow-hidden rounded-3xl shadow-lg w-full h-full"
+                  >
+                    <div className="relative w-full h-full">
+                      {/* Skeleton */}
+                      {!loadedImages[service.id] && <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-3xl"></div>}
 
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className={`object-cover transition-all duration-500 group-hover:scale-105 ${loadedImages[service.id] ? "opacity-100" : "opacity-0"}`}
-                      onLoad={() => setLoadedImages(prev => ({ ...prev, [service.id]: true }))}
-                      onError={() => setLoadedImages(prev => ({ ...prev, [service.id]: true }))}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      priority={i < 3}
-                    />
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        className={`object-cover transition-all duration-500 group-hover:scale-105 ${loadedImages[service.id] ? "opacity-100" : "opacity-0"}`}
+                        onLoad={() => setLoadedImages(prev => ({ ...prev, [service.id]: true }))}
+                        onError={() => setLoadedImages(prev => ({ ...prev, [service.id]: true }))}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        priority
+                      />
 
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent group-hover:from-black/80 transition-all duration-300"></div>
+                      {/* Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent group-hover:from-black/80 transition-all duration-300"></div>
 
-                    {/* Icon */}
-                    <div className="absolute top-6 left-6 z-10">
-                      <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg group-hover:bg-teal-700 transition-all duration-300 transform group-hover:scale-110">
-                        <Icon className="w-6 h-6 text-teal-800 group-hover:text-white transition-colors duration-300" />
+                      {/* Icon */}
+                      <div className="absolute top-6 left-6 z-10">
+                        <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg group-hover:bg-teal-700 transition-all duration-300 transform group-hover:scale-110">
+                          <Icon className="w-6 h-6 text-teal-800 group-hover:text-white transition-colors duration-300" />
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
+                        <h3 className="text-2xl font-bold mb-3 transition-colors duration-300">{service.title}</h3>
+                        <p className="text-gray-200 leading-relaxed group-hover:text-gray-100 transition-colors duration-300">{service.description}</p>
                       </div>
                     </div>
-
-                    {/* Content */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
-                      <h3 className="text-2xl font-bold mb-3  transition-colors duration-300">{service.title}</h3>
-                      <p className="text-gray-200 leading-relaxed group-hover:text-gray-100 transition-colors duration-300">{service.description}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
           </div>
 
           {/* Pagination */}
           <motion.div className="flex justify-center items-center space-x-3 mb-12">
-            {Array.from({ length: totalSlides }).map((_, index) => (
+            {services.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}

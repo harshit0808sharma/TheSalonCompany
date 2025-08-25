@@ -14,31 +14,28 @@ export default function Hero() {
   return (
     <div className={`w-full ${theme ? 'bg-black' : 'bg-[#f7f0f2]'} pb-5 md:pb-8 lg:pb-12`}>
       <section
-        className={`relative overflow-hidden md:mx-5 md:rounded-4xl lg:mx-5 ${theme ? "bg-gray-900 text-white" : "bg-[#24544B] text-white"
-          }`}
+        className={`relative overflow-hidden md:mx-5 md:rounded-4xl lg:mx-5 ${theme ? "bg-gray-900 text-white" : "bg-[#24544B] text-white"}`}
       >
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 h-full">
-          <div className="grid lg:grid-cols-2 items-stretch min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] h-full">
+          <div className="grid lg:grid-cols-2 items-stretch min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] h-full gap-6 lg:gap-12">
+
             {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="mt-24 w-[600px] space-y-4 sm:space-y-6 lg:space-y-8 py-8 lg:py-16 xl:py-20 order-1 lg:order-1 flex flex-col justify-center"
+              className="mt-12 sm:mt-16 lg:mt-24 py-8 lg:py-16 xl:py-20 flex flex-col justify-center space-y-4 sm:space-y-6 lg:space-y-8 px-2 sm:px-0"
             >
-              {/* Main Heading */}
               <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold leading-tight lg:leading-tight">
                 Redefining Beauty
                 <span className="block">One Experience</span>
                 <span className="block">at a Time</span>
               </h1>
 
-              {/* Description */}
               <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-200 leading-relaxed">
-                {"At The Salon Company, we believe beauty is not just skin deep—it's the art of confidence, self-care, and individuality."}
+                At The Salon Company, we believe beauty is not just skin deep—it's the art of confidence, self-care, and individuality.
               </p>
 
-              {/* CTA Button */}
               <motion.a
                 href="/book-appointment"
                 whileHover={{ scale: 1.02 }}
@@ -48,18 +45,15 @@ export default function Hero() {
                   : 'text-teal-800 bg-white hover:bg-gray-50'
                   } inline-flex items-center gap-2 px-6 py-3 text-md font-medium rounded-full shadow-lg transition-all duration-300 max-w-max`}
               >
-                <span>Book your free consultation today</span>
+                <span>Get Started </span>
                 <span className="text-lg">→</span>
               </motion.a>
 
-              {/* Reviews Section */}
               <div className="pt-4 sm:pt-6 lg:pt-8">
                 <h2 className="font-semibold text-base sm:text-lg lg:text-xl mb-3 sm:mb-4">
                   Reviews
                 </h2>
                 <hr className="border-gray-400 mb-4 sm:mb-6" />
-
-                {/* Review Item */}
                 <div className="flex items-start sm:items-center gap-3 sm:gap-4">
                   <div className="flex-shrink-0">
                     <Image
@@ -92,7 +86,7 @@ export default function Hero() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative w-full order-2 lg:order-2 h-96 sm:h-[450px] md:h-[500px] lg:h-full lg:py-0"
+              className="relative w-full h-96 sm:h-[400px] md:h-[500px] lg:h-full flex items-center justify-center"
             >
               <Image
                 src={womanImage}
@@ -101,25 +95,39 @@ export default function Hero() {
                 fill
                 className="object-contain object-bottom"
                 sizes="(max-width: 640px) 95vw, (max-width: 768px) 85vw, (max-width: 1024px) 55vw, 45vw"
-                style={{ objectPosition: 'bottom' }}
               />
+
+              {/* Contact Us Circle */}
               <motion.a
                 href="/contact"
                 initial={{ rotate: -90, opacity: 0 }}
                 whileInView={{ rotate: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className={`absolute top-120 left-10 w-32 h-32 flex items-center gap-2 border-2 justify-center rounded-full text-sm text-center font-medium spin-slow bg-transparent`}
+                className="
+                  hidden          
+                  sm:flex        
+                  absolute
+                  bottom-20 sm:bottom-24 md:bottom-20 lg:bottom-32 xl:bottom-40
+                  left-4 sm:left-28 md:left-20 lg:left-4 xl:left-4
+                  w-20 h-20 md:w-28 md:h-28
+                  items-center justify-center gap-2
+                  border-2 rounded-full
+                  text-sm text-center font-medium
+                  spin-slow bg-transparent
+                   "
               >
-                <span className="leading-tight">Contact Us </span>
+                <span className="leading-tight">Contact Us</span>
                 <FaArrowRight />
               </motion.a>
+
             </motion.div>
+
+
           </div>
         </div>
       </section>
 
-      {/* Bottom Cards */}
-      <div className="px-2 sm:px-4 lg:px-8">
+      <div className="px-2 sm:px-4 lg:px-8 mt-6">
         <ContactInfo />
       </div>
     </div>
