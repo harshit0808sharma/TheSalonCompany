@@ -10,8 +10,6 @@ import { SalonContext } from "@/app/context/SalonContext";
 import { toast } from "react-toastify";
 import Link from "next/link";
 import doctorImg from "../../../public/assets/images/image6.jpeg";
-import { FaRegCheckSquare } from "react-icons/fa";
-
 
 export default function ProcessSection() {
   const { proocessSteps, theme } = useContext(SalonContext);
@@ -99,7 +97,7 @@ export default function ProcessSection() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-tight sm:leading-snug"
             >
-              Beauty, Simplified – Step by Step
+              {"Beauty, Simplified – Step by Step"}
             </motion.h2>
 
             {/* Description */}
@@ -109,8 +107,7 @@ export default function ProcessSection() {
               transition={{ delay: 0.6, duration: 0.6 }}
               className={`mb-6 sm:mb-8 text-sm sm:text-base ${theme ? "text-gray-300" : "text-gray-600"}`}
             >
-              At The Salon Company, we believe that beauty should be effortless,
-              seamless, and tailored just for you.
+              {"At The Salon Company, we believe that beauty should be effortless, seamless, and tailored just for you."}
             </motion.p>
 
             {/* Steps */}
@@ -157,7 +154,7 @@ export default function ProcessSection() {
               transition={{ delay: 1.8, duration: 0.6 }}
               className={`text-xs sm:text-sm mt-4 sm:mt-6 ${theme ? "text-gray-400" : "text-gray-600"}`}
             >
-              Your skin's transformation starts here —{" "}
+              {"Your skin's transformation starts here "}
               <Link
                 href="/book-appointment"
                 className={`${theme ? "text-teal-300 hover:text-teal-200" : "text-[#214037] font-semibold underline hover:text-[#19332b]"}`}

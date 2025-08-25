@@ -33,7 +33,7 @@ export default function Hero() {
               </h1>
 
               <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-200 leading-relaxed">
-                At The Salon Company, we believe beauty is not just skin deep—it's the art of confidence, self-care, and individuality.
+                {"At The Salon Company, we believe beauty is not just skin deep—it's the art of confidence, self-care, and individuality."}
               </p>
 
               <motion.a

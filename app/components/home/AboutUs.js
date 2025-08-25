@@ -106,9 +106,7 @@ export default function AboutSection() {
           </div>
           <Heading Text={"The Experience at The Salon Company"} />
           <p className={`text-sm sm:text-base text-gray-500 font-medium`}>
-            Step into The Salon Company, where luxury meets precision. We
-            aren't just a salon, we're a sanctuary designed for confidence,
-            self-expression, and renewal.
+            {"Step into The Salon Company, where luxury meets precision. We aren't just a salon, we're a sanctuary designed for confidence, self-expression, and renewal."}
           </p>
 
           {/* Content + Team Card */}
