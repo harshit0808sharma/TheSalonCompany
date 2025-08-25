@@ -45,8 +45,7 @@ export default function HowWeWorkUI() {
             className="text-gray-600 text-lg mb-12 leading-relaxed"
             variants={fadeUp}
           >
-            We're dedicated to helping you achieve and maintain beautiful,
-            healthy skin. Trust us to provide exceptional care tailored to you.
+            {"We're dedicated to helping you achieve and maintain beautiful, healthy skin. Trust us to provide exceptional care tailored to you."}
           </motion.p>
 
           {/* Steps */}
@@ -109,7 +108,7 @@ export default function HowWeWorkUI() {
             {/* Contact overlay */}
             <div className="absolute bottom-4 left-4 right-4 sm:right-8 p-6 sm:p-8 text-white z-50">
               <h3 className="text-xl sm:text-2xl mb-4">
-                Have Questions? We're Here to Help You!
+                {"Have Questions? We're Here to Help You!"}
               </h3>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-white text-teal-800 rounded-full flex items-center justify-center mr-4">

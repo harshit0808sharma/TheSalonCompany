@@ -37,8 +37,7 @@ export default function WhyChooseUs() {
 
           {/* Subtitle */}
           <p className="text-gray-600 text-lg mb-10 leading-relaxed">
-            We're dedicated to helping you achieve and maintain beautiful,
-            healthy skin. Trust us to provide exceptional care tailored to you.
+            {"We're dedicated to helping you achieve and maintain beautiful, healthy skin. Trust us to provide exceptional care tailored to you."}
           </p>
 
           {/* Features section */}
@@ -56,9 +55,7 @@ export default function WhyChooseUs() {
                   Personalized, compassionate care
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  We believe that every patient is unique. That's why we take
-                  the time to understand your specific needs and tailor treatment
-                  plans.
+                  {"We believe that every patient is unique. That's why we take the time to understand your specific needs and tailor treatment plans."}
                 </p>
               </div>
             </motion.div>
@@ -76,9 +73,7 @@ export default function WhyChooseUs() {
                   Comprehensive care for all skin needs
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Whether you're seeking medical dermatology, cosmetic
-                  treatments, or preventive care, we offer a comprehensive
-                  range of services.
+                  {"Whether you're seeking medical dermatology, cosmetic treatments, or preventive care, we offer a comprehensive range of services."}
                 </p>
               </div>
             </motion.div>
