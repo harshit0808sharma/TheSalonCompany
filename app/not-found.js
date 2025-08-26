@@ -12,7 +12,7 @@ export default function NotFoundPage() {
     <>
       <Navbar />
       <CommonHeading Text={"Page Not Found"} />
-      <section className="flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-200 px-5 py-24">
+      <section className="flex items-center justify-center mainBg2 px-5 py-24">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}

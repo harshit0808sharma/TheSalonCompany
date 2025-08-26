@@ -103,7 +103,7 @@ const Header = () => {
         {["/", "/home-image", "/home-video", "/home-slider"].includes(pathname) && (
           <Link
             href="/book-appointment"
-            className="bg-[#24544B] text-white px-6 py-3 rounded-full font-medium hover:bg-emerald-800 transition-colors flex items-center"
+            className="hidden md:flex bg-[#24544B] text-white px-6 py-3 rounded-full font-medium hover:bg-emerald-800 transition-colors items-center"
           >
             Book Appointment <FaArrowRight className="ml-2 w-4 h-4" />
           </Link>
@@ -123,10 +123,10 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed inset-0 z-40 bg-white overflow-y-auto transform transition-transform duration-300 ${mobileMenu ? "translate-x-0" : "-translate-x-full"
+        className={`lg:hidden fixed inset-0 z-40 mainBg2 overflow-y-auto transform transition-transform duration-300 ${mobileMenu ? "translate-x-0" : "-translate-x-full"
           }`}
       >
-        <div className="flex justify-between items-center p-6 border-b">
+        <div className="flex justify-between items-center p-10 border-b">
           <span className="text-xl font-semibold">Menu</span>
           <button onClick={() => setMobileMenu(false)} className="text-2xl">
             <FaTimes />

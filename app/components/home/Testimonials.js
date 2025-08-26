@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaStar, FaQuoteLeft } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
+import Image from "next/image";
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -170,9 +171,11 @@ const Testimonials = () => {
                             {testimonial.text}
                           </p>
                           <div className="flex items-center">
-                            <img
+                            <Image
                               src={testimonial.avatar}
                               alt={testimonial.name}
+                              width={400}
+                              height={400}
                               className="w-12 h-12 rounded-full mr-4 object-cover"
                             />
                             <div>

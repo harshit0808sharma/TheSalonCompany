@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function LoadingPage() {
   return (
-    <section className="w-full h-screen flex items-center justify-center bg-teal-800 text-white">
+    <section className="w-full h-screen flex items-center justify-center mainBg text-white">
       <div className="text-center">
         {/* Spinner */}
         <motion.div
