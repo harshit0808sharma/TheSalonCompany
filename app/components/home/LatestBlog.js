@@ -9,7 +9,7 @@ import { GoDotFill } from "react-icons/go";
 import Heading from "../other/Heading";
 
 export default function BlogSection({ limit = "all" }) {
-  const { blogsData, theme } = useContext(SalonContext); // ✅ added theme
+  const { blogsData, theme } = useContext(SalonContext);
   const [loading, setLoading] = useState(true);
 
   const itemsToShow =
@@ -22,9 +22,7 @@ export default function BlogSection({ limit = "all" }) {
 
   return (
     <section
-      className={`py-20 px-6 md:px-12 transition-colors duration-300 ${
-        theme ? "bg-gray-900 text-white" : "bg-[#fdf6f6] text-gray-900"
-      }`}
+      className={`py-20 px-6 md:px-12 transition-colors duration-300 mainBg2`}
     >
       {/* Header */}
       <motion.div
@@ -43,7 +41,7 @@ export default function BlogSection({ limit = "all" }) {
               theme ? "text-teal-400" : "text-teal-800"
             }`}
           >
-            Our Blog
+            Latest Blogs
           </span>
         </div>
         <Heading Text={"Tips, Trends & Beauty Secrets"} />
@@ -55,7 +53,7 @@ export default function BlogSection({ limit = "all" }) {
       </motion.div>
 
       {/* Blog Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-7xl mx-auto">
         {loading
           ? Array(3)
               .fill(0)
@@ -92,21 +90,17 @@ export default function BlogSection({ limit = "all" }) {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
                 key={index}
-                className={`overflow-hidden rounded-2xl border shadow-lg transition-colors duration-300 ${
-                  theme
-                    ? "bg-gray-800 border-gray-700"
-                    : "bg-white border-gray-100"
-                }`}
+                className={`overflow-hidden transition-colors duration-300`}
               >
                 <Image
                   alt={blog.title}
                   src={blog.image}
                   width={400}
                   height={400}
-                  className="h-56 w-full object-cover"
+                  className="h-80 w-full object-cover rounded-4xl"
                 />
 
-                <div className="p-4 sm:p-6">
+                <div className="py-4">
                   <h3
                     className={`text-lg font-medium mb-2 ${
                       theme ? "text-white" : "text-gray-900"
@@ -114,22 +108,11 @@ export default function BlogSection({ limit = "all" }) {
                   >
                     {blog.title}
                   </h3>
-
-                  <p
-                    className={`mt-2 line-clamp-3 text-sm/relaxed ${
-                      theme ? "text-gray-300" : "text-gray-500"
-                    }`}
-                  >
-                    {blog.content}
-                  </p>
-
                   <Link
                     href={`/blogs/${blog.title
                       .toLowerCase()
                       .replace(/\s+/g, "-")}`}
-                    className={`group mt-4 inline-flex items-center gap-1 text-sm font-medium ${
-                      theme ? "text-teal-400" : "text-blue-600"
-                    }`}
+                    className={`group mt-4 inline-flex items-center gap-1 text-md font-bold mainColor`}
                   >
                     Read More
                     <span

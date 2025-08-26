@@ -1,16 +1,19 @@
 "use client";
 
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FaRegSmile, FaCrown, FaCut, FaLeaf } from "react-icons/fa";
 import { PiScissorsLight } from "react-icons/pi";
+import { GrEmoji } from "react-icons/gr";
+import { PiCrownThin } from "react-icons/pi";
+import { PiSparkleThin } from "react-icons/pi";
+
 
 
 const stats = [
-  { icon: <FaRegSmile className="text-3xl sm:text-4xl lg:text-5xl" />, value: 96, suffix: "%", label: "Happy Clients" },
+  { icon: <GrEmoji className="text-3xl sm:text-4xl lg:text-5xl" />, value: 96, suffix: "%", label: "Happy Clients" },
   { icon: <PiScissorsLight className="text-3xl sm:text-4xl lg:text-5xl" />, value: 12, suffix: "+", label: "Years of Styling" },
-  { icon: <FaLeaf className="text-3xl sm:text-4xl lg:text-5xl" />, value: 1000, suffix: "+", label: "Beauty Treatments" },
-  { icon: <FaCrown className="text-3xl sm:text-4xl lg:text-5xl" />, value: 30, suffix: "+", label: "Luxury Facilities" },
+  { icon: <PiSparkleThin className="text-3xl sm:text-4xl lg:text-5xl" />, value: 1000, suffix: "+", label: "Beauty Treatments" },
+  { icon: <PiCrownThin className="text-3xl sm:text-4xl lg:text-5xl" />, value: 30, suffix: "+", label: "Luxury Facilities" },
 ];
 
 export default function Stats() {

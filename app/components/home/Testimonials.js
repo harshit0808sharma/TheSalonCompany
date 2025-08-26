@@ -1,27 +1,87 @@
-'use client'
-import React, { useContext, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaStar } from 'react-icons/fa';
-import { SalonContext } from '@/app/context/SalonContext';
-import { FaQuoteLeft } from "react-icons/fa";
-import { GoDotFill } from 'react-icons/go';
-import Image from 'next/image';
+"use client";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { FaStar, FaQuoteLeft } from "react-icons/fa";
+import { GoDotFill } from "react-icons/go";
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const { testimonials, theme } = useContext(SalonContext); // ✅ get theme also
+  const [isMobile, setIsMobile] = useState(false);
+  const theme = false;
+
+  const testimonials = [
+    {
+      id: 1,
+      text: "The Salon Company transformed my skin completely. The personalized care and attention to detail exceeded all my expectations. I've never felt more confident about my appearance.",
+      name: "Sarah Johnson",
+      role: "Marketing Executive",
+      avatar: "/assets/images/blog1.jpg",
+    },
+    {
+      id: 2,
+      text: "Professional service from start to finish. The team's expertise and the luxurious environment made every visit a pleasure. Highly recommend their dermal treatments.",
+      name: "Michael Chen",
+      role: "Business Owner",
+      avatar: "/assets/images/blog1.jpg",
+    },
+    {
+      id: 3,
+      text: "Amazing results with their chemical peel treatments. The staff is knowledgeable, friendly, and made me feel comfortable throughout the entire process.",
+      name: "Emma Davis",
+      role: "Teacher",
+      avatar: "/assets/images/blog1.jpg",
+    },
+    {
+      id: 4,
+      text: "The wrinkle reduction treatment exceeded my expectations. Professional, clean, and the results speak for themselves. I look years younger!",
+      name: "Robert Wilson",
+      role: "Consultant",
+      avatar: "/assets/images/blog1.jpg",
+    },
+    {
+      id: 5,
+      text: "Exceptional service and incredible results. The Salon Company truly understands skincare and delivers on their promises. Couldn't be happier!",
+      name: "Lisa Anderson",
+      role: "Designer",
+      avatar: "/assets/images/blog1.jpg",
+    },
+    {
+      id: 6,
+      text: "From consultation to treatment, everything was perfect. The team's expertise and the luxurious atmosphere make this place stand out.",
+      name: "James Brown",
+      role: "Engineer",
+      avatar: "/assets/images/blog1.jpg",
+    },
+  ];
+
+  // detect screen size
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth < 768);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  const cardsPerSlide = isMobile ? 1 : 2;
+  const maxIndex = Math.ceil(testimonials.length / cardsPerSlide) - 1;
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setCurrentIndex((prev) => (prev + 1) % (maxIndex + 1));
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex((prev) => (prev - 1 + (maxIndex + 1)) % (maxIndex + 1));
   };
 
   const goToSlide = (index) => {
     setCurrentIndex(index);
   };
+
+  // Auto-play
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 5000);
+    return () => clearInterval(interval);
+  }, [maxIndex]);
 
   const handleDragEnd = (event, info) => {
     const threshold = 50;
@@ -32,18 +92,14 @@ const Testimonials = () => {
     }
   };
 
-  const renderStars = () => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <FaStar key={i} className="text-emerald-600 text-sm" />
+  const renderStars = () =>
+    Array.from({ length: 5 }, (_, i) => (
+      <FaStar key={i} className="text-lg" />
     ));
-  };
 
   return (
-    <div
-      className={`min-h-screen py-10 px-4 transition-colors duration-500
-        ${theme ? "bg-gray-900 text-white" : "bg-gray-50 text-black"}`}
-    >
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen py-10 px-4 transition-colors duration-500 mainBg2">
+      <div className="max-w-7xl mx-auto">
         <div className="relative flex flex-col gap-10">
           {/* Header */}
           <motion.div
@@ -54,119 +110,102 @@ const Testimonials = () => {
             viewport={{ once: true }}
           >
             <div className="flex justify-center items-center gap-2">
-              <GoDotFill className={`${theme ? "text-white" : "text-teal-800"}`} />
-              <span className={`font-medium ${theme ? "text-white" : "text-teal-800"}`}>
+              <GoDotFill
+                className={`${theme ? "text-white" : "text-teal-800"}`}
+              />
+              <span
+                className={`font-medium ${
+                  theme ? "text-white" : "text-teal-800"
+                }`}
+              >
                 Testimonials
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Real experiences. Real transformations. Real confidence.
             </h2>
-            <p className="text-base md:text-lg">
-              Hear from our satisfied clients about their transformations with The Salon Company. 
-              Their stories reflect confidence, luxury, and exceptional results.
+            <p className="text-base md:text-lg text-gray-600">
+              Hear from our satisfied clients about their transformations with
+              The Salon Company. Their stories reflect confidence, luxury, and
+              exceptional results.
             </p>
           </motion.div>
 
-          {/* Testimonials Grid */}
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Left Testimonial */}
+          {/* Carousel */}
+          <div className="relative overflow-hidden">
             <motion.div
-              className={`rounded-4xl p-8 relative overflow-hidden cursor-grab active:cursor-grabbing transition-colors duration-500 bg-[#f7f0f2]`}
+              className="flex transition-transform duration-500 ease-in-out"
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               onDragEnd={handleDragEnd}
               whileDrag={{ scale: 1.02 }}
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              <FaQuoteLeft className="text-4xl font-bold" />
-              <div className="flex mb-4 mt-4">{renderStars()}</div>
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentIndex}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <p className="leading-relaxed mb-6 text-sm">
-                    {testimonials[currentIndex].text}
-                  </p>
-                  <div className="flex items-center">
-                    <Image
-                      src={testimonials[currentIndex].avatar}
-                      alt={testimonials[currentIndex].name}
-                      width={400}
-                      height={400}
-                      className="w-12 h-12 rounded-full mr-4 object-cover"
-                    />
-                    <div>
-                      <h4 className="font-semibold text-sm">
-                        {testimonials[currentIndex].name}
-                      </h4>
-                      <p className="text-xs opacity-80">
-                        {testimonials[currentIndex].role}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </motion.div>
+              {Array.from({ length: maxIndex + 1 }).map((_, slideIndex) => {
+                const startIndex = slideIndex * cardsPerSlide;
+                const slideTestimonials = testimonials.slice(
+                  startIndex,
+                  startIndex + cardsPerSlide
+                );
 
-            {/* Right Testimonial */}
-            <motion.div
-              className={`rounded-4xl p-8 relative overflow-hidden cursor-grab active:cursor-grabbing transition-colors duration-500 bg-[#f7f0f2]`}
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              onDragEnd={handleDragEnd}
-              whileDrag={{ scale: 1.02 }}
-            >
-              <FaQuoteLeft className="text-4xl font-bold" />
-              <div className="flex mb-4 mt-4">{renderStars()}</div>
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={(currentIndex + 1) % testimonials.length}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <p className="leading-relaxed mb-6 text-sm">
-                    {testimonials[(currentIndex + 1) % testimonials.length].text}
-                  </p>
-                  <div className="flex items-center">
-                    <Image
-                      src={testimonials[(currentIndex + 1) % testimonials.length].avatar}
-                      alt={testimonials[(currentIndex + 1) % testimonials.length].name}
-                      width={400}
-                      height={400}
-                      className="w-12 h-12 rounded-full mr-4 object-cover"
-                    />
-                    <div>
-                      <h4 className="font-semibold text-sm">
-                        {testimonials[(currentIndex + 1) % testimonials.length].name}
-                      </h4>
-                      <p className="text-xs opacity-80">
-                        {testimonials[(currentIndex + 1) % testimonials.length].role}
-                      </p>
-                    </div>
+                return (
+                  <div
+                    key={slideIndex}
+                    className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 gap-6 px-2"
+                  >
+                    {slideTestimonials.map((testimonial) => (
+                      <motion.div
+                        key={testimonial.id}
+                        className="mainBg1 flex justify-start gap-8 rounded-4xl p-4 md:p-8 relative overflow-hidden cursor-grab active:cursor-grabbing transition-all duration-300"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <FaQuoteLeft className="text-8xl font-bold mainColor" />
+                        <div>
+                          <div className="flex mb-4 mainColor">
+                            {renderStars()}
+                          </div>
+                          <p className="leading-relaxed mb-6 text-sm md:text-base mainColor">
+                            {testimonial.text}
+                          </p>
+                          <div className="flex items-center">
+                            <img
+                              src={testimonial.avatar}
+                              alt={testimonial.name}
+                              className="w-12 h-12 rounded-full mr-4 object-cover"
+                            />
+                            <div>
+                              <h4 className="font-semibold text-sm md:text-base text-gray-800">
+                                {testimonial.name}
+                              </h4>
+                              <p className="text-xs md:text-sm opacity-80 text-gray-600">
+                                {testimonial.role}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
                   </div>
-                </motion.div>
-              </AnimatePresence>
+                );
+              })}
             </motion.div>
           </div>
 
-          {/* Navigation Dots */}
+          {/* Dots */}
           <div className="flex justify-center mt-8 space-x-2">
-            {testimonials.map((_, index) => (
+            {Array.from({ length: maxIndex + 1 }).map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 
-                  ${index === currentIndex
-                    ? "bg-emerald-600"
-                    : theme
-                    ? "bg-gray-600 hover:bg-gray-500"
-                    : "bg-gray-300 hover:bg-gray-400"
+                  ${
+                    index === currentIndex
+                      ? "bg-emerald-600 w-8"
+                      : theme
+                      ? "bg-gray-600 hover:bg-gray-500"
+                      : "bg-gray-300 hover:bg-gray-400"
                   }`}
               />
             ))}

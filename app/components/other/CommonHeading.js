@@ -2,19 +2,18 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useContext } from "react";
-import { SalonContext } from "@/app/context/SalonContext";
+import AnimateImageRight from "./AnimateImageRight";
 
 export default function CommonHeading({ Text }) {
-  const { theme } = useContext(SalonContext); 
 
   return (
-    <div className={`w-full p-0 md:px-5 ${theme ? 'bg-black' : 'bg-white'}`}>
+    <div className={`w-full p-0 md:px-5 mainBg2`}>
       <div
-        className={`relative p-5 md:p-10 overflow-hidden mb-5 md:rounded-4xl transition-colors duration-500 ${
-          theme ? "bg-gray-900" : "bg-[#264D45]"
-        }`}
+        className={`relative p-5 md:p-10 overflow-hidden md:rounded-4xl transition-colors duration-500 mainBg`}
       >
+        <AnimateImageRight />
+
+        {/* Content */}
         <div className="relative max-w-7xl mx-auto px-4 py-24 text-center">
           {/* Heading */}
           <motion.h1
@@ -26,8 +25,9 @@ export default function CommonHeading({ Text }) {
             {Text}
           </motion.h1>
 
+          {/* Breadcrumb */}
           <motion.div
-            className="flex items-center justify-center text-white/80"
+            className="flex items-center justify-center text-white/80 font-semibold"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}

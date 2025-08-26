@@ -9,6 +9,7 @@ import * as Yup from "yup";
 import { toast } from "react-toastify";
 import { useContext } from "react";
 import { SalonContext } from "@/app/context/SalonContext";
+import AnimateImageLeft from "./other/AnimateImageLeft";
 
 export default function Footer() {
   const { theme } = useContext(SalonContext); 
@@ -22,13 +23,11 @@ export default function Footer() {
   return (
     <>
       <RunningText />
-      <div className={`w-full p-0 md:p-5 ${theme ? 'bg-black' : 'bg-white'}`}>
+      <div className={`w-full p-0 md:p-5 mainBg2`}>
         <footer
-          className={`${theme
-              ? "bg-gray-900 text-gray-200" 
-              : "bg-teal-800 text-white" 
-            } md:rounded-4xl`}
+          className={`text-white mainBg relative rounded-none md:rounded-4xl`}
         >
+          <AnimateImageLeft/>
           <div className="max-w-7xl mx-auto px-4 py-12">
             <div className="grid md:grid-cols-4 gap-8">
               {/* Company Info */}

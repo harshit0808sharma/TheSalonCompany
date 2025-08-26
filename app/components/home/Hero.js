@@ -14,8 +14,44 @@ export default function Hero() {
   return (
     <div className={`w-full ${theme ? 'bg-black' : 'bg-[#f7f0f2]'} pb-5 md:pb-8 lg:pb-12`}>
       <section
-        className={`relative overflow-hidden md:mx-5 md:rounded-4xl lg:mx-5 ${theme ? "bg-gray-900 text-white" : "bg-[#24544B] text-white"}`}
+        className={`relative overflow-hidden md:mx-5 md:rounded-4xl lg:mx-5 mainBg text-white`}
       >
+        <motion.div
+          className="absolute bottom-0 left-0 w-40 md:w-56 pointer-events-none select-none"
+          animate={{ y: [0, -15, 0] }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <Image
+            src="/assets/images/leftDesign.png"
+            alt="Left Design"
+            width={224}
+            height={224}
+            className="object-contain opacity-40"
+          />
+        </motion.div>
+
+        {/* Right floating design */}
+        <motion.div
+          className="absolute top-0 right-0 w-40 md:w-56 pointer-events-none select-none"
+          animate={{ y: [0, 15, 0] }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <Image
+            src="/assets/images/rightDesign.png"
+            alt="Right Design"
+            width={224}
+            height={224}
+            className="object-contain opacity-40"
+          />
+        </motion.div>
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 h-full">
           <div className="grid lg:grid-cols-2 items-stretch min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] h-full gap-6 lg:gap-12">
 
@@ -33,7 +69,7 @@ export default function Hero() {
               </h1>
 
               <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-200 leading-relaxed">
-                {"At The Salon Company, we believe beauty is not just skin deep—it's the art of confidence, self-care, and individuality."}
+                {"At The Salon Company, we believe beauty is not just skin deep, it's the art of confidence, self-care, and individuality."}
               </p>
 
               <motion.a

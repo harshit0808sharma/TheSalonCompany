@@ -1,73 +1,62 @@
-import { FaCheck, FaPlay } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa";
 import { FaRegCheckSquare } from "react-icons/fa";
+import {
+  HiOutlineSquares2X2,
+  HiOutlineCube,
+  HiOutlineGlobeAlt,
+} from "react-icons/hi2";
 
 
-export const servicesData = [
-  {
-    category: "Permanent Makeup (PMU) 💄",
-    description: "Because makeup should be the last thing you worry about.",
-    services: [
-      {
-        title: "Lip Blushing",
-        desc: "A soft wash of color for lips that always look naturally perfect.",
-        img: "/assets/images/lip-blushing.jpg",
-      },
-      {
-        title: "Microblading",
-        desc: "Feather-light strokes for brows that frame your face beautifully.",
-        img: "/assets/images/microblading.jpg",
-      },
-      {
-        title: "Eyeliner Tattoo",
-        desc: "Timeless, smudge-proof eyeliner that lasts from morning to midnight.",
-        img: "/assets/images/eyeliner.jpg",
-      },
-    ],
-    cta: "✨ Wake up flawless. Save time. Look amazing without effort.",
-  },
-  {
-    category: "Beauty Treatments 🌸",
-    description: "Your skin deserves more than quick fixes—it deserves real care.",
-    services: [
-      {
-        title: "Luxury Facials",
-        desc: "Tailored rituals to hydrate, renew, and brighten.",
-        img: "/assets/images/facial.jpg",
-      },
-      {
-        title: "Eyebrow Lamination",
-        desc: "Fuller, sculpted brows for that editorial finish.",
-        img: "/assets/images/eyebrow-lamination.jpg",
-      },
-      {
-        title: "BB Glow",
-        desc: "Semi-permanent foundation for smooth, even-toned skin all day.",
-        img: "/assets/images/bb-glow.jpg",
-      },
-    ],
-    cta: "✨ Glowing skin = unstoppable confidence.",
-  },
-  {
-    category: "Eyelash Extensions 👁",
-    description: "Because your eyes deserve to do the talking.",
-    services: [
-      { title: "Classic", desc: "Subtle elegance, your lashes but better.", img: "/assets/images/classic-lash.jpg" },
-      { title: "Hybrid", desc: "A perfect blend of natural and dramatic.", img: "/assets/images/hybrid-lash.jpg" },
-      { title: "Volume", desc: "Bold, statement lashes for a striking look.", img: "/assets/images/volume-lash.jpg" },
-    ],
-    cta: "✨ From natural to glam, we’ve got your lash mood covered.",
-  },
-  {
-    category: "Hair | Makeup | Nails 💇",
-    description: "From everyday glam to special occasions, we bring precision and creativity to every service.",
-    services: [
-      { title: "Hair", desc: "Chic cuts, glossy blowouts, and transformations.", img: "/assets/images/hair.jpg" },
-      { title: "Makeup", desc: "From bridal to party looks, perfectly tailored to your style.", img: "/assets/images/makeup.jpg" },
-      { title: "Nails", desc: "Extensions, art, and polish that complete your look.", img: "/assets/images/nails.jpg" },
-    ],
-    cta: "✨ One destination for everything beauty.",
-  },
-];
+  export const servicesData = [
+    {
+      id: 1,
+      title: "Wrinkle Reduction",
+      description:
+        "From preventive care to specialized treatments, our wide range.",
+      icon: <HiOutlineSquares2X2 className="w-8 h-8" />,
+      img: "/assets/images/image10.jpeg",
+    },
+    {
+      id: 2,
+      title: "Dermal Fillers",
+      description:
+        "From preventive care to specialized treatments, our wide range.",
+      icon: <HiOutlineCube className="w-8 h-8" />,
+      img: "/assets/images/image11.jpeg",
+    },
+    {
+      id: 3,
+      title: "Chemical Peels",
+      description:
+        "From preventive care to specialized treatments, our wide range.",
+      icon: <HiOutlineGlobeAlt className="w-8 h-8" />,
+      img: "/assets/images/image12.jpeg",
+    },
+    {
+      id: 4,
+      title: "Laser Therapy",
+      description:
+        "From preventive care to specialized treatments, our wide range.",
+      icon: <HiOutlineSquares2X2 className="w-8 h-8" />,
+      img: "/assets/images/image2.jpeg",
+    },
+    {
+      id: 5,
+      title: "Skin Analysis",
+      description:
+        "From preventive care to specialized treatments, our wide range.",
+      icon: <HiOutlineCube className="w-8 h-8" />,
+      img: "/assets/images/image3.jpeg",
+    },
+    {
+      id: 6,
+      title: "Skin Analysis",
+      description:
+        "From preventive care to specialized treatments, our wide range.",
+      icon: <HiOutlineCube className="w-8 h-8" />,
+      img: "/assets/images/image4.jpeg",
+    },
+  ];
 
 export const blogsData = [
   {

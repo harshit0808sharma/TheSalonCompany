@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import CommonHeading from "../components/other/CommonHeading";
 import Testimonials from "../components/home/Testimonials";
 import ContactSection from "../components/home/ContactForm";
-import Services from "../components/home/OurServices";
+import ServiceComponent from "../components/other/ServiceComponent";
 
 export default function ServicesPage() {
 
@@ -11,7 +11,7 @@ export default function ServicesPage() {
     <>
       <Navbar />
       <CommonHeading Text={"Services"} />
-      <Services/>
+      <ServiceComponent/>
       <Testimonials />
       <ContactSection />
       <Footer />

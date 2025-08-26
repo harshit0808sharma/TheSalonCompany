@@ -17,6 +17,42 @@ export default function OurBenefits() {
   return (
     <div className="w-full p-0 md:p-5 mainBg2">
       <div className="relative z-10 flex flex-col mainBg md:rounded-4xl items-center justify-center min-h-screen px-6 py-28">
+        <motion.div
+          className="absolute top-0 left-0 w-40 md:w-56 pointer-events-none select-none"
+          animate={{ y: [0, -15, 0] }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <Image
+            src="/assets/images/leftDesign.png"
+            alt="Left Design"
+            width={224}
+            height={224}
+            className="object-contain opacity-40"
+          />
+        </motion.div>
+
+        {/* Right floating design */}
+        <motion.div
+          className="absolute bottom-0 right-0 w-40 md:w-56 pointer-events-none select-none"
+          animate={{ y: [0, 15, 0] }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <Image
+            src="/assets/images/rightDesign.png"
+            alt="Right Design"
+            width={224}
+            height={224}
+            className="object-contain opacity-40"
+          />
+        </motion.div>
         {/* Header content */}
         <motion.div
           className="text-center mb-16 max-w-4xl"

@@ -22,8 +22,25 @@ export default function ProcessSection() {
     <>
       <div className="w-full p-0 md:p-5 mainBg2">
         <section
-          className={`grid grid-cols-1 lg:grid-cols-2 min-h-[600px] sm:min-h-[650px] lg:min-h-[600px] rounded-none md:rounded-4xl bg-[#f7f0f2]`}
+          className={`grid grid-cols-1 lg:grid-cols-2 min-h-[600px] sm:min-h-[650px] lg:min-h-[600px] rounded-none md:rounded-4xl mainBg1 relative`}
         >
+          <motion.div
+            className="absolute top-0 right-0 w-40 md:w-56 pointer-events-none select-none"
+            animate={{ y: [0, 15, 0] }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <Image
+              src="/assets/images/rightDesign.png"
+              alt="Right Design"
+              width={224}
+              height={224}
+              className="object-contain opacity-40"
+            />
+          </motion.div>
           {/* LEFT SIDE IMAGE */}
           <motion.div
             initial={{ opacity: 0, x: -100 }}

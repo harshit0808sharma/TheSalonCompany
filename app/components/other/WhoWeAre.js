@@ -29,7 +29,7 @@ export default function WhoWeAre() {
   }, []);
 
   return (
-    <section className="bg-white py-14 md:py-20 px-6 md:px-12">
+    <section className="mainBg2 py-14 md:py-20 px-6 md:px-12">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         
         {/* LEFT SIDE */}
@@ -44,7 +44,7 @@ export default function WhoWeAre() {
           <Image
             src={img1}
             alt="Salon"
-            className="w-full sm:w-72 md:w-80 rounded-4xl object-cover shadow-lg"
+            className="w-full sm:w-72 md:w-80 rounded-4xl object-cover"
           />
 
           <div className="flex flex-col gap-8 relative">
@@ -52,7 +52,7 @@ export default function WhoWeAre() {
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-[#214037] text-white rounded-4xl px-5 py-6 flex items-center gap-5 shadow-lg"
+              className="mainBg text-white rounded-4xl px-5 py-6 flex items-center gap-5"
             >
               <FaUsers size={40} />
               <div>
@@ -70,7 +70,7 @@ export default function WhoWeAre() {
               <Image
                 src={img2}
                 alt="Salon Treatment"
-                className="w-72 sm:w-56 md:w-64 rounded-4xl object-cover shadow-lg"
+                className="w-72 sm:w-56 md:w-72 rounded-4xl object-cover"
               />
             </motion.div>
 
@@ -79,7 +79,7 @@ export default function WhoWeAre() {
               initial={{ rotate: -90, opacity: 0 }}
               whileInView={{ rotate: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="absolute left-56 md:-left-20 top-1/2 -translate-y-1/2 bg-[#214037] text-white w-36 h-36 flex items-center justify-center gap-2 rounded-full border-8 border-white text-sm text-center font-medium shadow-lg spin-slow"
+              className="absolute left-56 md:-left-20 top-1/2 -translate-y-1/2 mainBg text-white w-36 h-36 flex items-center justify-center gap-2 rounded-full border-8 border-white text-sm text-center font-medium shadow-lg spin-slow"
             >
               <span className="leading-tight">Book Your Consultation</span> <FaArrowRight />
             </motion.div>
@@ -120,9 +120,9 @@ export default function WhoWeAre() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="flex items-center gap-2 text-gray-700"
+                className="flex items-center gap-2 text-gray-700 text-lg"
               >
-                <FaRegSquareCheck className="text-teal-800" /> {item}
+                <FaRegSquareCheck className="mainColor" /> {item}
               </motion.div>
             ))}
           </div>
@@ -132,7 +132,7 @@ export default function WhoWeAre() {
           href="/contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-[#214037] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#1a322b] transition-all"
+            className="mainBg text-white px-6 py-3 rounded-full font-medium hover:bg-[#1a322b] transition-all"
           >
             Learn More →
           </motion.a>

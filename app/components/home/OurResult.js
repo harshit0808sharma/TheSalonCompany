@@ -12,6 +12,10 @@ import after2 from "../../../public/assets/images/after2.jpg";
 import { GoDotFill } from "react-icons/go";
 import Heading from "../other/Heading";
 import { SalonContext } from "@/app/context/SalonContext";
+import { FaArrowRightLong } from "react-icons/fa6";
+
+
+import Link from "next/link";
 
 export default function BeforeAfter() {
   const { theme } = useContext(SalonContext); // ✅ theme from context
@@ -34,11 +38,7 @@ export default function BeforeAfter() {
 
   return (
     <section
-      className={`py-10 md:py-20 px-6 md:px-12 transition-colors duration-300 ${
-        theme
-          ? "bg-black text-white"
-          : "bg-white text-gray-800"
-      }`}
+      className={`py-10 md:py-20 px-6 md:px-12 transition-colors duration-300 mainBg2`}
     >
       {/* Heading */}
       <motion.div
@@ -155,6 +155,9 @@ export default function BeforeAfter() {
             }
           />
         </motion.div>
+      </div>
+      <div className="text-center">
+        <Link href="/result" className="bg-[#24544B] text-white px-6 py-3 rounded-full font-medium hover:bg-emerald-800 transition-colors inline-flex gap-2 items-center"><span>View All Result</span> <FaArrowRightLong/></Link>
       </div>
     </section>
   );

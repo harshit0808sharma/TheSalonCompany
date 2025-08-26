@@ -12,9 +12,7 @@ export default function RunningText() {
 
   return (
     <div
-      className={`w-full overflow-hidden py-10 flex justify-center transition-colors duration-500 ${
-        theme ? "bg-gray-900" : "bg-white"
-      }`}
+      className={`w-full overflow-hidden py-10 flex justify-center transition-colors duration-500 mainBg2`}
     >
       <motion.div
         className={`flex whitespace-nowrap font-semibold uppercase transition-colors duration-500 ${

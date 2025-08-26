@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useRef, useContext } from 'react';
-import { FaChevronDown, FaArrowRight, FaBars, FaTimes } from "react-icons/fa";
+import { FaChevronDown, FaArrowRight, FaTimes } from "react-icons/fa";
 import { SalonContext } from "../context/SalonContext";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -34,8 +34,8 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-[#f7f0f2] px-6 py-8 relative z-50">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+    <header className="mainBg1 px-6 relative z-50 h-30 flex items-center">
+      <div className="max-w-7xl mx-auto flex items-center justify-between w-full">
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="text-2xl font-bold text-[#24544B]">
@@ -100,16 +100,14 @@ const Header = () => {
         </nav>
 
         {/* Book Appointment Button */}
-        {pathname === "/" && (
-            <div className="hidden lg:flex items-center">
-              <Link
-                href="/book-appointment"
-                className="bg-[#24544B] text-white px-6 py-3 rounded-full font-medium hover:bg-emerald-800 transition-colors flex items-center"
-              >
-                Book Appointment <FaArrowRight className="ml-2 w-4 h-4" />
-              </Link>
-            </div>
-          )}
+        {["/", "/home-image", "/home-video", "/home-slider"].includes(pathname) && (
+          <Link
+            href="/book-appointment"
+            className="bg-[#24544B] text-white px-6 py-3 rounded-full font-medium hover:bg-emerald-800 transition-colors flex items-center"
+          >
+            Book Appointment <FaArrowRight className="ml-2 w-4 h-4" />
+          </Link>
+        )}
 
         {/* Mobile Menu Button */}
         <button className="lg:hidden p-2" onClick={() => setMobileMenu(!mobileMenu)}>
@@ -145,8 +143,8 @@ const Header = () => {
               Home{" "}
               <FaChevronDown
                 className={`${mobileDropdown === "home"
-                    ? "rotate-180 transform transition-transform"
-                    : ""
+                  ? "rotate-180 transform transition-transform"
+                  : ""
                   }`}
               />
             </button>
@@ -174,8 +172,8 @@ const Header = () => {
               Pages{" "}
               <FaChevronDown
                 className={`${mobileDropdown === "pages"
-                    ? "rotate-180 transform transition-transform"
-                    : ""
+                  ? "rotate-180 transform transition-transform"
+                  : ""
                   }`}
               />
             </button>
@@ -202,8 +200,6 @@ const Header = () => {
           </li>
         </ul>
       </div>
-
-
     </header>
   );
 };

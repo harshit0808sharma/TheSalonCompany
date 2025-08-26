@@ -11,13 +11,11 @@ import imgMain from "../../../public/assets/images/image4.jpeg";
 import imgSmall from "../../../public/assets/images/image2.jpeg";
 
 export default function AboutNewSection() {
-  const { theme } = useContext(SalonContext); // true = dark
+  const { theme } = useContext(SalonContext);
 
   return (
     <section
-      className={`py-20 px-6 md:px-12 transition-colors duration-500 ${
-        theme ? "bg-black text-white" : "bg-[#fef9f8] text-black"
-      }`}
+      className={`py-20 px-6 md:px-12 transition-colors duration-500 mainBg2`}
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         {/* Left Content */}
@@ -29,14 +27,12 @@ export default function AboutNewSection() {
         >
           <div className="flex items-center gap-2">
             <GoDotFill
-              className={`${theme ? "text-green-400" : "text-teal-800"}`}
+              className={`mainColor`}
             />
             <span
-              className={`font-medium ${
-                theme ? "text-green-400" : "text-[#264D45]"
-              }`}
+              className={`font-medium mainColor`}
             >
-              About
+              Hat Sets Us Apart
             </span>
           </div>
 
@@ -80,9 +76,7 @@ export default function AboutNewSection() {
               }`}
             >
               <motion.div
-                className={`h-4 rounded-full ${
-                  theme ? "bg-green-500" : "bg-[#214037]"
-                }`}
+                className={`h-4 rounded-full mainBg`}
                 initial={{ width: 0 }}
                 whileInView={{ width: "95%" }}
                 transition={{ duration: 1.2 }}
@@ -111,9 +105,7 @@ export default function AboutNewSection() {
               }`}
             >
               <motion.div
-                className={`h-4 rounded-full ${
-                  theme ? "bg-green-500" : "bg-[#214037]"
-                }`}
+                className={`h-4 rounded-full mainBg`}
                 initial={{ width: 0 }}
                 whileInView={{ width: "88%" }}
                 transition={{ duration: 1.2, delay: 0.3 }}
@@ -131,7 +123,7 @@ export default function AboutNewSection() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="w-72 h-72 md:w-[500px] md:h-[500px] rounded-full overflow-hidden shadow-xl">
+          <div className="w-72 h-72 md:w-[600px] md:h-[600px] rounded-full overflow-hidden shadow-xl">
             <Image
               src={imgMain}
               alt="Salon Treatment"
@@ -140,7 +132,7 @@ export default function AboutNewSection() {
           </div>
 
           <motion.div
-            className={`absolute bottom-4 right-4 w-28 h-28 md:w-40 md:h-40 rounded-full overflow-hidden border-8 shadow-lg ${
+            className={`absolute bottom-4 right-4 w-28 h-28 md:w-50 md:h-50 rounded-full overflow-hidden border-8 ${
               theme ? "border-gray-800" : "border-white"
             }`}
             initial={{ opacity: 0, y: 30 }}
@@ -158,7 +150,7 @@ export default function AboutNewSection() {
           </motion.div>
 
           <motion.div
-            className={`absolute bottom-0 left-20 -translate-x-1/2 px-6 py-3 rounded-xl flex items-center gap-3 shadow-lg ${
+            className={`absolute bottom-0 left-20 -translate-x-1/2 px-6 py-3 rounded-xl flex items-center gap-3 ${
               theme ? "bg-gray-800" : "bg-white"
             }`}
             initial={{ opacity: 0, y: 30 }}
@@ -167,7 +159,7 @@ export default function AboutNewSection() {
             viewport={{ once: true }}
           >
             <FaStar
-              className={`text-xl ${theme ? "text-yellow-400" : "text-green-600"}`}
+              className={`text-4xl mainColor`}
             />
             <div>
               <p
