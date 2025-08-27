@@ -9,6 +9,13 @@ import { useContext } from "react";
 import { SalonContext } from "../context/SalonContext";
 import { GoDotFill } from "react-icons/go";
 
+export const metadata = {
+  title: "Client Testimonials | The Salon Company",
+  description:
+    "Read what our happy clients have to say about their salon experiences at The Salon Company in Noida.",
+};
+
+
 
 export default function Testimonials() {
     const { testimonials } = useContext(SalonContext)

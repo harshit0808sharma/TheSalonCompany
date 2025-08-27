@@ -62,9 +62,9 @@ const Testimonials = () => {
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
-  // Show 2 cards but slide 1 card at a time
+
   const cardsVisible = isMobile ? 1 : 2;
-  const slideStep = 1; // Always slide by 1 card
+  const slideStep = 1; 
   const maxIndex = testimonials.length - cardsVisible;
 
   const nextSlide = useCallback(() => {
@@ -79,12 +79,11 @@ const Testimonials = () => {
     setCurrentIndex(Math.min(index, maxIndex));
   };
 
-  // Auto-play functionality
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => {
         if (prev >= maxIndex) {
-          return 0; // Reset to beginning
+          return 0; 
         }
         return prev + slideStep;
       });
@@ -107,8 +106,7 @@ const Testimonials = () => {
       <FaStar key={i} className="text-lg" />
     ));
 
-  // Calculate card width based on screen size
-  const cardWidthPercentage = isMobile ? 100 : 50; // 100% on mobile, 50% on desktop
+  const cardWidthPercentage = isMobile ? 100 : 50;
 
   return (
     <div className="min-h-screen py-10 px-4 transition-colors duration-500 mainBg2">

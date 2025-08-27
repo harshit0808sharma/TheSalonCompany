@@ -14,6 +14,12 @@ import { useContext } from "react";
 import { SalonContext } from "@/app/context/SalonContext";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 
+export const metadata = {
+  title: "Book Appointment | The Salon Company",
+  description:
+    "Easily book your salon appointment online with The Salon Company in Noida. Choose your preferred service and time today!",
+};
+
 export default function BookAppointment() {
   const { theme } = useContext(SalonContext);
 

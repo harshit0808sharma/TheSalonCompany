@@ -24,6 +24,13 @@ import ContactSection from "../components/home/ContactForm";
 import { SalonContext } from "../context/SalonContext";
 import ContactInfo from "../components/other/ContactInfo";
 
+export const metadata = {
+  title: "Video Gallery | The Salon Company",
+  description:
+    "Watch videos of transformations and tutorials from The Salon Company experts in hair, makeup, and beauty.",
+};
+
+
 export default function HomeVideoPage() {
   const { theme } = useContext(SalonContext);
 

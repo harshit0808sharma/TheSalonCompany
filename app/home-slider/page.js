@@ -26,6 +26,13 @@ import bgImage from "../../public/assets/images/salon-home-image.jpg";
 import { SalonContext } from "../context/SalonContext";
 import ContactInfo from "../components/other/ContactInfo";
 
+export const metadata = {
+  title: "Salon Highlights | The Salon Company",
+  description:
+    "Explore highlights of our beauty and salon services through interactive sliders showcasing transformations at The Salon Company.",
+};
+
+
 export default function HomeImagePage() {
   const { theme } = useContext(SalonContext);
 

@@ -14,7 +14,6 @@ const Header = () => {
 
   const [mobileMenu, setMobileMenu] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState(null);
-  const { theme } = useContext(SalonContext);
 
   const toggleMobileDropdown = (menu) => {
     setMobileDropdown(prev => prev === menu ? null : menu);
@@ -34,7 +33,7 @@ const Header = () => {
   };
 
   return (
-    <header className="mainBg1 px-6 relative z-50 h-30 flex items-center">
+    <header className="mainBg1 px-6 relative z-50 h-20 md:h-30 flex items-center">
       <div className="max-w-7xl mx-auto flex items-center justify-between w-full">
         {/* Logo */}
         <div className="flex items-center">
@@ -127,7 +126,7 @@ const Header = () => {
         className={`lg:hidden fixed inset-0 z-40 mainBg2 overflow-y-auto transform transition-transform duration-300 ${mobileMenu ? "translate-x-0" : "-translate-x-full"
           }`}
       >
-        <div className="flex justify-between items-center p-10 border-b">
+        <div className="flex justify-between items-center p-6 md:p-10 border-b">
           <span className="text-xl font-semibold">Menu</span>
           <button onClick={() => setMobileMenu(false)} className="text-2xl">
             <FaTimes />

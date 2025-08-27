@@ -12,6 +12,11 @@ import OurMission from "../components/other/OurMission";
 import SalonBenefits from "../components/other/SalonBenefits";
 import WhoWeAre from "../components/other/WhoWeAre";
 
+export const metadata = {
+  title: "About Us | The Salon Company",
+  description: "Learn more about The Salon Company in Noida.",
+};
+
 
 export default function AboutPage(){
     return(

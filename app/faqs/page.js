@@ -9,6 +9,12 @@ import Footer from "../components/Footer";
 import { FaChevronDown, FaPhone } from "react-icons/fa";
 import Image from "next/image";
 
+export const metadata = {
+  title: "FAQs | The Salon Company",
+  description:
+    "Find answers to frequently asked questions about The Salon Company’s services, appointments, and treatments.",
+};
+
 export default function FAQs() {
   const [expandedFaq, setExpandedFaq] = useState(null);
   const [expandedTreatment, setExpandedTreatment] = useState(null);

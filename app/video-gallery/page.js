@@ -11,6 +11,13 @@ import { SalonContext } from "../context/SalonContext";
 import { FaYoutube } from "react-icons/fa";
 import { toast } from "react-toastify";
 
+export const metadata = {
+  title: "Video Gallery | The Salon Company",
+  description:
+    "Watch salon transformations, tutorials, and behind-the-scenes clips from The Salon Company.",
+};
+
+
 export default function VideoGallery() {
   const { galleryVideoData } = useContext(SalonContext);
 

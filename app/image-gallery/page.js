@@ -8,6 +8,13 @@ import { motion } from "framer-motion";
 import { useContext } from "react";
 import { SalonContext } from "../context/SalonContext";
 
+export const metadata = {
+  title: "Image Gallery | The Salon Company",
+  description:
+    "Explore before-and-after photos and stunning salon results from The Salon Company in Noida.",
+};
+
+
 export default function ImageGallery() {
     const { galleryData } = useContext(SalonContext);
     
