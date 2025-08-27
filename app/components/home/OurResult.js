@@ -157,7 +157,7 @@ export default function BeforeAfter() {
         </motion.div>
       </div>
       <div className="text-center">
-        <Link href="/result" className="bg-[#24544B] text-white px-6 py-3 rounded-full font-medium hover:bg-emerald-800 transition-colors inline-flex gap-2 items-center"><span>View All Result</span> <FaArrowRightLong/></Link>
+        <Link href="/casestudy" className="bg-[#24544B] text-white px-6 py-3 rounded-full font-medium hover:bg-emerald-800 transition-colors inline-flex gap-2 items-center"><span>View All Result</span> <FaArrowRightLong/></Link>
       </div>
     </section>
   );

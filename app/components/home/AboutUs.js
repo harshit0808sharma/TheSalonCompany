@@ -41,7 +41,7 @@ export default function AboutSection() {
     >
       <div className="pb-8 sm:pb-12 md:pb-16 lg:pb-20 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 lg:gap-8 items-center">
         {/* Left Images */}
-        <div className="relative order-2 lg:order-1">
+        <div className="relative order-2 lg:order-1 ">
           <motion.div
             className="overflow-hidden"
             initial={{ opacity: 0, x: -50 }}

@@ -36,8 +36,8 @@ const GetInTouch = () => {
   ];
 
   return (
-    <div className={`${theme ? "bg-gray-900 text-white" : "bg-gray-50 text-black"} min-h-screen`}>
-      <div className="max-w-7xl mx-auto px-4 py-16">
+    <div className={`mainBg2 min-h-screen`}>
+      <div className="max-w-7xl mx-auto px-4 pt-16">
         <motion.div
           className="grid lg:grid-cols-2 gap-12 items-start"
           initial="hidden"
@@ -100,7 +100,7 @@ const GetInTouch = () => {
                         type="text"
                         name="firstName"
                         placeholder="First Name"
-                        className={`${theme ? "bg-gray-800 text-white border-gray-600" : "bg-white text-black border-gray-300"} w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
+                        className={`border border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
                       />
                       <ErrorMessage name="firstName" component="div" className="text-red-500 text-sm mt-1" />
                     </motion.div>
@@ -109,7 +109,7 @@ const GetInTouch = () => {
                         type="text"
                         name="lastName"
                         placeholder="Last Name"
-                        className={`${theme ? "bg-gray-800 text-white border-gray-600" : "bg-white text-black border-gray-300"} w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
+                        className={`border border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
                       />
                       <ErrorMessage name="lastName" component="div" className="text-red-500 text-sm mt-1" />
                     </motion.div>
@@ -121,7 +121,7 @@ const GetInTouch = () => {
                         type="email"
                         name="email"
                         placeholder="E-mail Address"
-                        className={`${theme ? "bg-gray-800 text-white border-gray-600" : "bg-white text-black border-gray-300"} w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
+                        className={`border border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
                       />
                       <ErrorMessage name="email" component="div" className="text-red-500 text-sm mt-1" />
                     </motion.div>
@@ -130,7 +130,7 @@ const GetInTouch = () => {
                         type="tel"
                         name="phone"
                         placeholder="Phone No."
-                        className={`${theme ? "bg-gray-800 text-white border-gray-600" : "bg-white text-black border-gray-300"} w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
+                        className={`border border-gray-200 bg-white w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-700 focus:border-transparent`}
                       />
                       <ErrorMessage name="phone" component="div" className="text-red-500 text-sm mt-1" />
                     </motion.div>
@@ -142,7 +142,7 @@ const GetInTouch = () => {
                       name="message"
                       placeholder="Write Message"
                       rows={6}
-                      className={`${theme ? "bg-gray-800 text-white border-gray-600" : "bg-white text-black border-gray-300"} w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none`}
+                      className={`border border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none`}
                     />
                     <ErrorMessage name="message" component="div" className="text-red-500 text-sm mt-1" />
                   </motion.div>
@@ -163,7 +163,7 @@ const GetInTouch = () => {
 
         {/* Contact Cards */}
         <motion.div
-          className="grid md:grid-cols-3 gap-6 mt-16"
+          className="grid md:grid-cols-3 gap-6 py-32"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -173,47 +173,41 @@ const GetInTouch = () => {
             <motion.div
               key={idx}
               variants={fadeUp}
-              className={`${theme ? "bg-gray-800 text-white" : "bg-teal-700 text-white"} p-6 rounded-2xl`}
+              className={`mainBg text-white p-6 rounded-4xl flex items-center gap-5`}
             >
-              <div className={`${theme ? "bg-gray-700 text-teal-200" : "bg-white/20 text-teal-700"} w-12 h-12 rounded-lg flex items-center justify-center mb-4`}>
+              <div className={`text-white bg-white mainColor w-16 h-16 rounded-lg flex items-center justify-center mb-4`}>
                 {card.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
-              {card.lines.map((line, i) => (
-                <p key={i} className="text-white/90">{line}</p>
-              ))}
+              <div className="flex flex-col">
+                <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
+                {card.lines.map((line, i) => (
+                  <p key={i} className="text-white/90">{line}</p>
+                ))}
+              </div>
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Map Section */}
-        <motion.div
-          className="mt-16 rounded-2xl overflow-hidden h-96 relative"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.9041380763556!2d77.39281827528674!3d28.57264117569747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b5c46418751aef3%3A0x2d35829dafac334d!2sLokaci%20HQ!5e0!3m2!1sen!2sin!4v1755430508239!5m2!1sen!2sin"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </motion.div>
       </div>
 
-      {/* Company name section */}
-      <div className={`${theme ? "bg-gray-800" : "bg-gray-100"} py-16`}>
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className={`${theme ? "text-white" : "text-teal-800"} text-4xl font-bold mb-8`}>
-            {"✱ THE SALON COMPANY"}
-          </h2>
-        </div>
-      </div>
+      {/* Map Section */}
+      <motion.div
+        className="w-full rounded-4xl overflow-hidden h-[80vh] relative px-5"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.9041380763556!2d77.39281827528674!3d28.57264117569747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b5c46418751aef3%3A0x2d35829dafac334d!2sLokaci%20HQ!5e0!3m2!1sen!2sin!4v1755430508239!5m2!1sen!2sin"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          className="rounded-4xl"
+        ></iframe>
+      </motion.div>
     </div>
   );
 };

@@ -7,56 +7,57 @@ import {
 } from "react-icons/hi2";
 
 
-  export const servicesData = [
-    {
-      id: 1,
-      title: "Wrinkle Reduction",
-      description:
-        "From preventive care to specialized treatments, our wide range.",
-      icon: <HiOutlineSquares2X2 className="w-8 h-8" />,
-      img: "/assets/images/image10.jpeg",
-    },
-    {
-      id: 2,
-      title: "Dermal Fillers",
-      description:
-        "From preventive care to specialized treatments, our wide range.",
-      icon: <HiOutlineCube className="w-8 h-8" />,
-      img: "/assets/images/image11.jpeg",
-    },
-    {
-      id: 3,
-      title: "Chemical Peels",
-      description:
-        "From preventive care to specialized treatments, our wide range.",
-      icon: <HiOutlineGlobeAlt className="w-8 h-8" />,
-      img: "/assets/images/image12.jpeg",
-    },
-    {
-      id: 4,
-      title: "Laser Therapy",
-      description:
-        "From preventive care to specialized treatments, our wide range.",
-      icon: <HiOutlineSquares2X2 className="w-8 h-8" />,
-      img: "/assets/images/image2.jpeg",
-    },
-    {
-      id: 5,
-      title: "Skin Analysis",
-      description:
-        "From preventive care to specialized treatments, our wide range.",
-      icon: <HiOutlineCube className="w-8 h-8" />,
-      img: "/assets/images/image3.jpeg",
-    },
-    {
-      id: 6,
-      title: "Skin Analysis",
-      description:
-        "From preventive care to specialized treatments, our wide range.",
-      icon: <HiOutlineCube className="w-8 h-8" />,
-      img: "/assets/images/image4.jpeg",
-    },
-  ];
+ export const servicesData = [
+  {
+    id: 1,
+    title: "Lip Blushing",
+    description:
+      "Enhance your natural lip color with semi-permanent tinting for a soft, defined, and fuller look.",
+    icon: <HiOutlineSquares2X2 className="w-8 h-8" />,
+    img: "/assets/images/lip-blushing.jpg",
+  },
+  {
+    id: 2,
+    title: "Microblading",
+    description:
+      "Get perfectly shaped brows with fine, hair-like strokes that create a natural and lasting look.",
+    icon: <HiOutlineCube className="w-8 h-8" />,
+    img: "/assets/images/microblading.jpg",
+  },
+  {
+    id: 3,
+    title: "Eyebrow Lamination",
+    description:
+      "Tame and lift your brows for a fuller, sleek, and defined shape that lasts for weeks.",
+    icon: <HiOutlineGlobeAlt className="w-8 h-8" />,
+    img: "/assets/images/eyebrow-lamination.jpg",
+  },
+  {
+    id: 4,
+    title: "Permanent Eyeliner",
+    description:
+      "Wake up with perfect eyeliner every day—smudge-proof, waterproof, and beautifully defined.",
+    icon: <HiOutlineSquares2X2 className="w-8 h-8" />,
+    img: "/assets/images/eyeliner.jpg",
+  },
+  {
+    id: 5,
+    title: "Volume Lash Extensions",
+    description:
+      "Achieve a glamorous and voluminous lash look with lightweight, long-lasting lash extensions.",
+    icon: <HiOutlineCube className="w-8 h-8" />,
+    img: "/assets/images/volume-lash.jpg",
+  },
+  {
+    id: 6,
+    title: "Luxury Facial",
+    description:
+      "Rejuvenate your skin with deep cleansing, hydration, and glow-boosting facial treatments.",
+    icon: <HiOutlineCube className="w-8 h-8" />,
+    img: "/assets/images/facial.jpg",
+  },
+];
+
 
 export const blogsData = [
   {

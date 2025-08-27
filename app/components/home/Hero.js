@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaArrowRight, FaStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import womanImage from "../../../public/assets/images/heroImg.png";
 import ContactInfo from "../other/ContactInfo";
 import { useContext } from "react";
@@ -134,7 +134,7 @@ export default function Hero() {
               />
 
               {/* Contact Us Circle */}
-              <motion.a
+              {/* <motion.a
                 href="/contact"
                 initial={{ rotate: -90, opacity: 0 }}
                 whileInView={{ rotate: 0, opacity: 1 }}
@@ -154,7 +154,7 @@ export default function Hero() {
               >
                 <span className="leading-tight">Contact Us</span>
                 <FaArrowRight />
-              </motion.a>
+              </motion.a> */}
 
             </motion.div>
 

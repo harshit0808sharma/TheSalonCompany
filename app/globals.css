@@ -49,3 +49,63 @@ html{
 button{
   cursor: pointer;
 }
+
+
+
+
+
+/* .holographic-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent 30%,
+    rgb(233, 233, 233)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.holographic-card:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+} */
+
+.holo-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem; /* same as rounded-4xl */
+  transition: all 1s ease;
+}
+
+.holo-image::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent 30%,
+    rgba(228, 228, 228, 0.35)
+  );
+  transform: rotate(-45deg);
+  transition: all 1s ease;
+  opacity: 0;
+  z-index: 2; /* 👈 ensure gradient is on top */
+  pointer-events: none; /* 👈 so hover still works */
+}
+
+.holo-image:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
+

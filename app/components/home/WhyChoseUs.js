@@ -90,7 +90,7 @@ export default function WhyChooseUs() {
           viewport={{ once: true }}
           variants={fadeUp}
         >
-          <div className="relative w-full h-80 sm:h-96 lg:h-[500px] xl:h-[640px] rounded-4xl overflow-hidden">
+          <div className="holo-image relative w-full h-80 sm:h-96 lg:h-[500px] xl:h-[640px] rounded-4xl overflow-hidden">
             <Image
               src="/assets/images/blog1.jpg"
               alt="Dermatologist performing treatment"

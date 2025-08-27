@@ -84,6 +84,7 @@ const Header = () => {
                 onMouseLeave={() => handleMouseLeave('pages')}
               >
                 <Link href="/services/service-details" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Service Details</Link>
+                <Link href="/casestudy" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Case Study</Link>
                 <Link href="/blogs" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Blog Details</Link>
                 <Link href="/our-team" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Our Team</Link>
                 <Link href="/our-team/kristin-watson" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Team Details</Link>
@@ -182,6 +183,7 @@ const Header = () => {
                 } mt-2 pl-4 space-y-2`}
             >
               <li><Link href="/services/service-details" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Service Details</Link></li>
+              <li><Link href="/casestudy" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Case Study</Link></li>
               <li><Link href="/blogs" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Blog Details</Link></li>
               <li><Link href="/our-team" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Our Team</Link></li>
               <li><Link href="/our-team/kristin-watson" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Team Details</Link></li>

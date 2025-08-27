@@ -7,15 +7,36 @@ import OurBenefits from "../components/home/OurBenefits";
 import Testimonials from "../components/home/Testimonials";
 import { motion } from "framer-motion";
 import { GoDotFill } from "react-icons/go";
-import ContactInfo from "../components/other/ContactInfo";
 import { toast } from "react-toastify";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { appointmentValidation } from "../validation/appointmentValidation";
 import { useContext } from "react";
 import { SalonContext } from "@/app/context/SalonContext";
+import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 
 export default function BookAppointment() {
   const { theme } = useContext(SalonContext);
+
+  const items = [
+    {
+      id: 1,
+      icon: <FiPhone className="w-6 h-6 text-white" />,
+      title: "For More Information",
+      detail: "+91 123 456 789",
+    },
+    {
+      id: 2,
+      icon: <FiMail className="w-6 h-6 text-white" />,
+      title: "For E-Mail",
+      detail: "support@thesaloncompany.com",
+    },
+    {
+      id: 3,
+      icon: <FiMapPin className="w-6 h-6 text-white" />,
+      title: "Address",
+      detail: "Lokaci H.Q, Noida",
+    },
+  ];
 
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -35,14 +56,11 @@ export default function BookAppointment() {
       <Navbar />
       <CommonHeading Text={"Appointment Booking"} />
 
-      {/* Appointment Section */}
       <section
-        className={`py-16 px-4 sm:px-6 md:px-12 transition-colors duration-500 ${
-          theme ? "bg-black text-white" : "bg-[#faf7f7] text-black"
-        }`}
+        className={`py-16 px-4 sm:px-6 md:px-12 transition-colors duration-500 mainBg2`}
       >
         <motion.div
-          className="max-w-4xl mx-auto text-center"
+          className="max-w-4xl mx-auto text-center py-10"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -54,9 +72,8 @@ export default function BookAppointment() {
               className={`${theme ? "text-teal-400" : "text-teal-800"}`}
             />
             <span
-              className={`font-medium ${
-                theme ? "text-teal-400" : "text-[#264D45]"
-              }`}
+              className={`font-medium ${theme ? "text-teal-400" : "text-[#264D45]"
+                }`}
             >
               {" "}
               Appointment Booking
@@ -64,17 +81,15 @@ export default function BookAppointment() {
           </div>
           <motion.h2
             variants={fadeUp}
-            className={`text-2xl sm:text-3xl md:text-4xl font-semibold mb-4 ${
-              theme ? "text-white" : "text-teal-900"
-            }`}
+            className={`text-2xl sm:text-3xl md:text-4xl font-semibold mb-4 ${theme ? "text-white" : "text-teal-900"
+              }`}
           >
             Schedule your appointment
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className={`max-w-2xl mx-auto mb-10 text-sm sm:text-base ${
-              theme ? "text-gray-300" : "text-gray-600"
-            }`}
+            className={`max-w-2xl mx-auto mb-10 text-sm sm:text-base ${theme ? "text-gray-300" : "text-gray-600"
+              }`}
           >
             {"It’s time to take control of your skin health! Booking your"}
             appointment is easy and fast. Choose a time that works for you and
@@ -100,22 +115,17 @@ export default function BookAppointment() {
           >
             {({ isSubmitting }) => (
               <motion.div variants={fadeUp}>
-                <Form
-                  className={`grid grid-cols-1 md:grid-cols-2 gap-6 p-6 sm:p-8 rounded-2xl shadow-lg transition-colors duration-500 ${
-                    theme ? "bg-gray-900" : "bg-white"
-                  }`}
-                >
+                <Form className={`grid grid-cols-1 md:grid-cols-2 gap-6 p-6 sm:p-8 rounded-2xl transition-colors duration-500`}>
                   {/* Full Name */}
                   <div>
                     <Field
                       type="text"
                       name="fullName"
                       placeholder="Full Name Here"
-                      className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600 ${
-                        theme
-                          ? "bg-gray-800 border-gray-700 text-white"
-                          : "bg-white border-gray-300 text-black"
-                      }`}
+                      className={`w-full border p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-600 ${theme
+                        ? "bg-gray-800 border-gray-700 text-white"
+                        : "bg-white border-gray-300 text-black"
+                        }`}
                     />
                     <ErrorMessage
                       name="fullName"
@@ -130,11 +140,10 @@ export default function BookAppointment() {
                       type="tel"
                       name="phone"
                       placeholder="Phone Number"
-                      className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600 ${
-                        theme
-                          ? "bg-gray-800 border-gray-700 text-white"
-                          : "bg-white border-gray-300 text-black"
-                      }`}
+                      className={`w-full p-4 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-teal-600 ${theme
+                        ? "bg-gray-800 border-gray-700 text-white"
+                        : "bg-white border-gray-300 text-black"
+                        }`}
                     />
                     <ErrorMessage
                       name="phone"
@@ -149,11 +158,10 @@ export default function BookAppointment() {
                       type="email"
                       name="email"
                       placeholder="Email Address"
-                      className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600 ${
-                        theme
-                          ? "bg-gray-800 border-gray-700 text-white"
-                          : "bg-white border-gray-300 text-black"
-                      }`}
+                      className={`w-full p-4 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-teal-600 ${theme
+                        ? "bg-gray-800 border-gray-700 text-white"
+                        : "bg-white border-gray-300 text-black"
+                        }`}
                     />
                     <ErrorMessage
                       name="email"
@@ -167,11 +175,10 @@ export default function BookAppointment() {
                     <Field
                       as="select"
                       name="service"
-                      className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600 ${
-                        theme
-                          ? "bg-gray-800 border-gray-700 text-white"
-                          : "bg-white border-gray-300 text-black"
-                      }`}
+                      className={`w-full border p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-600 ${theme
+                        ? "bg-gray-800 border-gray-700 text-white"
+                        : "bg-white border-gray-300 text-black"
+                        }`}
                     >
                       <option value="">Select Service</option>
                       <option value="Facial">Facial</option>
@@ -192,11 +199,10 @@ export default function BookAppointment() {
                       type="date"
                       name="date"
                       min={new Date().toISOString().split("T")[0]}
-                      className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600 ${
-                        theme
-                          ? "bg-gray-800 border-gray-700 text-white"
-                          : "bg-white border-gray-300 text-black"
-                      }`}
+                      className={`w-full border p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-600 ${theme
+                        ? "bg-gray-800 border-gray-700 text-white"
+                        : "bg-white border-gray-300 text-black"
+                        }`}
                     />
                     <ErrorMessage
                       name="date"
@@ -210,11 +216,10 @@ export default function BookAppointment() {
                     <Field
                       as="select"
                       name="time"
-                      className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600 ${
-                        theme
-                          ? "bg-gray-800 border-gray-700 text-white"
-                          : "bg-white border-gray-300 text-black"
-                      }`}
+                      className={`w-full border p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-600 ${theme
+                        ? "bg-gray-800 border-gray-700 text-white"
+                        : "bg-white border-gray-300 text-black"
+                        }`}
                     >
                       <option value="">Choose Time</option>
                       <option value="10:00 AM">10:00 AM</option>
@@ -236,11 +241,10 @@ export default function BookAppointment() {
                       name="message"
                       placeholder="Description here about service or your problem..."
                       rows="4"
-                      className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600 ${
-                        theme
-                          ? "bg-gray-800 border-gray-700 text-white"
-                          : "bg-white border-gray-300 text-black"
-                      }`}
+                      className={`w-full border p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-600 ${theme
+                        ? "bg-gray-800 border-gray-700 text-white"
+                        : "bg-white border-gray-300 text-black"
+                        }`}
                     />
                     <ErrorMessage
                       name="message"
@@ -254,7 +258,7 @@ export default function BookAppointment() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="bg-teal-800 text-white px-8 py-3 rounded-lg hover:bg-teal-900 transition shadow-md"
+                      className="mainBg text-white px-8 py-3 rounded-full hover:bg-teal-900 transition shadow-md"
                     >
                       {isSubmitting ? "Submitting..." : "Send Message"}
                     </button>
@@ -264,8 +268,24 @@ export default function BookAppointment() {
             )}
           </Formik>
         </motion.div>
+        <div className="w-full px-32 flex justify-between items-center">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center py-16 border-t border-t-gray-200">
+            {items.map((item) => (
+              <div key={item.id} className="flex flex-col items-center sm:items-start">
+                {/* Icon */}
+                <div className="bg-[#24544B] p-3 rounded-lg flex items-center justify-center mb-3">
+                  {item.icon}
+                </div>
+                {/* Title */}
+                <h3 className="text-lg font-medium text-gray-800">{item.title}</h3>
+                {/* Detail */}
+                <p className="text-gray-500">{item.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
-      <ContactInfo />
+      {/* <ContactInfo /> */}
       <OurBenefits />
       <Testimonials />
       <Footer />

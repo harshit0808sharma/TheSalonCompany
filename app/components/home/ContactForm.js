@@ -71,7 +71,7 @@ export default function ContactSection() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="rounded-2xl sm:rounded-3xl lg:rounded-4xl z-50"
+              className="rounded-2xl sm:rounded-3xl lg:rounded-4xl relative z-10"
             ></iframe>
           </motion.div>
 
