@@ -1,13 +1,8 @@
-'use client';
-
-import { useContext } from "react";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
-
 import Navbar from "../components/Header";
 import Footer from "../components/Footer";
-
 import AboutSection from "../components/home/AboutUs";
 import Services from "../components/home/OurServices";
 import WhyChooseUs from "../components/home/WhyChoseUs";
@@ -20,19 +15,9 @@ import Testimonials from "../components/home/Testimonials";
 import Team from "../components/home/OurTeam";
 import BlogSection from "../components/home/LatestBlog";
 import ContactSection from "../components/home/ContactForm";
-
-import { SalonContext } from "../context/SalonContext";
 import ContactInfo from "../components/other/ContactInfo";
 
-export const metadata = {
-  title: "Video Gallery | The Salon Company",
-  description:
-    "Watch videos of transformations and tutorials from The Salon Company experts in hair, makeup, and beauty.",
-};
-
-
 export default function HomeVideoPage() {
-  const { theme } = useContext(SalonContext);
 
   return (
     <>
@@ -101,7 +86,6 @@ export default function HomeVideoPage() {
       <Team />
       <BlogSection />
       <ContactSection />
-
       <Footer />
     </>
   );
