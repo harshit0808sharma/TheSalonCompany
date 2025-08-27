@@ -10,7 +10,6 @@ export const metadata = {
     "Explore before-and-after photos and stunning salon results from The Salon Company in Noida.",
 };
 
-
 export default function ImageGallery() {
     
   return (

@@ -38,7 +38,6 @@ export default function HomeImagePage() {
       <Team />
       <BlogSection limit={3}/>
       <ContactSection />
-
       <Footer />
     </>
   );

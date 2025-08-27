@@ -401,7 +401,7 @@ export const testimonials = [
     name: "Sneha",
     role: "Noida – PMU & Nails",
     text: "The results were beyond my expectations. The attention to detail is incredible—I can’t recommend The Salon Company enough!",
-    avatar: "/assets/images/person9.png",
+    avatar: "/assets/images/person5.png",
   },
 ];
 

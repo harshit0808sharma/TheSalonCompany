@@ -1,25 +1,34 @@
 'use client'
-import Image from "next/image";
 import ContactInfo from "./ContactInfo";
 import { motion } from "framer-motion";
-import { FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa";
 
-const HomeImage = () => {
+const HomeVideo = () => {
 
     return (
         <>
             <div className="mainBg1 w-full px-0 md:px-5 pb-10">
-                {/* Hero Section */}
-                <section className="relative h-screen overflow-hidden rounded-4xl">
-                    <Image
-                        src='/assets/images/salon-home-image.jpg'
-                        alt="Skincare treatment"
-                        fill
-                        className="object-cover"
-                        priority
+                {/* Hero Video Section */}
+                <section className="relative h-screen overflow-hidden rounded-none md:rounded-4xl">
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="absolute inset-0 w-full h-full object-cover"
+                    >
+                        <source src="/assets/video/home-video.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+
+                    {/* Overlay */}
+                    <div
+                        className="absolute inset-0"
+                        style={{ backgroundColor: "rgba(0,0,0,0.4)" }}
                     />
-                    <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.4)" }} />
+
+                    {/* Hero Content */}
                     <div className="relative z-10 flex items-center justify-center h-full px-6 text-center">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
@@ -32,20 +41,19 @@ const HomeImage = () => {
                                 for your skin&apos;s health <br />
                                 and beauty
                             </h1>
+
                             <p className={`mt-6 text-lg font-light text-gray-200`}>
-                                At Logoipsum we believe in creating digital solutions that drive
+                                At Logoipsum we believe in creating digital solution that drive
                                 real-world impact. <br />
                                 From creative strategies to cutting-edge.
                             </p>
+
                             <Link
                                 href="/services"
-                                className="relative inline-flex items-center justify-center overflow-hidden font-medium transition-all bg-white rounded-full group px-6 py-3 mt-8"
+                                className="mt-8 inline-flex items-center px-6 py-3 rounded-full bg-white text-gray-900 font-medium hover:bg-gray-100 transition"
                             >
-                                <span className="absolute inset-0 w-0 bg-teal-800 transition-all duration-500 ease-out group-hover:w-full"></span>
-                                <span className="relative flex items-center text-gray-900 transition-colors duration-300 ease-in-out group-hover:text-white">
-                                    View Our Services
-                                    <FaArrowRight className="ml-2 w-5 h-5" />
-                                </span>
+                                View Our Services
+                                <FaArrowRight className="ml-2 w-5 h-5" />
                             </Link>
                         </motion.div>
                     </div>
@@ -56,4 +64,4 @@ const HomeImage = () => {
     )
 }
 
-export default HomeImage;
+export default HomeVideo;

@@ -21,7 +21,7 @@ export const metadata = {
 };
 
 
-export default function HomeImagePage() {
+export default function HomeSliderPage() {
 
   return (
     <>
