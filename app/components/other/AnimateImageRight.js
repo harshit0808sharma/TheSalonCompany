@@ -18,7 +18,7 @@ const AnimateImageRight = () => {
                     alt="Left Design"
                     width={224}
                     height={224}
-                    className="object-contain opacity-40"
+                    className="object-contain opacity-20"
                 />
             </motion.div>
 
@@ -36,7 +36,7 @@ const AnimateImageRight = () => {
                     alt="Right Design"
                     width={224}
                     height={224}
-                    className="object-contain opacity-40"
+                    className="object-contain opacity-20"
                 />
             </motion.div>
         </>

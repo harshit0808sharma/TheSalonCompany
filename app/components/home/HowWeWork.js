@@ -36,7 +36,7 @@ export default function HowWeWorkUI() {
   ];
 
   return (
-    <div className="min-h-screen px-4 sm:px-6 lg:px-12 py-12 mainBg2">
+    <div className="min-h-screen px-4 sm:px-6 lg:px-12 py-16 md:py-28 mainBg2">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-10 lg:gap-12">
         {/* Left Content */}
         <motion.div

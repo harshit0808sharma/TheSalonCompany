@@ -2,7 +2,6 @@
 
 import React, { useState, useRef, useContext } from 'react';
 import { FaChevronDown, FaArrowRight, FaTimes } from "react-icons/fa";
-import { SalonContext } from "../context/SalonContext";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -33,7 +32,7 @@ const Header = () => {
   };
 
   return (
-    <header className="mainBg1 px-6 relative z-50 h-20 md:h-30 flex items-center">
+    <header className="mainBg1 px-6 relative z-50 h-20 md:h-28 flex items-center">
       <div className="max-w-7xl mx-auto flex items-center justify-between w-full">
         {/* Logo */}
         <div className="flex items-center">

@@ -17,7 +17,7 @@ export default function WhyChooseUs() {
   return (
     <div className="w-full px-4 sm:px-6 lg:px-16 xl:px-32 items-center mainBg2">
       {/* Main content container */}
-      <div className="flex flex-col lg:flex-row items-center justify-between py-8 lg:py-12 gap-8 lg:gap-12">
+      <div className="flex flex-col lg:flex-row items-center justify-between py-16 md:py-28 gap-8 lg:gap-12">
         
         {/* Left content section - wider */}
         <motion.div
