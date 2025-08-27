@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { FaStar, FaQuoteLeft } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
@@ -55,7 +55,6 @@ const Testimonials = () => {
     },
   ];
 
-  // detect screen size
   useEffect(() => {
     const checkScreen = () => setIsMobile(window.innerWidth < 768);
     checkScreen();
@@ -63,26 +62,36 @@ const Testimonials = () => {
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
-  const cardsPerSlide = isMobile ? 1 : 2;
-  const maxIndex = Math.ceil(testimonials.length / cardsPerSlide) - 1;
+  // Show 2 cards but slide 1 card at a time
+  const cardsVisible = isMobile ? 1 : 2;
+  const slideStep = 1; // Always slide by 1 card
+  const maxIndex = testimonials.length - cardsVisible;
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % (maxIndex + 1));
-  };
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => Math.min(prev + slideStep, maxIndex));
+  }, [maxIndex, slideStep]);
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + (maxIndex + 1)) % (maxIndex + 1));
-  };
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) => Math.max(prev - slideStep, 0));
+  }, [slideStep]);
 
   const goToSlide = (index) => {
-    setCurrentIndex(index);
+    setCurrentIndex(Math.min(index, maxIndex));
   };
 
-  // Auto-play
+  // Auto-play functionality
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => {
+        if (prev >= maxIndex) {
+          return 0; // Reset to beginning
+        }
+        return prev + slideStep;
+      });
+    }, 5000);
+    
     return () => clearInterval(interval);
-  }, [maxIndex]);
+  }, [maxIndex, slideStep]);
 
   const handleDragEnd = (event, info) => {
     const threshold = 50;
@@ -97,6 +106,9 @@ const Testimonials = () => {
     Array.from({ length: 5 }, (_, i) => (
       <FaStar key={i} className="text-lg" />
     ));
+
+  // Calculate card width based on screen size
+  const cardWidthPercentage = isMobile ? 100 : 50; // 100% on mobile, 50% on desktop
 
   return (
     <div className="min-h-screen py-10 px-4 transition-colors duration-500 mainBg2">
@@ -140,59 +152,50 @@ const Testimonials = () => {
               dragConstraints={{ left: 0, right: 0 }}
               onDragEnd={handleDragEnd}
               whileDrag={{ scale: 1.02 }}
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+              style={{ 
+                transform: `translateX(-${currentIndex * cardWidthPercentage}%)`,
+              }}
             >
-              {Array.from({ length: maxIndex + 1 }).map((_, slideIndex) => {
-                const startIndex = slideIndex * cardsPerSlide;
-                const slideTestimonials = testimonials.slice(
-                  startIndex,
-                  startIndex + cardsPerSlide
-                );
-
-                return (
-                  <div
-                    key={slideIndex}
-                    className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 gap-6 px-2"
-                  >
-                    {slideTestimonials.map((testimonial) => (
-                      <motion.div
-                        key={testimonial.id}
-                        className="mainBg1 flex justify-start gap-8 rounded-4xl p-4 md:p-8 relative overflow-hidden cursor-grab active:cursor-grabbing transition-all duration-300"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <FaQuoteLeft className="text-8xl font-bold mainColor" />
-                        <div>
-                          <div className="flex mb-4 mainColor">
-                            {renderStars()}
-                          </div>
-                          <p className="leading-relaxed mb-6 text-sm md:text-base mainColor">
-                            {testimonial.text}
-                          </p>
-                          <div className="flex items-center">
-                            <Image
-                              src={testimonial.avatar}
-                              alt={testimonial.name}
-                              width={400}
-                              height={400}
-                              className="w-12 h-12 rounded-full mr-4 object-cover"
-                            />
-                            <div>
-                              <h4 className="font-semibold text-sm md:text-base text-gray-800">
-                                {testimonial.name}
-                              </h4>
-                              <p className="text-xs md:text-sm opacity-80 text-gray-600">
-                                {testimonial.role}
-                              </p>
-                            </div>
-                          </div>
+              {testimonials.map((testimonial) => (
+                <motion.div
+                  key={testimonial.id}
+                  className={`flex-shrink-0 px-3 ${isMobile ? 'w-full' : 'w-1/2'}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="mainBg1 flex justify-start gap-4 md:gap-8 rounded-4xl p-4 md:p-8 relative overflow-hidden cursor-grab active:cursor-grabbing transition-all duration-300 h-full">
+                    <FaQuoteLeft className="text-4xl md:text-6xl font-bold mainColor flex-shrink-0" />
+                    <div className="flex flex-col justify-between">
+                      <div>
+                        <div className="flex mb-4 mainColor">
+                          {renderStars()}
                         </div>
-                      </motion.div>
-                    ))}
+                        <p className="leading-relaxed mb-6 text-sm md:text-base mainColor">
+                          {testimonial.text}
+                        </p>
+                      </div>
+                      <div className="flex items-center">
+                        <Image
+                          src={testimonial.avatar}
+                          alt={testimonial.name}
+                          width={400}
+                          height={400}
+                          className="w-12 h-12 rounded-full mr-4 object-cover flex-shrink-0"
+                        />
+                        <div>
+                          <h4 className="font-semibold text-sm md:text-base text-gray-800">
+                            {testimonial.name}
+                          </h4>
+                          <p className="text-xs md:text-sm opacity-80 text-gray-600">
+                            {testimonial.role}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                );
-              })}
+                </motion.div>
+              ))}
             </motion.div>
           </div>
 
