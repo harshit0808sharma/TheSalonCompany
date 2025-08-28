@@ -31,7 +31,7 @@ export default function WhoWeAre() {
   return (
     <section className="mainBg2 py-14 md:py-20 px-6 md:px-12">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        
+
         {/* LEFT SIDE */}
         <motion.div
           initial={{ opacity: 0, x: -60 }}
@@ -40,12 +40,14 @@ export default function WhoWeAre() {
           viewport={{ once: true }}
           className="relative flex flex-col sm:flex-row gap-6 justify-center md:justify-start"
         >
-          {/* First image */}
-          <Image
-            src={img1}
-            alt="Salon"
-            className="w-full sm:w-72 md:w-80 rounded-4xl object-cover"
-          />
+          {/* First image with holo effect */}
+          <div className="holo-image w-full sm:w-72 md:w-80 rounded-4xl">
+            <Image
+              src={img1}
+              alt="Salon"
+              className="w-full h-full object-cover rounded-4xl"
+            />
+          </div>
 
           <div className="flex flex-col gap-8 relative">
             <motion.div
@@ -61,17 +63,20 @@ export default function WhoWeAre() {
               </div>
             </motion.div>
 
-            {/* Second image */}
+            {/* Second image with holo effect */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
+              className="w-72 sm:w-56 md:w-72" // ✅ keep sizing here
             >
-              <Image
-                src={img2}
-                alt="Salon Treatment"
-                className="w-72 sm:w-56 md:w-72 rounded-4xl object-cover"
-              />
+              <div className="holo-image rounded-4xl">
+                <Image
+                  src={img2}
+                  alt="Salon Treatment"
+                  className="w-full h-full object-cover rounded-4xl"
+                />
+              </div>
             </motion.div>
 
             {/* Circular Contact Badge */}
@@ -79,12 +84,14 @@ export default function WhoWeAre() {
               initial={{ rotate: -90, opacity: 0 }}
               whileInView={{ rotate: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="absolute left-56 md:-left-20 top-1/2 -translate-y-1/2 mainBg text-white w-36 h-36 flex items-center justify-center gap-2 rounded-full border-8 border-white text-sm text-center font-medium shadow-lg spin-slow"
+              className="absolute z-10 left-56 md:-left-20 top-1/2 -translate-y-1/2 mainBg text-white w-36 h-36 flex items-center justify-center gap-2 rounded-full border-8 border-white text-sm text-center font-medium shadow-lg spin-slow"
             >
-              <span className="leading-tight">Book Your Consultation</span> <FaArrowRight />
+              <span className="leading-tight">Book Your Consultation</span>
+              <FaArrowRight />
             </motion.div>
           </div>
         </motion.div>
+
 
         {/* RIGHT SIDE */}
         <motion.div
@@ -129,7 +136,7 @@ export default function WhoWeAre() {
 
           {/* Button */}
           <motion.a
-          href="/contact"
+            href="/contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="mainBg text-white px-6 py-3 rounded-full font-medium hover:bg-[#1a322b] transition-all"

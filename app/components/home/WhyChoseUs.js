@@ -17,9 +17,9 @@ export default function WhyChooseUs() {
   return (
     <div className="w-full px-4 sm:px-6 lg:px-16 xl:px-32 items-center mainBg2">
       {/* Main content container */}
-      <div className="flex flex-col lg:flex-row items-center justify-between py-16 md:py-28 gap-8 lg:gap-12">
+      <div className="flex flex-col lg:flex-row items-center justify-between py-10 md:py-16 lg:py-28 gap-8 lg:gap-12">
         
-        {/* Left content section - wider */}
+        {/* Left content section */}
         <motion.div
           className="w-full lg:flex-[0.60]"
           initial="hidden"
@@ -37,7 +37,6 @@ export default function WhyChooseUs() {
             <Heading Text={"Why choose us for all your dermatology needs"} />
           </div>
 
-          {/* Subtitle */}
           <p className="text-gray-600 text-base lg:text-lg mb-8 lg:mb-10 leading-relaxed">
             {"We're dedicated to helping you achieve and maintain beautiful, healthy skin. Trust us to provide exceptional care tailored to you."}
           </p>
@@ -82,7 +81,7 @@ export default function WhyChooseUs() {
           </div>
         </motion.div>
 
-        {/* Right image section - smaller */}
+        {/* Right section */}
         <motion.div
           className="w-full lg:flex-[0.40]"
           initial="hidden"
@@ -90,14 +89,13 @@ export default function WhyChooseUs() {
           viewport={{ once: true }}
           variants={fadeUp}
         >
-          <div className="holo-image relative w-full h-80 sm:h-96 lg:h-[500px] xl:h-[640px] rounded-4xl overflow-hidden">
+          <div className="holo-image relative w-full h-80 sm:h-96 lg:h-[500px] xl:h-[640px] rounded-4xl overflow-hidden holo-image">
             <Image
               src="/assets/images/blog1.jpg"
               alt="Dermatologist performing treatment"
               fill
               className="object-cover"
             />
-            {/* Overlay gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
           </div>
         </motion.div>

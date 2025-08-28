@@ -12,47 +12,13 @@ import {
   HiOutlineSparkles,
   HiOutlineCollection,
 } from "react-icons/hi";
+import AnimateImageRight from "../other/AnimateImageRight";
 
 export default function OurBenefits() {
   return (
     <div className="w-full p-0 md:p-5 mainBg2">
       <div className="relative z-10 flex flex-col mainBg md:rounded-4xl items-center justify-center min-h-screen px-6 py-28">
-        <motion.div
-          className="absolute top-0 left-0 w-40 md:w-56 pointer-events-none select-none"
-          animate={{ y: [0, -15, 0] }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <Image
-            src="/assets/images/leftDesign.png"
-            alt="Left Design"
-            width={224}
-            height={224}
-            className="object-contain opacity-40"
-          />
-        </motion.div>
-
-        {/* Right floating design */}
-        <motion.div
-          className="absolute bottom-0 right-0 w-40 md:w-56 pointer-events-none select-none"
-          animate={{ y: [0, 15, 0] }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <Image
-            src="/assets/images/rightDesign.png"
-            alt="Right Design"
-            width={224}
-            height={224}
-            className="object-contain opacity-40"
-          />
-        </motion.div>
+        <AnimateImageRight/>
         {/* Header content */}
         <motion.div
           className="text-center mb-16 max-w-4xl"
@@ -63,7 +29,7 @@ export default function OurBenefits() {
         >
           <div className="flex items-center justify-center gap-2 text-white">
             <GoDotFill />
-            <span className="font-medium">About Us</span>
+            <span className="font-medium">Our Benefits</span>
           </div>
           <h1 className="text-4xl md:text-4xl text-white font-bold leading-snug mb-3">
             Exceptional dermatology, every step of the way
@@ -82,17 +48,17 @@ export default function OurBenefits() {
               {
                 title: "Expert Dermatologists",
                 desc: "Our team consists of board-certified dermatologists with experience",
-                icon: <HiOutlineDocumentText className="w-8 h-8 text-teal-700" />,
+                icon: <HiOutlineDocumentText className="w-8 h-8 mainColor" />,
               },
               {
                 title: "Advanced Technology",
                 desc: "We use cutting-edge equipment and innovative techniques",
-                icon: <HiOutlineClipboardList className="w-8 h-8 text-teal-700" />,
+                icon: <HiOutlineClipboardList className="w-8 h-8 mainColor" />,
               },
               {
                 title: "Personalized Care",
                 desc: "Every treatment plan is tailored to your unique skin type, concerns",
-                icon: <HiOutlineViewGrid className="w-8 h-8 text-teal-700" />,
+                icon: <HiOutlineViewGrid className="w-8 h-8 mainColor" />,
               },
             ].map((item, i) => (
               <motion.div
@@ -124,9 +90,9 @@ export default function OurBenefits() {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <div className="rounded-full overflow-hidden bg-white">
+            <div className="relative rounded-full overflow-hidden bg-teal-700 holo-image">
               <Image
-                src="/assets/images/hair.png"
+                src="/assets/images/heroImg.png"
                 alt="Happy woman with healthy skin"
                 width={400}
                 height={400}
@@ -141,17 +107,17 @@ export default function OurBenefits() {
               {
                 title: "Comprehensive Services",
                 desc: "From medical dermatology to cosmetic enhancements, we offer a range of treatments",
-                icon: <HiOutlineDatabase className="w-8 h-8 text-teal-700" />,
+                icon: <HiOutlineDatabase className="w-8 h-8 mainColor" />,
               },
               {
                 title: "High Safety Standards",
                 desc: "Your safety is our priority. We adhere to strict hygiene and safety protocols",
-                icon: <HiOutlineSparkles className="w-8 h-8 text-teal-700" />,
+                icon: <HiOutlineSparkles className="w-8 h-8 mainColor" />,
               },
               {
                 title: "Comfortable Environment",
                 desc: "Our clinic provides a welcoming and stress-free atmosphere",
-                icon: <HiOutlineCollection className="w-8 h-8 text-teal-700" />,
+                icon: <HiOutlineCollection className="w-8 h-8 mainColor" />,
               },
             ].map((item, i) => (
               <motion.div

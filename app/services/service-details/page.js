@@ -87,7 +87,7 @@ const ServiceDetails = () => {
               </div>
 
               {/* Promo Card - Hidden on mobile, visible on larger screens */}
-              <div className="hidden lg:block relative w-full max-w-sm rounded-2xl md:rounded-3xl overflow-hidden shadow-lg mt-6 md:mt-10">
+              <div className="hidden holo-image lg:block relative w-full max-w-sm rounded-2xl md:rounded-3xl overflow-hidden shadow-lg mt-6 md:mt-10">
                 <Image
                   src="/assets/images/image4.jpeg"
                   alt="Skincare"
@@ -153,7 +153,7 @@ const ServiceDetails = () => {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8 }}
-                  className="mb-6 md:mb-8"
+                  className="mb-6 md:mb-8 relative holo-image"
                 >
                   <Image
                     src="/assets/images/salon-home-image.jpg"
@@ -204,7 +204,7 @@ const ServiceDetails = () => {
                       className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8"
                     >
                       {/* Left Image */}
-                      <div className="relative h-48 sm:h-56 md:h-64 rounded-2xl md:rounded-3xl overflow-hidden">
+                      <div className="relative h-48 sm:h-56 md:h-64 rounded-2xl md:rounded-3xl overflow-hidden holo-image">
                         <Image
                           src="/assets/images/blog1.jpg"
                           alt="Professional skincare treatment"
@@ -214,7 +214,7 @@ const ServiceDetails = () => {
                       </div>
 
                       {/* Right Image */}
-                      <div className="relative h-48 sm:h-56 md:h-64 rounded-2xl md:rounded-3xl overflow-hidden">
+                      <div className="relative h-48 sm:h-56 md:h-64 rounded-2xl md:rounded-3xl overflow-hidden holo-image">
                         <Image
                           src="/assets/images/blog1.jpg"
                           alt="Skincare consultation"
@@ -291,7 +291,7 @@ const ServiceDetails = () => {
                   <p className="text-gray-600 mb-6 md:mb-8 text-sm sm:text-base">
                     Watch how our services create stunning transformations in just one visit.
                   </p>
-                  <div className="relative">
+                  <div className="relative holo-image">
                     <Image
                       src="/assets/images/salonface1.jpg"
                       alt="Transformation"

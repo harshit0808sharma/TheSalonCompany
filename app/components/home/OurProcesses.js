@@ -47,7 +47,7 @@ export default function ProcessSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="relative flex items-end justify-center overflow-hidden rounded-none lg:rounded-l-4xl order-1 lg:order-1 h-80 sm:h-96 lg:h-full"
+            className="relative flex items-end justify-center overflow-hidden rounded-none lg:rounded-l-4xl order-1 lg:order-1 h-80 sm:h-96 lg:h-full holo-image"
           >
             <Image
               src={doctorImg}

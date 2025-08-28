@@ -90,7 +90,7 @@ export default function BlogSection({ limit = "all" }) {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
                 key={index}
-                className={`overflow-hidden transition-colors duration-300`}
+                className={`overflow-hidden transition-colors duration-300 holo-image rounded-4xl`}
               >
                 <Image
                   alt={blog.title}

@@ -11,7 +11,7 @@ const ServiceComponent = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {servicesData.map((service) => (
                     <div key={service.id} className="w-full flex-shrink-0 px-4">
-                        <div className="relative h-96 rounded-4xl overflow-hidden shadow-lg cursor-pointer group">
+                        <div className="relative h-96 rounded-4xl overflow-hidden shadow-lg cursor-pointer group holo-image">
                             {/* Background Image */}
                             <div
                                 className="absolute inset-0 bg-cover bg-center"

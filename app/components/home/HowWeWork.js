@@ -91,7 +91,7 @@ export default function HowWeWorkUI() {
           viewport={{ once: true, amount: 0.2 }}
           variants={fadeUp}
         >
-          <div className="relative w-full h-[300px] sm:h-[450px] lg:h-[700px] rounded-3xl overflow-hidden">
+          <div className="relative w-full h-[300px] sm:h-[450px] lg:h-[700px] rounded-3xl overflow-hidden holo-image">
             <Image
               src="/assets/images/blog1.jpg"
               alt="Dermatologist performing facial treatment"

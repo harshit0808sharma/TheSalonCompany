@@ -3,9 +3,8 @@ import React, { useState, useEffect, useContext } from "react";
 import Heading from "../other/Heading";
 import { GoDotFill } from "react-icons/go";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import Image from "next/image";
 import { SalonContext } from "@/app/context/SalonContext";
+import AnimateImageLeft from "../other/AnimateImageLeft";
 
 const Services = () => {
   const { servicesData } = useContext(SalonContext)
@@ -43,50 +42,14 @@ const Services = () => {
   }, [cardsPerView, servicesData.length]);
 
   return (
-    <div className="w-full p-0 md:p-5 mainBg2 py-16 px-4">
+    <div className="w-full px-0 md:px-5 mainBg2 py-16">
       <div className="relative px-6 md:px-20 py-16 md:py-28 mainBg1 rounded-none md:rounded-4xl mx-auto">
-                {/* Left floating design */}
-        <motion.div
-          className="absolute bottom-0 left-0 w-40 md:w-56 pointer-events-none select-none"
-          animate={{ y: [0, -15, 0] }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <Image
-            src="/assets/images/leftDesign.png"
-            alt="Left Design"
-            width={224}
-            height={224}
-            className="object-contain opacity-40"
-          />
-        </motion.div>
-
-        {/* Right floating design */}
-        <motion.div
-          className="absolute top-0 right-0 w-40 md:w-56 pointer-events-none select-none"
-          animate={{ y: [0, 15, 0] }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <Image
-            src="/assets/images/rightDesign.png"
-            alt="Right Design"
-            width={224}
-            height={224}
-            className="object-contain opacity-40"
-          />
-        </motion.div>
+        <AnimateImageLeft/>
         {/* Header */}
         <div className="flex flex-col gap-4 items-center mb-10">
           <div className="flex items-center justify-center gap-2">
-            <GoDotFill className="text-teal-800" />
-            <span className="font-medium text-sm sm:text-base text-[#264D45]">
+            <GoDotFill className="mainColor" />
+            <span className="font-medium text-sm sm:text-base mainColor">
               Our Services
             </span>
           </div>
@@ -108,10 +71,10 @@ const Services = () => {
             {servicesData.map((service, index) => (
               <div
                 key={service.id}
-                className="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-4"
+                className="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-0 md:px-4"
               >
                 <div
-                  className="relative h-96 rounded-4xl overflow-hidden shadow-lg cursor-pointer group"
+                  className="relative h-96 rounded-4xl overflow-hidden shadow-lg cursor-pointer group holo-image"
                   onClick={() => goToSlide(index)}
                 >
                   {/* Background Image */}

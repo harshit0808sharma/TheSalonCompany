@@ -60,7 +60,7 @@ export default function Hero() {
                       alt="Customer review"
                       width={48}
                       height={48}
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover"
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover relative z-10"
                     />
                   </div>
                   <div className="flex-1 min-w-0">

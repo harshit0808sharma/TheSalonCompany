@@ -58,7 +58,7 @@ export default function Team() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="relative overflow-hidden rounded-4xl group"
+                className="relative overflow-hidden rounded-4xl group holo-image"
               >
                 {/* Wrap entire card */}
                 <Link href={`/our-team/${member.slug}`} className="block relative">

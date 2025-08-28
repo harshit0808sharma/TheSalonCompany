@@ -4,6 +4,7 @@ import React, { useState, useRef, useContext } from 'react';
 import { FaChevronDown, FaArrowRight, FaTimes } from "react-icons/fa";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
   const [isHomeOpen, setIsHomeOpen] = useState(false);
@@ -44,24 +45,53 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-8 text-[#24544B]">
           {/* Home Dropdown */}
-          <div className="relative"
-            onMouseEnter={() => handleMouseEnter('home')}
-            onMouseLeave={() => handleMouseLeave('home')}
+          <div
+            className="relative"
+            onMouseEnter={() => handleMouseEnter("home")}
+            onMouseLeave={() => handleMouseLeave("home")}
           >
             <button className="flex items-center text-gray-500 hover:text-[#24544B] transition-colors font-medium">
               Home <FaChevronDown className="ml-1 w-4 h-4" />
             </button>
-            {isHomeOpen && (
-              <div className="absolute top-full left-0 mt-2 w-48 bg-white text-[#24544B] shadow-lg rounded-2xl py-2 z-50 transition-all duration-200"
-                onMouseEnter={() => handleMouseEnter('home')}
-                onMouseLeave={() => handleMouseLeave('home')}
-              >
-                <Link href="/" className="block px-4 text-gray-500 font-medium py-2 hover:text-[#24544B]">Home - Main</Link>
-                <Link href="/home-image" className="block px-4 text-gray-500 font-medium py-2 hover:text-[#24544B]">Home - Image</Link>
-                <Link href="/home-video" className="block px-4 text-gray-500 font-medium py-2 hover:text-[#24544B]">Home - Video</Link>
-                <Link href="/home-slider" className="block px-4 text-gray-500 font-medium py-2 hover:text-[#24544B]">Home - Slider</Link>
-              </div>
-            )}
+
+            <AnimatePresence>
+              {isHomeOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                  className="absolute top-full left-0 mt-2 w-48 bg-white text-[#24544B] shadow-lg rounded-2xl py-2 z-50"
+                  onMouseEnter={() => handleMouseEnter("home")}
+                  onMouseLeave={() => handleMouseLeave("home")}
+                >
+                  <Link
+                    href="/"
+                    className="block px-4 text-gray-500 font-medium py-2 hover:text-[#24544B]"
+                  >
+                    Home - Main
+                  </Link>
+                  <Link
+                    href="/home-image"
+                    className="block px-4 text-gray-500 font-medium py-2 hover:text-[#24544B]"
+                  >
+                    Home - Image
+                  </Link>
+                  <Link
+                    href="/home-video"
+                    className="block px-4 text-gray-500 font-medium py-2 hover:text-[#24544B]"
+                  >
+                    Home - Video
+                  </Link>
+                  <Link
+                    href="/home-slider"
+                    className="block px-4 text-gray-500 font-medium py-2 hover:text-[#24544B]"
+                  >
+                    Home - Slider
+                  </Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           <Link href="/about" className="text-gray-500 hover:text-[#24544B] transition-colors font-medium">About Us</Link>
@@ -69,30 +99,39 @@ const Header = () => {
           <Link href="/blogs" className="text-gray-500 hover:text-[#24544B] transition-colors font-medium">Blog</Link>
 
           {/* Pages Dropdown */}
-          <div className="relative"
-            onMouseEnter={() => handleMouseEnter('pages')}
-            onMouseLeave={() => handleMouseLeave('pages')}
+          <div
+            className="relative"
+            onMouseEnter={() => handleMouseEnter("pages")}
+            onMouseLeave={() => handleMouseLeave("pages")}
           >
             <button className="flex items-center text-gray-500 hover:text-[#24544B] transition-colors font-medium">
               Pages <FaChevronDown className="ml-1 w-4 h-4" />
             </button>
-            {isPagesOpen && (
-              <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-2xl py-2 z-50 transition-all duration-200"
-                onMouseEnter={() => handleMouseEnter('pages')}
-                onMouseLeave={() => handleMouseLeave('pages')}
-              >
-                <Link href="/services/service-details" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Service Details</Link>
-                <Link href="/casestudy" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Case Study</Link>
-                <Link href="/blogs" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Blog Details</Link>
-                <Link href="/our-team" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Our Team</Link>
-                <Link href="/our-team/kristin-watson" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Team Details</Link>
-                <Link href="/testimonials" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Testimonials</Link>
-                <Link href="/image-gallery" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Image Gallery</Link>
-                <Link href="/video-gallery" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Video Gallery</Link>
-                <Link href="/faqs" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">FAQs</Link>
-                <Link href="/404" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">404</Link>
-              </div>
-            )}
+
+            <AnimatePresence>
+              {isPagesOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                  className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-2xl py-2 z-50"
+                  onMouseEnter={() => handleMouseEnter("pages")}
+                  onMouseLeave={() => handleMouseLeave("pages")}
+                >
+                  <Link href="/services/service-details" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Service Details</Link>
+                  <Link href="/casestudy" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Case Study</Link>
+                  <Link href="/blogs/how-to-care-for-your-skin-after-a-botox-treatment" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Blog Details</Link>
+                  <Link href="/our-team" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Our Team</Link>
+                  <Link href="/our-team/kristin-watson" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Team Details</Link>
+                  <Link href="/testimonials" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Testimonials</Link>
+                  <Link href="/image-gallery" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Image Gallery</Link>
+                  <Link href="/video-gallery" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Video Gallery</Link>
+                  <Link href="/faqs" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">FAQs</Link>
+                  <Link href="/404" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">404</Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           <Link href="/contact" className="text-gray-500 hover:text-[#24544B] transition-colors font-medium">Contact Us</Link>
@@ -182,7 +221,7 @@ const Header = () => {
             >
               <li><Link href="/services/service-details" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Service Details</Link></li>
               <li><Link href="/casestudy" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Case Study</Link></li>
-              <li><Link href="/blogs" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Blog Details</Link></li>
+              <li><Link href="/blogs/how-to-care-for-your-skin-after-a-botox-treatment" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Blog Details</Link></li>
               <li><Link href="/our-team" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Our Team</Link></li>
               <li><Link href="/our-team/kristin-watson" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Team Details</Link></li>
               <li><Link href="/testimonials" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Testimonials</Link></li>

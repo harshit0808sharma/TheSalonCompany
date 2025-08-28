@@ -47,7 +47,7 @@ const GetInTouch = () => {
         >
           {/* Contact Image & Hours */}
           <motion.div variants={fadeUp} className="relative">
-            <div className="rounded-4xl overflow-hidden relative">
+            <div className="rounded-4xl overflow-hidden relative holo-image">
               <Image
                 src={img}
                 alt="Salon services"
@@ -100,7 +100,7 @@ const GetInTouch = () => {
                         type="text"
                         name="firstName"
                         placeholder="First Name"
-                        className={`border border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
+                        className={`border bg-white border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
                       />
                       <ErrorMessage name="firstName" component="div" className="text-red-500 text-sm mt-1" />
                     </motion.div>
@@ -109,7 +109,7 @@ const GetInTouch = () => {
                         type="text"
                         name="lastName"
                         placeholder="Last Name"
-                        className={`border border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
+                        className={`border bg-white border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
                       />
                       <ErrorMessage name="lastName" component="div" className="text-red-500 text-sm mt-1" />
                     </motion.div>
@@ -121,7 +121,7 @@ const GetInTouch = () => {
                         type="email"
                         name="email"
                         placeholder="E-mail Address"
-                        className={`border border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
+                        className={`border bg-white border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
                       />
                       <ErrorMessage name="email" component="div" className="text-red-500 text-sm mt-1" />
                     </motion.div>
@@ -142,7 +142,7 @@ const GetInTouch = () => {
                       name="message"
                       placeholder="Write Message"
                       rows={6}
-                      className={`border border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none`}
+                      className={`border bg-white border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none`}
                     />
                     <ErrorMessage name="message" component="div" className="text-red-500 text-sm mt-1" />
                   </motion.div>
@@ -151,7 +151,7 @@ const GetInTouch = () => {
                     type="submit"
                     disabled={isSubmitting}
                     variants={fadeUp}
-                    className="bg-teal-700 text-white px-8 py-3 rounded-lg hover:bg-teal-800 transition-colors font-medium disabled:opacity-70"
+                    className="mainBg bg-white text-white px-8 py-3 rounded-full hover:bg-teal-800 transition-colors font-medium disabled:opacity-70"
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </motion.button>

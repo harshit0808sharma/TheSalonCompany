@@ -37,17 +37,15 @@ export default function AboutNewSection() {
           </div>
 
           <h2
-            className={`text-3xl md:text-4xl font-bold mb-4 leading-snug ${
-              theme ? "text-white" : "text-[#214037]"
-            }`}
+            className={`text-3xl md:text-4xl font-bold mb-4 leading-snug ${theme ? "text-white" : "text-[#214037]"
+              }`}
           >
             Redefining salon care <br /> with elegance & innovation
           </h2>
 
           <p
-            className={`mb-8 leading-relaxed ${
-              theme ? "text-gray-300" : "text-gray-600"
-            }`}
+            className={`mb-8 leading-relaxed ${theme ? "text-gray-300" : "text-gray-600"
+              }`}
           >
             At The Salon Company, we combine modern beauty techniques with a
             personalized touch. From hair styling to skin and nail treatments,
@@ -63,17 +61,15 @@ export default function AboutNewSection() {
             viewport={{ once: true }}
           >
             <div
-              className={`flex justify-between text-lg md:text-xl font-medium mb-1 ${
-                theme ? "text-gray-200" : "text-gray-700"
-              }`}
+              className={`flex justify-between text-lg md:text-xl font-medium mb-1 ${theme ? "text-gray-200" : "text-gray-700"
+                }`}
             >
               <span>Personalized Care</span>
               <span>95%</span>
             </div>
             <div
-              className={`w-full h-4 rounded-full ${
-                theme ? "bg-gray-700" : "bg-gray-200"
-              }`}
+              className={`w-full h-4 rounded-full ${theme ? "bg-gray-700" : "bg-gray-200"
+                }`}
             >
               <motion.div
                 className={`h-4 rounded-full mainBg`}
@@ -92,17 +88,15 @@ export default function AboutNewSection() {
             viewport={{ once: true }}
           >
             <div
-              className={`flex justify-between text-lg md:text-xl font-medium mb-1 ${
-                theme ? "text-gray-200" : "text-gray-700"
-              }`}
+              className={`flex justify-between text-lg md:text-xl font-medium mb-1 ${theme ? "text-gray-200" : "text-gray-700"
+                }`}
             >
               <span>Advanced Styling</span>
               <span>88%</span>
             </div>
             <div
-              className={`w-full h-4 rounded-full ${
-                theme ? "bg-gray-700" : "bg-gray-200"
-              }`}
+              className={`w-full h-4 rounded-full ${theme ? "bg-gray-700" : "bg-gray-200"
+                }`}
             >
               <motion.div
                 className={`h-4 rounded-full mainBg`}
@@ -123,62 +117,63 @@ export default function AboutNewSection() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
+          {/* Main Circle Image with holo effect */}
           <div className="w-72 h-72 md:w-[600px] md:h-[600px] rounded-full overflow-hidden shadow-xl">
-            <Image
-              src={imgMain}
-              alt="Salon Treatment"
-              className="w-full h-full object-cover"
-            />
+            <div className="holo-image w-full h-full rounded-full">
+              <Image
+                src={imgMain}
+                alt="Salon Treatment"
+                className="w-full h-full object-cover rounded-full"
+              />
+            </div>
           </div>
 
+          {/* Small Circle Image */}
           <motion.div
-            className={`absolute bottom-4 right-4 w-28 h-28 md:w-50 md:h-50 rounded-full overflow-hidden border-8 ${
-              theme ? "border-gray-800" : "border-white"
-            }`}
+            className={`absolute z-10 bottom-4 right-4 w-28 h-28 md:w-50 md:h-50 rounded-full overflow-hidden border-8 border-white`}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image
-              src={imgSmall}
-              width={400}
-              height={400}
-              alt="Salon Service"
-              className="w-full h-full object-cover"
-            />
+            <div className="holo-image w-full h-full rounded-full">
+              <Image
+                src={imgSmall}
+                width={400}
+                height={400}
+                alt="Salon Service"
+                className="w-full h-full object-cover rounded-full"
+              />
+            </div>
           </motion.div>
 
+          {/* Stats Badge */}
           <motion.div
-            className={`absolute bottom-0 left-20 -translate-x-1/2 px-6 py-3 rounded-xl flex items-center gap-3 ${
-              theme ? "bg-gray-800" : "bg-white"
-            }`}
+            className={`absolute bottom-0 left-20 -translate-x-1/2 px-6 py-3 rounded-xl flex items-center gap-3 ${theme ? "bg-gray-800" : "bg-white"
+              }`}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            <FaStar
-              className={`text-4xl mainColor`}
-            />
+            <FaStar className="text-4xl mainColor" />
             <div>
               <p
-                className={`text-xl md:text-2xl font-bold ${
-                  theme ? "text-white" : "text-[#214037]"
-                }`}
+                className={`text-xl md:text-2xl font-bold ${theme ? "text-white" : "text-[#214037]"
+                  }`}
               >
                 27k
               </p>
               <p
-                className={`text-sm md:text-lg ${
-                  theme ? "text-gray-300" : "text-gray-600"
-                }`}
+                className={`text-sm md:text-lg ${theme ? "text-gray-300" : "text-gray-600"
+                  }`}
               >
                 Happy Clients
               </p>
             </div>
           </motion.div>
         </motion.div>
+
       </div>
     </section>
   );

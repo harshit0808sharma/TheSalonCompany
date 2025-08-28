@@ -26,7 +26,7 @@ export default function SalonBenefits() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="relative w-full h-[500px] md:h-[600px] rounded-3xl overflow-hidden shadow-lg"
+              className="relative w-full h-[500px] md:h-[600px] rounded-3xl overflow-hidden shadow-lg holo-image"
             >
               <Image
                 src={imgSalon}

@@ -45,13 +45,13 @@ export default function OurTeamDetails() {
           {/* Profile Section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             {/* Profile Image */}
-            <div>
+            <div className="relative holo-image">
               <Image
                 src={member.image}
                 alt={member.name}
                 width={500}
                 height={500}
-                className="w-full h-96 object-cover rounded-lg shadow-lg"
+                className="w-full h-96 object-cover rounded-4xl"
               />
             </div>
 
@@ -67,7 +67,7 @@ export default function OurTeamDetails() {
               {/* Contact Cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex items-center p-4 bg-white rounded-lg shadow-sm border">
-                  <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center mr-4">
+                  <div className="w-12 h-12 mainBg rounded-full flex items-center justify-center mr-4">
                     <FaPhone className="text-white text-lg" />
                   </div>
                   <div>
@@ -77,7 +77,7 @@ export default function OurTeamDetails() {
                 </div>
 
                 <div className="flex items-center p-4 bg-white rounded-lg shadow-sm border">
-                  <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center mr-4">
+                  <div className="w-12 h-12 mainBg rounded-full flex items-center justify-center mr-4">
                     <FaEnvelope className="text-white text-lg" />
                   </div>
                   <div>
@@ -87,7 +87,7 @@ export default function OurTeamDetails() {
                 </div>
 
                 <div className="flex items-center p-4 bg-white rounded-lg shadow-sm border">
-                  <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center mr-4">
+                  <div className="w-12 h-12 mainBg rounded-full flex items-center justify-center mr-4">
                     <FaCalendarAlt className="text-white text-lg" />
                   </div>
                   <div>
@@ -97,7 +97,7 @@ export default function OurTeamDetails() {
                 </div>
 
                 <div className="flex items-center p-4 bg-white rounded-lg shadow-sm border">
-                  <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center mr-4">
+                  <div className="w-12 h-12 mainBg rounded-full flex items-center justify-center mr-4">
                     <FaPhone className="text-white text-lg" />
                   </div>
                   <div>
@@ -111,16 +111,16 @@ export default function OurTeamDetails() {
               <div className="mt-6">
                 <p className="text-gray-600 mb-3">Follow Us:</p>
                 <div className="flex space-x-3">
-                  <a className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-teal-600 hover:text-white transition">
+                  <a className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:mainBg hover:text-white transition">
                     <FaTwitter />
                   </a>
-                  <a className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-teal-600 hover:text-white transition">
+                  <a className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:mainBg hover:text-white transition">
                     <FaFacebookF />
                   </a>
-                  <a className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-teal-600 hover:text-white transition">
+                  <a className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:mainBg hover:text-white transition">
                     <FaInstagram />
                   </a>
-                  <a className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-teal-600 hover:text-white transition">
+                  <a className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:mainBg hover:text-white transition">
                     <FaLinkedinIn />
                   </a>
                 </div>
@@ -137,19 +137,19 @@ export default function OurTeamDetails() {
               <p className="text-gray-600 mb-6">{member.knowAbout}</p>
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <FaCheckCircle className="text-teal-600 mr-3" />
+                  <FaCheckCircle className="mainColor mr-3" />
                   <span className="text-gray-700">
                     Expertise in salon skincare & beauty
                   </span>
                 </div>
                 <div className="flex items-center">
-                  <FaCheckCircle className="text-teal-600 mr-3" />
+                  <FaCheckCircle className="mainColor mr-3" />
                   <span className="text-gray-700">
                     Personalized beauty treatments
                   </span>
                 </div>
                 <div className="flex items-center">
-                  <FaCheckCircle className="text-teal-600 mr-3" />
+                  <FaCheckCircle className="mainColor mr-3" />
                   <span className="text-gray-700">
                     Modern salon technology expertise
                   </span>
@@ -179,7 +179,7 @@ export default function OurTeamDetails() {
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-3">
                       <div
-                        className="bg-teal-600 h-3 rounded-full"
+                        className="mainBg h-3 rounded-full"
                         style={{ width: `${exp.value}%` }}
                       />
                     </div>

@@ -11,11 +11,10 @@ import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 
 export default function ReadBlog() {
-    const params = useParams(); 
+    const params = useParams();
     const { blogsData } = useContext(SalonContext);
     const { name } = params;
 
-    // Find the blog by the URL param
     const blog = blogsData.find(
         (b) => b.title.toLowerCase().replace(/\s+/g, "-") === name
     );
@@ -45,111 +44,121 @@ export default function ReadBlog() {
             <Navbar />
             <CommonHeading Text={blog.title} />
 
-            {/* Top Image */}
-            <motion.div
-                className="h-[400px] md:h-[600px] relative p-20 m-20"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-            >
-                <Image
-                    src={blog.image}
-                    alt={blog.title}
-                    fill
-                    className="object-cover rounded-4xl"
-                />
-            </motion.div>
-
-            {/* Blog Content */}
-            <motion.section
-                className="max-w-5xl mx-auto px-6 md:px-0 py-12 space-y-6 my-20 rounded-4xl"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-            >
-                <h1 className="text-4xl md:text-5xl font-bold text-[#214037]">
-                    {blog.title}
-                </h1>
-                <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
-                    {blog.content}
-                </p>
-
-                {/* Important Points */}
-                {blog.points && blog.points.length > 0 && (
+            <div className="w-full px-5 md:px-20 py-24 lg:px-32 mainBg2">
+                <div className="flex flex-col gap-10">
+                    {/* Top Image */}
                     <motion.div
-                        className="bg-[#fdf6f6] p-6 rounded-xl shadow-inner space-y-3"
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6 }}
+                        className="h-[400px] md:h-[600px] relative holo-image"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1 }}
                     >
-                        <h2 className="text-2xl font-semibold text-[#214037] mb-4">
-                            Important Points:
-                        </h2>
-                        <ul className="list-disc list-inside space-y-2 text-gray-700">
-                            {blog.points.map((point, i) => (
-                                <li key={i}>{point}</li>
-                            ))}
-                        </ul>
+                        <Image
+                            src={blog.image}
+                            alt={blog.title}
+                            fill
+                            className="object-cover rounded-4xl"
+                        />
                     </motion.div>
-                )}
 
-                {/* Leave a Reply */}
-                <motion.div
-                    className="mt-12"
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                >
-                    <h2 className="text-2xl font-semibold text-[#214037] mb-6">
-                        Leave a Reply
-                    </h2>
-                    <form
-                        onSubmit={handleSubmit}
-                        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                    {/* Blog Content */}
+                    <motion.section
+                        className="max-w-5xl mx-auto space-y-6 rounded-4xl"
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
                     >
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            className="border border-gray-300 rounded-lg p-3 w-full"
-                            required
-                        />
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            className="border border-gray-300 rounded-lg p-3 w-full"
-                            required
-                        />
-                        <input
-                            type="text"
-                            name="website"
-                            placeholder="Website"
-                            value={formData.website}
-                            onChange={handleChange}
-                            className="border border-gray-300 rounded-lg p-3 w-full"
-                        />
-                        <textarea
-                            name="message"
-                            placeholder="Message"
-                            value={formData.message}
-                            onChange={handleChange}
-                            className="border border-gray-300 rounded-lg p-3 w-full md:col-span-2 h-32"
-                            required
-                        />
-                        <button
-                            type="submit"
-                            className="md:col-span-2 bg-[#214037] text-white px-6 py-3 rounded-lg hover:bg-[#28554E] transition"
+                        <h1 className="text-4xl md:text-5xl font-bold text-[#214037]">
+                            {blog.title}
+                        </h1>
+                        <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
+                            {blog.content}
+                        </p>
+
+                        {/* Important Points */}
+                        {blog.points && blog.points.length > 0 && (
+                            <motion.div
+                                className="bg-[#fdf6f6] p-6 rounded-xl shadow-inner space-y-3"
+                                initial={{ opacity: 0, x: -50 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.6 }}
+                            >
+                                <h2 className="text-2xl font-semibold text-[#214037] mb-4">
+                                    Important Points:
+                                </h2>
+                                <ul className="list-disc list-inside space-y-2 text-gray-700">
+                                    {blog.points.map((point, i) => (
+                                        <li key={i}>{point}</li>
+                                    ))}
+                                </ul>
+                            </motion.div>
+                        )}
+
+                        {/* Leave a Reply */}
+                        <motion.div
+                            className="mt-12"
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
                         >
-                            Post Comment
-                        </button>
-                    </form>
-                </motion.div>
-            </motion.section>
+                            <h2 className="text-2xl font-semibold text-[#214037] mb-6">
+                                Leave a Reply
+                            </h2>
+                            <form
+                                onSubmit={handleSubmit}
+                                className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                            >
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    className="border border-gray-300 rounded-lg p-3 w-full"
+                                    required
+                                />
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    className="border border-gray-300 rounded-lg p-3 w-full"
+                                    required
+                                />
+                                <input
+                                    type="text"
+                                    name="website"
+                                    placeholder="Website"
+                                    value={formData.website}
+                                    onChange={handleChange}
+                                    className="border border-gray-300 rounded-lg p-3 w-full"
+                                />
+                                <textarea
+                                    name="message"
+                                    placeholder="Message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    className="border border-gray-300 rounded-lg p-3 w-full md:col-span-2 h-32"
+                                    required
+                                />
+<button
+  type="submit"
+  className="md:col-span-2 mainBg text-white px-6 py-3 rounded-full 
+             hover:bg-[#28554E] transition-colors duration-300 
+             inline-flex items-center justify-center font-medium 
+             focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#28554E]"
+>
+  Post Comment
+</button>
+
+
+
+                            </form>
+                        </motion.div>
+                    </motion.section>
+                </div>
+            </div>
 
             <Footer />
         </>

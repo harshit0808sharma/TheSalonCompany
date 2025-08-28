@@ -13,9 +13,8 @@ export default function DedicatedToYou() {
 
   return (
     <section
-      className={`${
-        theme ? "bg-black text-white" : "bg-[#fef9f8] text-[#214037]"
-      } py-20 px-6 md:px-12 transition-colors duration-300`}
+      className={`${theme ? "bg-black text-white" : "bg-[#fef9f8] text-[#214037]"
+        } py-20 px-6 md:px-12 transition-colors duration-300`}
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* LEFT SIDE */}
@@ -36,9 +35,8 @@ export default function DedicatedToYou() {
           </div>
 
           <h2
-            className={`text-3xl md:text-4xl font-bold leading-snug ${
-              theme ? "text-white" : "text-[#214037]"
-            }`}
+            className={`text-3xl md:text-4xl font-bold leading-snug ${theme ? "text-white" : "text-[#214037]"
+              }`}
           >
             Delivering excellence in <br /> every aspect of salon care
           </h2>
@@ -78,27 +76,24 @@ export default function DedicatedToYou() {
               >
                 {/* Number Box */}
                 <div
-                  className={`w-10 h-10 flex items-center justify-center rounded-md font-bold ${
-                    theme
+                  className={`w-10 h-10 flex items-center justify-center rounded-md font-bold ${theme
                       ? "bg-gray-800 text-white"
                       : "bg-gray-100 text-[#214037]"
-                  }`}
+                    }`}
                 >
                   {step.num}
                 </div>
                 {/* Text */}
                 <div>
                   <h4
-                    className={`text-lg font-semibold ${
-                      theme ? "text-white" : "text-[#214037]"
-                    }`}
+                    className={`text-lg font-semibold ${theme ? "text-white" : "text-[#214037]"
+                      }`}
                   >
                     {step.title}
                   </h4>
                   <p
-                    className={`text-sm md:text-base ${
-                      theme ? "text-gray-300" : "text-gray-600"
-                    }`}
+                    className={`text-sm md:text-base ${theme ? "text-gray-300" : "text-gray-600"
+                      }`}
                   >
                     {step.desc}
                   </p>
@@ -116,12 +111,15 @@ export default function DedicatedToYou() {
           viewport={{ once: true }}
           className="flex justify-center md:justify-end"
         >
-          <div className="w-full sm:w-96 md:w-[450px] rounded-4xl shadow-lg relative">
-            <Image
-              src={imgRight}
-              alt="Salon Service"
-              className="w-full h-full object-cover rounded-4xl"
-            />
+          <div className="w-full sm:w-96 md:w-[450px] rounded-4xl shadow-lg relative ">
+            {/* Main Image with Holo Effect */}
+            <div className="relative holo-image w-full h-full rounded-4xl">
+              <Image
+                src={imgRight}
+                alt="Salon Service"
+                className="w-full h-full object-cover rounded-4xl"
+              />
+            </div>
 
             {/* Floating Service Cards */}
             <motion.div
@@ -129,10 +127,9 @@ export default function DedicatedToYou() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
-              className={`absolute top-1/2 left-1/2 -translate-x-1/2 md:-translate-x-0 md:-left-28 -translate-y-1/2 
-              rounded-4xl shadow-xl flex flex-col w-52 overflow-hidden ${
-                theme ? "bg-gray-900 text-white" : "bg-white"
-              }`}
+              className={`absolute top-1/2 left-1/2 z-10 -translate-x-1/2 md:-translate-x-0 md:-left-28 -translate-y-1/2 
+      rounded-4xl shadow-xl flex flex-col w-52 overflow-hidden ${theme ? "bg-gray-900 text-white" : "bg-white"
+                }`}
             >
               {[
                 {
@@ -153,11 +150,10 @@ export default function DedicatedToYou() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className={`flex flex-col items-start p-5 gap-3 transition-all duration-300 ${
-                    theme
+                  className={`flex flex-col items-start p-5 gap-3 transition-all duration-300 ${theme
                       ? "hover:bg-teal-600 hover:text-white"
                       : "hover:bg-teal-800 hover:text-white"
-                  }`}
+                    }`}
                 >
                   {item.icon}
                   <h5 className="text-base font-semibold">{item.title}</h5>
@@ -167,6 +163,7 @@ export default function DedicatedToYou() {
             </motion.div>
           </div>
         </motion.div>
+
       </div>
     </section>
   );

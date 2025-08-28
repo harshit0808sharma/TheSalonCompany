@@ -80,7 +80,6 @@ button{
 .holo-image {
   position: relative;
   overflow: hidden;
-  border-radius: 1.5rem; /* same as rounded-4xl */
   transition: all 1s ease;
 }
 
