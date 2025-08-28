@@ -53,6 +53,8 @@ export default function AboutSection() {
               <Image
                 src={image1}
                 alt="Doctor"
+                width={400}
+                height={400}
                 className="w-full h-auto object-cover rounded-4xl"
               />
             </div>

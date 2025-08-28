@@ -58,8 +58,9 @@ export default function Hero() {
                     <Image
                       src="/assets/images/person1.png"
                       alt="Customer review"
-                      width={48}
-                      height={48}
+                      width={400}
+                      height={400}
+                      priority
                       className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover relative z-10"
                     />
                   </div>

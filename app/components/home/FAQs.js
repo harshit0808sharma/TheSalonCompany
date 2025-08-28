@@ -47,13 +47,13 @@ export default function FAQSection() {
 
             <Link
               href="/faqs"
-              className="font-semibold text-sm sm:text-base md:text-md px-5 sm:px-6 md:px-8 py-2 md:py-3 rounded-full inline-flex w-auto items-center gap-2 sm:gap-3 hover:bg-gray-100 transition bg-white mainColor"
+              className="font-semibold relative z-10 text-sm sm:text-base md:text-md px-5 sm:px-6 md:px-8 py-2 md:py-3 rounded-full inline-flex w-auto items-center gap-2 sm:gap-3 hover:bg-gray-100 transition bg-white mainColor"
             >
               View All FAQs →
             </Link>
           </motion.div>
 
-          {/* Right Content (Accordion) */}
+          {/* Right Content */}
           <div className="space-y-3 sm:space-y-4 md:space-y-6">
             {faqs.slice(0, 6).map((faq, index) => (
               <div
