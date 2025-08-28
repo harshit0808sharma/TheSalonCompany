@@ -50,8 +50,24 @@ button{
   cursor: pointer;
 }
 
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 8px; /* Width of scrollbar */
+  height: 8px; /* For horizontal scroll */
+}
 
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track color */
+  border-radius: 10px;
+}
 
+::-webkit-scrollbar-thumb {
+  background: #24544B; /* Scroll handle */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #24544B; /* On hover */
+}
 
 
 /* .holographic-card::before {

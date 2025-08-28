@@ -41,7 +41,7 @@ export default function OurBenefits() {
         </motion.div>
 
         {/* Main content grid */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20 items-center">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-20 justify-center items-center">
           {/* Left side features */}
           <div className="space-y-12 text-right">
             {[
@@ -96,7 +96,7 @@ export default function OurBenefits() {
                 alt="Happy woman with healthy skin"
                 width={400}
                 height={400}
-                className="w-[300px] h-[400px] md:w-[400px] md:h-[600px] object-cover"
+                className="w-[300px] h-[400px] md:w-[350px] md:h-[550px] object-cover"
               />
             </div>
           </motion.div>

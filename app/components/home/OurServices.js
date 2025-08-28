@@ -44,7 +44,7 @@ const Services = () => {
   return (
     <div className="w-full px-0 md:px-5 mainBg2 py-16">
       <div className="relative px-6 md:px-20 py-16 md:py-28 mainBg1 rounded-none md:rounded-4xl mx-auto">
-        <AnimateImageLeft/>
+        <AnimateImageLeft />
         {/* Header */}
         <div className="flex flex-col gap-4 items-center mb-10">
           <div className="flex items-center justify-center gap-2">
@@ -53,7 +53,9 @@ const Services = () => {
               Our Services
             </span>
           </div>
-          <Heading Text={"Comprehensive dermatology services for every skin need"} />
+          <h2 className={`text-4xl w-full md:max-w-2/3  text-center md:text-4xl font-semibold leading-snug mb-2 mainColor`}>
+            Comprehensive dermatology services for every skin need
+          </h2>
           <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto font-normal text-center">
             From preventive care to specialized treatments, our wide range of
             services is designed to support your health at every stage.
@@ -117,11 +119,10 @@ const Services = () => {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentIndex
                     ? "mainBg w-8"
                     : "bg-gray-300 hover:bg-gray-400"
-                }`}
+                  }`}
               />
             )
           )}
