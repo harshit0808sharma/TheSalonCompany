@@ -22,7 +22,7 @@ export default function BlogSection({ limit = "all" }) {
 
   return (
     <section
-      className={`py-20 px-6 md:px-12 transition-colors duration-300 mainBg2`}
+      className={`max-w-[1920px] m-auto py-20 px-6 md:px-12 transition-colors duration-300 mainBg2`}
     >
       {/* Header */}
       <motion.div

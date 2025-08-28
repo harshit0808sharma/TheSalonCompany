@@ -29,7 +29,7 @@ export default function WhoWeAre() {
   }, []);
 
   return (
-    <section className="mainBg2 py-14 md:py-20 px-6 md:px-12">
+    <section className="max-w-[1920px] m-auto mainBg2 py-14 md:py-20 px-6 md:px-12">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
         {/* LEFT SIDE */}

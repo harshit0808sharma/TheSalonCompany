@@ -44,7 +44,7 @@ export default function ReadBlog() {
             <Navbar />
             <CommonHeading Text={blog.title} />
 
-            <div className="w-full px-5 md:px-20 py-24 lg:px-32 mainBg2">
+            <div className="max-w-[1920px] m-auto px-5 md:px-20 py-24 lg:px-32 mainBg2">
                 <div className="flex flex-col gap-10">
                     {/* Top Image */}
                     <motion.div
@@ -142,15 +142,15 @@ export default function ReadBlog() {
                                     className="border border-gray-300 rounded-lg p-3 w-full md:col-span-2 h-32"
                                     required
                                 />
-<button
-  type="submit"
-  className="md:col-span-2 mainBg text-white px-6 py-3 rounded-full 
+                                <button
+                                    type="submit"
+                                    className="md:col-span-2 mainBg text-white px-6 py-3 rounded-full 
              hover:bg-[#28554E] transition-colors duration-300 
              inline-flex items-center justify-center font-medium 
              focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#28554E]"
->
-  Post Comment
-</button>
+                                >
+                                    Post Comment
+                                </button>
 
 
 

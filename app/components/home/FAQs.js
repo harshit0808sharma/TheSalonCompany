@@ -17,7 +17,7 @@ export default function FAQSection() {
   };
 
   return (
-    <div className="w-full px-0 md:px-5 mainBg2">
+    <div className="max-w-[1920px] m-auto px-0 md:px-5 mainBg2">
       <section className="relative py-16 px-5 md:px-0 sm:py-20 md:py-28 rounded-none md:rounded-4xl mainBg text-white">
         <AnimateImageLeft/>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-start">

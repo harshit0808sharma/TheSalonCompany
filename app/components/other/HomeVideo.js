@@ -8,9 +8,9 @@ const HomeVideo = () => {
 
     return (
         <>
-            <div className="mainBg1 w-full px-0 md:px-5 pb-10">
+            <div className="mainBg1 max-w-[1920px] m-auto px-0 md:px-5 pb-10">
                 {/* Hero Video Section */}
-                <section className="relative h-screen overflow-hidden rounded-none md:rounded-4xl">
+                <section className="relative py-36 overflow-hidden rounded-none md:rounded-4xl">
                     <video
                         autoPlay
                         loop

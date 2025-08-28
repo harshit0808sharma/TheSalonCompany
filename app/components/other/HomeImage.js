@@ -9,9 +9,9 @@ const HomeImage = () => {
 
     return (
         <>
-            <div className="mainBg1 w-full px-0 md:px-5 pb-10">
+            <div className="mainBg1 max-w-[1920px] m-auto px-0 md:px-5 pb-10">
                 {/* Hero Section */}
-                <section className="relative h-screen overflow-hidden rounded-4xl">
+                <section className="relative py-36 overflow-hidden rounded-4xl">
                     <Image
                         src='/assets/images/salon-home-image.jpg'
                         alt="Skincare treatment"

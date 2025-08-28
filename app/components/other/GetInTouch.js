@@ -36,7 +36,7 @@ const GetInTouch = () => {
   ];
 
   return (
-    <div className={`mainBg2 min-h-screen`}>
+    <div className={`mainBg2 max-w-[1920px] m-auto`}>
       <div className="max-w-7xl mx-auto px-4 pt-16">
         <motion.div
           className="grid lg:grid-cols-2 gap-12 items-start"
@@ -191,7 +191,7 @@ const GetInTouch = () => {
 
       {/* Map Section */}
       <motion.div
-        className="w-full rounded-4xl overflow-hidden h-[80vh] relative px-5"
+        className="w-full rounded-4xl overflow-hidden lg:h-[80vh] relative px-5"
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"

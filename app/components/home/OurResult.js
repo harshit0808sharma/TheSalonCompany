@@ -36,7 +36,7 @@ export default function BeforeAfter() {
   };
 
   return (
-    <section className={`py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-28 transition-colors duration-300 mainBg2`}>
+    <section className={`max-w-[1920px] m-auto py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-28 transition-colors duration-300 mainBg2`}>
       {/* Heading */}
       <motion.div
         className="text-center max-w-4xl mx-auto mb-8 sm:mb-12 md:mb-16"

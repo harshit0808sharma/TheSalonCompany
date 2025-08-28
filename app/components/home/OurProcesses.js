@@ -20,7 +20,7 @@ export default function ProcessSection() {
 
   return (
     <>
-      <div className="w-full p-0 md:p-5 mainBg2">
+      <div className="max-w-[1920px] m-auto p-0 md:p-5 mainBg2">
         <section
           className={`grid grid-cols-1 lg:grid-cols-2 min-h-[600px] sm:min-h-[650px] lg:min-h-[600px] rounded-none md:rounded-4xl mainBg1 relative`}
         >

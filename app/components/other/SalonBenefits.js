@@ -14,7 +14,7 @@ export default function SalonBenefits() {
 
   return (
     <>
-      <div className="w-full px-0 md:px-5 mainBg2">
+      <div className="max-w-[1920px] m-auto px-0 md:px-5 mainBg2">
         <section
           className={`py-20 mainBg1 rounded-none md:rounded-4xl transition-colors duration-300 ${theme ? "bg-black text-white" : "bg-[#fef9f8] text-black"
             }`}

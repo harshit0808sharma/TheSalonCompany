@@ -16,8 +16,8 @@ import AnimateImageRight from "../other/AnimateImageRight";
 
 export default function OurBenefits() {
   return (
-    <div className="w-full p-0 md:p-5 mainBg2">
-      <div className="relative z-10 flex flex-col mainBg md:rounded-4xl items-center justify-center min-h-screen px-6 py-28">
+    <div className="max-w-[1920px] m-auto p-0 md:p-5 mainBg2">
+      <div className="relative z-10 flex flex-col mainBg md:rounded-4xl items-center justify-center px-6 py-28">
         <AnimateImageRight/>
         {/* Header content */}
         <motion.div

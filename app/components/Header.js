@@ -33,7 +33,7 @@ const Header = () => {
   };
 
   return (
-    <header className="mainBg1 px-6 relative z-50 h-20 md:h-28 flex items-center">
+    <header className="max-w-[1920px] m-auto mainBg1 px-6 relative z-50 h-20 md:h-28 flex items-center">
       <div className="max-w-7xl mx-auto flex items-center justify-between w-full">
         {/* Logo */}
         <div className="flex items-center">

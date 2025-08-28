@@ -15,7 +15,7 @@ export default function AboutNewSection() {
 
   return (
     <section
-      className={`py-20 px-6 md:px-12 transition-colors duration-500 mainBg2`}
+      className={`max-w-[1920px] m-auto py-20 px-6 md:px-12 transition-colors duration-500 mainBg2`}
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         {/* Left Content */}

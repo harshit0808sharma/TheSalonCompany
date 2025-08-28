@@ -37,7 +37,7 @@ export default function AboutSection() {
 
   return (
     <section
-      className={`py-8 sm:py-12 md:py-16 lg:py-28 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-32 flex flex-col gap-6 sm:gap-8 md:gap-10 transition-colors duration-300 mainBg2`}
+      className={`max-w-[1920px] m-auto pt-8 sm:pt-12 md:py-16 lg:pt-28 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-32 flex flex-col gap-6 sm:gap-8 md:gap-10 transition-colors duration-300 mainBg2`}
     >
       <div className="pb-8 sm:pb-12 md:pb-16 lg:pb-20 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 lg:gap-8 items-center">
         {/* Left Images */}

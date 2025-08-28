@@ -31,7 +31,7 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="w-full p-0 md:p-5 mainBg2">
+    <div className="max-w-[1920px] m-auto p-0 md:p-5 mainBg2">
       <section className="py-10 sm:py-16 md:py-20 rounded-none md:rounded-4xl px-4 md:px-12 transition-colors duration-300 mainBg1 relative">
         <AnimateImageLeft/>
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 md:gap-12 lg:gap-16 items-start">

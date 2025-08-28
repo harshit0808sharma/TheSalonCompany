@@ -24,7 +24,7 @@ export default function CaseStudyPage() {
       <Header />
       <CommonHeading Text="Case Studies" />
 
-      <div className="w-full md:px-28 px-4 sm:px-8 mainBg2 py-16">
+      <div className="max-w-[1920px] m-auto md:px-28 px-4 sm:px-8 mainBg2 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {caseStudies.map((item) => (
             <div key={item.id} className="flex flex-col items-start">

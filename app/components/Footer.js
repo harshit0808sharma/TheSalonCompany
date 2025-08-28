@@ -23,7 +23,7 @@ export default function Footer() {
   return (
     <>
       <RunningText />
-      <div className={`w-full p-0 md:p-5 mainBg2`}>
+      <div className={`max-w-[1920px] m-auto p-0 md:p-5 mainBg2`}>
         <footer
           className={`text-white mainBg relative rounded-none md:rounded-4xl`}
         >

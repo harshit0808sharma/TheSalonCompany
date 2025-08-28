@@ -15,7 +15,7 @@ export default function WhyChooseUs() {
   };
 
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-16 xl:px-32 items-center mainBg2">
+    <div className="max-w-[1920px] m-auto px-4 sm:px-6 lg:px-16 xl:px-32 items-center mainBg2">
       {/* Main content container */}
       <div className="flex flex-col lg:flex-row items-center justify-between py-10 md:py-16 lg:py-28 gap-8 lg:gap-12">
         

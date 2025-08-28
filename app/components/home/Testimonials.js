@@ -109,7 +109,7 @@ const Testimonials = () => {
   const cardWidthPercentage = isMobile ? 100 : 50;
 
   return (
-    <div className="min-h-screen py-10 md:py-28 px-4 transition-colors duration-500 mainBg2">
+    <div className="max-w-[1920px] m-auto py-10 md:py-28 px-4 transition-colors duration-500 mainBg2">
       <div className="max-w-7xl mx-auto">
         <div className="relative flex flex-col gap-10">
           {/* Header */}

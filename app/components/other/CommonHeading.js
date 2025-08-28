@@ -6,7 +6,7 @@ import AnimateImageRight from "./AnimateImageRight";
 
 export default function CommonHeading({ Text }) {
   return (
-    <div className="w-full p-0 md:px-5 mainBg2">
+    <div className="max-w-[1920px] m-auto p-0 md:px-5 mainBg2">
       <div className="relative p-4 sm:p-6 md:p-10 overflow-hidden md:rounded-4xl transition-colors duration-500 mainBg">
         <AnimateImageRight />
 

@@ -27,7 +27,7 @@ export default function OurMission() {
   ];
 
   return (
-    <div className="w-full min-h-screen px-0 md:px-5 mainBg2 relative">
+    <div className="max-w-[1920px] m-auto px-0 md:px-5 mainBg2 relative">
       <section className="pt-28 pb-20 w-full text-center transition-colors duration-500 mainBg1 rounded-none md:rounded-4xl">
         {/* Section Heading */}
         <motion.div

@@ -42,7 +42,7 @@ const Services = () => {
   }, [cardsPerView, servicesData.length]);
 
   return (
-    <div className="w-full px-0 md:px-5 mainBg2 py-16">
+    <div className="max-w-[1920px] m-auto px-0 md:px-5 mainBg2">
       <div className="relative px-6 md:px-20 py-16 md:py-28 mainBg1 rounded-none md:rounded-4xl mx-auto">
         <AnimateImageLeft />
         {/* Header */}
