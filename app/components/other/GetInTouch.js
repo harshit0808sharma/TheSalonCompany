@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   FaPhone,
   FaMapMarkerAlt,
@@ -9,15 +9,24 @@ import {
 } from 'react-icons/fa';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { toast } from 'react-toastify';
-import { getInTouchSchema } from '@/app/validation/getInTouchSchema';
 import { SalonContext } from '@/app/context/SalonContext';
 
 import img from '../../../public/assets/images/image5.jpeg';
 
 const GetInTouch = () => {
   const { theme } = useContext(SalonContext);
+
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const fadeUp = {
     hidden: { opacity: 0, y: 50 },
@@ -34,6 +43,101 @@ const GetInTouch = () => {
     { icon: <FaMapMarkerAlt className="w-6 h-6" />, title: 'Address', lines: ['Lokaci H.Q. sector 117, Noida', 'CA 90001, USA'] },
     { icon: <FaEnvelope className="w-6 h-6" />, title: 'Email', lines: ['salon@gmail.com', 'thesaloncompany@gmail.com'] },
   ];
+
+  // Validation function
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = 'First name is required';
+    } else if (formData.firstName.trim().length < 2) {
+      newErrors.firstName = 'First name must be at least 2 characters';
+    } else if (!/^[a-zA-Z\s]+$/.test(formData.firstName.trim())) {
+      newErrors.firstName = 'First name should only contain letters';
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = 'Last name is required';
+    } else if (formData.lastName.trim().length < 2) {
+      newErrors.lastName = 'Last name must be at least 2 characters';
+    } else if (!/^[a-zA-Z\s]+$/.test(formData.lastName.trim())) {
+      newErrors.lastName = 'Last name should only contain letters';
+    }
+
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    const phoneRegex = /^[\d\s\-\+\(\)]{10,15}$/;
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+    } else if (!phoneRegex.test(formData.phone.replace(/\s/g, ''))) {
+      newErrors.phone = 'Please enter a valid phone number';
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.length < 10) {
+      newErrors.message = 'Message must be at least 10 characters';
+    }
+
+    return newErrors;
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const validationErrors = validateForm();
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      console.log("Form Submitted:", formData);
+      toast.success("Thank You for your message!");
+
+      // Reset form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        message: ''
+      });
+      setErrors({});
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className={`mainBg2 max-w-[1920px] m-auto`}>
@@ -77,87 +181,78 @@ const GetInTouch = () => {
               {"Have questions or need assistance? Reach out to us for expert guidance, personalized solutions, and exceptional support. We're here to help!"}
             </p>
 
-            <Formik
-              initialValues={{
-                firstName: '',
-                lastName: '',
-                email: '',
-                phone: '',
-                message: ''
-              }}
-              validationSchema={getInTouchSchema}
-              onSubmit={(values, { resetForm }) => {
-                console.log("Form Submitted:", values);
-                toast.success("Thank You for your message!");
-                resetForm();
-              }}
-            >
-              {({ isSubmitting }) => (
-                <Form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <motion.div variants={fadeUp} className="flex flex-col">
-                      <Field
-                        type="text"
-                        name="firstName"
-                        placeholder="First Name"
-                        className={`border bg-white border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
-                      />
-                      <ErrorMessage name="firstName" component="div" className="text-red-500 text-sm mt-1" />
-                    </motion.div>
-                    <motion.div variants={fadeUp} className="flex flex-col">
-                      <Field
-                        type="text"
-                        name="lastName"
-                        placeholder="Last Name"
-                        className={`border bg-white border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
-                      />
-                      <ErrorMessage name="lastName" component="div" className="text-red-500 text-sm mt-1" />
-                    </motion.div>
-                  </div>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <motion.div variants={fadeUp} className="flex flex-col">
+                  <input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    placeholder="First Name"
+                    className={`border bg-white border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent ${errors.firstName ? 'border-red-500' : ''}`}
+                  />
+                  {errors.firstName && <div className="text-red-500 text-sm mt-1">{errors.firstName}</div>}
+                </motion.div>
+                <motion.div variants={fadeUp} className="flex flex-col">
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    placeholder="Last Name"
+                    className={`border bg-white border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent ${errors.lastName ? 'border-red-500' : ''}`}
+                  />
+                  {errors.lastName && <div className="text-red-500 text-sm mt-1">{errors.lastName}</div>}
+                </motion.div>
+              </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <motion.div variants={fadeUp} className="flex flex-col">
-                      <Field
-                        type="email"
-                        name="email"
-                        placeholder="E-mail Address"
-                        className={`border bg-white border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
-                      />
-                      <ErrorMessage name="email" component="div" className="text-red-500 text-sm mt-1" />
-                    </motion.div>
-                    <motion.div variants={fadeUp} className="flex flex-col">
-                      <Field
-                        type="tel"
-                        name="phone"
-                        placeholder="Phone No."
-                        className={`border border-gray-200 bg-white w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-700 focus:border-transparent`}
-                      />
-                      <ErrorMessage name="phone" component="div" className="text-red-500 text-sm mt-1" />
-                    </motion.div>
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <motion.div variants={fadeUp} className="flex flex-col">
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="E-mail Address"
+                    className={`border bg-white border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent ${errors.email ? 'border-red-500' : ''}`}
+                  />
+                  {errors.email && <div className="text-red-500 text-sm mt-1">{errors.email}</div>}
+                </motion.div>
+                <motion.div variants={fadeUp} className="flex flex-col">
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Phone No."
+                    className={`border border-gray-200 bg-white w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-700 focus:border-transparent ${errors.phone ? 'border-red-500' : ''}`}
+                  />
+                  {errors.phone && <div className="text-red-500 text-sm mt-1">{errors.phone}</div>}
+                </motion.div>
+              </div>
 
-                  <motion.div variants={fadeUp} className="flex flex-col">
-                    <Field
-                      as="textarea"
-                      name="message"
-                      placeholder="Write Message"
-                      rows={6}
-                      className={`border bg-white border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none`}
-                    />
-                    <ErrorMessage name="message" component="div" className="text-red-500 text-sm mt-1" />
-                  </motion.div>
+              <motion.div variants={fadeUp} className="flex flex-col">
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Write Message"
+                  rows={6}
+                  className={`border bg-white border-gray-200 w-full p-4 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none ${errors.message ? 'border-red-500' : ''}`}
+                />
+                {errors.message && <div className="text-red-500 text-sm mt-1">{errors.message}</div>}
+              </motion.div>
 
-                  <motion.button
-                    type="submit"
-                    disabled={isSubmitting}
-                    variants={fadeUp}
-                    className="mainBg bg-white text-white px-8 py-3 rounded-full hover:bg-teal-800 transition-colors font-medium disabled:opacity-70"
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </motion.button>
-                </Form>
-              )}
-            </Formik>
+              <motion.button
+                type="submit"
+                disabled={isSubmitting}
+                variants={fadeUp}
+                className="mainBg bg-white text-white px-8 py-3 rounded-full hover:bg-teal-800 transition-colors font-medium disabled:opacity-70"
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </motion.button>
+            </form>
           </motion.div>
         </motion.div>
 

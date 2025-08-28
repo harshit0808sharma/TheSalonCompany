@@ -5,8 +5,6 @@ import Heading from "../other/Heading";
 import { useState, useContext } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { validationSchema } from "@/app/validation/contactSchema";
 import { SalonContext } from "@/app/context/SalonContext";
 import { GoDotFill } from "react-icons/go";
 import { FaLocationDot } from "react-icons/fa6";
@@ -17,12 +15,113 @@ export default function ContactSection() {
   const [loading, setLoading] = useState(false);
   const { theme } = useContext(SalonContext);
 
-  const handleSubmit = async (values, { resetForm }) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    service: "",
+    date: "",
+    time: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState({});
+
+  // Validation function
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Full name is required';
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = 'Name must be at least 2 characters';
+    } else if (!/^[a-zA-Z\s]+$/.test(formData.name.trim())) {
+      newErrors.name = 'Name should only contain letters';
+    }
+
+    const phoneRegex = /^[\d\s\-\+\(\)]{10,15}$/;
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+    } else if (!phoneRegex.test(formData.phone.replace(/\s/g, ''))) {
+      newErrors.phone = 'Please enter a valid phone number';
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    if (!formData.service) {
+      newErrors.service = 'Please select a service';
+    }
+
+    if (!formData.date) {
+      newErrors.date = 'Please select a date';
+    } else {
+      const selectedDate = new Date(formData.date);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      if (selectedDate < today) {
+        newErrors.date = 'Please select a future date';
+      }
+    }
+
+    if (!formData.time) {
+      newErrors.time = 'Please select a time';
+    }
+
+    if (formData.message.trim() && formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters if provided';
+    }
+
+    return newErrors;
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setLoading(true);
+
+    const validationErrors = validateForm();
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      setLoading(false);
+      return;
+    }
+
     try {
-      console.log("Form Submitted:", values);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      console.log("Form Submitted:", formData);
       toast.success("🎉 Appointment booked successfully!");
-      resetForm();
+
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        service: "",
+        date: "",
+        time: "",
+        message: "",
+      });
+      setErrors({});
     } catch (error) {
       toast.error("❌ Something went wrong, please try again.");
     } finally {
@@ -33,9 +132,8 @@ export default function ContactSection() {
   return (
     <div className="max-w-[1920px] m-auto p-0 md:p-5 mainBg2">
       <section className="py-10 sm:py-16 md:py-20 rounded-none md:rounded-4xl px-4 md:px-12 transition-colors duration-300 mainBg1 relative">
-        <AnimateImageLeft/>
+        <AnimateImageLeft />
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 md:gap-12 lg:gap-16 items-start">
-          {/* Left Side (Map) */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -75,7 +173,6 @@ export default function ContactSection() {
             ></iframe>
           </motion.div>
 
-          {/* Right Side - Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -91,151 +188,135 @@ export default function ContactSection() {
             </div>
             <Heading Text={"Book your appointment today!"} />
             <p
-              className={`mb-6 text-sm sm:text-base ${
-                theme ? "text-gray-300" : "text-gray-600"
-              }`}
+              className={`mb-6 text-sm sm:text-base ${theme ? "text-gray-300" : "text-gray-600"
+                }`}
             >
               Get the perfect look you deserve. Schedule your salon visit and
               let our experts take care of your hair, skin, and beauty needs.
             </p>
 
-            <Formik
-              initialValues={{
-                name: "",
-                phone: "",
-                email: "",
-                service: "",
-                date: "",
-                time: "",
-                message: "",
-              }}
-              validationSchema={validationSchema}
-              onSubmit={handleSubmit}
-            >
-              {({ isSubmitting }) => (
-                <Form className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 font-medium">
-                  {/* Full Name */}
-                  <div>
-                    <Field
-                      name="name"
-                      type="text"
-                      placeholder="Full Name"
-                      className="p-3 sm:p-4 rounded-lg outline-none w-full bg-white text-black placeholder-gray-400 focus:ring-2 focus:ring-[#214037]"
-                    />
-                    <ErrorMessage
-                      name="name"
-                      component="div"
-                      className="text-red-500 text-sm mt-1"
-                    />
-                  </div>
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 font-medium">
+              <div>
+                <input
+                  name="name"
+                  type="text"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Full Name"
+                  className={`p-3 sm:p-4 rounded-lg outline-none w-full bg-white text-black placeholder-gray-400 focus:ring-1 focus:ring-[#214037] ${errors.name ? 'ring-1 ring-red-500' : ''
+                    }`}
+                />
+                {errors.name && (
+                  <div className="text-red-500 text-sm mt-1">{errors.name}</div>
+                )}
+              </div>
 
-                  {/* Phone Number */}
-                  <div>
-                    <Field
-                      name="phone"
-                      type="text"
-                      placeholder="Phone Number"
-                      className="p-3 sm:p-4 rounded-lg outline-none w-full bg-white text-black placeholder-gray-400 focus:ring-2 focus:ring-[#214037]"
-                    />
-                    <ErrorMessage
-                      name="phone"
-                      component="div"
-                      className="text-red-400 text-sm mt-1"
-                    />
-                  </div>
+              <div>
+                <input
+                  name="phone"
+                  type="text"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Phone Number"
+                  className={`p-3 sm:p-4 rounded-lg outline-none w-full bg-white text-black placeholder-gray-400 focus:ring-1 focus:ring-[#214037] ${errors.phone ? 'ring-1 ring-red-500' : ''
+                    }`}
+                />
+                {errors.phone && (
+                  <div className="text-red-400 text-sm mt-1">{errors.phone}</div>
+                )}
+              </div>
 
-                  {/* Email */}
-                  <div>
-                    <Field
-                      name="email"
-                      type="email"
-                      placeholder="Email Address"
-                      className="p-3 sm:p-4 rounded-lg outline-none w-full bg-white text-black placeholder-gray-400 focus:ring-2 focus:ring-[#214037]"
-                    />
-                    <ErrorMessage
-                      name="email"
-                      component="div"
-                      className="text-red-400 text-sm mt-1"
-                    />
-                  </div>
+              <div>
+                <input
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Email Address"
+                  className={`p-3 sm:p-4 rounded-lg outline-none w-full bg-white text-black placeholder-gray-400 focus:ring-1 focus:ring-[#214037] ${errors.email ? 'ring-1 ring-red-500' : ''
+                    }`}
+                />
+                {errors.email && (
+                  <div className="text-red-400 text-sm mt-1">{errors.email}</div>
+                )}
+              </div>
 
-                  {/* Service */}
-                  <div>
-                    <Field
-                      as="select"
-                      name="service"
-                      className="p-3 sm:p-4 rounded-lg outline-none w-full bg-white text-gray-400 focus:ring-2 focus:ring-[#214037]"
-                    >
-                      <option value="">Select Service</option>
-                      <option>Hair Styling</option>
-                      <option>Facial & Skin Care</option>
-                      <option>Makeup</option>
-                      <option>Manicure & Pedicure</option>
-                    </Field>
-                    <ErrorMessage
-                      name="service"
-                      component="div"
-                      className="text-red-400 text-sm mt-1"
-                    />
-                  </div>
+              <div>
+                <select
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  className={`p-3 sm:p-4 rounded-lg outline-none w-full bg-white text-gray-400 focus:ring-1 focus:ring-[#214037] ${errors.service ? 'ring-1 ring-red-500' : ''
+                    }`}
+                >
+                  <option value="">Select Service</option>
+                  <option value="Hair Styling">Hair Styling</option>
+                  <option value="Facial & Skin Care">Facial & Skin Care</option>
+                  <option value="Makeup">Makeup</option>
+                  <option value="Manicure & Pedicure">Manicure & Pedicure</option>
+                </select>
+                {errors.service && (
+                  <div className="text-red-400 text-sm mt-1">{errors.service}</div>
+                )}
+              </div>
 
-                  {/* Date */}
-                  <div>
-                    <Field
-                      name="date"
-                      type="date"
-                      min={new Date().toISOString().split("T")[0]}
-                      className="p-3 sm:p-4 rounded-lg outline-none w-full bg-white text-gray-400 focus:ring-2 focus:ring-[#214037]"
-                    />
-                    <ErrorMessage
-                      name="date"
-                      component="div"
-                      className="text-red-400 text-sm mt-1"
-                    />
-                  </div>
+              {/* Date */}
+              <div>
+                <input
+                  name="date"
+                  type="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  min={new Date().toISOString().split("T")[0]}
+                  className={`p-3 sm:p-4 rounded-lg outline-none w-full bg-white text-gray-400 focus:ring-1 focus:ring-[#214037] ${errors.date ? 'ring-1 ring-red-500' : ''
+                    }`}
+                />
+                {errors.date && (
+                  <div className="text-red-400 text-sm mt-1">{errors.date}</div>
+                )}
+              </div>
 
-                  {/* Time */}
-                  <div>
-                    <Field
-                      name="time"
-                      type="time"
-                      className="p-3 sm:p-4 rounded-lg outline-none w-full bg-white text-gray-400 focus:ring-2 focus:ring-[#214037]"
-                    />
-                    <ErrorMessage
-                      name="time"
-                      component="div"
-                      className="text-red-400 text-sm mt-1"
-                    />
-                  </div>
+              {/* Time */}
+              <div>
+                <input
+                  name="time"
+                  type="time"
+                  value={formData.time}
+                  onChange={handleChange}
+                  className={`p-3 sm:p-4 rounded-lg outline-none w-full bg-white text-gray-400 focus:ring-1 focus:ring-[#214037] ${errors.time ? 'ring-1 ring-red-500' : ''
+                    }`}
+                />
+                {errors.time && (
+                  <div className="text-red-400 text-sm mt-1">{errors.time}</div>
+                )}
+              </div>
 
-                  {/* Message */}
-                  <div className="col-span-1 sm:col-span-2">
-                    <Field
-                      as="textarea"
-                      name="message"
-                      placeholder="Tell us more about your preferred style or service..."
-                      className="p-3 sm:p-4 rounded-lg outline-none h-28 sm:h-32 w-full bg-white text-black placeholder-gray-400 focus:ring-2 focus:ring-[#214037]"
-                    />
-                    <ErrorMessage
-                      name="message"
-                      component="div"
-                      className="text-red-400 text-sm mt-1"
-                    />
-                  </div>
+              {/* Message */}
+              <div className="col-span-1 sm:col-span-2">
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell us more about your preferred style or service..."
+                  className={`p-3 sm:p-4 rounded-lg outline-none h-28 sm:h-32 w-full bg-white text-black placeholder-gray-400 focus:ring-1 focus:ring-[#214037] ${errors.message ? 'ring-1 ring-red-500' : ''
+                    }`}
+                />
+                {errors.message && (
+                  <div className="text-red-400 text-sm mt-1">{errors.message}</div>
+                )}
+              </div>
 
-                  {/* Submit */}
-                  <div className="sm:col-span-2 flex justify-start">
-                    <button
-                      type="submit"
-                      disabled={loading || isSubmitting}
-                      className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium transition w-auto mainBg text-white hover:bg-[#2d6d5f] disabled:opacity-70 text-left"
-                    >
-                      {loading ? "Booking..." : "Book Appointment"}
-                    </button>
-                  </div>
-                </Form>
-              )}
-            </Formik>
+              {/* Submit */}
+              <div className="sm:col-span-2 flex justify-start">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium transition w-auto mainBg text-white hover:bg-[#2d6d5f] disabled:opacity-70 text-left"
+                >
+                  {loading ? "Booking..." : "Book Appointment"}
+                </button>
+              </div>
+            </form>
           </motion.div>
         </div>
       </section>

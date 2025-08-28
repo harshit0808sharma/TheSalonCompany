@@ -7,10 +7,10 @@ import { GrEmoji } from "react-icons/gr";
 import { PiCrownThin, PiSparkleThin } from "react-icons/pi";
 
 const stats = [
-  { icon: <GrEmoji className="text-3xl sm:text-4xl lg:text-5xl" />, value: 96, suffix: "%", label: "Happy Clients" },
-  { icon: <PiScissorsLight className="text-3xl sm:text-4xl lg:text-5xl" />, value: 12, suffix: "+", label: "Years of Styling" },
-  { icon: <PiSparkleThin className="text-3xl sm:text-4xl lg:text-5xl" />, value: 1000, suffix: "+", label: "Beauty Treatments" },
-  { icon: <PiCrownThin className="text-3xl sm:text-4xl lg:text-5xl" />, value: 30, suffix: "+", label: "Luxury Facilities" },
+  { icon: <GrEmoji className="text-4xl lg:text-5xl" />, value: 96, suffix: "%", label: "Happy Clients" },
+  { icon: <PiScissorsLight className="text-4xl lg:text-5xl" />, value: 12, suffix: "+", label: "Years of Styling" },
+  { icon: <PiSparkleThin className="text-4xl lg:text-5xl" />, value: 1000, suffix: "+", label: "Beauty Treatments" },
+  { icon: <PiCrownThin className="text-4xl lg:text-5xl" />, value: 30, suffix: "+", label: "Luxury Facilities" },
 ];
 
 export default function Stats() {
@@ -49,9 +49,9 @@ export default function Stats() {
   }, [inView]);
 
   return (
-    <section className="w-full pt-16 pb-0 transition-colors duration-500 mainBg2 border-t border-gray-200 text-black">
+    <section className="w-full pt-16 pb-16 md:pb-0 transition-colors duration-500 mainBg2 border-t border-gray-200 text-black">
       <div className="container mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 text-center">
           {stats.map((item, index) => (
             <motion.div
               key={index}
@@ -64,11 +64,11 @@ export default function Stats() {
             >
               <div className="flex justify-start">{item.icon}</div>
               <div className="flex flex-col items-start">
-                <h3 className="text-2xl sm:text-3xl md:text-5xl">
+                <h3 className="text-4xl md:text-5xl">
                   {counts[index]}
                   {item.suffix}
                 </h3>
-                <p className="text-xs text-gray-500 sm:text-sm md:text-base font-medium">
+                <p className=" text-gray-400 font-medium">
                   {item.label}
                 </p>
               </div>
