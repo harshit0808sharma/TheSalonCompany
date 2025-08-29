@@ -4,21 +4,70 @@ import { FaFacebook, FaPhone, FaTwitter, FaInstagram } from "react-icons/fa";
 import { IoIosSend } from "react-icons/io";
 import Link from "next/link";
 import RunningText from "./other/RunningText";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
 import { toast } from "react-toastify";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { SalonContext } from "@/app/context/SalonContext";
 import AnimateImageLeft from "./other/AnimateImageLeft";
 
 export default function Footer() {
-  const { theme } = useContext(SalonContext); 
+  const { theme } = useContext(SalonContext);
 
-  const validationSchema = Yup.object({
-    email: Yup.string()
-      .email("Invalid email format")
-      .required("Email is required"),
-  });
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Email validation function
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (!email.trim()) {
+      return "Email is required";
+    }
+    
+    if (!emailRegex.test(email)) {
+      return "Invalid email format";
+    }
+    
+    return "";
+  };
+
+  // Handle email input change
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    
+    // Clear error when user starts typing
+    if (emailError) {
+      setEmailError("");
+    }
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const error = validateEmail(email);
+    
+    if (error) {
+      setEmailError(error);
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      toast.success(`Subscribed with: ${email}`);
+      setEmail("");
+      setEmailError("");
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -27,7 +76,7 @@ export default function Footer() {
         <footer
           className={`text-white mainBg relative rounded-none md:rounded-4xl`}
         >
-          <AnimateImageLeft/>
+          <AnimateImageLeft />
           <div className="max-w-7xl mx-auto px-4 py-12">
             <div className="grid md:grid-cols-4 gap-8">
               {/* Company Info */}
@@ -48,45 +97,32 @@ export default function Footer() {
                   premium products, and a relaxing atmosphere.
                 </p>
 
-                {/* Subscription Form */}
-                <Formik
-                  initialValues={{ email: "" }}
-                  validationSchema={validationSchema}
-                  onSubmit={(values, { resetForm }) => {
-                    toast.success(`Subscribed with: ${values.email}`);
-                    resetForm();
-                  }}
-                >
-                  {({ errors, touched }) => (
-                    <Form className="flex flex-col space-y-2">
-                      <div className="flex items-center space-x-2">
-                        <Field
-                          name="email"
-                          type="email"
-                          placeholder="Enter your email"
-                          className={`flex-1 px-3 py-2 ${theme
-                              ? "bg-gray-800 border-gray-700 text-gray-200 placeholder-gray-400"
-                              : "bg-white/10 border-white/20 text-white placeholder-white/60"
-                            } border rounded-lg`}
-                        />
-                        <button
-                          type="submit"
-                          className={`${theme
-                              ? "bg-gray-700 hover:bg-gray-600"
-                              : "bg-teal-600 hover:bg-teal-500"
-                            } p-2 rounded-lg transition-colors`}
-                        >
-                          <IoIosSend className="w-5 h-5" />
-                        </button>
-                      </div>
-                      <ErrorMessage
-                        name="email"
-                        component="div"
-                        className="text-red-400 text-sm"
-                      />
-                    </Form>
+                {/* Form */}
+                <form onSubmit={handleSubmit} className="flex flex-col space-y-2">
+                  <div className="flex items-center bg-white rounded-lg overflow-hidden border border-white/20 w-full p-1">
+                    <input
+                      name="email"
+                      type="email"
+                      value={email}
+                      onChange={handleEmailChange}
+                      placeholder="Enter your email"
+                      className={`flex-1 px-4 py-3 text-base text-gray-900 placeholder-gray-500 bg-transparent focus:outline-none ${
+                        emailError ? 'border-red-500' : ''
+                      }`}
+                    />
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="flex items-center justify-center px-4 py-3 mainBg text-white hover:opacity-90 rounded-md transition-colors disabled:opacity-70"
+                    >
+                      <IoIosSend className="w-5 h-5" />
+                    </button>
+                  </div>
+
+                  {emailError && (
+                    <div className="text-red-400 text-sm">{emailError}</div>
                   )}
-                </Formik>
+                </form>
               </div>
 
               {/* Contact Us */}
@@ -150,12 +186,12 @@ export default function Footer() {
               className={`mt-12 pt-8 flex flex-col md:flex-row justify-between items-center border-t ${theme ? "border-gray-700" : "border-white/20"
                 }`}
             >
-              <p className="opacity-60 text-sm">
+              <p className="opacity-80 text-white text-md">
                 © 2025 The Salon Company. All Rights Reserved.
               </p>
               <div className="flex items-center space-x-4 mt-4 md:mt-0">
                 <span className="opacity-80">Follow Us</span>
-                <div className="flex space-x-3">
+                <div className="flex space-x-4">
                   {[
                     {
                       href: "https://x.com/lokaciofficial",
@@ -173,10 +209,7 @@ export default function Footer() {
                     <Link
                       key={i}
                       href={item.href}
-                      className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${theme
-                          ? "bg-gray-800 hover:bg-gray-700"
-                          : "bg-white/10 hover:bg-white/20"
-                        }`}
+                      className={`w-10 h-10 flex items-center justify-center transition-colors mainColor bg-white rounded-lg`}
                     >
                       {item.icon}
                     </Link>

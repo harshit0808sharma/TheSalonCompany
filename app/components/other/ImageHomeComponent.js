@@ -9,7 +9,7 @@ const ImageHomeComponent = () => {
     const { galleryData } = useContext(SalonContext);
 
     return (
-        <section className="py-12 px-6 md:px-12 lg:px-16 bg-gray-50">
+        <section className="max-w-[1920px] m-auto py-12 px-6 md:px-12 lg:px-16 bg-gray-50">
             <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {galleryData.map((image, index) => (
                     <motion.div

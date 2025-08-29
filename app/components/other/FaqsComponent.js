@@ -80,7 +80,7 @@ const FaqsComponent = () => {
 
 
     return (
-        <div className="min-h-screen mainBg2">
+        <div className="max-w-[1920px] m-auto min-h-screen mainBg2">
             <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-28 py-8 md:py-16">
                 <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 md:gap-6 min-h-screen">
                     {/* Sidebar */}

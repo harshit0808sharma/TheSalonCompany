@@ -26,7 +26,7 @@ export default function Team() {
         >
           <AnimateImageLeft/>
           {/* Heading */}
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-12 leading-snug">
             <div className="flex justify-center items-center gap-2">
               <GoDotFill
                 className={`${theme ? "text-teal-400" : "text-teal-800"

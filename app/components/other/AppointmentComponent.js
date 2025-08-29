@@ -60,12 +60,12 @@ const AppointmentComponent = () => {
     const validateForm = () => {
         const newErrors = {};
 
-        if (!formData.name.trim()) {
-            newErrors.name = 'Full name is required';
-        } else if (formData.name.trim().length < 2) {
-            newErrors.name = 'Name must be at least 2 characters';
-        } else if (!/^[a-zA-Z\s]+$/.test(formData.name.trim())) {
-            newErrors.name = 'Name should only contain letters';
+        if (!formData.fullName.trim()) {
+            newErrors.fullName = 'Full name is required';
+        } else if (formData.fullName.trim().length < 2) {
+            newErrors.fullName = 'Name must be at least 2 characters';
+        } else if (!/^[a-zA-Z\s]+$/.test(formData.fullName.trim())) {
+            newErrors.fullName = 'Name should only contain letters';
         }
 
         const phoneRegex = /^[\d\s\-\+\(\)]{10,15}$/;
@@ -108,7 +108,6 @@ const AppointmentComponent = () => {
         return newErrors;
     };
 
-    // Handle input change
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({
@@ -116,7 +115,6 @@ const AppointmentComponent = () => {
             [name]: value
         }));
 
-        // Clear error for this field when user starts typing
         if (errors[name]) {
             setErrors(prev => ({
                 ...prev,
@@ -125,7 +123,6 @@ const AppointmentComponent = () => {
         }
     };
 
-    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
@@ -139,13 +136,11 @@ const AppointmentComponent = () => {
         }
 
         try {
-            // Simulate API call
             await new Promise(resolve => setTimeout(resolve, 1000));
 
             console.log("Form Submitted:", formData);
             toast.success("Appointment request submitted!");
 
-            // Reset form
             setFormData({
                 fullName: "",
                 phone: "",
@@ -268,7 +263,7 @@ const AppointmentComponent = () => {
                                     name="service"
                                     value={formData.service}
                                     onChange={handleChange}
-                                    className={`w-full border p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-600 ${errors.service ? 'border-red-500' : ''
+                                    className={`w-full border text-gray-500 p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-600 ${errors.service ? 'border-red-500' : ''
                                         } ${theme
                                             ? "bg-gray-800 border-gray-700 text-white"
                                             : "bg-white border-gray-300 text-black"
@@ -293,7 +288,7 @@ const AppointmentComponent = () => {
                                     value={formData.date}
                                     onChange={handleChange}
                                     min={new Date().toISOString().split("T")[0]}
-                                    className={`w-full border p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-600 ${errors.date ? 'border-red-500' : ''
+                                    className={`w-full text-gray-500 border p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-600 ${errors.date ? 'border-red-500' : ''
                                         } ${theme
                                             ? "bg-gray-800 border-gray-700 text-white"
                                             : "bg-white border-gray-300 text-black"
@@ -310,7 +305,7 @@ const AppointmentComponent = () => {
                                     name="time"
                                     value={formData.time}
                                     onChange={handleChange}
-                                    className={`w-full border p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-600 ${errors.time ? 'border-red-500' : ''
+                                    className={`w-full text-gray-500 border p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-600 ${errors.time ? 'border-red-500' : ''
                                         } ${theme
                                             ? "bg-gray-800 border-gray-700 text-white"
                                             : "bg-white border-gray-300 text-black"

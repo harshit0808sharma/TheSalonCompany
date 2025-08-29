@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaStar } from "react-icons/fa";
+import { FaArrowRight, FaStar } from "react-icons/fa";
 import womanImage from "../../../public/assets/images/hero-img.png";
 import ContactInfo from "../other/ContactInfo";
 import { useContext } from "react";
 import { SalonContext } from "@/app/context/SalonContext";
 import AnimateImageLeft from "../other/AnimateImageLeft";
+import Link from "next/link";
 
 export default function Hero() {
   const { theme } = useContext(SalonContext);
@@ -35,18 +36,20 @@ export default function Hero() {
                 {"At The Salon Company, we believe beauty is not just skin deep, it's the art of confidence, self-care, and individuality."}
               </p>
 
-              <motion.a
+              <Link
                 href="/book-appointment"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className={`${theme
-                  ? 'bg-gray-700 border border-white hover:bg-gray-600'
-                  : 'text-teal-800 bg-white hover:bg-gray-50'
-                  } inline-flex items-center gap-2 px-6 py-3 text-base font-medium rounded-full shadow-lg transition-all duration-300 w-max`}
+                className="relative inline-block w-fit font-medium transition-all bg-white rounded-full group mt-8 overflow-hidden"
               >
-                <span>Get Started </span>
-                <span className="text-lg">→</span>
-              </motion.a>
+                <div className="flex items-center px-6 py-3">
+                  <span className="absolute inset-0 w-0 bg-teal-800 transition-all duration-500 ease-out group-hover:w-full rounded-full"></span>
+                  <span className="relative flex items-center text-gray-900 transition-colors duration-300 ease-in-out group-hover:text-white">
+                    Get Started
+                    <FaArrowRight className="ml-2 w-5 h-5" />
+                  </span>
+                </div>
+              </Link>
+
+
 
               <div className="pt-4 sm:pt-6 lg:pt-8">
                 <h2 className="font-semibold text-lg sm:text-xl mb-3 sm:mb-4">

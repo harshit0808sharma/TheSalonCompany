@@ -115,8 +115,8 @@ button{
   transform: rotate(-45deg);
   transition: all 1s ease;
   opacity: 0;
-  z-index: 2; /* 👈 ensure gradient is on top */
-  pointer-events: none; /* 👈 so hover still works */
+  z-index: 2; 
+  pointer-events: none;
 }
 
 .holo-image:hover::before {

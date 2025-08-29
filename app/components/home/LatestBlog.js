@@ -30,7 +30,7 @@ export default function BlogSection({ limit = "all" }) {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-center max-w-3xl mx-auto mb-12"
+        className="text-center max-w-3xl mx-auto mb-12 leading-loose"
       >
         <div className="flex justify-center items-center gap-2">
           <GoDotFill

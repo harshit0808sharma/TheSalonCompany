@@ -112,7 +112,7 @@ export default function ProcessSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-tight sm:leading-snug"
+              className="mainColor text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-tight sm:leading-snug"
             >
               {"Beauty, Simplified – Step by Step"}
             </motion.h2>
