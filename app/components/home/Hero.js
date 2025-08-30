@@ -27,10 +27,35 @@ export default function Hero() {
               className="lg:w-[45%] mt-8 md:mt-12 lg:mt-24 py-6 lg:py-16 xl:py-20 flex flex-col justify-center space-y-4 sm:space-y-6 lg:space-y-8 px-2 sm:px-0"
             >
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-semibold leading-tight">
-                Redefining Beauty
-                <span className="block">One Experience</span>
-                <span className="block">at a Time</span>
+                <motion.span
+                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="block"
+                >
+                  Redefining Beauty
+                </motion.span>
+
+                <motion.span
+                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+                  className="block"
+                >
+                  One Experience
+                </motion.span>
+
+                <motion.span
+                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
+                  className="block"
+                >
+                  at a Time
+                </motion.span>
               </h1>
+
+
 
               <p className="text-base sm:text-lg lg:text-xl text-gray-200 leading-relaxed">
                 {"At The Salon Company, we believe beauty is not just skin deep, it's the art of confidence, self-care, and individuality."}
