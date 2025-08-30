@@ -5,10 +5,10 @@ import ReactCompareImage from "react-compare-image";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { motion } from "framer-motion";
 
-import before1 from "../../../public/assets/images/before1.jpg";
-import after1 from "../../../public/assets/images/after1.jpg";
-import before2 from "../../../public/assets/images/before2.jpg";
-import after2 from "../../../public/assets/images/after2.jpg";
+import before1 from "../../../public/assets/images/before4.jpg";
+import after1 from "../../../public/assets/images/after4.jpg";
+import before2 from "../../../public/assets/images/before3.jpg";
+import after2 from "../../../public/assets/images/after3.jpg";
 import { GoDotFill } from "react-icons/go";
 import Heading from "../other/Heading";
 import { SalonContext } from "@/app/context/SalonContext";
@@ -60,7 +60,7 @@ export default function BeforeAfter() {
 
       {/* Compare Images */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto">
-        {/* First Compare */}
+        {/* First image */}
         <motion.div
           className={`rounded-2xl sm:rounded-3xl lg:rounded-4xl overflow-hidde`}
           initial={{ opacity: 0, y: 30 }}
@@ -81,7 +81,7 @@ export default function BeforeAfter() {
                 <div
                   onMouseDown={() => handlePress(setHover1)}
                   onTouchStart={() => handlePress(setHover1)}
-                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 border-2 border-white ${hover2 ? "ring-2 ring-teal-500 scale-105" : ""}`}
+                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 border-2 border-white ${hover1 ? "ring-2 ring-teal-500 scale-105" : ""}`}
                 >
                   <div className="flex items-center gap-0.5 sm:gap-1 text-lg sm:text-xl select-none">
                     <FiChevronLeft
@@ -109,7 +109,8 @@ export default function BeforeAfter() {
             <span className={theme ? "text-gray-400" : "text-gray-500"}>After</span>
           </div>
         </motion.div>
-
+          
+        {/* second image */}
         <motion.div
           className={`rounded-2xl sm:rounded-3xl lg:rounded-4xl overflow-hidden`}
           initial={{ opacity: 0, y: 30 }}

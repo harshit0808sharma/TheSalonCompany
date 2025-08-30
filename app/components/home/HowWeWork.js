@@ -107,7 +107,7 @@ export default function HowWeWorkUI() {
                 {"Have Questions? We're Here to Help You!"}
               </h3>
               <div className="flex items-center">
-                <div onClick={() => toast.info("This Feature Comming Soon!")} className="w-10 h-10 sm:w-12 sm:h-12 bg-white text-teal-800 rounded-full flex items-center justify-center mr-3 sm:mr-4 cursor-pointer">
+                <div onClick={() => toast.info("This Feature will Comming Soon!")} className="w-10 h-10 sm:w-12 sm:h-12 bg-white text-teal-800 rounded-full flex items-center justify-center mr-3 sm:mr-4 cursor-pointer">
                   <FiPhone className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 <span className="text-base sm:text-lg">(123) 456 789</span>

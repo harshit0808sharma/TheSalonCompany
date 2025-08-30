@@ -57,12 +57,12 @@ export default function Hero() {
                 <div className="flex items-start gap-3 sm:gap-4">
                   <div className="flex-shrink-0">
                     <Image
-                      src="/assets/images/person1.png"
+                      src="/assets/images/profileImage1.png"
                       alt="Customer review"
                       width={400}
                       height={400}
                       priority
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover relative z-10"
+                      className="w-16 h-16 rounded-full object-cover relative z-10"
                     />
                   </div>
                   <div className="flex-1 min-w-0">
