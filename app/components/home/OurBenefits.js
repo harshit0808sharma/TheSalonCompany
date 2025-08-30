@@ -21,7 +21,7 @@ export default function OurBenefits() {
         <AnimateImageRight />
         {/* Header content */}
         <motion.div
-          className="text-center mb-12 sm:mb-16 max-w-4xl"
+          className="text-center mb-12 sm:mb-16 max-w-4xl leading-loose"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -100,7 +100,7 @@ export default function OurBenefits() {
                 alt="Happy woman with healthy skin"
                 width={400}
                 height={400}
-                className="w-[250px] h-[300px] sm:w-[300px] sm:h-[400px] lg:w-[350px] lg:h-[550px] object-cover"
+                className="w-[200px] h-[300px] md:w-[250px] md:h-[400px] lg:w-[350px] lg:h-[550px] object-cover"
               />
             </div>
           </motion.div>

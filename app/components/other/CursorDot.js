@@ -16,7 +16,7 @@ export default function CursorDot() {
 
   return (
     <div
-      className="cursor-dot"
+      className="cursor-dot hidden lg:block"
       style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
     />
   );

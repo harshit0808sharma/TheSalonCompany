@@ -118,7 +118,7 @@ export default function BeforeAfter() {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true, margin: "-50px" }}
         >
-          <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] relative">
+          <div className="rounded-2xl sm:rounded-3xl lg:rounded-4xl overflow-hidden w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] relative">
             <ReactCompareImage
               leftImage={before2.src}
               rightImage={after2.src}

@@ -48,8 +48,8 @@ export default function HowWeWorkUI() {
           variants={staggerParent}
         >
           <motion.div className="flex items-center gap-2 mb-4" variants={fadeUp}>
-            <GoDotFill className="text-teal-800 text-lg" />
-            <span className="font-medium text-teal-800 tracking-wide">
+            <GoDotFill className="mainColor text-lg" />
+            <span className="font-medium mainColor tracking-wide">
               How We Work
             </span>
           </motion.div>
@@ -71,10 +71,10 @@ export default function HowWeWorkUI() {
                 variants={fadeUp}
               >
                 <div className="flex-shrink-0">
-                  <span className="text-4xl sm:text-5xl text-teal-800">{step.num}</span>
+                  <span className="text-4xl sm:text-5xl mainColor">{step.num}</span>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg sm:text-xl lg:text-2xl text-teal-800 mb-2 sm:mb-3">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl mainColor mb-2 sm:mb-3">
                     {step.title}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">{step.desc}</p>
@@ -106,7 +106,7 @@ export default function HowWeWorkUI() {
                 {"Have Questions? We're Here to Help You!"}
               </h3>
               <div className="flex items-center">
-                <div onClick={() => toast.info("This Feature will Comming Soon!")} className="w-10 h-10 sm:w-12 sm:h-12 bg-white text-teal-800 rounded-full flex items-center justify-center mr-3 sm:mr-4 cursor-pointer">
+                <div onClick={() => toast.info("This Feature will Comming Soon!")} className="w-10 h-10 sm:w-12 sm:h-12 bg-white mainColor rounded-full flex items-center justify-center mr-3 sm:mr-4 cursor-pointer">
                   <FiPhone className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 <span className="text-base sm:text-lg">(123) 456 789</span>

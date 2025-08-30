@@ -376,7 +376,7 @@ export const testimonials = [
   {
     name: "Riya",
     role: "Noida – Brow Transformation",
-    text: "The best decision of my life—I never thought my brows could look this perfect. Waking up confident is priceless.",
+    text: "The best decision of my life, I never thought my brows could look this perfect. Waking up confident is priceless.",
     avatar: "/assets/images/person5.png",
   },
   {
@@ -394,13 +394,13 @@ export const testimonials = [
   {
     name: "Priya",
     role: "Noida – Hair & Makeup",
-    text: "From consultation to the final look, the team made me feel special. My bridal makeup was flawless and lasted all day!",
+    text: "From consultation to the final look, the team made me feel special. My bridal makeup was flawless!",
     avatar: "/assets/images/person5.png",
   },
   {
     name: "Sneha",
     role: "Noida – PMU & Nails",
-    text: "The results were beyond my expectations. The attention to detail is incredible—I can’t recommend The Salon Company enough!",
+    text: "The results were beyond my expectations. The attention to detail is incredible, I can’t recommend The Salon Company!",
     avatar: "/assets/images/person5.png",
   },
 ];

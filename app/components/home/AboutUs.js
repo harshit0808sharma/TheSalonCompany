@@ -82,7 +82,7 @@ export default function AboutSection() {
             initial={{ rotate: -90, opacity: 0 }}
             whileInView={{ rotate: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className={`absolute z-10 top-4 sm:top-6 md:top-10 right-2 sm:right-4 md:right-12 lg:right-20 w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 flex items-center gap-1 sm:gap-2 justify-center rounded-full border-4 sm:border-6 md:border-8 text-xs sm:text-sm text-center font-medium shadow-lg spin-slow ${theme
+            className={`absolute z-10 top-4 sm:top-6 md:top-10 right-2 sm:right-4 md:right-12 lg:right-20 w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 flex items-center gap-1 sm:gap-2 justify-center rounded-full border-4 sm:border-6 md:border-8 text-xs sm:text-sm text-center font-medium shadow-lg spin-slow ${theme
               ? "bg-gray-800 text-white border-gray-700"
               : "bg-[#214037] text-white border-white"
               }`}
@@ -91,16 +91,12 @@ export default function AboutSection() {
             <FaArrowRight className="text-xs sm:text-sm" />
           </motion.a>
         </div>
-
-
-        {/* Right Content */}
         <motion.div
           className="space-y-5 sm:space-y-6 order-1 lg:order-2"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Heading */}
           <div className="flex items-center gap-2">
             <GoDotFill className={theme ? "text-teal-400" : "text-teal-800"} />
             <span
@@ -116,7 +112,6 @@ export default function AboutSection() {
           </p>
 
           <div className="flex flex-col xl:flex-row items-stretch gap-6 sm:gap-8 w-full">
-            {/* Left Paragraph */}
             <div className="flex flex-col space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12 w-full xl:w-2/3">
               <ul className="space-y-2 sm:space-y-3 list-none text-sm sm:text-base">
                 <li className="flex items-start gap-2 sm:gap-3">
@@ -143,7 +138,7 @@ export default function AboutSection() {
                 >
                   <Link
                     href="/about"
-                    className="relative overflow-hidden px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-white inline-flex gap-2 items-center text-sm sm:text-base group mainBg transition-all duration-300"
+                    className="w-full relative overflow-hidden px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-white inline-flex gap-2 items-center text-sm sm:text-base group mainBg transition-all duration-300"
                   >
                     <span className="absolute inset-0 overflow-hidden rounded-full">
                       <span className="absolute top-0 left-[-120%] w-[120%] h-full bg-gradient-to-r from-transparent via-white/70 to-transparent skew-x-12 group-hover:translate-x-[220%] transition-transform duration-700 ease-in-out">
@@ -165,8 +160,6 @@ export default function AboutSection() {
                 </button>
               </div>
             </div>
-
-            {/* Right Team Count */}
             <motion.div
               className={`rounded-4xl px-6 sm:px-8 md:px-10 py-6 sm:py-8 flex gap-2 flex-col items-center justify-center shadow-lg w-full xl:w-1/3 h-auto min-h-[160px] sm:min-h-[180px] md:min-h-[200px] ${theme ? "bg-gray-800 text-white" : "bg-[#264D45] text-white"
                 }`}

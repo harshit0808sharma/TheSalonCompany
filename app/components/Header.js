@@ -51,7 +51,7 @@ const Header = () => {
             onMouseEnter={() => handleMouseEnter("home")}
             onMouseLeave={() => handleMouseLeave("home")}
           >
-            <button className="flex items-center text-gray-500 hover:text-[#24544B] transition-colors font-medium">
+            <button className="flex items-center text-gray-500 hover:text-[#24544B] transition-colors font-semibold">
               Home <FaChevronDown className="ml-1 w-4 h-4" />
             </button>
 
@@ -68,25 +68,25 @@ const Header = () => {
                 >
                   <Link
                     href="/"
-                    className="block px-4 text-gray-500 font-medium py-2 hover:text-[#24544B]"
+                    className="block px-4 text-gray-500 font-semibold py-2 hover:text-[#24544B]"
                   >
                     Home - Main
                   </Link>
                   <Link
                     href="/home-image"
-                    className="block px-4 text-gray-500 font-medium py-2 hover:text-[#24544B]"
+                    className="block px-4 text-gray-500 font-semibold py-2 hover:text-[#24544B]"
                   >
                     Home - Image
                   </Link>
                   <Link
                     href="/home-video"
-                    className="block px-4 text-gray-500 font-medium py-2 hover:text-[#24544B]"
+                    className="block px-4 text-gray-500 font-semibold py-2 hover:text-[#24544B]"
                   >
                     Home - Video
                   </Link>
                   <Link
                     href="/home-slider"
-                    className="block px-4 text-gray-500 font-medium py-2 hover:text-[#24544B]"
+                    className="block px-4 text-gray-500 font-semibold py-2 hover:text-[#24544B]"
                   >
                     Home - Slider
                   </Link>
@@ -95,9 +95,9 @@ const Header = () => {
             </AnimatePresence>
           </div>
 
-          <Link href="/about" className="text-gray-500 hover:text-[#24544B] transition-colors font-medium">About Us</Link>
-          <Link href="/services" className="text-gray-500 hover:text-[#24544B] transition-colors font-medium">Services</Link>
-          <Link href="/blogs" className="text-gray-500 hover:text-[#24544B] transition-colors font-medium">Blog</Link>
+          <Link href="/about" className="text-gray-500 hover:text-[#24544B] transition-colors font-semibold">About Us</Link>
+          <Link href="/services" className="text-gray-500 hover:text-[#24544B] transition-colors font-semibold">Services</Link>
+          <Link href="/blogs" className="text-gray-500 hover:text-[#24544B] transition-colors font-semibold">Blog</Link>
 
           {/* Pages Dropdown */}
           <div
@@ -105,7 +105,7 @@ const Header = () => {
             onMouseEnter={() => handleMouseEnter("pages")}
             onMouseLeave={() => handleMouseLeave("pages")}
           >
-            <button className="flex items-center text-gray-500 hover:text-[#24544B] transition-colors font-medium">
+            <button className="flex items-center text-gray-500 hover:text-[#24544B] transition-colors font-semibold">
               Pages <FaChevronDown className="ml-1 w-4 h-4" />
             </button>
 
@@ -120,25 +120,24 @@ const Header = () => {
                   onMouseEnter={() => handleMouseEnter("pages")}
                   onMouseLeave={() => handleMouseLeave("pages")}
                 >
-                  <Link href="/services/service-details" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Service Details</Link>
-                  <Link href="/casestudy" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Case Study</Link>
-                  <Link href="/blogs/how-to-care-for-your-skin-after-a-botox-treatment" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Blog Details</Link>
-                  <Link href="/our-team" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Our Team</Link>
-                  <Link href="/our-team/kristin-watson" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Team Details</Link>
-                  <Link href="/testimonials" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Testimonials</Link>
-                  <Link href="/image-gallery" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Image Gallery</Link>
-                  <Link href="/video-gallery" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Video Gallery</Link>
-                  <Link href="/faqs" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">FAQs</Link>
-                  <Link href="/404" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">404</Link>
+                  <Link href="/services/service-details" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">Service Details</Link>
+                  <Link href="/casestudy" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">Case Study</Link>
+                  <Link href="/blogs/how-to-care-for-your-skin-after-a-botox-treatment" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">Blog Details</Link>
+                  <Link href="/our-team" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">Our Team</Link>
+                  <Link href="/our-team/kristin-watson" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">Team Details</Link>
+                  <Link href="/testimonials" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">Testimonials</Link>
+                  <Link href="/image-gallery" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">Image Gallery</Link>
+                  <Link href="/video-gallery" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">Video Gallery</Link>
+                  <Link href="/faqs" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">FAQs</Link>
+                  <Link href="/404" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">404</Link>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
 
-          <Link href="/contact" className="text-gray-500 hover:text-[#24544B] transition-colors font-medium">Contact Us</Link>
+          <Link href="/contact" className="text-gray-500 hover:text-[#24544B] transition-colors font-semibold">Contact Us</Link>
         </nav>
 
-        {/* Book Appointment Button */}
         {["/", "/home-image", "/home-video", "/home-slider"].includes(pathname) && (
           <motion.div
             className="text-center"
@@ -149,7 +148,7 @@ const Header = () => {
           >
             <Link
               href="/book-appointment"
-              className="relative overflow-hidden px-5 py-3  rounded-full font-medium text-white inline-flex gap-2 items-center text-sm sm:text-base group mainBg transition-all duration-300"
+              className="relative overflow-hidden px-5 py-3  rounded-full font-semibold text-white inline-flex gap-2 items-center text-sm sm:text-base group mainBg transition-all duration-300"
             >
               <span className="absolute inset-0 overflow-hidden rounded-full">
                 <span className="absolute top-0 left-[-120%] w-[120%] h-full bg-gradient-to-r from-transparent via-white/70 to-transparent skew-x-12 group-hover:translate-x-[220%] transition-transform duration-700 ease-in-out">
@@ -186,7 +185,7 @@ const Header = () => {
           </button>
         </div>
 
-        <ul className="space-y-6 font-medium p-6">
+        <ul className="space-y-6 font-semibold p-6">
           {/* Home */}
           <li>
             <button
@@ -234,21 +233,21 @@ const Header = () => {
               className={`overflow-hidden transition-[max-height] duration-300 ${mobileDropdown === "pages" ? "max-h-[600px]" : "max-h-0"
                 } mt-2 pl-4 space-y-2`}
             >
-              <li><Link href="/services/service-details" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Service Details</Link></li>
-              <li><Link href="/casestudy" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Case Study</Link></li>
-              <li><Link href="/blogs/how-to-care-for-your-skin-after-a-botox-treatment" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Blog Details</Link></li>
-              <li><Link href="/our-team" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Our Team</Link></li>
-              <li><Link href="/our-team/kristin-watson" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Team Details</Link></li>
-              <li><Link href="/testimonials" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Testimonials</Link></li>
-              <li><Link href="/image-gallery" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Image Gallery</Link></li>
-              <li><Link href="/video-gallery" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">Video Gallery</Link></li>
-              <li><Link href="/faqs" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">FAQs</Link></li>
-              <li><Link href="/404" className="block px-4 py-2 font-medium text-gray-500 hover:text-[#24544B]">404</Link></li>
+              <li><Link href="/services/service-details" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">Service Details</Link></li>
+              <li><Link href="/casestudy" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">Case Study</Link></li>
+              <li><Link href="/blogs/how-to-care-for-your-skin-after-a-botox-treatment" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">Blog Details</Link></li>
+              <li><Link href="/our-team" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">Our Team</Link></li>
+              <li><Link href="/our-team/kristin-watson" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">Team Details</Link></li>
+              <li><Link href="/testimonials" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">Testimonials</Link></li>
+              <li><Link href="/image-gallery" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">Image Gallery</Link></li>
+              <li><Link href="/video-gallery" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">Video Gallery</Link></li>
+              <li><Link href="/faqs" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">FAQs</Link></li>
+              <li><Link href="/404" className="block px-4 py-2 font-semibold text-gray-500 hover:text-[#24544B]">404</Link></li>
             </ul>
           </li>
 
           <li>
-            <button className="w-full flex items-center justify-center py-2 px-6 font-medium rounded-full bg-[#24544B] text-white hover:bg-emerald-800 transition-colors">
+            <button className="w-full flex items-center justify-center py-2 px-6 font-semibold rounded-full bg-[#24544B] text-white hover:bg-emerald-800 transition-colors">
               Book Appointment <FaArrowRight className="ml-2" />
             </button>
           </li>
