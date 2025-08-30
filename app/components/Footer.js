@@ -99,7 +99,7 @@ export default function Footer() {
 
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="flex flex-col space-y-2">
-                  <div className="flex items-center bg-white rounded-lg overflow-hidden border border-white/20 w-full p-1">
+                  <div className="relative z-10 flex items-center bg-white rounded-lg overflow-hidden border border-white/20 w-full p-1">
                     <input
                       name="email"
                       type="email"
