@@ -169,12 +169,12 @@ export default function ProcessSection() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 1.8, duration: 0.6 }}
-              className={`text-xs sm:text-sm mt-4 sm:mt-6 ${theme ? "text-gray-400" : "text-gray-600"}`}
+              className={`text-md font-semibold mt-4 sm:mt-6 text-gray-400`}
             >
-              {"Your skin's transformation starts here "}
+              {"Your skin's transformation starts here - "}
               <Link
                 href="/book-appointment"
-                className={`${theme ? "text-teal-300 hover:text-teal-200" : "text-[#214037] font-semibold underline hover:text-[#19332b]"}`}
+                className={`mainColor text-lg underline hover:text-[#122e25]`}
               >
                 Book Today!
               </Link>

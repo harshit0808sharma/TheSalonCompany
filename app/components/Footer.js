@@ -162,7 +162,7 @@ export default function Footer() {
               <div>
                 <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
                 <div className="space-y-2">
-                  {["Home", "About Us", "Our Services", "Book Appointment"].map(
+                  {["Home", "About", "Services", "Book Appointment"].map(
                     (link, i) => (
                       <Link
                         key={i}
