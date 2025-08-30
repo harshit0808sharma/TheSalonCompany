@@ -77,18 +77,16 @@ export default function DedicatedToYou() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.2 }}
                 viewport={{ once: true }}
-                className="flex items-start gap-4"
+                className="flex items-start gap-4 group"
               >
-                {/* Number Box */}
                 <div
-                  className={`w-10 h-10 flex items-center justify-center rounded-md font-bold ${theme
-                      ? "bg-gray-800 text-white"
-                      : "bg-gray-100 text-[#214037]"
-                    }`}
+                  className={`w-16 h-16 flex items-center justify-center text-lg rounded-md font-bold 
+    transition-all duration-300 ease-in-out 
+    [box-shadow:0_0_2px_rgba(0,0,0,0.2)] 
+    group-hover:bg-teal-800 group-hover:text-white group-hover:scale-110`}
                 >
                   {step.num}
                 </div>
-                {/* Text */}
                 <div>
                   <h4
                     className={`text-lg font-semibold ${theme ? "text-white" : "text-[#214037]"
@@ -106,6 +104,7 @@ export default function DedicatedToYou() {
               </motion.div>
             ))}
           </div>
+
         </motion.div>
 
         {/* RIGHT SIDE */}
@@ -126,13 +125,12 @@ export default function DedicatedToYou() {
               />
             </div>
 
-            {/* Floating Service Cards */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
-              className={`mt-6 lg:mt-0 flex flex-col w-full sm:w-80 lg:w-52 overflow-hidden rounded-4xl shadow-none lg:shadow-xl mainBg1
+              className={`mt-6 lg:mt-0 flex flex-col w-full sm:w-80 lg:w-52 overflow-hidden rounded-4xl shadow-none mainBg1
         lg:absolute lg:top-1/2 lg:-left-28 lg:-translate-y-1/2`}
             >
               {[
