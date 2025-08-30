@@ -2,6 +2,7 @@ import { ToastContainer } from "react-toastify";
 import { SalonProvider } from "./context/SalonContext";
 import "./globals.css";
 import { Montserrat } from 'next/font/google';
+import CursorDot from "./components/other/CursorDot";
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
       >
         <SalonProvider>{children}</SalonProvider>
         <ToastContainer />
+        <CursorDot />
       </body>
 
     </html>

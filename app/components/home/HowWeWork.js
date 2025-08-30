@@ -101,7 +101,6 @@ export default function HowWeWorkUI() {
             />
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-[#214037]/90 via-[#214037]/40"></div>
 
-            {/* Contact overlay */}
             <div className="absolute bottom-4 left-4 right-4 sm:right-8 p-4 sm:p-6 text-white z-50">
               <h3 className="text-lg sm:text-xl mb-3 sm:mb-4">
                 {"Have Questions? We're Here to Help You!"}

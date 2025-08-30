@@ -124,3 +124,17 @@ button{
   transform: rotate(-45deg) translateY(100%);
 }
 
+
+.cursor-dot {
+  position: fixed;
+  top: -5px;
+  left: -5px;
+  width: 10px;      
+  height: 10px;
+  border-radius: 50%;
+  background-color: #24544B;
+  pointer-events: none;     
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s linear;
+  z-index: 9999;
+}
