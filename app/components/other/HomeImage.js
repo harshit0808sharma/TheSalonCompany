@@ -2,8 +2,8 @@
 import Image from "next/image";
 import ContactInfo from "./ContactInfo";
 import { motion } from "framer-motion";
-import { FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const HomeImage = () => {
 
@@ -39,13 +39,16 @@ const HomeImage = () => {
                             </p>
                             <Link
                                 href="/services"
-                                className="relative inline-flex items-center justify-center overflow-hidden font-medium transition-all bg-white rounded-full group px-6 py-3 mt-8"
+                                className="relative inline-block w-fit font-medium rounded-full group mt-8 overflow-hidden"
                             >
-                                <span className="absolute inset-0 w-0 bg-teal-800 transition-all duration-500 ease-out group-hover:w-full"></span>
-                                <span className="relative flex items-center text-gray-900 transition-colors duration-300 ease-in-out group-hover:text-white">
-                                    View Our Services
-                                    <FaArrowRight className="ml-2 w-5 h-5" />
-                                </span>
+                                <div className="flex items-center px-6 py-3 relative">
+                                    <span className="absolute inset-0 bg-white rounded-full"></span>
+                                    <span className="absolute inset-0 w-0 bg-[#204c44] transition-all duration-500 ease-out group-hover:w-full rounded-full border border-white"></span>
+                                    <span className="relative flex items-center text-gray-900 transition-colors duration-300 ease-in-out group-hover:text-white">
+                                        View Our Services
+                                        <FaArrowRightLong className="ml-2 w-5 h-5" />
+                                    </span>
+                                </div>
                             </Link>
                         </motion.div>
                     </div>

@@ -14,6 +14,23 @@ export default function WhyChooseUs() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
+  // Reusable hover variants for the icon
+  const iconHover = {
+    rest: {
+      backgroundColor: "#f3f4f6", // gray-100
+      color: "#115e59", // teal-800
+      scale: 1,
+      boxShadow: "0 0 0 rgba(0,0,0,0)",
+    },
+    hover: {
+      backgroundColor: "#115e59", // teal-800
+      color: "#ffffff",
+      scale: 1.1,
+      boxShadow: "0 8px 20px rgba(17,94,89,0.4)",
+      transition: { duration: 0.4, ease: "easeOut" },
+    },
+  };
+
   return (
     <div className="max-w-[1920px] m-auto px-4 sm:px-6 lg:px-16 xl:px-32 items-center mainBg2">
       {/* Main content container */}
@@ -43,14 +60,21 @@ export default function WhyChooseUs() {
 
           {/* Features section */}
           <div className="space-y-6 lg:space-y-8">
+
             {/* Feature 1 */}
             <motion.div
               className="flex items-start group border-t-2 border-gray-200 pt-6"
               variants={fadeUp}
+              initial="rest"
+              whileHover="hover"
+              animate="rest"
             >
-              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gray-100 text-teal-800 rounded-xl flex items-center justify-center mr-4 lg:mr-6 flex-shrink-0 group-hover:bg-teal-800 group-hover:text-white transition-colors duration-300">
+              <motion.div
+                variants={iconHover}
+                className="w-16 h-16 lg:w-20 lg:h-20 rounded-xl flex items-center justify-center mr-4 lg:mr-6 flex-shrink-0"
+              >
                 <HiOutlineShieldCheck className="w-8 h-8 lg:w-10 lg:h-10" />
-              </div>
+              </motion.div>
               <div>
                 <h3 className="text-xl lg:text-2xl text-teal-800 mb-3">
                   Personalized, compassionate care
@@ -65,10 +89,16 @@ export default function WhyChooseUs() {
             <motion.div
               className="flex items-start group border-t-2 border-gray-200 pt-6"
               variants={fadeUp}
+              initial="rest"
+              whileHover="hover"
+              animate="rest"
             >
-              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gray-100 text-teal-800 rounded-xl flex items-center justify-center mr-4 lg:mr-6 flex-shrink-0 group-hover:bg-teal-800 group-hover:text-white transition-colors duration-300">
+              <motion.div
+                variants={iconHover}
+                className="w-16 h-16 lg:w-20 lg:h-20 rounded-xl flex items-center justify-center mr-4 lg:mr-6 flex-shrink-0"
+              >
                 <MdOutlineHealthAndSafety className="w-8 h-8 lg:w-10 lg:h-10" />
-              </div>
+              </motion.div>
               <div>
                 <h3 className="text-xl lg:text-2xl text-teal-800 mb-3">
                   Comprehensive care for all skin needs
@@ -78,6 +108,7 @@ export default function WhyChooseUs() {
                 </p>
               </div>
             </motion.div>
+
           </div>
         </motion.div>
 

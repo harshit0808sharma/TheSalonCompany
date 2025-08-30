@@ -5,6 +5,7 @@ import { FaChevronDown, FaArrowRight, FaTimes } from "react-icons/fa";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from "framer-motion";
+import { FaArrowRightLong } from 'react-icons/fa6';
 
 const Header = () => {
   const [isHomeOpen, setIsHomeOpen] = useState(false);
@@ -139,12 +140,26 @@ const Header = () => {
 
         {/* Book Appointment Button */}
         {["/", "/home-image", "/home-video", "/home-slider"].includes(pathname) && (
-          <Link
-            href="/book-appointment"
-            className="hidden md:flex bg-[#24544B] text-white px-6 py-3 rounded-full font-medium hover:bg-emerald-800 transition-colors items-center"
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
           >
-            Book Appointment <FaArrowRight className="ml-2 w-4 h-4" />
-          </Link>
+            <Link
+              href="/book-appointment"
+              className="relative overflow-hidden px-5 py-3  rounded-full font-medium text-white inline-flex gap-2 items-center text-sm sm:text-base group mainBg transition-all duration-300"
+            >
+              <span className="absolute inset-0 overflow-hidden rounded-full">
+                <span className="absolute top-0 left-[-120%] w-[120%] h-full bg-gradient-to-r from-transparent via-white/70 to-transparent skew-x-12 group-hover:translate-x-[220%] transition-transform duration-700 ease-in-out">
+                </span>
+              </span>
+
+              <span className="relative z-10">Book Appointment</span>
+              <FaArrowRightLong className="relative z-10 transition-transform duration-500 group-hover:translate-x-2" />
+            </Link>
+          </motion.div>
         )}
 
         {/* Mobile Menu Button */}

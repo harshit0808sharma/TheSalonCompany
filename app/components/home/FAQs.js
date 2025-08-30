@@ -7,6 +7,7 @@ import { GoDotFill } from "react-icons/go";
 import Link from "next/link";
 import { SalonContext } from "@/app/context/SalonContext";
 import AnimateImageLeft from "../other/AnimateImageLeft";
+import { FaArrowRight } from "react-icons/fa";
 
 export default function FAQSection() {
   const { faqs } = useContext(SalonContext);
@@ -19,7 +20,7 @@ export default function FAQSection() {
   return (
     <div className="max-w-[1920px] m-auto px-0 md:px-5 mainBg2">
       <section className="relative py-16 px-5 md:px-0 sm:py-20 md:py-28 rounded-none md:rounded-4xl mainBg text-white">
-        <AnimateImageLeft/>
+        <AnimateImageLeft />
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-start">
 
           {/* Left Content */}
@@ -44,12 +45,18 @@ export default function FAQSection() {
               Explore our FAQ section to better understand our treatments,
               processes, and results.
             </p>
-
             <Link
               href="/faqs"
-              className="font-semibold relative z-10 text-sm sm:text-base md:text-md px-5 sm:px-6 md:px-8 py-2 md:py-3 rounded-full inline-flex w-auto items-center gap-2 sm:gap-3 hover:bg-gray-100 transition bg-white mainColor"
+              className="relative inline-block w-fit font-medium rounded-full group mt-8 overflow-hidden"
             >
-              View All FAQs →
+              <div className="flex items-center px-6 py-3 relative">
+                <span className="absolute inset-0 bg-white rounded-full"></span>
+                <span className="absolute inset-0 w-0 bg-[#204c44] transition-all duration-500 ease-out group-hover:w-full rounded-full border border-white"></span>
+                <span className="relative flex items-center text-gray-900 transition-colors duration-300 ease-in-out group-hover:text-white">
+                  View All FAQs
+                  <FaArrowRight className="ml-2 w-5 h-5" />
+                </span>
+              </div>
             </Link>
           </motion.div>
 

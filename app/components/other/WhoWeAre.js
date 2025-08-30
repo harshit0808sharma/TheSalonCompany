@@ -8,7 +8,8 @@ import { motion } from "framer-motion";
 import img1 from "../../../public/assets/images/image11.jpeg";
 import img2 from "../../../public/assets/images/image4.jpeg";
 import { GoDotFill } from "react-icons/go";
-import { FaRegSquareCheck } from "react-icons/fa6";
+import { FaArrowRightLong, FaRegSquareCheck } from "react-icons/fa6";
+import Link from "next/link";
 
 export default function WhoWeAre() {
   const [count, setCount] = useState(0);
@@ -40,7 +41,6 @@ export default function WhoWeAre() {
           viewport={{ once: true }}
           className="relative flex flex-col sm:flex-row gap-6 justify-center md:justify-start"
         >
-          {/* First image with holo effect */}
           <div className="holo-image w-full sm:w-72 md:w-80 rounded-4xl">
             <Image
               src={img1}
@@ -63,12 +63,11 @@ export default function WhoWeAre() {
               </div>
             </motion.div>
 
-            {/* Second image with holo effect */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="w-72 sm:w-56 md:w-72" // ✅ keep sizing here
+              className="w-72 sm:w-56 md:w-72"
             >
               <div className="holo-image rounded-4xl">
                 <Image
@@ -79,7 +78,6 @@ export default function WhoWeAre() {
               </div>
             </motion.div>
 
-            {/* Circular Contact Badge */}
             <motion.div
               initial={{ rotate: -90, opacity: 0 }}
               whileInView={{ rotate: 0, opacity: 1 }}
@@ -135,14 +133,26 @@ export default function WhoWeAre() {
           </div>
 
           {/* Button */}
-          <motion.a
-            href="/contact"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mainBg text-white px-6 py-3 rounded-full font-medium hover:bg-[#1a322b] transition-all"
+          <motion.div
+            className="text-left"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
           >
-            Learn More →
-          </motion.a>
+            <Link
+              href="/contact"
+              className="relative overflow-hidden px-5 py-3  rounded-full font-medium text-white inline-flex gap-2 items-center text-sm sm:text-base group mainBg transition-all duration-300"
+            >
+              <span className="absolute inset-0 overflow-hidden rounded-full">
+                <span className="absolute top-0 left-[-120%] w-[120%] h-full bg-gradient-to-r from-transparent via-white/70 to-transparent skew-x-12 group-hover:translate-x-[220%] transition-transform duration-700 ease-in-out">
+                </span>
+              </span>
+
+              <span className="relative z-10">Learn More</span>
+              <FaArrowRightLong className="relative z-10 transition-transform duration-500 group-hover:translate-x-2" />
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>

@@ -8,9 +8,11 @@ import { motion } from "framer-motion";
 import imgSalon from "../../../public/assets/images/benefitsImage.jpg";
 import { useContext } from "react";
 import { SalonContext } from "@/app/context/SalonContext";
+import { FaArrowRightLong } from "react-icons/fa6";
+import Link from "next/link";
 
 export default function SalonBenefits() {
-  const { theme } = useContext(SalonContext); 
+  const { theme } = useContext(SalonContext);
 
   return (
     <>
@@ -137,14 +139,26 @@ export default function SalonBenefits() {
               </div>
 
               {/* Button */}
-              <motion.a
-                href="/contact"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`px-6 py-3 rounded-full font-medium transition-all mainBg text-white`}
+              <motion.div
+                className="text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
               >
-                Contact Us →
-              </motion.a>
+                <Link
+                  href="/contact"
+                  className="relative overflow-hidden px-5 py-3  rounded-full font-medium text-white inline-flex gap-2 items-center text-sm sm:text-base group mainBg transition-all duration-300"
+                >
+                  <span className="absolute inset-0 overflow-hidden rounded-full">
+                    <span className="absolute top-0 left-[-120%] w-[120%] h-full bg-gradient-to-r from-transparent via-white/70 to-transparent skew-x-12 group-hover:translate-x-[220%] transition-transform duration-700 ease-in-out">
+                    </span>
+                  </span>
+
+                  <span className="relative z-10">Contact us</span>
+                  <FaArrowRightLong className="relative z-10 transition-transform duration-500 group-hover:translate-x-2" />
+                </Link>
+              </motion.div>
             </motion.div>
           </div>
         </section>

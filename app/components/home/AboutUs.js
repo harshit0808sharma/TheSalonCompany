@@ -83,8 +83,8 @@ export default function AboutSection() {
             whileInView={{ rotate: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className={`absolute z-10 top-4 sm:top-6 md:top-10 right-2 sm:right-4 md:right-12 lg:right-20 w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 flex items-center gap-1 sm:gap-2 justify-center rounded-full border-4 sm:border-6 md:border-8 text-xs sm:text-sm text-center font-medium shadow-lg spin-slow ${theme
-                ? "bg-gray-800 text-white border-gray-700"
-                : "bg-[#214037] text-white border-white"
+              ? "bg-gray-800 text-white border-gray-700"
+              : "bg-[#214037] text-white border-white"
               }`}
           >
             <span className="leading-tight text-xs sm:text-sm">Contact Us </span>
@@ -95,7 +95,7 @@ export default function AboutSection() {
 
         {/* Right Content */}
         <motion.div
-          className="space-y-4 sm:space-y-6 order-1 lg:order-2"
+          className="space-y-5 sm:space-y-6 order-1 lg:order-2"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -115,40 +115,50 @@ export default function AboutSection() {
             {"Step into The Salon Company, where luxury meets precision. We aren't just a salon, we're a sanctuary designed for confidence, self-expression, and renewal."}
           </p>
 
-          {/* Content + Team Card */}
           <div className="flex flex-col xl:flex-row items-stretch gap-6 sm:gap-8 w-full">
             {/* Left Paragraph */}
-            <div className="flex flex-col space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-10 w-full xl:w-2/3">
+            <div className="flex flex-col space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12 w-full xl:w-2/3">
               <ul className="space-y-2 sm:space-y-3 list-none text-sm sm:text-base">
                 <li className="flex items-start gap-2 sm:gap-3">
-                  <FaRegSquareCheck className="text-gray-500 mt-0.5 sm:mt-1 flex-shrink-0 text-sm sm:text-base" />
+                  <FaRegSquareCheck className="text-gray-800 mt-0.5 sm:mt-1 flex-shrink-0 text-lg font-semibold sm:text-base" />
                   <span>Beauty should feel effortless.</span>
                 </li>
                 <li className="flex items-start gap-2 sm:gap-3">
-                  <FaRegSquareCheck className="text-gray-500 mt-0.5 sm:mt-1 flex-shrink-0 text-sm sm:text-base" />
+                  <FaRegSquareCheck className="text-gray-800 mt-0.5 sm:mt-1 flex-shrink-0 text-lg font-semibold sm:text-base" />
                   <span>Confidence should last beyond.</span>
                 </li>
                 <li className="flex items-start gap-2 sm:gap-3">
-                  <FaRegSquareCheck className="text-gray-500 mt-0.5 sm:mt-1 flex-shrink-0 text-sm sm:text-base" />
+                  <FaRegSquareCheck className="text-gray-800 mt-0.5 sm:mt-1 flex-shrink-0 text-lg font-semibold sm:text-base" />
                   <span>Every client deserves a touch of luxury.</span>
                 </li>
               </ul>
 
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
-                <Link
-                  href="/about"
-                  className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-full flex items-center justify-center gap-2 transition text-sm sm:text-base w-full sm:w-auto flex-shrink-0 ${theme
-                      ? "bg-[#264D45] text-white hover:bg-[#264D45]"
-                      : "bg-[#264D45] text-white hover:bg-[#1d3b35]"
-                    }`}
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-4 w-full">
+                <motion.div
+                  className="text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  viewport={{ once: true }}
                 >
-                  <span>About More</span> <FaArrowRightLong />
-                </Link>
+                  <Link
+                    href="/about"
+                    className="relative overflow-hidden px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-white inline-flex gap-2 items-center text-sm sm:text-base group mainBg transition-all duration-300"
+                  >
+                    <span className="absolute inset-0 overflow-hidden rounded-full">
+                      <span className="absolute top-0 left-[-120%] w-[120%] h-full bg-gradient-to-r from-transparent via-white/70 to-transparent skew-x-12 group-hover:translate-x-[220%] transition-transform duration-700 ease-in-out">
+                      </span>
+                    </span>
+
+                    <span className="relative z-10">About More</span>
+                    <FaArrowRightLong className="relative z-10 transition-transform duration-500 group-hover:translate-x-2" />
+                  </Link>
+                </motion.div>
                 <button
                   onClick={handleClick}
                   className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-bold flex items-center justify-center gap-2 transition text-sm sm:text-base border w-full sm:w-auto flex-shrink-0 ${theme
-                      ? "border-teal-400 text-teal-400 hover:bg-teal-400"
-                      : "border-[#264D45] text-[#264D45]"
+                    ? "border-teal-400 text-teal-400 hover:bg-teal-400"
+                    : "border-[#264D45] text-[#264D45]"
                     }`}
                 >
                   <FaPlay /> Play Session

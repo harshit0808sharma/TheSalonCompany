@@ -14,46 +14,47 @@ const Testimonials = () => {
     {
       id: 1,
       text: "The Salon Company transformed my skin completely. The personalized care and attention to detail exceeded all my expectations. I've never felt more confident about my appearance.",
-      name: "Sarah Johnson",
+      name: "Ananya Sharma",
       role: "Marketing Executive",
       avatar: "/assets/images/blog1.jpg",
     },
     {
       id: 2,
       text: "Professional service from start to finish. The team's expertise and the luxurious environment made every visit a pleasure. Highly recommend their dermal treatments.",
-      name: "Michael Chen",
+      name: "Rohan Gupta",
       role: "Business Owner",
       avatar: "/assets/images/blog1.jpg",
     },
     {
       id: 3,
       text: "Amazing results with their chemical peel treatments. The staff is knowledgeable, friendly, and made me feel comfortable throughout the entire process.",
-      name: "Emma Davis",
+      name: "Priya Verma",
       role: "Teacher",
       avatar: "/assets/images/blog1.jpg",
     },
     {
       id: 4,
       text: "The wrinkle reduction treatment exceeded my expectations. Professional, clean, and the results speak for themselves. I look years younger!",
-      name: "Robert Wilson",
+      name: "Amit Singh",
       role: "Consultant",
       avatar: "/assets/images/blog1.jpg",
     },
     {
       id: 5,
       text: "Exceptional service and incredible results. The Salon Company truly understands skincare and delivers on their promises. Couldn't be happier!",
-      name: "Lisa Anderson",
+      name: "Sneha Kapoor",
       role: "Designer",
       avatar: "/assets/images/blog1.jpg",
     },
     {
       id: 6,
       text: "From consultation to treatment, everything was perfect. The team's expertise and the luxurious atmosphere make this place stand out.",
-      name: "James Brown",
+      name: "Karan Mehta",
       role: "Engineer",
       avatar: "/assets/images/blog1.jpg",
     },
   ];
+
 
   useEffect(() => {
     const checkScreen = () => setIsMobile(window.innerWidth < 768);
@@ -62,9 +63,8 @@ const Testimonials = () => {
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
-
   const cardsVisible = isMobile ? 1 : 2;
-  const slideStep = 1; 
+  const slideStep = 1;
   const maxIndex = testimonials.length - cardsVisible;
 
   const nextSlide = useCallback(() => {
@@ -83,21 +83,30 @@ const Testimonials = () => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => {
         if (prev >= maxIndex) {
-          return 0; 
+          return 0;
         }
         return prev + slideStep;
       });
     }, 5000);
-    
+
     return () => clearInterval(interval);
   }, [maxIndex, slideStep]);
 
   const handleDragEnd = (event, info) => {
-    const threshold = 50;
-    if (info.offset.x > threshold) {
-      prevSlide();
-    } else if (info.offset.x < -threshold) {
-      nextSlide();
+    const threshold = isMobile ? 50 : 100;
+    const velocity = Math.abs(info.velocity.x);
+
+    // Check drag direction and distance/velocity
+    if (info.offset.x > threshold || (velocity > 300 && info.offset.x > 20)) {
+      // Dragged right - go to previous slide
+      if (currentIndex > 0) {
+        prevSlide();
+      }
+    } else if (info.offset.x < -threshold || (velocity > 300 && info.offset.x < -20)) {
+      // Dragged left - go to next slide  
+      if (currentIndex < maxIndex) {
+        nextSlide();
+      }
     }
   };
 
@@ -125,9 +134,8 @@ const Testimonials = () => {
                 className={`${theme ? "text-white" : "text-teal-800"}`}
               />
               <span
-                className={`font-medium ${
-                  theme ? "text-white" : "text-teal-800"
-                }`}
+                className={`font-medium ${theme ? "text-white" : "text-teal-800"
+                  }`}
               >
                 Testimonials
               </span>
@@ -143,26 +151,34 @@ const Testimonials = () => {
           </motion.div>
 
           {/* Carousel */}
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden select-none">
             <motion.div
-              className="flex transition-transform duration-500 ease-in-out"
+              className="flex"
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
               onDragEnd={handleDragEnd}
-              whileDrag={{ scale: 1.02 }}
-              style={{ 
-                transform: `translateX(-${currentIndex * cardWidthPercentage}%)`,
+              whileDrag={{
+                cursor: "grabbing"
+              }}
+              animate={{
+                x: `-${currentIndex * cardWidthPercentage}%`
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 30
               }}
             >
               {testimonials.map((testimonial) => (
                 <motion.div
                   key={testimonial.id}
-                  className={`flex-shrink-0 px-3 ${isMobile ? 'w-full' : 'w-1/2'}`}
+                  className={`flex-shrink-0 px-3 cursor-grab ${isMobile ? 'w-full' : 'w-1/2'}`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="mainBg1 flex justify-start gap-4 md:gap-8 rounded-4xl p-4 md:p-8 relative overflow-hidden cursor-grab active:cursor-grabbing transition-all duration-300 h-full">
+                  <div className="mainBg1 flex justify-start gap-4 md:gap-8 rounded-4xl p-4 md:p-8 relative overflow-hidden transition-all duration-300 h-full select-none" style={{ userSelect: 'none' }}>
                     <FaQuoteLeft className="text-4xl md:text-6xl font-bold mainColor flex-shrink-0" />
                     <div className="flex flex-col justify-between">
                       <div>
@@ -204,10 +220,9 @@ const Testimonials = () => {
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 
-                  ${
-                    index === currentIndex
-                      ? "bg-emerald-600 w-8"
-                      : theme
+                  ${index === currentIndex
+                    ? "mainBg w-8"
+                    : theme
                       ? "bg-gray-600 hover:bg-gray-500"
                       : "bg-gray-300 hover:bg-gray-400"
                   }`}

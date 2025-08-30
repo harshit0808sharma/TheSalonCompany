@@ -58,7 +58,7 @@ export default function BeforeAfter() {
         </p>
       </motion.div>
 
-      {/* Compare Images Grid */}
+      {/* Compare Images */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto">
         {/* First Compare */}
         <motion.div
@@ -72,7 +72,7 @@ export default function BeforeAfter() {
             <ReactCompareImage
               leftImage={before1.src}
               rightImage={after1.src}
-              sliderLineColor={theme ? "#38b2ac" : "#214037"}
+              sliderLineColor={"white"}
               sliderLineWidth={2}
               hover={hover1}
               sliderPositionPercentage={pos1}
@@ -81,19 +81,18 @@ export default function BeforeAfter() {
                 <div
                   onMouseDown={() => handlePress(setHover1)}
                   onTouchStart={() => handlePress(setHover1)}
-                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg flex items-center justify-center border cursor-pointer transition-all duration-200 ${theme ? "bg-[#1e1e1e] border-gray-600 text-white" : "bg-white border-gray-300 text-gray-800"
-                    } ${hover1 ? "ring-2 ring-teal-500 scale-105" : ""}`}
+                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 border-2 border-white ${hover2 ? "ring-2 ring-teal-500 scale-105" : ""}`}
                 >
                   <div className="flex items-center gap-0.5 sm:gap-1 text-lg sm:text-xl select-none">
                     <FiChevronLeft
-                      className="cursor-pointer hover:text-teal-500 transition-colors"
+                      className="cursor-pointer text-white transition-colors"
                       onClick={(e) => {
                         e.stopPropagation();
                         setPos1((p) => clamp(p - step));
                       }}
                     />
                     <FiChevronRight
-                      className="cursor-pointer hover:text-teal-500 transition-colors"
+                      className="cursor-pointer text-white transition-colors"
                       onClick={(e) => {
                         e.stopPropagation();
                         setPos1((p) => clamp(p + step));
@@ -104,15 +103,13 @@ export default function BeforeAfter() {
               }
             />
           </div>
-          
-          {/* Mobile Labels */}
+
           <div className="flex sm:hidden justify-between items-center p-3 text-xs font-medium">
             <span className={theme ? "text-gray-400" : "text-gray-500"}>Before</span>
             <span className={theme ? "text-gray-400" : "text-gray-500"}>After</span>
           </div>
         </motion.div>
 
-        {/* Second Compare */}
         <motion.div
           className={`rounded-2xl sm:rounded-3xl lg:rounded-4xl overflow-hidden`}
           initial={{ opacity: 0, y: 30 }}
@@ -124,7 +121,7 @@ export default function BeforeAfter() {
             <ReactCompareImage
               leftImage={before2.src}
               rightImage={after2.src}
-              sliderLineColor={theme ? "#38b2ac" : "#214037"}
+              sliderLineColor={"white"}
               sliderLineWidth={2}
               hover={hover2}
               sliderPositionPercentage={pos2}
@@ -133,18 +130,18 @@ export default function BeforeAfter() {
                 <div
                   onMouseDown={() => handlePress(setHover2)}
                   onTouchStart={() => handlePress(setHover2)}
-                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center border cursor-pointer transition-all duration-200 bg-white ${hover2 ? "ring-2 ring-teal-500 scale-105" : ""}`}
+                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 border-2 border-white ${hover2 ? "ring-2 ring-teal-500 scale-105" : ""}`}
                 >
                   <div className="flex items-center gap-0.5 sm:gap-1 text-lg sm:text-xl select-none">
                     <FiChevronLeft
-                      className="cursor-pointer hover:text-teal-500 transition-colors"
+                      className="cursor-pointer text-white transition-colors"
                       onClick={(e) => {
                         e.stopPropagation();
                         setPos2((p) => clamp(p - step));
                       }}
                     />
                     <FiChevronRight
-                      className="cursor-pointer hover:text-teal-500 transition-colors"
+                      className="cursor-pointer text-white transition-colors"
                       onClick={(e) => {
                         e.stopPropagation();
                         setPos2((p) => clamp(p + step));
@@ -155,7 +152,7 @@ export default function BeforeAfter() {
               }
             />
           </div>
-          
+
           {/* Mobile Labels */}
           <div className="flex sm:hidden justify-between items-center p-3 text-xs font-medium">
             <span className={theme ? "text-gray-400" : "text-gray-500"}>Before</span>
@@ -164,8 +161,7 @@ export default function BeforeAfter() {
         </motion.div>
       </div>
 
-      {/* Call to Action Button */}
-      <motion.div 
+      <motion.div
         className="text-center mt-8 sm:mt-10 md:mt-12"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -174,14 +170,22 @@ export default function BeforeAfter() {
       >
         <Link
           href="/casestudy"
-          className="mainBg text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium hover:bg-emerald-800 focus:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all duration-200 inline-flex gap-2 items-center text-sm sm:text-base group"
+          className="relative overflow-hidden px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-white inline-flex gap-2 items-center text-sm sm:text-base group mainBg transition-all duration-300"
         >
-          <span>View All Results</span> 
-          <FaArrowRightLong className="group-hover:translate-x-1 transition-transform duration-200" />
+          <span className="absolute inset-0 overflow-hidden rounded-full">
+            <span className="absolute top-0 left-[-120%] w-[120%] h-full 
+        bg-gradient-to-r from-transparent via-white/70 to-transparent 
+        skew-x-12 
+        group-hover:translate-x-[220%] 
+        transition-transform duration-700 ease-in-out">
+            </span>
+          </span>
+
+          <span className="relative z-10">View All Results</span>
+          <FaArrowRightLong className="relative z-10 transition-transform duration-500 group-hover:translate-x-2" />
         </Link>
       </motion.div>
 
-      {/* Mobile Instructions */}
       <div className="sm:hidden text-center mt-6">
         <p className={`text-xs ${theme ? "text-gray-400" : "text-gray-500"}`}>
           Drag the slider or tap the arrows to compare

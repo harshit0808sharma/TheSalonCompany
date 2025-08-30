@@ -35,21 +35,19 @@ export default function Hero() {
               <p className="text-base sm:text-lg lg:text-xl text-gray-200 leading-relaxed">
                 {"At The Salon Company, we believe beauty is not just skin deep, it's the art of confidence, self-care, and individuality."}
               </p>
-
               <Link
                 href="/book-appointment"
-                className="relative inline-block w-fit font-medium transition-all bg-white rounded-full group mt-8 overflow-hidden"
+                className="relative inline-block w-fit font-medium rounded-full group mt-8 overflow-hidden"
               >
-                <div className="flex items-center px-6 py-3">
-                  <span className="absolute inset-0 w-0 bg-teal-800 transition-all duration-500 ease-out group-hover:w-full rounded-full"></span>
+                <div className="flex items-center px-6 py-3 relative">
+                  <span className="absolute inset-0 bg-white rounded-full"></span>
+                  <span className="absolute inset-0 w-0 bg-[#204c44] transition-all duration-500 ease-out group-hover:w-full rounded-full border border-white"></span>
                   <span className="relative flex items-center text-gray-900 transition-colors duration-300 ease-in-out group-hover:text-white">
                     Get Started
                     <FaArrowRight className="ml-2 w-5 h-5" />
                   </span>
                 </div>
               </Link>
-
-
 
               <div className="pt-4 sm:pt-6 lg:pt-8">
                 <h2 className="font-semibold text-lg sm:text-xl mb-3 sm:mb-4">
